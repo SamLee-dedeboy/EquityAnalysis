@@ -79,7 +79,7 @@
     <!-- Policy Cards -->
     {#each policies as policy}
       <div class="card">
-        <h3>{policy.document.filename}</h3>
+        <h3>{policy.document.title}</h3>
         <p>{policy.document.description}</p>
         <button class="analysis-btn"
           on:click={() => handleSelect(policy)}>View Analysis</button>

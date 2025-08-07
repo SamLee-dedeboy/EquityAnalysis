@@ -1,8 +1,8 @@
 [
   {
     "document": {
-      "filename": "Clean Water Act, 1972",
-      "title": "Clean Water Act of 1972, As Amended through the 108th Congress",
+      "title": "Clean Water Act of 1972",
+      "filename": "clean-water-act-1972.pdf",
       "description": "Establishes a framework for water pollution control but lacks comprehensive equity considerations."
     },
     "analysis_sections": {
@@ -66,8 +66,8 @@
   },
   {
     "document": {
-      "filename": "Endangered Species Act, 1973",
-      "title": "Endangered Species Act of 1973, As Amended through the 108th Congress",
+      "title": "Endangered Species Act of 1973",
+      "filename": "endangered-species-act-1973.pdf",
       "description": "Recognizes ecological equity but lacks explicit social equity considerations."
     },
     "analysis_sections": {
@@ -131,8 +131,8 @@
   },
   {
     "document": {
-      "filename": "Drafted Healthy Rivers and Landscapes Agreements",
-      "title": "Draft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes",
+      "title": "Draft Strategic Plan to Support Healthy Rivers and Landscapes",
+      "filename": "draft-strategic-plan-healthy-rivers-landscapes.pdf",
       "description": "Addresses habitat restoration but lacks comprehensive human equity mechanisms."
     },
     "analysis_sections": {
@@ -196,8 +196,8 @@
   },
   {
     "document": {
-      "filename": "Human Right to Water Policy, 2012",
       "title": "Human Right to Water Policy, 2012",
+      "filename": "human-right-to-water-policy.pdf",
       "description": "The policy recognizes the human right to water but lacks specific implementation and inclusion strategies."
     },
     "analysis_sections": {
@@ -261,8 +261,8 @@
   },
   {
     "document": {
-      "filename": "Sustainable Groundwater Management Act, 2014",
-      "title": "sustainable-groundwater-managment-act.pdf",
+      "title": "Sustainable Groundwater Management Act, 2014",
+      "filename": "sustainable-groundwater-management-act.pdf",
       "description": "SGMA includes stakeholder provisions but lacks explicit strategies for systemic equity concerns."
     },
     "analysis_sections": {
