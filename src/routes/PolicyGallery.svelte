@@ -175,20 +175,20 @@
     background-color: #f3f3f3;
     padding: 0.5rem;
     font-style: italic;
-    color: #3f3f3f;
+    color: var(--primary-text);
     border-radius: 8px;
   }
   .caption-2 {
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     font-weight: 500;
-    color: #3f3f3f;
+    color: var(--primary-text);
     text-align: center;
     margin-bottom: 2.2rem;
     letter-spacing: 0.02em;
   }
   .quickef-btn {
-    background: #0c395a;
+    background: var(--primary-interactive);
     border: none;
     color: white;
     font-weight: 300;
@@ -202,14 +202,14 @@
     font-style: italic;
   }
   .quickef-btn:hover {
-    background: #1a2547;
+    background: var(--primary-interactive-hover);
     color: white;
   }
   .tool-button {
     position: absolute;
     top: 0.8rem;
     right: 1rem;
-    background: #0c395a;
+    background: var(--primary-interactive);
     background: 0.2s;
     color: white;
     border: none;
@@ -225,7 +225,7 @@
     gap: 0.5rem;
   }
   .tool-button:hover {
-    background: #1a2547;
+    background: var(--primary-interactive-hover);
     color: white;
   }
 
@@ -241,7 +241,7 @@
   .card-grid > .card {
     min-height: 240px;
     position: relative;
-    background: #0c8ba71c;
+    background: var(--primary-background);
     padding: 1rem;
     border-radius: 11px;
     box-shadow: 0 3px 8px -2px rgba(0, 0, 0, 0.32);
@@ -255,7 +255,7 @@
   }
   .card-grid > .card:hover {
     transform: scale(1.015);
-    outline: 2px solid #0c395a;
+    outline: 2px solid var(--primary-interactive);
   }
   .card-grid > .card h3 {
     text-align: center;
@@ -265,29 +265,6 @@
   .card-grid > .card p {
     text-align: center;
   }
-  /* --- ./View Analysis Button on Card --- */
-  .analysis-btn {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    right: 1rem;
-    background-color: #0c395a;
-    background: 0.2s;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 1.13rem;
-    height: 2.7em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 400;
-    max-width: 260px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: "Inter", sans-serif;
-  }
-
   /* --- ./Outline Card --- */
   .add-button {
     border: none;

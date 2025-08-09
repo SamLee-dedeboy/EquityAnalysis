@@ -1,5 +1,13 @@
 /* --- Global Stylings --- */
 
+/* Color Variables */
+:root {
+  --primary-interactive: #0c395a;
+  --primary-background: #0c8ba71c;
+  --primary-text: #3f3f3f;
+  --primary-interactive-hover: #1a2547;
+}
+
 /* Reset margins/padding */
 body, html { margin: 0; padding: 0; }
 * { box-sizing: border-box; }
