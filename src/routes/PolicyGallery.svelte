@@ -8,6 +8,12 @@
 
   // State variables for modals
   let showInfo = false;
+  let modalElement;
+
+  // Auto-focus modal when opened
+  $: if (showInfo && modalElement) {
+    modalElement.focus();
+  }
 
   // State Variable from Store, Selection for Analysis Modal
   function handleSelect(policy) {
@@ -129,7 +135,23 @@
       }}
     ></div>
     <!-- Content -->
-    <div class="modal" role="dialog" aria-modal="true" tabindex="0">
+    <div
+      bind:this={modalElement}
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      tabindex="0"
+      on:keydown={(e) => e.key === "Escape" && (showInfo = false)}
+    >
+      <!-- Close Button -->
+      <button
+        class="modal-close-btn"
+        on:click={() => (showInfo = false)}
+        aria-label="Close modal"
+      >
+        <img src="circle-x.svg" alt="Close" />
+      </button>
+
       <img
         src="understanding.png"
         alt="Equity Framework Diagram"
@@ -303,5 +325,25 @@
     min-height: 80vh;
     z-index: 100;
     box-shadow: 0 0 32px rgba(0, 0, 0, 0.28);
+  }
+  .modal-close-btn {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 101;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+  }
+  .modal-close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .modal-close-btn img {
+    height: 1.5rem;
+    width: 1.5rem;
+    display: block;
   }
 </style>
