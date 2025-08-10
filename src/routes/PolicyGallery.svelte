@@ -265,8 +265,10 @@
   }
   .card-grid > .card h3 {
     text-align: center;
-    margin-top: 0.75em;
-    margin-bottom: 0.35em;
+    margin-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 100%;
+    border-bottom: 2px solid var(--primary-interactive);
   }
   .card-grid > .card p {
     text-align: center;

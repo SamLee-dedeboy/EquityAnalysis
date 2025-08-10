@@ -28,17 +28,17 @@
       <LogoBar />
     </div>
     <!-- (ii) Top Right Back Button -->
-    <div
-      style="position:absolute;top:4px;right:4px;z-index:1000; pointer-events: none; width:320px; display:flex; justify-content:flex-end;"
-    >
-      <div style="pointer-events: auto;">
-        <BackButton />
-      </div>
-    </div>
 
     <!-- (1) Panel, Sidebar -->
     <aside class="sidebar">
-      <h2>Document Analysis</h2>
+      <!-- <div
+        style="position:absolute;top:4px;right:4px;z-index:1000; pointer-events: none; width:320px; display:flex; justify-content:flex-end;"
+      >
+        <div style="pointer-events: auto;">
+          <BackButton />
+        </div>
+      </div> -->
+      <!-- <h2>Document Analysis</h2> -->
       <!-- (1.1) Upload Button -->
       <label
         class="upload-button"
@@ -228,10 +228,12 @@
     width: 320px;
     height: 100%;
     padding: 24px;
+    padding-top: 7rem;
     display: flex;
     flex-direction: column;
     border-right: 1px dotted #ccc;
     background: #fff;
+    position: relative;
   }
   .sidebar h2 {
     font-size: 16px;
