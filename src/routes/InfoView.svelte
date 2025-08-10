@@ -3,11 +3,11 @@
   import BackButton from "../lib/BackButton.svelte";
   // src/lib/stores.js
   import { currentPolicy } from "../lib/stores/currentPolicy.js";
-
+  import { equity_colors } from "../constants.js";
   const equities = [
     {
       name: "Procedural",
-      color: "#227C9D",
+      color: equity_colors["Procedural"],
       description:
         "Fair and inclusive processes in policy development, implementation, and enforcement. Ensures all stakeholders have meaningful participation opportunities.",
       keyElements: [
@@ -23,7 +23,7 @@
     },
     {
       name: "Structural",
-      color: "#17C3B2",
+      color: equity_colors["Structural"],
       description:
         "Addresses underlying systems and institutions that create inequities. Focuses on reforming organizational structures, legal frameworks, and policies that systematically advantage some groups while disadvantaging others.",
       keyElements: [
@@ -39,7 +39,7 @@
     },
     {
       name: "Distributional",
-      color: "#FFCB77",
+      color: equity_colors["Distributional"],
       description:
         "Fair allocation of benefits, burdens, and resources. Examines who gets what, when, and how much in policy outcomes.",
       keyElements: [
@@ -55,7 +55,7 @@
     },
     {
       name: "Recognitional",
-      color: "#FEB3B1",
+      color: equity_colors["Recognitional"],
       description:
         "Recognition of historical, cultural, and social contexts that shape communities' relationships with water resources and governance.",
       keyElements: [
@@ -71,7 +71,7 @@
     },
     {
       name: "Transformational",
-      color: "#FE6D73",
+      color: equity_colors["Transformational"],
       description:
         "Goes beyond fixing current systems to fundamentally reimagining them. Create new approaches that center equity from the ground up, building regenerative systems that prevent inequities from occurring.",
       keyElements: [
@@ -274,7 +274,7 @@
   /* CTA Section */
   .cta-section {
     background: var(--primary-background);
-    color: white;
+    color: var(--primary-text);
     border-radius: 12px;
     padding: 2rem;
     text-align: center;

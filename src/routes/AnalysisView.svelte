@@ -2,50 +2,74 @@
   // Local Modules
   import BackButton from "../lib/BackButton.svelte";
   import InfoTab from "../lib/InfoTab.svelte";
+  import { slide, fade } from "svelte/transition";
 
+  // import { equity_colors } from "../constants";
   // // (WIP) Temporarily import currentPolicy from PolicyGallery
   import { currentPolicy } from "../lib/stores/currentPolicy.js";
   // // currentPolicy Store Variable
-  import analysis from "../lib/data/structured.json";
+  // import analysis from "../lib/data/structured.json";
 
   // Hardcoded data for testing
   // Automatically subscribe to store
-  let general;
-  $: matchedPolicy = analysis.find(
-    (item) => item.document.filename === $currentPolicy?.document?.filename
-  );
-  $: general = matchedPolicy?.analysis_sections;
+  // let general;
+  // $: matchedPolicy = analysis.find(
+  //   (item) => item.document.filename === $currentPolicy?.document?.filename
+  // );
+  export const equity_colors = {
+    Procedural: "#227C9D",
+    Structural: "#17C3B2",
+    Distributional: "#FFCB77",
+    Recognitional: "#FEB3B1",
+    Transformational: "#FE6D73",
+  };
+  const equitySections = [
+    {
+      key: "recognitional_equity",
+      label: "Recognitional",
+      color: equity_colors["Recognitional"],
+    },
+    {
+      key: "procedural_equity",
+      label: "Procedural",
+      color: equity_colors["Procedural"],
+    },
+    {
+      key: "structural_equity",
+      label: "Structural",
+      color: equity_colors["Structural"],
+    },
+    {
+      key: "distributional_equity",
+      label: "Distributional",
+      color: equity_colors["Distributional"],
+    },
+  ];
 
-  // State Variables
-  let activeTab = "general_equity_assessment";
   const tabOptions = [
     {
       key: "general_equity_assessment",
       label: "Equity Assessment",
-      image: "public/eq-asmnt.png",
+      image: "chart.svg",
     },
     {
       key: "vulnerable_groups",
       label: "Vulnerable Groups",
-      image: "public/vgroups.png",
+      image: "user-group.svg",
     },
     {
       key: "impact_severity",
       label: "Impact Severity",
-      image: "public/sev.png",
+      image: "shield-x.svg",
     },
     {
       key: "mitigation_strategies",
       label: "Mitigation Strategies",
-      image: "public/mstrats.png",
+      image: "shield-plus.svg",
     },
   ];
-  const equitySections = [
-    { key: "recognitional_equity", label: "Recognitional", color: "#F4A3A3" },
-    { key: "procedural_equity", label: "Procedural", color: "#3B88A6" },
-    { key: "structural_equity", label: "Structural", color: "#2AA78D" },
-    { key: "distributional_equity", label: "Distributional", color: "#F0B340" },
-  ];
+  let activeTab = "general_equity_assessment";
+  $: general = $currentPolicy["analysis_sections"];
 </script>
 
 <section>
@@ -54,11 +78,11 @@
 
   <div class="container">
     <div class="header">
-      <h1>
+      <h1 style="display: inline-flex; align-items: center; gap: 0.5em;">
         <img
-          src="public/sel-btn.png"
+          src="document.svg"
           alt={$currentPolicy?.document?.title}
-          style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
+          style="height: 2rem"
         />
         {$currentPolicy?.document?.title}
         <!-- <img src="public/sel-btn.png" alt="{selectedPolicy?.document?.title}" style="height: 1em; vertical-align: middle; margin-right: 0.5em;">
@@ -78,162 +102,175 @@
           <img
             src={t.image}
             alt={t.label}
-            style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
+            style="height: 1.5rem; margin-right: 0.5rem;"
           />
           {t.label}
         </button>
       {/each}
     </div>
-
     <!-- General Equity Assessment -->
     {#if activeTab === "general_equity_assessment"}
-      <p class="summary">{general[activeTab].summary}</p>
-      <div class="section-grid">
-        {#each equitySections as s}
-          <div class="section">
-            <div class="title">
-              <span class="pill" style="background-color: {s.color}"
-                >{s.label}</span
-              >
-            </div>
-
-            <div class="columns">
-              <div class="box">
-                <strong
-                  ><img
-                    src="public/green-dot.png"
-                    alt="Positive Findings"
-                    style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
-                  /> Positive Findings</strong
+      <div in:slide style="overflow: hidden;">
+        <p class="summary">{general[activeTab].summary}</p>
+        <div class="section-grid">
+          {#each equitySections as section}
+            <div class="section">
+              <div class="title">
+                <span class="pill" style="background-color: {section.color}"
+                  >{section.label}</span
                 >
-                <p>{general[activeTab][s.key].positive_findings}</p>
               </div>
-              <div class="box">
-                <strong
-                  ><img
-                    src="public/red-dot.png"
-                    alt="Areas of Concern"
-                    style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
-                  /> Areas of Concern</strong
-                >
-                <p>{general[activeTab][s.key].concerns}</p>
-              </div>
-            </div>
 
-            <div class="conclusion">
-              <strong>Conclusion:</strong>
-              {general[activeTab][s.key].conclusion}
+              <div class="columns">
+                <div class="box">
+                  <strong
+                    ><img
+                      src="public/green-dot.png"
+                      alt="Positive Findings"
+                      style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
+                    /> Positive Findings</strong
+                  >
+                  <p>
+                    {general[activeTab][section.key].positive_findings}
+                  </p>
+                </div>
+                <div class="box">
+                  <strong
+                    ><img
+                      src="public/red-dot.png"
+                      alt="Areas of Concern"
+                      style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
+                    /> Areas of Concern</strong
+                  >
+                  <p>{general[activeTab][section.key].concerns}</p>
+                </div>
+              </div>
+
+              <div class="conclusion">
+                <strong>Conclusion:</strong>
+                {general[activeTab][section.key].conclusion}
+              </div>
             </div>
-          </div>
-        {/each}
+          {/each}
+        </div>
       </div>
-    {:else}
-      <p class="summary">{general[activeTab]}</p>
     {/if}
 
     <!-- Vulnerable Groups Formatting -->
     {#if activeTab === "vulnerable_groups"}
-      <p class="summary">{general.vulnerable_groups_analysis.summary}</p>
+      <div in:slide style="overflow: hidden;">
+        <p class="summary">{general.vulnerable_groups_analysis.summary}</p>
 
-      <div class="section">
-        <div class="title">
-          <span
-            class="pill"
-            style="background-color: var(--primary-interactive)"
-            >Vulnerable Groups Analysis</span
-          >
-        </div>
-
-        <div class="columns">
-          <div class="box">
-            <strong>Identified Groups</strong>
-            <p>
-              {general.vulnerable_groups_analysis.identified_groups_and_impacts}
-            </p>
+        <div class="section">
+          <div class="title">
+            <span
+              class="pill"
+              style="background-color: var(--primary-interactive)"
+              >Vulnerable Groups Analysis</span
+            >
           </div>
-        </div>
 
-        <div class="conclusion">
-          <strong>Equity Assessment Summary:</strong>
-          {general.vulnerable_groups_analysis.equity_assessment_summary}
-        </div>
+          <div class="columns">
+            <div class="box">
+              <strong>Identified Groups</strong>
+              <p>
+                {general.vulnerable_groups_analysis
+                  .identified_groups_and_impacts}
+              </p>
+            </div>
+          </div>
 
-        <div class="conclusion" style="margin-top: 1rem;">
-          <strong>Conclusion:</strong>
-          {general.vulnerable_groups_analysis.conclusion}
+          <div class="conclusion">
+            <strong>Equity Assessment Summary:</strong>
+            {general.vulnerable_groups_analysis.equity_assessment_summary}
+          </div>
+
+          <div class="conclusion" style="margin-top: 1rem;">
+            <strong>Conclusion:</strong>
+            {general.vulnerable_groups_analysis.conclusion}
+          </div>
         </div>
       </div>
     {/if}
     <!-- Impact Severity Formatting -->
     {#if activeTab === "impact_severity"}
-      <p class="summary">{general.severity_impact_analysis.summary}</p>
+      <div in:slide style="overflow: hidden;">
+        <p class="summary">{general.severity_impact_analysis.summary}</p>
 
-      <div class="section">
-        <div class="title">
-          <span
-            class="pill"
-            style="background-color: var(--primary-interactive)"
-            >Severity of Impact Analysis</span
-          >
-        </div>
-
-        <div class="columns">
-          <div class="box">
-            <strong>High Severity Impacts</strong>
-            <p>{general.severity_impact_analysis.high_severity_impacts}</p>
+        <div class="section">
+          <div class="title">
+            <span
+              class="pill"
+              style="background-color: var(--primary-interactive)"
+              >Severity of Impact Analysis</span
+            >
           </div>
-          <div class="box">
-            <strong>Moderate Severity Impacts</strong>
-            <p>{general.severity_impact_analysis.moderate_severity_impacts}</p>
-          </div>
-        </div>
 
-        <div class="columns" style="margin-top: 1rem;">
-          <div class="box" style="flex: 1 1 100%;">
-            <strong>Equity Implications of Impacts</strong>
-            <p>
-              {general.severity_impact_analysis.equity_implications_of_impacts}
-            </p>
+          <div class="columns">
+            <div class="box">
+              <strong>High Severity Impacts</strong>
+              <p>{general.severity_impact_analysis.high_severity_impacts}</p>
+            </div>
+            <div class="box">
+              <strong>Moderate Severity Impacts</strong>
+              <p>
+                {general.severity_impact_analysis.moderate_severity_impacts}
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div class="conclusion" style="margin-top: 1rem;">
-          <strong>Conclusion:</strong>
-          {general.severity_impact_analysis.conclusion}
+          <div class="columns" style="margin-top: 1rem;">
+            <div class="box" style="flex: 1 1 100%;">
+              <strong>Equity Implications of Impacts</strong>
+              <p>
+                {general.severity_impact_analysis
+                  .equity_implications_of_impacts}
+              </p>
+            </div>
+          </div>
+
+          <div class="conclusion" style="margin-top: 1rem;">
+            <strong>Conclusion:</strong>
+            {general.severity_impact_analysis.conclusion}
+          </div>
         </div>
       </div>
     {/if}
 
     <!-- Mitigation Strategies Formatting -->
     {#if activeTab === "mitigation_strategies"}
-      <p class="summary">{general.mitigation_strategies_analysis.summary}</p>
+      <div in:slide style="overflow: hidden;">
+        <p class="summary">
+          {general.mitigation_strategies_analysis.summary}
+        </p>
 
-      <div class="section">
-        <div class="title">
-          <span
-            class="pill"
-            style="background-color: var(--primary-interactive)"
-            >Mitigation Strategies Analysis</span
-          >
-        </div>
-
-        <div class="columns">
-          <div class="box">
-            <strong>Identified Strategies</strong>
-            <p>
-              {general.mitigation_strategies_analysis.identified_strategies}
-            </p>
+        <div class="section">
+          <div class="title">
+            <span
+              class="pill"
+              style="background-color: var(--primary-interactive)"
+              >Mitigation Strategies Analysis</span
+            >
           </div>
-        </div>
 
-        <div class="conclusion">
-          <strong>Equity Assessment Summary:</strong>
-          {general.mitigation_strategies_analysis.equity_assessment}
-        </div>
+          <div class="columns">
+            <div class="box">
+              <strong>Identified Strategies</strong>
+              <p>
+                {general.mitigation_strategies_analysis.identified_strategies}
+              </p>
+            </div>
+          </div>
 
-        <div class="conclusion" style="margin-top: 1rem;">
-          <strong>Conclusion:</strong>
-          {general.mitigation_strategies_analysis.conclusion}
+          <div class="conclusion">
+            <strong>Equity Assessment Summary:</strong>
+            {general.mitigation_strategies_analysis.equity_assessment}
+          </div>
+
+          <div class="conclusion" style="margin-top: 1rem;">
+            <strong>Conclusion:</strong>
+            {general.mitigation_strategies_analysis.conclusion}
+          </div>
         </div>
       </div>
     {/if}
@@ -253,46 +290,49 @@
   .header {
     margin-top: -75px;
     text-align: center;
+    color: var(--primary-text);
   }
 
   /* Tab Elements */
   .tab-bar {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 2.5rem;
     justify-content: center;
-    background: #ededed;
+    /* background: #ededed; */
     border-radius: 14px;
     padding: 1.5rem 3rem;
-    max-width: 1200px;
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-x: auto;
-    white-space: nowrap;
   }
   .tab {
-    padding: 1.2rem 4.5rem;
-    font-size: 1.35rem;
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
     border: 2.5px solid #ccc;
     border-radius: 12px;
-    background: #5bcce8;
     cursor: pointer;
+    color: var(--primary-text);
     min-width: 260px;
     min-height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
+    font-weight: 300;
     transition:
       background 0.2s,
       color 0.2s;
     white-space: nowrap;
+    > img {
+      filter: brightness(0.2);
+    }
   }
   .tab.active {
     background: var(--primary-interactive);
     color: white;
+    font-weight: 500;
     border-color: var(--primary-interactive);
+    > img {
+      filter: unset;
+    }
   }
 
   /* Equity Tab, Cards */
