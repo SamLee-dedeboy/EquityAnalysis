@@ -42,8 +42,8 @@
   <!-- (2) Headers, Caption -->
   <!-- Caption 1 -->
   <p class="caption-1">
-    Explore pre-analyzed water policies. Each policy has been automatically
-    evaluated using our
+    Explore our analysis on water policies. Each policy has been automatically
+    evaluated using the
     <button class="quickef-btn" on:click={() => (showInfo = true)}>
       Equity Framework <img
         src="box-arrow-top-right.svg"
@@ -55,15 +55,21 @@
   </p>
   <!-- Caption 2 -->
   <h3 class="caption-2">
-    Pre-Analyzed Documents
+    <!-- Pre-Analyzed Documents -->
+    <img
+      src="landmark.svg"
+      alt=""
+      style="height: 0.9em; position: relative; top: 0.1em;"
+    />
+    Analysis Gallery
     <span
       style="display: inline-flex; align-items: center; gap: 0.25em; margin-left: -0.15em;"
     >
-      <img
+      <!-- <img
         src="line-arrow-down.svg"
         alt="Down Arrow"
         style="height: 0.9em; position: relative; top: 0.1em;"
-      />
+      /> -->
     </span>
   </h3>
 
@@ -172,9 +178,7 @@
     margin-left: auto;
     margin-right: auto;
     line-height: 1.8;
-    background-color: #f3f3f3;
-    padding: 0.5rem;
-    font-style: italic;
+    /* background-color: #f3f3f3; */
     color: var(--primary-text);
     border-radius: 8px;
   }
@@ -184,8 +188,10 @@
     font-weight: 500;
     color: var(--primary-text);
     text-align: center;
-    margin-bottom: 2.2rem;
+    margin-bottom: 1.2rem;
     letter-spacing: 0.02em;
+    background-color: var(--primary-background);
+    padding: 1rem 1rem;
   }
   .quickef-btn {
     background: var(--primary-interactive);
