@@ -3,6 +3,7 @@ import os
 import uuid
 import logging
 import secrets
+import json
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, File, UploadFile, HTTPException, Request, Depends, status, Cookie
@@ -33,6 +34,11 @@ rag_system: HybridRAGSystem | None = None
 TEMP_UPLOAD_DIR = "temp_uploads"
 os.makedirs(TEMP_UPLOAD_DIR, exist_ok=True)
 
+# === CONFIG ===
+BASE_DIR = os.path.dirname(__file__)
+ANALYSES_DIR = os.path.join(BASE_DIR, "policy_analyses")  # folder with analyses
+os.makedirs(ANALYSES_DIR, exist_ok=True)
+
 # --- FastAPI Lifespan Management ---
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -60,7 +66,14 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 # --- CORS Middleware (Optional) ---
-# (Keep commented out unless needed)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # in dev, allow all; restrict in prod
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # --- Dependency Checks ---
 async def check_system_ready():
@@ -221,6 +234,45 @@ async def end_session(
 async def health_check():
     if rag_system and openai_interface: return {"status": "ok", "rag_system_initialized": True, "openai_initialized": True}
     else: return {"status": "degraded", "rag_system_initialized": bool(rag_system), "openai_initialized": bool(openai_interface)}
+    
+    
+@app.get("/api/policies")
+async def list_policies():
+    """
+    Return a lightweight list of all policy analyses metadata.
+    """
+    policies = []
+    for fname in os.listdir(ANALYSES_DIR):
+        if not fname.endswith(".json"):
+            continue
+        fpath = os.path.join(ANALYSES_DIR, fname)
+        try:
+            with open(fpath, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                policies.append({
+                    "id": data.get("id", fname[:-5]),
+                    "title": data.get("document", {}).get("title", "Untitled"),
+                    "filename": data.get("document", {}).get("filename", ""),
+                    "source": data.get("source", "unknown")
+                })
+        except Exception as e:
+            print(f"Error reading {fname}: {e}")
+            continue
+    return policies
+
+
+@app.get("/api/policies/{policy_id}")
+async def get_policy(policy_id: str):
+    """
+    Return the full JSON data for one policy analysis.
+    """
+    fpath = os.path.join(ANALYSES_DIR, f"{policy_id}.json")
+    if not os.path.exists(fpath):
+        raise HTTPException(status_code=404, detail="Policy not found")
+    with open(fpath, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    return JSONResponse(content=data)
+
 
 # --- Run with Uvicorn ---
 if __name__ == "__main__":

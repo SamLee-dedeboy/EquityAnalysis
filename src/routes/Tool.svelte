@@ -1,25 +1,36 @@
 <script>
-  // Importing Local Modules
   import LogoBar from "../lib/LogoBar.svelte";
   import BackButton from "../lib/BackButton.svelte";
   import ReportView from "./ReportView.svelte";
   import ChatPanel from "../lib/ChatPanel.svelte";
-
-  // Policies data
-  import policies from "../lib/data/structured.json";
   import { currentPolicy } from "../lib/stores/currentPolicy.js";
   import { slide } from "svelte/transition";
-
-  // Resetting currentPolicy Store Variable
   import { onMount } from "svelte";
-  onMount(() => {
+
+  let policies = [];
+  let chatPanel = false;
+  let currentDoc = null;
+
+  // Load sidebar data
+  onMount(async () => {
     currentPolicy.set(null);
+    try {
+      const res = await fetch("http://localhost:8000/api/policies");
+      policies = await res.json();
+    } catch (err) {
+      console.error("Failed to load policies list", err);
+    }
   });
 
-  // State Variables, Third Panel (Overview)
-  let chatPanel = false;
-  // Chat Logic
-  let currentDoc = null;
+  async function loadPolicy(id) {
+    try {
+      const res = await fetch(`http://localhost:8000/api/policies/${id}`);
+      currentDoc = await res.json();
+      currentPolicy.set(currentDoc);
+    } catch (err) {
+      console.error("Failed to load policy", err);
+    }
+  }
 </script>
 
 <section>
@@ -63,41 +74,26 @@
 
       <!-- (1.2) Policies Section -->
       <div class="policies">
-        <ul style="list-style: none; padding: 0; margin: 0;">
-          {#each policies as policy}
-            <li
-              class:selected={$currentPolicy === policy}
-              style="margin-top: 6px; border: 1px solid #e5e7eb; border-radius: 8px; background: {$currentPolicy ===
-              policy
-                ? '#e0e7ef'
-                : 'none'}; color: {$currentPolicy === policy
-                ? '#0F3C5F'
-                : '#1f2937'};"
-            >
-              <button
-                type="button"
-                style="cursor:pointer; padding:12px 16px; background:none; border:none; width:100%; text-align:left; border-radius:8px; font-size:14px; color:{$currentPolicy ===
-                policy
-                  ? '#0F3C5F'
-                  : '#1f2937'}; font-weight:{$currentPolicy === policy
-                  ? '600'
-                  : '400'};"
-                on:click={() => {
-                  if ($currentPolicy === policy) {
-                    currentPolicy.set(null);
-                    chatPanel = false;
-                  } else {
-                    currentPolicy.set(policy);
-                    // chatPanel = true;
-                  }
-                }}
-              >
-                {policy.document.title}
-              </button>
-            </li>
-          {/each}
-        </ul>
-      </div>
+  <ul style="list-style: none; padding: 0; margin: 0;">
+    {#each policies as policy}
+      <li
+        class:selected={$currentPolicy?.id === policy.id}
+        style="margin-top:6px; border:1px solid #e5e7eb; border-radius:8px;
+              background: {$currentPolicy?.id === policy.id ? '#e0e7ef' : 'none'};
+              color: {$currentPolicy?.id === policy.id ? '#0F3C5F' : '#1f2937'}"
+      >
+        <button
+          type="button"
+          style="cursor:pointer; padding:12px 16px; background:none; border:none; width:100%; text-align:left; border-radius:8px; font-size:14px; color: inherit;"
+          on:click={() => loadPolicy(policy.id)}
+        >
+          {policy.title}
+        </button>
+      </li>
+    {/each}
+  </ul>
+</div>
+
 
       <!-- (1.3) Recent Documents Section -->
       <div
