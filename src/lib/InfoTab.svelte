@@ -10,7 +10,8 @@
   >
     <img
       class="it-icon"
-      src="../../public/tree.png"
+      src="network.svg"
+      style="filter: brightness(100);"
       alt="COEQWAL equity framework information"
     />
   </button>

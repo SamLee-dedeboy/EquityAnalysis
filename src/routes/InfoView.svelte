@@ -93,24 +93,26 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
     rel="stylesheet"
   />
+  <BackButton />
   <div class="container">
-    <BackButton />
     <!-- Header -->
-    <div class="header">
-      <h1>
-        <img
-          src="../../public/dark-tree.png"
-          alt="COEQWAL equity framework information"
-        />
-        <span style="color:#0F3C5F">Equity</span> Framework
-      </h1>
-      <p>
-        Our comprehensive equity framework encompasses five critical dimensions
-        that guide policy analysis and ensure inclusive outcomes. Each dimension
-        provides a unique lens for evaluating fairness, justice, and systemic
-        impact across diverse communities.
-      </p>
-      <h3>
+    <div class="header-title">
+      <div>
+        <img src="network.svg" alt="" style="width: 2.5rem; height: 2.5rem;" />
+        <span style="color: var(--primary-interactive);">Equity Framework</span>
+      </div>
+      <div
+        class="header-subtitle"
+        style="background: var(--primary-background); border-radius: 8px; padding: 0.5rem; font-style: italic;"
+      >
+        <span>
+          Our comprehensive equity framework encompasses five critical
+          dimensions that guide policy analysis and ensure inclusive outcomes.
+          Each dimension provides a unique lens for evaluating fairness,
+          justice, and systemic impact across diverse communities.
+        </span>
+      </div>
+      <!-- <h3>
         The Five Equities
         <span
           style="display: inline-flex; align-items: center; gap: 0.25em; margin-left: -0.15em;"
@@ -121,7 +123,7 @@
             style="height: 0.9em; position: relative; top: 0.1em;"
           />
         </span>
-      </h3>
+      </h3> -->
     </div>
 
     <!-- Equity Cards -->
@@ -192,34 +194,37 @@
 <style>
   /* General Styles */
   .container {
-    max-width: 900px;
+    /* max-width: 900px; */
     margin: auto;
-    padding: 2rem;
+    padding: 0 2rem;
     font-family: "Inter", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Header and Subtitle */
-  .header {
+  .header-title {
     text-align: center;
     margin-bottom: 2rem;
-  }
-  .header h1 {
     font-size: 3rem;
     font-weight: 700;
-    margin-top: -75px;
   }
-  .header h3 {
-    font-size: 1.5rem;
-  }
-  .header p {
+  .header-subtitle {
+    width: 95vw;
     font-size: 1rem;
-    margin-bottom: 2rem;
-    margin-top: -1rem;
+    margin-top: 1rem;
     color: #333;
+  }
+  .header-subtitle span {
+    display: inline-block;
+    max-width: 800px;
   }
 
   /* Equity Cards */
   .equity-card {
+    max-width: 1200px;
     display: flex;
     align-items: center;
     gap: 1rem;
