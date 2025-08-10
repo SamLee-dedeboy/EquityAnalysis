@@ -28,5 +28,7 @@
   main {
     padding: 0 1.75rem;
     font-family: "Inter", system-ui, sans-serif;
+    display: flex;
+    justify-content: center;
   }
 </style>

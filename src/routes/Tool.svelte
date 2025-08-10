@@ -2,7 +2,7 @@
   // Importing Local Modules
   import LogoBar from "../lib/LogoBar.svelte";
   import BackButton from "../lib/BackButton.svelte";
-  import ReportView from "./ReportView.svelte";
+  import ReportView from "./_ReportView.svelte";
   import ChatPanel from "../lib/ChatPanel.svelte";
 
   // Policies data
@@ -12,6 +12,8 @@
 
   // Resetting currentPolicy Store Variable
   import { onMount } from "svelte";
+  import AnalysisView from "./AnalysisView.svelte";
+  import EmptyPage from "../lib/EmptyPage.svelte";
   onMount(() => {
     currentPolicy.set(null);
   });
@@ -154,7 +156,12 @@
         <div class="report-content">
           <!-- Report Header?
           <h1 style="text-align: center; position: absolute; width: 100%;">Equity Analysis Report</h1> -->
-          <ReportView {currentDoc} />
+          <!-- <ReportView {currentDoc} /> -->
+          {#if !$currentPolicy?.document?.title}
+            <EmptyPage></EmptyPage>
+          {:else}
+            <AnalysisView />
+          {/if}
         </div>
       </div>
 
@@ -235,6 +242,7 @@
     display: flex;
     flex-grow: 1;
     min-width: 65%;
+    overflow: auto;
   }
   .chat-panel {
   }

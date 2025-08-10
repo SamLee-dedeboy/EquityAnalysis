@@ -73,21 +73,19 @@
 </script>
 
 <section>
-  <BackButton destination="#/" />
+  <!-- <BackButton destination="#/" /> -->
   <InfoTab />
 
   <div class="container">
     <div class="header">
-      <h1 style="display: inline-flex; align-items: center; gap: 0.5em;">
-        <img
-          src="document.svg"
-          alt={$currentPolicy?.document?.title}
-          style="height: 2rem"
-        />
-        {$currentPolicy?.document?.title}
-        <!-- <img src="public/sel-btn.png" alt="{selectedPolicy?.document?.title}" style="height: 1em; vertical-align: middle; margin-right: 0.5em;">
+      <img
+        src="document.svg"
+        style="height: 1lh; margin-right: 0.2em; vertical-align: bottom;"
+        alt=""
+      />
+      {$currentPolicy?.document?.title}
+      <!-- <img src="public/sel-btn.png" alt="{selectedPolicy?.document?.title}" style="height: 1em; vertical-align: middle; margin-right: 0.5em;">
         {selectedPolicy?.document?.title} -->
-      </h1>
     </div>
 
     <!-- Tab Bar -->
@@ -278,17 +276,22 @@
 </section>
 
 <style>
+  section {
+    max-width: 1200px;
+  }
   /* Container for the main content */
   .container {
     max-width: 1080;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+    margin: 0.5rem auto;
+    padding: 0rem 1rem;
     font-family: system-ui, sans-serif;
   }
 
   /* Header and Subtitle */
   .header {
-    margin-top: -75px;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin: 0;
     text-align: center;
     color: var(--primary-text);
   }
@@ -298,20 +301,20 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
     justify-content: center;
     /* background: #ededed; */
     border-radius: 14px;
     padding: 1.5rem 3rem;
   }
   .tab {
-    padding: 1.2rem 3rem;
-    font-size: 1.2rem;
+    max-width: 300px;
+    padding: 1.2rem 2rem;
+    font-size: 1rem;
     border: 2.5px solid #ccc;
     border-radius: 12px;
     cursor: pointer;
     color: var(--primary-text);
-    min-width: 260px;
     min-height: 64px;
     display: flex;
     align-items: center;
