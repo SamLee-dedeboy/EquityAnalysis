@@ -3,10 +3,12 @@
   import LogoBar from "../lib/LogoBar.svelte";
   import BackButton from "../lib/BackButton.svelte";
   import ReportView from "./ReportView.svelte";
+  import ChatPanel from "../lib/ChatPanel.svelte";
 
   // Policies data
   import policies from "../lib/data/structured.json";
   import { currentPolicy } from "../lib/stores/currentPolicy.js";
+  import { slide } from "svelte/transition";
 
   // Resetting currentPolicy Store Variable
   import { onMount } from "svelte";
@@ -18,7 +20,6 @@
   let chatPanel = false;
   // Chat Logic
   let currentDoc = null;
-  let inputText = "";
 </script>
 
 <section>
@@ -87,7 +88,7 @@
                     chatPanel = false;
                   } else {
                     currentPolicy.set(policy);
-                    chatPanel = true;
+                    // chatPanel = true;
                   }
                 }}
               >
@@ -124,88 +125,46 @@
     </aside>
 
     <!-- (2) Panel, Report -->
-    <div
-      class="report-panel"
-      style="width: {chatPanel ? '50%' : 'calc(100% - 320px)'};"
-    >
-      <div class="report-content">
-        <!-- Report Header?
-          <h1 style="text-align: center; position: absolute; width: 100%;">Equity Analysis Report</h1> -->
-        <ReportView {currentDoc} />
-      </div>
-    </div>
-
-    <!-- (3) Panel, Main Chat -->
-    {#if chatPanel}
-      <div
-        class="chat"
-        style="left: calc(320px + 50%); width: calc(100% - 320px - 50%);"
+    <div class="report-chat-container">
+      <!-- Chat Toggle Button -->
+      <button
+        class="chat-toggle-btn"
+        on:click={() => (chatPanel = !chatPanel)}
+        title={chatPanel ? "Close Chat" : "Open Chat"}
       >
-        <!-- (3.1) Header with Logo -->
-        <div class="chat-header">
-          <h2>EquiFlow AI Assistant</h2>
-          <p>Intelligent Policy Equity Analysis</p>
-        </div>
-
-        <!-- (3.2) Chat Box -->
-        <div class="chat-content">
-          <div class="chat-messages">
-            <div
-              style="display: flex; align-items: flex-start; margin-bottom: 24px;"
-            >
-              <!-- Bot Avatar Placeholder -->
-              <div class="bot-avatar">
-                <img
-                  src="public/botpic.png"
-                  alt="EquiFlow Logo"
-                  style="height: 1em; vertical-align: middle;"
-                />
-              </div>
-              <div
-                style="background:#f1f5fb;border-radius:12px;padding:18px 20px;max-width:420px;box-shadow:0 2px 8px rgba(0,0,0,0.04);color:#1f2937;"
-              >
-                <strong
-                  >Hello! I'm EquiFlow, your AI assistant for policy equity
-                  analysis.</strong
-                >
-                <ul style="margin:12px 0 0 18px;padding:0;font-size:15px;">
-                  <li>
-                    Analyze documents for equity impacts across multiple
-                    dimensions
-                  </li>
-                  <li>
-                    Answer detailed questions about specific policy sections
-                  </li>
-                  <li>Provide actionable recommendations for improvement</li>
-                  <li>Compare policies across equity frameworks</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- (3.3) Input Bar -->
-        <form class="input-bar" on:submit|preventDefault={() => {}}>
-          <input
-            bind:value={inputText}
-            placeholder="Ask about equity impact..."
-          />
-          <button
-            type="submit"
-            aria-label="Send"
-            style="height:38px; width:38px; display: flex; align-items: center; justify-content: center;"
-          >
-            <!-- Other Arrow 
-               &#8593; -->
-            <img
-              src="public/rhs-arrow.png"
-              alt="Send"
-              style="height: 1em; vertical-align: middle;"
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          {#if chatPanel}
+            <!-- Close icon (X) -->
+            <path
+              d="M18 6L6 18M6 6l12 12"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
             />
-          </button>
-        </form>
+          {:else}
+            <!-- Chat bubble icon -->
+            <path
+              d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+            />
+          {/if}
+        </svg>
+      </button>
+
+      <div class="report-panel">
+        <div class="report-content">
+          <!-- Report Header?
+          <h1 style="text-align: center; position: absolute; width: 100%;">Equity Analysis Report</h1> -->
+          <ReportView {currentDoc} />
+        </div>
       </div>
-    {/if}
+
+      <!-- (3) Panel, Main Chat -->
+      {#if chatPanel}
+        <div class="chat-panel" in:slide={{ axis: "x" }}>
+          <ChatPanel></ChatPanel>
+        </div>
+      {/if}
+    </div>
   </div>
 </section>
 
@@ -267,15 +226,17 @@
   }
 
   /* --- (2) Panel, Overview --- */
-  .report-panel {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 320px;
-    z-index: 500;
+
+  .report-chat-container {
     display: flex;
-    height: 100%;
-    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+  }
+  .report-panel {
+    display: flex;
+    flex-grow: 1;
+    min-width: 65%;
+  }
+  .chat-panel {
   }
   .report-content {
     flex: 1;
@@ -286,89 +247,25 @@
     flex-direction: column;
   }
 
-  /* --- (3) Panel, Chat --- */
-  .chat {
+  /* --- Chat Toggle Button --- */
+  .chat-toggle-btn {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 420px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    z-index: 600;
-    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.04);
-    transition:
-      left 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  /* --- (3.1) Header --- */
-  .chat-header {
-    background: #0f3c5f;
-    color: #fff;
-    padding: 16px 32px;
-  }
-  .chat-header h2 {
-    font-size: 18px;
-    font-weight: 600;
-  }
-  .chat-header p {
-    font-size: 13px;
-    color: #cbd5e1;
-  }
-  .chat-header,
-  .input-bar {
-    width: 100%;
-    box-sizing: border-box;
-  }
-  /* --- (3.2) Content --- */
-  .chat-content {
-    padding: 32px;
-    flex: 1;
-    overflow-y: auto;
-  }
-  .bot-avatar {
-    aspect-ratio: 1/1;
-    width: 2.5em;
-    background: var(--primary-interactive);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 16px;
-    overflow: hidden;
-    min-width: 2.5em;
-  }
-  /* --- (3.3) Input Bar --- */
-  .input-bar {
-    display: flex;
-    padding: 16px 32px;
-    border-top: 1px solid #ddd;
-    gap: 12px;
-    align-items: center;
-    background: #fff;
-  }
-  .input-bar input {
-    flex: 1;
-    border: 1px solid #ccc;
-    padding: 10px 16px;
-    border-radius: 999px;
-    font-size: 14px;
-  }
-  .input-bar input:focus {
-    outline: none;
-    border-color: #0f3c5f;
-  }
-  .input-bar button {
+    top: 24px;
+    right: 24px;
     background: #0f3c5f;
     color: #fff;
     border: none;
-    padding: 10px 16px;
-    border-radius: 999px;
-    font-size: 18px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition: background 0.15s;
+    z-index: 100;
   }
-  .input-bar button:hover {
+  .chat-toggle-btn:hover {
     background: #0d304f;
   }
 </style>
