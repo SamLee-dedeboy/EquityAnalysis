@@ -7,7 +7,12 @@
   class="back-button"
   on:click={() => (window.location.hash = destination)}
 >
-  &#8592; Back
+  <img
+    src="arrow-left.svg"
+    alt="Back"
+    style="width: 1.5rem; height: 1.5rem; "
+  />
+  Back
 </button>
 
 <style>
@@ -26,7 +31,10 @@
     cursor: pointer;
     z-index: 10;
     display: flex;
+    display: inline-flex;
+    gap: 0.5rem;
     align-items: center;
+    transition: background 0.2s;
   }
 
   .back-button:hover {
