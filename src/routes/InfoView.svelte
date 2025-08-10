@@ -101,10 +101,7 @@
         <img src="network.svg" alt="" style="width: 2.5rem; height: 2.5rem;" />
         <span style="color: var(--primary-interactive);">Equity Framework</span>
       </div>
-      <div
-        class="header-subtitle"
-        style="background: var(--primary-background); border-radius: 8px; padding: 0.5rem; font-style: italic;"
-      >
+      <div class="header-subtitle">
         <span>
           Our comprehensive equity framework encompasses five critical
           dimensions that guide policy analysis and ensure inclusive outcomes.
@@ -215,7 +212,9 @@
     width: 95vw;
     font-size: 1rem;
     margin-top: 1rem;
-    color: #333;
+    background: var(--primary-background);
+    border-radius: 8px;
+    padding: 0.5rem;
   }
   .header-subtitle span {
     display: inline-block;
