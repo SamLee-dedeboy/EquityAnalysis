@@ -9,6 +9,8 @@
   import ChatPanel from "../lib/ChatPanel.svelte";
 
   import { currentPolicy } from "../lib/stores/currentPolicy.js";
+  import EmptyPage from "../lib/EmptyPage.svelte";
+  import AnalysisView from "./AnalysisView.svelte";
 
   let policies = []; // This will now be dynamically loaded and updated from the API
   let isUploading = false; // True if file upload/VS creation is in progress
@@ -60,7 +62,7 @@
     if (selectedPolicy) {
       // Set the currentPolicy store with the basic metadata first. This immediately updates the sidebar selection.
       currentPolicy.set(selectedPolicy);
-      currentDoc = selectedPolicy; // Pass this basic info to ReportView immediately
+      // currentDoc = selectedPolicy; // Pass this basic info to ReportView immediately
 
       // If the selected policy is preprocessed or already marked completed (from a prior session/load)
       if (
@@ -75,7 +77,7 @@
           if (res.ok) {
             const fullPolicyData = await res.json();
             currentPolicy.set(fullPolicyData); // Update store with full detailed data
-            currentDoc = fullPolicyData; // Update local reference for ReportView
+            // currentDoc = fullPolicyData; // Update local reference for ReportView
             analysisStatus = "completed"; // Explicitly set status to completed for UI
           } else {
             console.error(
@@ -90,11 +92,11 @@
               analysis_status: "failed",
               analysis_error: "Failed to load report data.",
             }));
-            currentDoc = {
-              ...currentDoc,
-              analysis_status: "failed",
-              analysis_error: "Failed to load report data.",
-            };
+            // currentDoc = {
+            //   ...currentDoc,
+            //   analysis_status: "failed",
+            //   analysis_error: "Failed to load report data.",
+            // };
           }
         } catch (err) {
           console.error("Network error loading full policy data:", err);
@@ -104,11 +106,11 @@
             analysis_status: "failed",
             analysis_error: "Network error loading report data.",
           }));
-          currentDoc = {
-            ...currentDoc,
-            analysis_status: "failed",
-            analysis_error: "Network error loading report data.",
-          };
+          // currentDoc = {
+          //   ...currentDoc,
+          //   analysis_status: "failed",
+          //   analysis_error: "Network error loading report data.",
+          // };
         }
       } else if (
         selectedPolicy.source === "user" &&
@@ -140,17 +142,17 @@
           analysis_error:
             selectedPolicy.analysis_error || "Analysis previously failed.",
         }));
-        currentDoc = {
-          ...currentDoc,
-          analysis_status: "failed",
-          analysis_error:
-            selectedPolicy.analysis_error || "Analysis previously failed.",
-        };
+        // currentDoc = {
+        //   ...currentDoc,
+        //   analysis_status: "failed",
+        //   analysis_error:
+        //     selectedPolicy.analysis_error || "Analysis previously failed.",
+        // };
       }
     } else {
       console.warn(`Policy with ID ${policyId} not found in the list.`);
       currentPolicy.set(null); // Clear if not found
-      currentDoc = null;
+      // currentDoc = null;
       analysisStatus = null; // No status if no policy selected
     }
     chatPanel = true; // Open chat panel when a document is selected/loaded
@@ -170,7 +172,7 @@
     analysisStatus = null;
     analysisResultFetched = false;
     currentPolicy.set(null); // Clear any currently selected policy in the store
-    currentDoc = null; // Clear ReportView content
+    // currentDoc = null; // Clear ReportView content
 
     isUploading = true; // Set upload state to true for UI feedback (changes button color)
 
@@ -194,7 +196,7 @@
     };
     policies = [tempPolicyEntry, ...policies]; // Add to top of sidebar list
     currentPolicy.set(tempPolicyEntry); // Select this newly uploaded/processing entry
-    currentDoc = tempPolicyEntry; // Pass to ReportView for immediate display of loading state
+    // currentDoc = tempPolicyEntry; // Pass to ReportView for immediate display of loading state
 
     try {
       const response = await fetch("http://localhost:8000/upload", {
@@ -219,11 +221,11 @@
           id: currentSessionId,
           analysis_status: analysisStatus,
         }));
-        currentDoc = {
-          ...currentDoc,
-          id: currentSessionId,
-          analysis_status: analysisStatus,
-        };
+        // currentDoc = {
+        //   ...currentDoc,
+        //   id: currentSessionId,
+        //   analysis_status: analysisStatus,
+        // };
 
         // Start polling for analysis status
         analysisPollingTimer = setInterval(
@@ -237,7 +239,7 @@
         analysisStatus = "failed";
         policies = policies.filter((p) => p.id !== tempId); // Remove if upload failed at this stage
         currentPolicy.set(null); // Clear selection
-        currentDoc = null;
+        // currentDoc = null;
       }
     } catch (error) {
       console.error("Upload network error:", error);
@@ -256,11 +258,11 @@
         analysis_status: "failed",
         analysis_error: "Network error during upload.",
       }));
-      currentDoc = {
-        ...currentDoc,
-        analysis_status: "failed",
-        analysis_error: "Network error during upload.",
-      };
+      // currentDoc = {
+      //   ...currentDoc,
+      //   analysis_status: "failed",
+      //   analysis_error: "Network error during upload.",
+      // };
     } finally {
       isUploading = false; // Reset upload state
     }
@@ -300,11 +302,11 @@
           analysis_status: "failed",
           analysis_error: "Failed to get status.",
         })); // Also update currentPolicy
-        currentDoc = {
-          ...currentDoc,
-          analysis_status: "failed",
-          analysis_error: "Failed to get status.",
-        }; // Update local for ReportView
+        // currentDoc = {
+        //   ...currentDoc,
+        //   analysis_status: "failed",
+        //   analysis_error: "Failed to get status.",
+        // }; // Update local for ReportView
         return;
       }
 
@@ -328,11 +330,11 @@
         analysis_status: newStatus,
         analysis_error: result.analysis_error,
       })); // Update currentPolicy store
-      currentDoc = {
-        ...currentDoc,
-        analysis_status: newStatus,
-        analysis_error: result.analysis_error,
-      }; // Update local for ReportView
+      // currentDoc = {
+      //   ...currentDoc,
+      //   analysis_status: newStatus,
+      //   analysis_error: result.analysis_error,
+      // }; // Update local for ReportView
 
       if (newStatus === "completed") {
         clearInterval(analysisPollingTimer);
@@ -364,11 +366,11 @@
         analysis_status: "failed",
         analysis_error: "Network error.",
       }));
-      currentDoc = {
-        ...currentDoc,
-        analysis_status: "failed",
-        analysis_error: "Network error.",
-      };
+      // currentDoc = {
+      //   ...currentDoc,
+      //   analysis_status: "failed",
+      //   analysis_error: "Network error.",
+      // };
     }
   }
 
@@ -399,11 +401,11 @@
           analysis_status: "failed",
           analysis_error: "Failed to retrieve analysis report data.",
         }));
-        currentDoc = {
-          ...currentDoc,
-          analysis_status: "failed",
-          analysis_error: "Failed to retrieve analysis report data.",
-        };
+        // currentDoc = {
+        //   ...currentDoc,
+        //   analysis_status: "failed",
+        //   analysis_error: "Failed to retrieve analysis report data.",
+        // };
         return;
       }
 
@@ -423,7 +425,7 @@
         // Important: Set the full analysis data to currentPolicy store and local currentDoc
         await tick(); // Ensure DOM updates are pending before setting full data
         currentPolicy.set(result.analysis_data);
-        currentDoc = result.analysis_data; // Also update local currentDoc for ReportView
+        // currentDoc = result.analysis_data; // Also update local currentDoc for ReportView
         analysisStatus = "completed"; // Ensure the global analysisStatus reflects completion
       } else {
         // This case should ideally not be hit if pollAnalysisStatus works correctly
@@ -438,11 +440,11 @@
           analysis_status: "failed",
           analysis_error: "Unexpected status when retrieving full report.",
         }));
-        currentDoc = {
-          ...currentDoc,
-          analysis_status: "failed",
-          analysis_error: "Unexpected status when retrieving full report.",
-        };
+        // currentDoc = {
+        //   ...currentDoc,
+        //   analysis_status: "failed",
+        //   analysis_error: "Unexpected status when retrieving full report.",
+        // };
       }
     } catch (error) {
       console.error("Error fetching analysis result:", error);
@@ -453,11 +455,11 @@
         analysis_status: "failed",
         analysis_error: "Network error while fetching analysis report.",
       }));
-      currentDoc = {
-        ...currentDoc,
-        analysis_status: "failed",
-        analysis_error: "Network error while fetching analysis report.",
-      };
+      // currentDoc = {
+      //   ...currentDoc,
+      //   analysis_status: "failed",
+      //   analysis_error: "Network error while fetching analysis report.",
+      // };
     }
   }
 
@@ -478,7 +480,7 @@
     // This will automatically cause currentPolicy.set(null) if the ended policy was selected
     policies = policies.filter((p) => p.id !== currentSessionId);
     currentPolicy.set(null); // Explicitly clear the selected policy in the store
-    currentDoc = null; // Clear ReportView content
+    // currentDoc = null; // Clear ReportView content
     currentSessionId = null; // Clear active session ID
 
     chatPanel = false; // Close chat panel as the session has ended and nothing new is selected
@@ -487,7 +489,7 @@
   // State Variables, Third Panel (Overview) - Original position
   let chatPanel = false;
   // Chat Logic - Original position
-  let currentDoc = null; // Will be set by loadPolicyData and displayAnalysisResult
+  // let currentDoc = null; // Will be set by loadPolicyData and displayAnalysisResult
 </script>
 
 <section>
@@ -606,7 +608,7 @@
               // This is a local frontend-only clear. Backend cleanup requires explicit calls.
               policies = policies.filter((p) => p.source === "preprocessed");
               currentPolicy.set(null); // Deselect any policy
-              currentDoc = null; // Clear ReportView content
+              // currentDoc = null; // Clear ReportView content
               currentSessionId = null; // Clear active session ID if it was a user upload
               analysisStatus = null; // Reset analysis status display
               analysisResultFetched = false;
@@ -656,7 +658,12 @@
         <div class="report-content">
           <!-- Report Header?
           <h1 style="text-align: center; position: absolute; width: 100%;">Equity Analysis Report</h1> -->
-          <ReportView {currentDoc} {analysisStatus} />
+          {#if $currentPolicy}
+            <!-- <ReportView {currentDoc} {analysisStatus} /> -->
+            <AnalysisView />
+          {:else}
+            <EmptyPage></EmptyPage>
+          {/if}
         </div>
       </div>
 
