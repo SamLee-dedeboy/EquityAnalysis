@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     MAX_OUTPUT_TOKENS: int = 1500 # Max tokens for LLM response generation
     MAX_NUM_RESULTS: int = 10 # Max results for file_search tool
     
-    SIMULATE_ANALYSIS: bool = True
+    SIMULATE_ANALYSIS: bool = False
 
     # Class configuration for Pydantic Settings
     class Config:

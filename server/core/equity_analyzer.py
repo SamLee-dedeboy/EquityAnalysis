@@ -7,7 +7,7 @@ import shutil
 import tempfile
 import textwrap
 import time
-import asyncio # <--- ADD THIS IMPORT
+import asyncio
 
 from typing import Dict, Any, List, Optional, Tuple
 from openai import OpenAI
@@ -26,9 +26,14 @@ from .rag_system import HybridRAGSystem
 logger = logging.getLogger("equity_analyzer")
 
 # --- Constants and JSON Skeleton (remain unchanged) ---
+# Define ANALYSES_DIR relative to equity_analyzer.py
+CURRENT_DIR = os.path.dirname(__file__)
+ANALYSES_DIR = os.path.join(CURRENT_DIR, "..", "policy_analyses") # <--- ADD THIS
+os.makedirs(ANALYSES_DIR, exist_ok=True) # Ensure it exists
+
 FOCUS_AREAS = ["general", "vulnerable_groups", "severity_of_impact", "mitigation_strategies"]
 ANALYSIS_QUERY_GENERIC = "Provide an equity analysis of this document, focusing on: {focus_description}"
-DELAY_BETWEEN_REQUESTS_SECONDS = 5
+DELAY_BETWEEN_REQUESTS_SECONDS = 1
 PERSPECTIVES = [
     {
         "group_name": "Policy Makers",
@@ -63,69 +68,71 @@ PERSPECTIVES = [
 ]
 JSON_SKELETON = """
 {
-  "document": {
-    "filename": "...",
-    "title": "...",
-    "size_kb": 0,
-    "upload_date_utc": "..."
-  },
-  "analysis_sections": {
-    "general_equity_assessment": {
-      "title": "General Equity Assessment",
-      "summary": "...",
-      "sources": [],
-      "recognitional_equity": { "title": "Recognitional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-      "procedural_equity": { "title": "Procedural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-      "distributional_equity": { "title": "Distributional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-      "structural_equity": { "title": "Structural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." }
-    },
-    "vulnerable_groups_analysis": {
-      "title": "Vulnerable Groups Analysis",
-      "summary": "...",
-      "identified_groups_and_impacts": "...",
-      "equity_assessment_summary": "...",
-      "conclusion": "...",
-      "sources": []
-    },
-    "severity_impact_analysis": {
-      "title": "Severity of Impact Analysis",
-      "summary": "...",
-      "high_severity_impacts": "...",
-      "moderate_severity_impacts": "...",
-      "equity_implications_of_impacts": "...",
-      "conclusion": "...",
-      "sources": []
-    },
-    "mitigation_strategies_analysis": {
-      "title": "Mitigation Strategies Analysis",
-      "summary": "...",
-      "identified_strategies": "...",
-      "equity_assessment": "...",
-      "conclusion": "...",
-      "sources": []
-    }
-  },
-  "equity_analysis_by_perspective": [
-    {
-      "group": "...",
-      "general_equity_assessment": {
+    "id": "...",
+    "source": "user",
+    "document": {
+        "filename": "...",
         "title": "...",
-        "narrative": "...",
+        "size_kb": 0,
+        "upload_date_utc": "..."
+    },
+    "analysis_sections": {
+        "general_equity_assessment": {
+        "title": "General Equity Assessment",
+        "summary": "...",
+        "sources": [],
+        "recognitional_equity": { "title": "Recognitional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+        "procedural_equity": { "title": "Procedural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+        "distributional_equity": { "title": "Distributional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+        "structural_equity": { "title": "Structural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." }
+        },
+        "vulnerable_groups_analysis": {
+        "title": "Vulnerable Groups Analysis",
+        "summary": "...",
+        "identified_groups_and_impacts": "...",
+        "equity_assessment_summary": "...",
+        "conclusion": "...",
         "sources": []
-      },
-      "recognitional_equity": { "description": "...", "sources": [] },
-      "procedural_equity": { "description": "...", "sources": [] },
-      "distributional_equity": { "description": "...", "sources": [] },
-      "structural_equity": { "description": "...", "sources": [] }
+        },
+        "severity_impact_analysis": {
+        "title": "Severity of Impact Analysis",
+        "summary": "...",
+        "high_severity_impacts": "...",
+        "moderate_severity_impacts": "...",
+        "equity_implications_of_impacts": "...",
+        "conclusion": "...",
+        "sources": []
+        },
+        "mitigation_strategies_analysis": {
+        "title": "Mitigation Strategies Analysis",
+        "summary": "...",
+        "identified_strategies": "...",
+        "equity_assessment": "...",
+        "conclusion": "...",
+        "sources": []
+        }
+    },
+    "equity_analysis_by_perspective": [
+        {
+        "group": "...",
+        "general_equity_assessment": {
+            "title": "...",
+            "narrative": "...",
+            "sources": []
+        },
+        "recognitional_equity": { "description": "...", "sources": [] },
+        "procedural_equity": { "description": "...", "sources": [] },
+        "distributional_equity": { "description": "...", "sources": [] },
+        "structural_equity": { "description": "...", "sources": [] }
+        }
+    ],
+    "overall_summary_and_recommendations": {
+        "title": "Overall Summary & Recommendations",
+        "key_equity_gaps": "...",
+        "key_equity_strengths": "...",
+        "recommendations": "...",
+        "sources": []
     }
-  ],
-  "overall_summary_and_recommendations": {
-    "title": "Overall Summary & Recommendations",
-    "key_equity_gaps": "...",
-    "key_equity_strengths": "...",
-    "recommendations": "...",
-    "sources": []
-  }
 }
 """
 
@@ -204,7 +211,8 @@ def _populate_sources_into_json(structured_data: Dict[str, Any], raw_analyses: D
 
 
 def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename: str, title: str,
-                              file_size_kb: int, upload_date_utc: str, client: OpenAI) -> Optional[Dict[str, Any]]:
+                            file_size_kb: int, upload_date_utc: str, client: OpenAI,
+                            session_id: str, source: str = "user") -> Optional[Dict[str, Any]]:
     """
     Synthesizes raw text analyses into the final structured JSON format.
     Sources are inserted *after* LLM generation, purely by Python.
@@ -273,6 +281,10 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
         json_output_str = response.choices[0].message.content
         structured_data = json.loads(json_output_str)
 
+        # Assign new top-level fields
+        structured_data["id"] = session_id # <--- ADD THIS
+        structured_data["source"] = source # <--- ADD THIS
+
         # Assign document metadata
         structured_data["document"]["filename"] = filename
         structured_data["document"]["title"] = title
@@ -288,6 +300,8 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
         logger.error(f"Error decoding JSON from OpenAI response during formatting: {e}. Response was: {json_output_str[:500]}...", exc_info=True)
         # Attempt to return a partial JSON indicating formatting failure and populate sources
         error_json = json.loads(JSON_SKELETON)
+        error_json["id"] = session_id # <--- ADD THIS
+        error_json["source"] = source # <--- ADD THIS
         error_json["document"]["filename"] = filename
         error_json["document"]["title"] = title
         error_json["document"]["size_kb"] = file_size_kb
@@ -300,6 +314,8 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
     except Exception as e:
         logger.error(f"Failed to format analyses into JSON for unknown reason: {e}", exc_info=True)
         error_json = json.loads(JSON_SKELETON)
+        error_json["id"] = session_id # <--- ADD THIS
+        error_json["source"] = source # <--- ADD THIS
         error_json["document"]["filename"] = filename
         error_json["document"]["title"] = title
         error_json["document"]["size_kb"] = file_size_kb
@@ -372,6 +388,8 @@ async def perform_equity_analysis(
             await asyncio.sleep(2) 
             
             dummy_json_result = {
+                "id": session_id,
+                "source": "user",
                 "document": {
                     "filename": original_filename,
                     "title": title or "Simulated Document Title",
@@ -514,7 +532,12 @@ async def perform_equity_analysis(
                         time.sleep(DELAY_BETWEEN_REQUESTS_SECONDS)
 
             # --- Synthesize all raw analyses text into final JSON structure (Python injects sources after) ---
-            final_json_result = format_analyses_into_json(raw_analyses, original_filename, title, file_size_kb, upload_date_utc, openai_interface_instance.client)
+            final_json_result = format_analyses_into_json(
+                raw_analyses, original_filename, title, file_size_kb, upload_date_utc,
+                openai_interface_instance.client,
+                session_id=session_id,
+                source="user"
+            )
             if not final_json_result:
                 raise Exception("Failed to synthesize the final JSON structure from raw analyses.")
 
