@@ -8,10 +8,15 @@
   import ReportView from "./_ReportView.svelte";
   import ChatPanel from "../lib/ChatPanel.svelte";
 
-  import { currentPolicy } from "../lib/stores/currentPolicy.js";
+  import {
+    currentPolicy,
+    fetchPolicies,
+    fetchPolicyDataById,
+  } from "../lib/stores/currentPolicy.js";
   import EmptyPage from "../lib/EmptyPage.svelte";
   import AnalysisView from "./AnalysisView.svelte";
 
+  import { server_address } from "../constants";
   let policies = []; // This will now be dynamically loaded and updated from the API
   let isUploading = false; // True if file upload/VS creation is in progress
   let analysisStatus = null; // 'pending', 'waiting_vs_processing', 'analysis_generating', 'completed', 'failed'
@@ -30,23 +35,30 @@
   // Function to load policies from the backend
   async function loadInitialPolicies() {
     try {
-      const res = await fetch("http://localhost:8000/api/policies");
-      if (res.ok) {
-        // Ensure that fetched policies have a default analysis_status if it's missing (e.g., for preprocessed)
-        policies = await res.json();
-        policies = policies.map((p) => ({
-          ...p,
-          analysis_status:
-            p.analysis_status ||
-            (p.source === "preprocessed" ? "completed" : "unknown"),
-        }));
-      } else {
-        console.error(
-          "Failed to load initial policies list:",
-          res.status,
-          await res.text()
-        );
-      }
+      policies = await fetchPolicies();
+      policies = policies.map((p) => ({
+        ...p,
+        analysis_status:
+          p.analysis_status ||
+          (p.source === "preprocessed" ? "completed" : "unknown"),
+      }));
+      // const res = await fetch(`${server_address}/api/policies`);
+      // if (res.ok) {
+      //   // Ensure that fetched policies have a default analysis_status if it's missing (e.g., for preprocessed)
+      //   policies = await res.json();
+      //   policies = policies.map((p) => ({
+      //     ...p,
+      //     analysis_status:
+      //       p.analysis_status ||
+      //       (p.source === "preprocessed" ? "completed" : "unknown"),
+      //   }));
+      // } else {
+      //   console.error(
+      //     "Failed to load initial policies list:",
+      //     res.status,
+      //     await res.text()
+      //   );
+      // }
     } catch (err) {
       console.error("Network error loading initial policies list:", err);
     }
@@ -71,35 +83,13 @@
       ) {
         try {
           // Fetch the full detailed data for display in ReportView
-          const res = await fetch(
-            `http://localhost:8000/api/policies/${policyId}`
-          );
-          if (res.ok) {
-            const fullPolicyData = await res.json();
-            currentPolicy.set(fullPolicyData); // Update store with full detailed data
-            // currentDoc = fullPolicyData; // Update local reference for ReportView
-            analysisStatus = "completed"; // Explicitly set status to completed for UI
-          } else {
-            console.error(
-              "Failed to load full policy data:",
-              res.status,
-              await res.text()
-            );
-            analysisStatus = "failed";
-            // Update the policy in store/local with error info
-            currentPolicy.update((p) => ({
-              ...p,
-              analysis_status: "failed",
-              analysis_error: "Failed to load report data.",
-            }));
-            // currentDoc = {
-            //   ...currentDoc,
-            //   analysis_status: "failed",
-            //   analysis_error: "Failed to load report data.",
-            // };
-          }
+          // const res = await fetch(`${server_address}/api/policies/${policyId}`);
+          const fullPolicyData = await fetchPolicyDataById(policyId);
+          currentPolicy.set(fullPolicyData); // Update store with full detailed data
+          // currentDoc = fullPolicyData; // Update local reference for ReportView
+          analysisStatus = "completed"; // Explicitly set status to completed for UI
         } catch (err) {
-          console.error("Network error loading full policy data:", err);
+          console.error("Error loading full policy data:", err);
           analysisStatus = "failed";
           currentPolicy.update((p) => ({
             ...p,
@@ -199,7 +189,7 @@
     // currentDoc = tempPolicyEntry; // Pass to ReportView for immediate display of loading state
 
     try {
-      const response = await fetch("http://localhost:8000/upload", {
+      const response = await fetch(`${server_address}/upload`, {
         method: "POST",
         body: formData,
       });
@@ -280,7 +270,7 @@
 
     try {
       const response = await fetch(
-        `http://localhost:8000/get_analysis_status/${sessionId}`
+        `${server_address}/get_analysis_status/${sessionId}`
       );
       if (!response.ok) {
         console.error("Polling error:", response.status, await response.text());
@@ -386,7 +376,7 @@
 
     try {
       const response = await fetch(
-        `http://localhost:8000/get_analysis_result/${sessionId}`
+        `${server_address}/get_analysis_result/${sessionId}`
       );
       if (!response.ok) {
         console.error(

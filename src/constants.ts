@@ -5,3 +5,5 @@ export const equity_colors = {
     Recognitional: "#FEB3B1",
     Transformational: "#FE6D73",
   };
+
+export const server_address = "http://localhost:8000";

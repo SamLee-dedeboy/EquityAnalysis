@@ -1,14 +1,22 @@
 <script>
+  import { onMount } from "svelte";
+
+  import { server_address } from "../constants.js";
   // Importing Local Module
   import InfoTab from "../lib/InfoTab.svelte";
 
   // Policies data
-  import { currentPolicy } from "../lib/stores/currentPolicy.js";
-  import policies from "../lib/data/structured.json";
+  import {
+    currentPolicy,
+    fetchPolicies,
+    fetchPolicyDataById,
+  } from "../lib/stores/currentPolicy.js";
+  // import policies from "../lib/data/structured.json";
 
   // State variables for modals
   let showInfo = false;
   let modalElement;
+  let policies = [];
 
   // Auto-focus modal when opened
   $: if (showInfo && modalElement) {
@@ -16,11 +24,16 @@
   }
 
   // State Variable from Store, Selection for Analysis Modal
-  function handleSelect(policy) {
+  async function handleSelect(policy) {
     console.log("Setting currentPolicy with:", policy);
-    currentPolicy.set(policy);
+    const policyData = await fetchPolicyDataById(policy.id);
+    currentPolicy.set(policyData);
     window.location.hash = "#/aview";
   }
+
+  onMount(async () => {
+    policies = await fetchPolicies();
+  });
 </script>
 
 <section>

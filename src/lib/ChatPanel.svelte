@@ -1,5 +1,5 @@
 <script>
-  import { createEventDispatcher, tick } from 'svelte';
+  import { createEventDispatcher, tick } from "svelte";
 
   // Props passed from Tool.svelte
   export let currentSessionId = null;
@@ -27,8 +27,8 @@
             </ul>
           </div>
         </div>
-      `
-    }
+      `,
+    },
   ];
   let isQuerying = false; // True when a query is being sent and a response awaited
   let noteAnalysisGeneratingDisplayed = false; // Flag to show "Note: Full analysis report..." only once per query
@@ -57,10 +57,13 @@
 
     // Display note about background analysis if it's still running
     if (analysisIsGenerating && !noteAnalysisGeneratingDisplayed) {
-        addMessage("Note: Full analysis report is still generating in the left panel. Your query will use the currently indexed document content.", "status");
-        noteAnalysisGeneratingDisplayed = true;
+      addMessage(
+        "Note: Full analysis report is still generating in the left panel. Your query will use the currently indexed document content.",
+        "status"
+      );
+      noteAnalysisGeneratingDisplayed = true;
     } else if (!analysisIsGenerating) {
-        noteAnalysisGeneratingDisplayed = false; // Reset flag if analysis is no longer generating
+      noteAnalysisGeneratingDisplayed = false; // Reset flag if analysis is no longer generating
     }
 
     // Add user message to chatbox
@@ -85,13 +88,15 @@
 
       if (!response.ok) {
         let errorMsg = `Server responded with an error: ${response.status}`;
-        try { const errData = await response.json(); errorMsg = errData.detail || errorMsg; } catch (e) {}
+        try {
+          const errData = await response.json();
+          errorMsg = errData.detail || errorMsg;
+        } catch (e) {}
         throw new Error(errorMsg);
       }
 
       const result = await response.json();
       addMessage(result.answer, "bot"); // No sources at this time
-
     } catch (error) {
       console.error("Query error:", error);
       addMessage(`An error occurred: ${error.message}`, "status");
@@ -117,7 +122,7 @@
 
       if (response.ok && result.success) {
         addMessage("Session ended. All resources cleaned up.", "status");
-        dispatch('endSession'); // Notify parent (Tool.svelte) to reset its state
+        dispatch("endSession"); // Notify parent (Tool.svelte) to reset its state
         // Reset ChatPanel's internal state
         inputText = "";
         messages = [
@@ -138,14 +143,17 @@
                   </ul>
                 </div>
               </div>
-            `
-          }
+            `,
+          },
         ];
         currentSessionId = null;
         analysisIsGenerating = false;
         noteAnalysisGeneratingDisplayed = false;
       } else {
-        addMessage(`Error ending session: ${result.message || "Unknown error."}`, "status");
+        addMessage(
+          `Error ending session: ${result.message || "Unknown error."}`,
+          "status"
+        );
       }
     } catch (error) {
       console.error("End session network error:", error);
@@ -167,45 +175,69 @@
   <div class="chat-content">
     <div class="chat-messages">
       {#each messages as message}
-        {#if message.type === 'bot-initial'}
+        {#if message.type === "bot-initial"}
           <!-- Render the initial complex bot message -->
           {@html message.contentHtml}
-        {:else if message.type === 'user'}
+        {:else if message.type === "user"}
           <!-- User message -->
-          <div style="display: flex; align-items: flex-end; margin-bottom: 24px; justify-content: flex-end;">
-            <div style="background:#e0e7ef;border-radius:12px;padding:18px 20px;max-width:420px;box-shadow:0 2px 8px rgba(0,0,0,0.04);color:#0F3C5F;">
+          <div
+            style="display: flex; align-items: flex-end; margin-bottom: 24px; justify-content: flex-end;"
+          >
+            <div
+              style="background:#e0e7ef;border-radius:12px;padding:18px 20px;max-width:420px;box-shadow:0 2px 8px rgba(0,0,0,0.04);color:#0F3C5F;"
+            >
               <p style="margin:0;">{message.content}</p>
             </div>
           </div>
-        {:else if message.type === 'bot'}
+        {:else if message.type === "bot"}
           <!-- Bot response message -->
-          <div style="display: flex; align-items: flex-start; margin-bottom: 24px;">
-            <div class="bot-avatar" style="height: 1.5em; width: 1.5em; background: var(--primary-interactive); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; overflow: hidden; min-width: 2.5em;">
-              <img src="public/botpic.png" alt="EquiFlow Logo" style="height: 1em; vertical-align: middle;">
+          <div
+            style="display: flex; align-items: flex-start; margin-bottom: 24px;"
+          >
+            <div
+              class="bot-avatar"
+              style="height: 1.5em; width: 1.5em; background: var(--primary-interactive); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; overflow: hidden; min-width: 2.5em;"
+            >
+              <img
+                src="public/botpic.png"
+                alt="EquiFlow Logo"
+                style="height: 1em; vertical-align: middle;"
+              />
             </div>
-            <div style="background:#f1f5fb;border-radius:12px;padding:18px 20px;max-width:420px;box-shadow:0 2px 8px rgba(0,0,0,0.04);color:#1f2937;">
+            <div
+              style="background:#f1f5fb;border-radius:12px;padding:18px 20px;max-width:420px;box-shadow:0 2px 8px rgba(0,0,0,0.04);color:#1f2937;"
+            >
               <p style="margin:0;">{message.content}</p>
             </div>
           </div>
-        {:else if message.type === 'status'}
+        {:else if message.type === "status"}
           <!-- Status message, centered with spinner if "Analyzing..." or "Ending session..." -->
-          <div style="display: flex; justify-content: center; margin-bottom: 12px;">
-            <div style="font-style: italic; color: #666; font-size: 0.9em; padding: 8px 15px; border-radius: 8px; background-color: #f8f8f8; display: flex; align-items: center; gap: 8px;">
-                {#if message.content.includes('Analyzing...') || message.content.includes('Ending session...')}
-                    <div class="spinner-small"></div>
-                {/if}
-                {message.content}
+          <div
+            style="display: flex; justify-content: center; margin-bottom: 12px;"
+          >
+            <div
+              style="font-style: italic; color: #666; font-size: 0.9em; padding: 8px 15px; border-radius: 8px; background-color: #f8f8f8; display: flex; align-items: center; gap: 8px;"
+            >
+              {#if message.content.includes("Analyzing...") || message.content.includes("Ending session...")}
+                <div class="spinner-small"></div>
+              {/if}
+              {message.content}
             </div>
           </div>
         {/if}
       {/each}
 
-      {#if isQuerying && messages.at(-1)?.type !== 'status'}
+      {#if isQuerying && messages.at(-1)?.type !== "status"}
         <!-- General "Analyzing..." status for current query if not already showing status -->
-        <div style="display: flex; justify-content: center; margin-bottom: 12px;">
-            <div style="font-style: italic; color: #666; font-size: 0.9em; padding: 8px 15px; border-radius: 8px; background-color: #f8f8f8; display: flex; align-items: center; gap: 8px;">
-                <div class="spinner-small"></div> Analyzing...
-            </div>
+        <div
+          style="display: flex; justify-content: center; margin-bottom: 12px;"
+        >
+          <div
+            style="font-style: italic; color: #666; font-size: 0.9em; padding: 8px 15px; border-radius: 8px; background-color: #f8f8f8; display: flex; align-items: center; gap: 8px;"
+          >
+            <div class="spinner-small"></div>
+            Analyzing...
+          </div>
         </div>
       {/if}
     </div>
@@ -214,9 +246,17 @@
   <!-- Analysis Focus Selector - HTML retained, value currently ignored for API calls -->
   <!-- Note: Styles applied via the global style tag for 'select' elements in templates.html if applicable. -->
   <div class="focus-area-selector" style="padding: 16px 32px 0 32px;">
-    <label for="analysis-focus" style="font-weight: bold; margin-right: 10px; color: #1f2937;">Select Analysis Focus:</label>
-    <select id="analysis-focus" name="analysis-focus" disabled={!currentSessionId || isQuerying}
-      style="padding: 10px 16px; border: 1px solid #ccc; border-radius: 999px; font-size: 14px; flex-grow: 1; height: 38px;">
+    <label
+      for="analysis-focus"
+      style="font-weight: bold; margin-right: 10px; color: #1f2937;"
+      >Select Analysis Focus:</label
+    >
+    <select
+      id="analysis-focus"
+      name="analysis-focus"
+      disabled={!currentSessionId || isQuerying}
+      style="padding: 10px 16px; border: 1px solid #ccc; border-radius: 999px; font-size: 14px; flex-grow: 1; height: 38px;"
+    >
       <option value="general">General COEQWAL Analysis</option>
       <option value="vulnerable_groups">Focus: Vulnerable Groups</option>
       <option value="severity_of_impact">Focus: Severity of Impact</option>
@@ -251,7 +291,10 @@
   </form>
 
   <!-- End Chat Button -->
-  <div class="end-chat-area" style="padding: 16px 32px; border-top: 1px solid #ddd; text-align: right;">
+  <div
+    class="end-chat-area"
+    style="padding: 16px 32px; border-top: 1px solid #ddd; text-align: right;"
+  >
     <button
       on:click={handleEndSession}
       disabled={!currentSessionId || isQuerying}
