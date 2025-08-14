@@ -755,8 +755,7 @@
     min-width: 65%;
     overflow: auto;
   }
-  .chat-panel {
-  }
+  
   .report-content {
     flex: 1;
     background: #f9fafb;

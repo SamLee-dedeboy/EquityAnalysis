@@ -111,7 +111,12 @@
 
 <style>
     /* --- Modal --- */
-    .modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4); z-index: 50; }
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 50;
+    }
     .modal {
       position: fixed;
       top: 50%;
@@ -131,45 +136,134 @@
       flex-direction: column;
       align-items: stretch;
     }
-    .modal-close-btn { position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; cursor: pointer; z-index: 101; padding: 0.5rem; border-radius: 50%; transition: background-color 0.2s ease; }
-    .modal-close-btn:hover { background-color: rgba(0, 0, 0, 0.1); }
-    .modal-close-btn img { height: 1.5rem; width: 1.5rem; display: block; }
-    /* --- Header --- */
-    .ef-head { margin-bottom: 1rem; }
-    .ef-head p { margin: 0; color: #000000; font-size: 0.95rem; text-align: center; }
-    /* --- Upload Area --- */
-    .upload-area { background-color: var(--primary-background); border: 2px dashed grey; border-radius: 8px; padding: 2rem; margin-top: 1.5rem; text-align: center; }
-    .upload-area p { text-align: center; }
-    .upload-area button {
-        background: var(--primary-interactive);
-        color: white;
-        margin-top: 1rem;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 8px;
-        padding: 0.5rem 1rem;
-        font-size: 1.1em;
-        font-weight: 500;
-        border: none;
-        cursor: pointer;
-        transition: background 0.2s;
-        box-shadow: none;
-        outline: none;
+    .modal-close-btn {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 101;
+      padding: 0.5rem;
+      border-radius: 50%;
+      transition: background-color 0.2s ease;
     }
-    .upload-area button:hover { background-color: var(--primary-interactive-hover); color: white; }
+    .modal-close-btn:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    .modal-close-btn img {
+      height: 1.5rem;
+      width: 1.5rem;
+      display: block;
+    }
+    /* --- Header --- */
+    .ef-head {
+      margin-bottom: 1rem;
+    }
+    .ef-head p {
+      margin: 0;
+      color: #000000;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+    /* --- Upload Area --- */
+    .upload-area {
+      background-color: var(--primary-background);
+      border: 2px dashed grey;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .upload-area p {
+      text-align: center;
+    }
+    .upload-area button {
+      background: var(--primary-interactive);
+      color: white;
+      margin-top: 1rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 1.1em;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: none;
+      outline: none;
+    }
+    .upload-area button:hover {
+      background-color: var(--primary-interactive-hover);
+      color: white;
+    }
 
-  /* Stepper */
-  .eq-stepper { --dot-size: 44px; --dot-bg: #c9d4de; --dot-border: #657b8c; --text: #111827; --arrow: #000; --gap: 28px; --font: 'Inter', sans-serif; }
-  .eq-stepper { display: flex; align-items: center; justify-content: center; gap: var(--gap); flex-wrap: wrap; font-family: var(--font); }
-  .eq-step { display: grid; grid-template-rows: auto auto; justify-items: center; row-gap: 8px; min-width: max-content; }
-  .eq-dot { width: var(--dot-size); height: var(--dot-size); border-radius: 999px; background: var(--dot-bg); border: 2px solid var(--dot-border); display: grid; place-items: center; font-weight: 700; color: #0b2239; line-height: 1; font-size: 1rem; }
-  .eq-label { color: var(--text); font-size: 0.95rem; text-align: center; white-space: nowrap; }
-  .eq-arrow svg { display: block; }
-  .eq-arrow line, .eq-arrow polyline { stroke: var(--arrow); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  @media (max-width: 560px) {
-    .eq-stepper { gap: 18px; }
-    .eq-label { font-size: 0.9rem; }
-    .eq-arrow svg { width: 48px; }
-  }
+    /* Stepper */
+    .eq-stepper {
+      --dot-size: 44px;
+      --dot-bg: #c9d4de;
+      --dot-border: #657b8c;
+      --text: #111827;
+      --arrow: #000;
+      --gap: 28px;
+      --font: 'Inter', sans-serif;
+    }
+    .eq-stepper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--gap);
+      flex-wrap: wrap;
+      font-family: var(--font);
+    }
+    .eq-step {
+      display: grid;
+      grid-template-rows: auto auto;
+      justify-items: center;
+      row-gap: 8px;
+      min-width: max-content;
+    }
+    .eq-dot {
+      width: var(--dot-size);
+      height: var(--dot-size);
+      border-radius: 999px;
+      background: var(--dot-bg);
+      border: 2px solid var(--dot-border);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #0b2239;
+      line-height: 1;
+      font-size: 1rem;
+    }
+    .eq-label {
+      color: var(--text);
+      font-size: 0.95rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .eq-arrow svg {
+      display: block;
+    }
+    .eq-arrow line,
+    .eq-arrow polyline {
+      stroke: var(--arrow);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    @media (max-width: 560px) {
+      .eq-stepper {
+        gap: 18px;
+      }
+      .eq-label {
+        font-size: 0.9rem;
+      }
+      .eq-arrow svg {
+        width: 48px;
+      }
+    }
 </style>

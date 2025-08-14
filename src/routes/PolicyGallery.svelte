@@ -171,23 +171,127 @@
 
 <style>
   /* --- Main Container --- */
-  .caption-1 { font-family: "Inter", sans-serif; font-size: 26px; text-align: center; margin-bottom: 2rem; max-width: 1100px; margin-left: auto; margin-right: auto; line-height: 1.8; /* background-color: #f3f3f3; */ color: var(--primary-text); border-radius: 8px; }
-  .caption-2 { font-family: "Inter", sans-serif; font-size: 1.5rem; font-weight: 500; color: var(--primary-text); text-align: center; margin-bottom: 1.2rem; letter-spacing: 0.02em; background-color: var(--primary-background); padding: 1rem 1rem; }
-  .quickef-btn { background: var(--primary-interactive); border: none; color: white; font-weight: 300; cursor: pointer; font-size: 1em; padding: 0.2em 0.5em; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.4rem; font-style: italic; }
-  .quickef-btn:hover { background: var(--primary-interactive-hover); color: white; }
-  .tool-button { position: absolute; top: 0.8rem; right: 1rem; background: var(--primary-interactive); background: 0.2s; color: white; border: none; border-radius: 8px; padding: 0.5rem 1rem; font-size: 1.1em; font-family: "Inter", sans-serif; font-weight: 500; cursor: pointer; z-index: 10; display: inline-flex; align-items: center; gap: 0.5rem; }
-  .tool-button:hover { background: var(--primary-interactive-hover); color: white; }
+  .caption-1 {
+    font-family: "Inter", sans-serif;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+    /* background-color: #f3f3f3; */
+    color: var(--primary-text);
+    border-radius: 8px;
+  }
+  .caption-2 {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--primary-text);
+    text-align: center;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.02em;
+    background-color: var(--primary-background);
+    padding: 1rem 1rem;
+  }
+  .quickef-btn {
+    background: var(--primary-interactive);
+    border: none;
+    color: white;
+    font-weight: 300;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 0.2em 0.5em;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-style: italic;
+  }
+  .quickef-btn:hover {
+    background: var(--primary-interactive-hover);
+    color: white;
+  }
+  .tool-button {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    background: var(--primary-interactive);
+    background: 0.2s;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 1.1em;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .tool-button:hover {
+    background: var(--primary-interactive-hover);
+    color: white;
+  }
 
   /* --- Grid, Policy Cards --- */
-  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; padding-left: 2rem; padding-right: 2rem; align-items: stretch; font-family: "Inter", sans-serif; }
-  .card-grid > .card { min-height: 240px; position: relative; background: var(--primary-background); padding: 1rem; border-radius: 11px; box-shadow: 0 3px 8px -2px rgba(0, 0, 0, 0.32); transition: transform 0.2s ease; display: flex; flex-direction: column; align-items: center; justify-self: center; font-size: 1.05rem; cursor: pointer; }
-  .card-grid > .card:hover { transform: scale(1.015); outline: 2px solid var(--primary-interactive); }
-  .card-grid > .card h3 { text-align: center; margin-top: 0.5em; padding-bottom: 0.5em; width: 100%; border-bottom: 2px solid var(--primary-interactive); }
-  .card-grid > .card p { text-align: center; }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    align-items: stretch;
+    font-family: "Inter", sans-serif;
+  }
+  .card-grid > .card {
+    min-height: 240px;
+    position: relative;
+    background: var(--primary-background);
+    padding: 1rem;
+    border-radius: 11px;
+    box-shadow: 0 3px 8px -2px rgba(0, 0, 0, 0.32);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    font-size: 1.05rem;
+    cursor: pointer;
+  }
+  .card-grid > .card:hover {
+    transform: scale(1.015);
+    outline: 2px solid var(--primary-interactive);
+  }
+  .card-grid > .card h3 {
+    text-align: center;
+    margin-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 100%;
+    border-bottom: 2px solid var(--primary-interactive);
+  }
+  .card-grid > .card p {
+    text-align: center;
+  }
   /* --- ./Outline Card --- */
-  .add-button { border: none; outline: 2px dashed #0c8ba7; background: #f8fafc; }
-  #oc-plus { width: 3.5em; height: 3.5em; border-radius: 50%; background: #0c8ba7; display: flex; align-items: center; justify-content: center; margin-bottom: 1em; }
-
+  .add-button {
+    border: none;
+    outline: 2px dashed #0c8ba7;
+    background: #f8fafc;
+  }
+  #oc-plus {
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    background: #0c8ba7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+  }
 </style>
 
 
