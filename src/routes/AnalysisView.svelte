@@ -4,18 +4,9 @@
   import InfoTab from "../lib/InfoTab.svelte";
   import { slide, fade } from "svelte/transition";
 
-  // import { equity_colors } from "../constants";
-  // // (WIP) Temporarily import currentPolicy from PolicyGallery
+  // Import Store Variable
   import { currentPolicy } from "../lib/stores/currentPolicy.js";
-  // // currentPolicy Store Variable
-  // import analysis from "../lib/data/structured.json";
 
-  // Hardcoded data for testing
-  // Automatically subscribe to store
-  // let general;
-  // $: matchedPolicy = analysis.find(
-  //   (item) => item.document.filename === $currentPolicy?.document?.filename
-  // );
   export const equity_colors = {
     Procedural: "#227C9D",
     Structural: "#17C3B2",
@@ -71,6 +62,7 @@
   let activeTab = "general_equity_assessment";
   $: general = $currentPolicy["analysis_sections"];
   $: console.log("Current Policy Analysis Data:", $currentPolicy);
+  
 </script>
 
 <section>
@@ -131,7 +123,7 @@
                   <div class="box">
                     <strong
                       ><img
-                        src="public/green-dot.png"
+                        src="public/green-dot.svg"
                         alt="Positive Findings"
                         style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
                       /> Positive Findings</strong
@@ -143,7 +135,7 @@
                   <div class="box">
                     <strong
                       ><img
-                        src="public/red-dot.png"
+                        src="public/red-dot.svg"
                         alt="Areas of Concern"
                         style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
                       /> Areas of Concern</strong

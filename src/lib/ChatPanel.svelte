@@ -14,8 +14,8 @@
       type: "bot-initial",
       contentHtml: `
         <div style="display: flex; align-items: flex-start; margin-bottom: 24px;">
-          <div class="bot-avatar" style="height: 1.5em; width: 1.5em; background: var(--primary-interactive); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; overflow: hidden; min-width: 2.5em;">
-            <img src="public/botpic.png" alt="EquiFlow Logo" style="height: 1em; vertical-align: middle;">
+          <div class="bot-avatar" style="aspect-ratio: 1/1; width: 2.5em; height: 2.5em; background: var(--primary-interactive); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; overflow: hidden; min-width: 2.5em;">
+            <img src="public/botpic.svg" alt="EquiFlow Logo" style="height: 1.5em; width: 1.5em; object-fit: contain; vertical-align: middle;">
           </div>
           <div style="background:#f1f5fb;border-radius:12px;padding:18px 20px;max-width:420px;box-shadow:0 2px 8px rgba(0,0,0,0.04);color:#1f2937;">
             <strong>Hello! I'm EquiFlow, your AI assistant for policy equity analysis.</strong>
@@ -131,7 +131,7 @@
             contentHtml: `
               <div style="display: flex; align-items: flex-start; margin-bottom: 24px;">
                 <div class="bot-avatar" style="height: 1.5em; width: 1.5em; background: var(--primary-interactive); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; overflow: hidden; min-width: 2.5em;">
-                  <img src="public/botpic.png" alt="EquiFlow Logo" style="height: 1em; vertical-align: middle;">
+                  <img src="public/botpic.svg" alt="EquiFlow Logo" style="height: 1em; vertical-align: middle;">
                 </div>
                 <div style="background:#f1f5fb;border-radius:12px;padding:18px 20px;max-width:420px;box-shadow:0 2px 8px rgba(0,0,0,0.04);color:#1f2937;">
                   <strong>Hello! I'm EquiFlow, your AI assistant for policy equity analysis.</strong>
@@ -199,7 +199,7 @@
               style="height: 1.5em; width: 1.5em; background: var(--primary-interactive); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; overflow: hidden; min-width: 2.5em;"
             >
               <img
-                src="public/botpic.png"
+                src="public/botpic.svg"
                 alt="EquiFlow Logo"
                 style="height: 1em; vertical-align: middle;"
               />
@@ -283,9 +283,9 @@
       disabled={!currentSessionId || isQuerying || !inputText.trim()}
     >
       <img
-        src="public/rhs-arrow.png"
+        src="public/rhs-arrow.svg"
         alt="Send"
-        style="height: 1em; vertical-align: middle;"
+        style="height: .8em; width: .8em; vertical-align: middle; margin-left: 0.3em;"
       />
     </button>
   </form>

@@ -3,9 +3,10 @@
 /* Color Variables */
 :root {
   --primary-interactive: #0c395a;
+  --primary-interactive-hover: #1a2547;
+  
   --primary-background: #0c8ba71c;
   --primary-text: #3f3f3f;
-  --primary-interactive-hover: #1a2547;
   --equity-color-procedural: #227C9D;
   --equity-color-structural: #17C3B2;
   --equity-color-distributional: #FFCB77;

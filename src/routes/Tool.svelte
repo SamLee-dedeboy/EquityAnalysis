@@ -4,7 +4,6 @@
 
   // Importing Local Modules
   import LogoBar from "../lib/LogoBar.svelte";
-  import BackButton from "../lib/BackButton.svelte";
   import ReportView from "./_ReportView.svelte";
   import ChatPanel from "../lib/ChatPanel.svelte";
 
@@ -27,10 +26,10 @@
   const ANALYSIS_POLLING_INTERVAL_MS = 5000; // Poll every 5 seconds for analysis status
 
   // --- Lifecycle Hook ---
-  onMount(async () => {
-    currentPolicy.set(null); // Clear any previous selection when component mounts
-    await loadInitialPolicies(); // Load existing policies from API
-  });
+  // onMount(async () => {
+  //   currentPolicy.set(null); // Clear any previous selection when component mounts
+  //   await loadInitialPolicies(); // Load existing policies from API
+  // });
 
   // Function to load policies from the backend
   async function loadInitialPolicies() {
@@ -480,6 +479,7 @@
   let chatPanel = false;
   // Chat Logic - Original position
   // let currentDoc = null; // Will be set by loadPolicyData and displayAnalysisResult
+
 </script>
 
 <section>
@@ -492,14 +492,7 @@
 
     <!-- (1) Panel, Sidebar -->
     <aside class="sidebar">
-      <!-- <div
-        style="position:absolute;top:4px;right:4px;z-index:1000; pointer-events: none; width:320px; display:flex; justify-content:flex-end;"
-      >
-        <div style="pointer-events: auto;">
-          <BackButton />
-        </div>
-      </div> -->
-      <!-- <h2>Document Analysis</h2> -->
+
       <!-- (1.1) Upload Button -->
       <label
         class="upload-button"
@@ -507,7 +500,7 @@
         style="display:flex;align-items:center;gap:6px;padding:8px 10px; min-width:100%; width:100%; justify-content:center; cursor:pointer;"
       >
         <img
-          src="public/docup-btn.png"
+          src="public/docup.svg"
           alt="Upload"
           style="width:18px;height:18px;"
         />
@@ -795,3 +788,4 @@
     background: #0d304f;
   }
 </style>
+
