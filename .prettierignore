@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+dist/
+build/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Cache directories
+.cache/
+.vscode/
+.DS_Store
+
+# Server-side files (Python)
+server/
+*.py
+*.pyc
+__pycache__/
+
+# PDF files
+*.pdf
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.production

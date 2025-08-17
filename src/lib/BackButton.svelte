@@ -1,6 +1,6 @@
 <script>
   // You can optionally pass a custom hash/route
-  export let destination = "#/";
+  export let destination = '#/';
 </script>
 
 <button
@@ -26,7 +26,7 @@
     border-radius: 8px;
     padding: 0.7em 1em 0.7em 0.7em; /* reduced left padding */
     font-size: 1.1em;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     cursor: pointer;
     z-index: 10;

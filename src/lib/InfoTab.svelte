@@ -6,7 +6,7 @@
   <button
     class="info-tab"
     type="button"
-    on:click={() => (window.location.hash = "#/info")}
+    on:click={() => (window.location.hash = '#/info')}
   >
     <img
       class="it-icon"

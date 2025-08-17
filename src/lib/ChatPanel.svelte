@@ -1,17 +1,17 @@
 <script>
-  import { createEventDispatcher, tick } from "svelte";
+  import { createEventDispatcher, tick } from 'svelte';
 
   // Props passed from Tool.svelte
   export let currentSessionId = null;
   export let analysisIsGenerating = false; // True if the background analysis is still running
 
   // Internal state for the chat panel
-  let inputText = "";
+  let inputText = '';
   // Messages array to store chat history
   let messages = [
     // The initial bot message with its original HTML structure, flagged as raw HTML
     {
-      type: "bot-initial",
+      type: 'bot-initial',
       contentHtml: `
         <div style="display: flex; align-items: flex-start; margin-bottom: 24px;">
           <div class="bot-avatar" style="aspect-ratio: 1/1; width: 2.5em; height: 2.5em; background: var(--primary-interactive); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; overflow: hidden; min-width: 2.5em;">
@@ -36,10 +36,10 @@
   const dispatch = createEventDispatcher();
 
   // Function to dynamically add messages to the chatbox
-  async function addMessage(content, type = "status") {
+  async function addMessage(content, type = 'status') {
     messages = [...messages, { type, content }];
     await tick(); // Wait for DOM update to ensure scrollHeight is correct
-    const chatboxElement = document.querySelector(".chat-messages");
+    const chatboxElement = document.querySelector('.chat-messages');
     if (chatboxElement) {
       chatboxElement.scrollTop = chatboxElement.scrollHeight; // Scroll to bottom
     }
@@ -48,7 +48,7 @@
   // Handle user query submission
   async function handleSubmitQuery() {
     const query = inputText.trim();
-    const focusAreaValue = "general"; // Always send as 'general' for now
+    const focusAreaValue = 'general'; // Always send as 'general' for now
     const customInstructions = null;
 
     if (!query || !currentSessionId || isQuerying) {
@@ -58,8 +58,8 @@
     // Display note about background analysis if it's still running
     if (analysisIsGenerating && !noteAnalysisGeneratingDisplayed) {
       addMessage(
-        "Note: Full analysis report is still generating in the left panel. Your query will use the currently indexed document content.",
-        "status"
+        'Note: Full analysis report is still generating in the left panel. Your query will use the currently indexed document content.',
+        'status'
       );
       noteAnalysisGeneratingDisplayed = true;
     } else if (!analysisIsGenerating) {
@@ -67,8 +67,8 @@
     }
 
     // Add user message to chatbox
-    addMessage(query, "user"); // Original design had no "Focus: General Analysis" text for user message
-    inputText = ""; // Clear input field
+    addMessage(query, 'user'); // Original design had no "Focus: General Analysis" text for user message
+    inputText = ''; // Clear input field
 
     isQuerying = true; // Set querying state to true
 
@@ -80,9 +80,9 @@
     };
 
     try {
-      const response = await fetch("http://localhost:8000/query", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('http://localhost:8000/query', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
 
@@ -96,10 +96,10 @@
       }
 
       const result = await response.json();
-      addMessage(result.answer, "bot"); // No sources at this time
+      addMessage(result.answer, 'bot'); // No sources at this time
     } catch (error) {
-      console.error("Query error:", error);
-      addMessage(`An error occurred: ${error.message}`, "status");
+      console.error('Query error:', error);
+      addMessage(`An error occurred: ${error.message}`, 'status');
     } finally {
       isQuerying = false; // Reset querying state
     }
@@ -109,25 +109,25 @@
   async function handleEndSession() {
     if (!currentSessionId || isQuerying) return;
 
-    addMessage("Ending session...", "status");
+    addMessage('Ending session...', 'status');
     isQuerying = true; // Temporarily disable inputs
 
     try {
-      const response = await fetch("http://localhost:8000/end-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('http://localhost:8000/end-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ session_id: currentSessionId }),
       });
       const result = await response.json();
 
       if (response.ok && result.success) {
-        addMessage("Session ended. All resources cleaned up.", "status");
-        dispatch("endSession"); // Notify parent (Tool.svelte) to reset its state
+        addMessage('Session ended. All resources cleaned up.', 'status');
+        dispatch('endSession'); // Notify parent (Tool.svelte) to reset its state
         // Reset ChatPanel's internal state
-        inputText = "";
+        inputText = '';
         messages = [
           {
-            type: "bot-initial",
+            type: 'bot-initial',
             contentHtml: `
               <div style="display: flex; align-items: flex-start; margin-bottom: 24px;">
                 <div class="bot-avatar" style="height: 1.5em; width: 1.5em; background: var(--primary-interactive); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; overflow: hidden; min-width: 2.5em;">
@@ -151,13 +151,13 @@
         noteAnalysisGeneratingDisplayed = false;
       } else {
         addMessage(
-          `Error ending session: ${result.message || "Unknown error."}`,
-          "status"
+          `Error ending session: ${result.message || 'Unknown error.'}`,
+          'status'
         );
       }
     } catch (error) {
-      console.error("End session network error:", error);
-      addMessage("Network or server error during session end.", "status");
+      console.error('End session network error:', error);
+      addMessage('Network or server error during session end.', 'status');
     } finally {
       isQuerying = false;
     }
@@ -175,10 +175,10 @@
   <div class="chat-content">
     <div class="chat-messages">
       {#each messages as message}
-        {#if message.type === "bot-initial"}
+        {#if message.type === 'bot-initial'}
           <!-- Render the initial complex bot message -->
           {@html message.contentHtml}
-        {:else if message.type === "user"}
+        {:else if message.type === 'user'}
           <!-- User message -->
           <div
             style="display: flex; align-items: flex-end; margin-bottom: 24px; justify-content: flex-end;"
@@ -189,7 +189,7 @@
               <p style="margin:0;">{message.content}</p>
             </div>
           </div>
-        {:else if message.type === "bot"}
+        {:else if message.type === 'bot'}
           <!-- Bot response message -->
           <div
             style="display: flex; align-items: flex-start; margin-bottom: 24px;"
@@ -210,7 +210,7 @@
               <p style="margin:0;">{message.content}</p>
             </div>
           </div>
-        {:else if message.type === "status"}
+        {:else if message.type === 'status'}
           <!-- Status message, centered with spinner if "Analyzing..." or "Ending session..." -->
           <div
             style="display: flex; justify-content: center; margin-bottom: 12px;"
@@ -218,7 +218,7 @@
             <div
               style="font-style: italic; color: #666; font-size: 0.9em; padding: 8px 15px; border-radius: 8px; background-color: #f8f8f8; display: flex; align-items: center; gap: 8px;"
             >
-              {#if message.content.includes("Analyzing...") || message.content.includes("Ending session...")}
+              {#if message.content.includes('Analyzing...') || message.content.includes('Ending session...')}
                 <div class="spinner-small"></div>
               {/if}
               {message.content}
@@ -227,7 +227,7 @@
         {/if}
       {/each}
 
-      {#if isQuerying && messages.at(-1)?.type !== "status"}
+      {#if isQuerying && messages.at(-1)?.type !== 'status'}
         <!-- General "Analyzing..." status for current query if not already showing status -->
         <div
           style="display: flex; justify-content: center; margin-bottom: 12px;"

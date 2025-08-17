@@ -4,26 +4,27 @@
 :root {
   --primary-interactive: #0c395a;
   --primary-interactive-hover: #1a2547;
-  
+
   --primary-background: #0c8ba71c;
   --primary-text: #3f3f3f;
-  --equity-color-procedural: #227C9D;
-  --equity-color-structural: #17C3B2;
-  --equity-color-distributional: #FFCB77;
-  --equity-color-recognitional: #FEB3B1;
-  --equity-color-transformational: #FE6D73;
+  --equity-color-procedural: #227c9d;
+  --equity-color-structural: #17c3b2;
+  --equity-color-distributional: #ffcb77;
+  --equity-color-recognitional: #feb3b1;
+  --equity-color-transformational: #fe6d73;
 }
 
 /* Reset margins/padding */
-body, html { 
-    margin: 0; 
-    padding: 0; 
-    color: var(--primary-text);
+body,
+html {
+  margin: 0;
+  padding: 0;
+  color: var(--primary-text);
 }
-* { 
-    box-sizing: border-box; 
+* {
+  box-sizing: border-box;
 }
 
- button {
-    cursor: pointer;
- }
+button {
+  cursor: pointer;
+}

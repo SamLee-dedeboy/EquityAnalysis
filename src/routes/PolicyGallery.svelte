@@ -1,19 +1,18 @@
 <script>
-  
-  import { onMount } from "svelte";
-  import { server_address } from "../constants.js";
-  
+  import { onMount } from 'svelte';
+  import { server_address } from '../constants.js';
+
   // Importing Local Module
-  import InfoTab from "../lib/InfoTab.svelte";
-  import InfoModal from "../lib/pg-modals/InfoModal.svelte";
-  import DocUpModal from "../lib/pg-modals/DocUpModal.svelte";
+  import InfoTab from '../lib/InfoTab.svelte';
+  import InfoModal from '../lib/pg-modals/InfoModal.svelte';
+  import DocUpModal from '../lib/pg-modals/DocUpModal.svelte';
 
   // Policies data
   import {
     currentPolicy,
     fetchPolicies,
     fetchPolicyDataById,
-  } from "../lib/stores/currentPolicy.js";
+  } from '../lib/stores/currentPolicy.js';
 
   // State variables for modals
   let showInfo = false; // Info modal state
@@ -24,11 +23,36 @@
 
   // ---- Equity Framework modal content state (for Info modal) ----
   const efItems = [
-    { id: "procedural", label: "Procedural", def: "Fair and inclusive processes in policy development, implementation, and enforcement. Ensures all stakeholders have meaningful participation opportunities.", color: "var(--equity-color-procedural)" },
-    { id: "structural", label: "Structural", def: "Addresses underlying systems and institutions that create inequities. Focuses on reforming organizational structures, legal frameworks, and policies that systematically advantage some groups.", color: "var(--equity-color-structural)" },
-    { id: "distributional", label: "Distributional", def: "Fair allocation of benefits, burdens, and resources. Examines who gets what, when, and how in policy outcomes.", color: "var(--equity-color-distributional)" },
-    { id: "recognitional", label: "Recognitional", def: "Recognition of historical, cultural, and social contexts that shape communities’ relationships with water resources and governance.", color: "var(--equity-color-recognitional)" },
-    { id: "transformational", label: "Transformational", def: "Reimagines systems to center equity from the ground up, creating new approaches rather than marginal fixes.", color: "var(--equity-color-transformational)" }
+    {
+      id: 'procedural',
+      label: 'Procedural',
+      def: 'Fair and inclusive processes in policy development, implementation, and enforcement. Ensures all stakeholders have meaningful participation opportunities.',
+      color: 'var(--equity-color-procedural)',
+    },
+    {
+      id: 'structural',
+      label: 'Structural',
+      def: 'Addresses underlying systems and institutions that create inequities. Focuses on reforming organizational structures, legal frameworks, and policies that systematically advantage some groups.',
+      color: 'var(--equity-color-structural)',
+    },
+    {
+      id: 'distributional',
+      label: 'Distributional',
+      def: 'Fair allocation of benefits, burdens, and resources. Examines who gets what, when, and how in policy outcomes.',
+      color: 'var(--equity-color-distributional)',
+    },
+    {
+      id: 'recognitional',
+      label: 'Recognitional',
+      def: 'Recognition of historical, cultural, and social contexts that shape communities’ relationships with water resources and governance.',
+      color: 'var(--equity-color-recognitional)',
+    },
+    {
+      id: 'transformational',
+      label: 'Transformational',
+      def: 'Reimagines systems to center equity from the ground up, creating new approaches rather than marginal fixes.',
+      color: 'var(--equity-color-transformational)',
+    },
   ];
 
   // multi‑expand: which rows are open
@@ -46,20 +70,22 @@
 
   // State Variable from Store, Selection for Analysis Modal
   async function handleSelect(policy) {
-    console.log("Setting currentPolicy with:", policy);
+    console.log('Setting currentPolicy with:', policy);
     const policyData = await fetchPolicyDataById(policy.id);
     currentPolicy.set(policyData);
-    window.location.hash = "#/aview";
+    window.location.hash = '#/aview';
   }
 
   onMount(async () => {
     policies = await fetchPolicies();
   });
-
 </script>
 
 <section>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
 
   <!-- (0) Info Tab -->
   <InfoTab />
@@ -67,7 +93,7 @@
   <!-- (1) Tool Button -->
   <button
     class="tool-button"
-    on:click={() => (window.location.hash = "#/tool")}
+    on:click={() => (window.location.hash = '#/tool')}
   >
     <img src="magic-wand.svg" alt="Tool Icon" style="height: 1rem;" />
     Equiflow AI
@@ -119,7 +145,7 @@
         role="button"
         tabindex="0"
         on:click={() => handleSelect(policy)}
-        on:keydown={(e) => e.key === "Enter" && handleSelect(policy)}
+        on:keydown={e => e.key === 'Enter' && handleSelect(policy)}
       >
         <h3>{policy.document.title}</h3>
         <p>{policy.document.description}</p>
@@ -149,7 +175,8 @@
       <!-- Text -->
       <div style="text-align: center;">
         <span style="font-size: 1.1em; color: #0C8BA7; font-weight: 500;"
-          >Add Policy</span>
+          >Add Policy</span
+        >
         <p style="font-size: 0.95em; color: #444; margin-top: 0.5em;">
           Upload a new policy for equity analysis
         </p>
@@ -163,16 +190,15 @@
     <InfoModal on:close={() => (showInfo = false)} />
   {/if}
   <!-- ii. Upload Modal, Document Loading for Tool -->
-  {#if docUp} 
+  {#if docUp}
     <DocUpModal on:close={() => (docUp = false)} />
   {/if}
-
 </section>
 
 <style>
   /* --- Main Container --- */
   .caption-1 {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 26px;
     text-align: center;
     margin-bottom: 2rem;
@@ -185,7 +211,7 @@
     border-radius: 8px;
   }
   .caption-2 {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--primary-text);
@@ -224,7 +250,7 @@
     border-radius: 8px;
     padding: 0.5rem 1rem;
     font-size: 1.1em;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     cursor: pointer;
     z-index: 10;
@@ -245,7 +271,7 @@
     padding-left: 2rem;
     padding-right: 2rem;
     align-items: stretch;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
   }
   .card-grid > .card {
     min-height: 240px;
@@ -293,5 +319,3 @@
     margin-bottom: 1em;
   }
 </style>
-
-

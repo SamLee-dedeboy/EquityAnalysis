@@ -1,111 +1,136 @@
 <script>
-    import html2pdf from 'html2pdf.js';
+  import html2pdf from 'html2pdf.js';
 
-    export let policyId;
-    export let reportContentElement;
+  export let policyId;
+  export let reportContentElement;
 
-    let isExporting = false;
+  let isExporting = false;
 
-    async function exportToPdf() {
-        if (!reportContentElement) {
-            console.error("Report content element not found for PDF export.");
-            alert("Report content not found for export. Please ensure a document is selected.");
-            return;
-        }
-
-        isExporting = true;
-
-        let filename = `equity_analysis_report_${policyId || 'unknown'}.pdf`;
-        if (reportContentElement.querySelector('h1')) {
-            filename = reportContentElement.querySelector('h1').textContent.trim().replace(/[^a-z0-9]/gi, '_').toLowerCase() + '_equity_analysis.pdf';
-        } else if (reportContentElement.querySelector('p strong')) {
-            filename = reportContentElement.querySelector('p strong').textContent.trim().replace(/[^a-z0-9]/gi, '_').toLowerCase() + '_equity_analysis.pdf';
-        }
-
-        const opt = {
-            margin:       [0.75, 0.5, 0.75, 0.5], // Slightly more top/bottom margin
-            filename:     filename,
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  {
-                scale: 2, // Keep scale at 2 or 3 for good resolution
-                logging: true,
-                useCORS: true, // Important if you have images from different origins
-                scrollY: 0, // Start capturing from the very top
-                // Attempt to capture the full scrollable height
-                windowHeight: reportContentElement.scrollHeight,
-                windowWidth: reportContentElement.scrollWidth,
-            },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' },
-            pagebreak: {
-                // Try different modes. 'css' respects CSS page-break-before/after
-                // 'avoid-all' tries to prevent breaks inside elements.
-                // You might need to add CSS like page-break-after: always; to specific elements if this isn't enough.
-                mode: ['css', 'avoid-all', 'legacy']
-            }
-        };
-
-        // --- Critical adjustment: Temporarily remove overflow properties from parents ---
-        // This is often the trickiest part. You need to identify the parent elements
-        // that limit the height (e.g., body, .screen-layout, .report-panel, .report-content)
-        // and temporarily remove their height/overflow constraints.
-
-        const originalReportWrapperStyle = reportContentElement.style.cssText;
-        const parentReportPanel = reportContentElement.parentElement; // .report-content
-        const grandParentReportChatContainer = parentReportPanel ? parentReportPanel.parentElement : null; // .report-panel
-        const greatGrandParentScreenLayout = grandParentReportChatContainer ? grandParentReportChatContainer.parentElement : null; // .screen-layout
-
-        const originalParentReportPanelStyle = parentReportPanel ? parentReportPanel.style.cssText : '';
-        const originalGrandParentReportChatContainerStyle = grandParentReportChatContainer ? grandParentReportChatContainer.style.cssText : '';
-        const originalGreatGrandParentScreenLayoutStyle = greatGrandParentScreenLayout ? greatGrandParentScreenLayout.style.cssText : '';
-        
-        // Apply temporary styles
-        if (reportContentElement) {
-            reportContentElement.style.overflowY = 'visible';
-            reportContentElement.style.height = 'auto';
-            reportContentElement.style.maxHeight = 'none';
-        }
-        if (parentReportPanel) {
-            parentReportPanel.style.overflowY = 'visible';
-            parentReportPanel.style.height = 'auto';
-            parentReportPanel.style.maxHeight = 'none';
-        }
-        // These might be overkill or cause layout shifts, but for capture:
-        if (grandParentReportChatContainer) {
-            grandParentReportChatContainer.style.overflow = 'visible';
-            grandParentReportChatContainer.style.height = 'auto';
-            grandParentReportChatContainer.style.maxHeight = 'none';
-        }
-        if (greatGrandParentScreenLayout) {
-            greatGrandParentScreenLayout.style.overflow = 'visible';
-            greatGrandParentScreenLayout.style.height = 'auto';
-            greatGrandParentScreenLayout.style.maxHeight = 'none';
-        }
-
-
-        try {
-            await html2pdf().set(opt).from(reportContentElement).save();
-            console.log("PDF export successful!");
-        } catch (error) {
-            console.error("PDF export failed:", error);
-            alert("Failed to export PDF. Please try again.");
-        } finally {
-            // --- Restore original styles ---
-            if (reportContentElement) {
-                reportContentElement.style.cssText = originalReportWrapperStyle;
-            }
-            if (parentReportPanel) {
-                parentReportPanel.style.cssText = originalParentReportPanelStyle;
-            }
-            if (grandParentReportChatContainer) {
-                grandParentReportChatContainer.style.cssText = originalGrandParentReportChatContainerStyle;
-            }
-             if (greatGrandParentScreenLayout) {
-                greatGrandParentScreenLayout.style.cssText = originalGreatGrandParentScreenLayoutStyle;
-            }
-
-            isExporting = false;
-        }
+  async function exportToPdf() {
+    if (!reportContentElement) {
+      console.error('Report content element not found for PDF export.');
+      alert(
+        'Report content not found for export. Please ensure a document is selected.'
+      );
+      return;
     }
+
+    isExporting = true;
+
+    let filename = `equity_analysis_report_${policyId || 'unknown'}.pdf`;
+    if (reportContentElement.querySelector('h1')) {
+      filename =
+        reportContentElement
+          .querySelector('h1')
+          .textContent.trim()
+          .replace(/[^a-z0-9]/gi, '_')
+          .toLowerCase() + '_equity_analysis.pdf';
+    } else if (reportContentElement.querySelector('p strong')) {
+      filename =
+        reportContentElement
+          .querySelector('p strong')
+          .textContent.trim()
+          .replace(/[^a-z0-9]/gi, '_')
+          .toLowerCase() + '_equity_analysis.pdf';
+    }
+
+    const opt = {
+      margin: [0.75, 0.5, 0.75, 0.5], // Slightly more top/bottom margin
+      filename: filename,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: {
+        scale: 2, // Keep scale at 2 or 3 for good resolution
+        logging: true,
+        useCORS: true, // Important if you have images from different origins
+        scrollY: 0, // Start capturing from the very top
+        // Attempt to capture the full scrollable height
+        windowHeight: reportContentElement.scrollHeight,
+        windowWidth: reportContentElement.scrollWidth,
+      },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+      pagebreak: {
+        // Try different modes. 'css' respects CSS page-break-before/after
+        // 'avoid-all' tries to prevent breaks inside elements.
+        // You might need to add CSS like page-break-after: always; to specific elements if this isn't enough.
+        mode: ['css', 'avoid-all', 'legacy'],
+      },
+    };
+
+    // --- Critical adjustment: Temporarily remove overflow properties from parents ---
+    // This is often the trickiest part. You need to identify the parent elements
+    // that limit the height (e.g., body, .screen-layout, .report-panel, .report-content)
+    // and temporarily remove their height/overflow constraints.
+
+    const originalReportWrapperStyle = reportContentElement.style.cssText;
+    const parentReportPanel = reportContentElement.parentElement; // .report-content
+    const grandParentReportChatContainer = parentReportPanel
+      ? parentReportPanel.parentElement
+      : null; // .report-panel
+    const greatGrandParentScreenLayout = grandParentReportChatContainer
+      ? grandParentReportChatContainer.parentElement
+      : null; // .screen-layout
+
+    const originalParentReportPanelStyle = parentReportPanel
+      ? parentReportPanel.style.cssText
+      : '';
+    const originalGrandParentReportChatContainerStyle =
+      grandParentReportChatContainer
+        ? grandParentReportChatContainer.style.cssText
+        : '';
+    const originalGreatGrandParentScreenLayoutStyle =
+      greatGrandParentScreenLayout
+        ? greatGrandParentScreenLayout.style.cssText
+        : '';
+
+    // Apply temporary styles
+    if (reportContentElement) {
+      reportContentElement.style.overflowY = 'visible';
+      reportContentElement.style.height = 'auto';
+      reportContentElement.style.maxHeight = 'none';
+    }
+    if (parentReportPanel) {
+      parentReportPanel.style.overflowY = 'visible';
+      parentReportPanel.style.height = 'auto';
+      parentReportPanel.style.maxHeight = 'none';
+    }
+    // These might be overkill or cause layout shifts, but for capture:
+    if (grandParentReportChatContainer) {
+      grandParentReportChatContainer.style.overflow = 'visible';
+      grandParentReportChatContainer.style.height = 'auto';
+      grandParentReportChatContainer.style.maxHeight = 'none';
+    }
+    if (greatGrandParentScreenLayout) {
+      greatGrandParentScreenLayout.style.overflow = 'visible';
+      greatGrandParentScreenLayout.style.height = 'auto';
+      greatGrandParentScreenLayout.style.maxHeight = 'none';
+    }
+
+    try {
+      await html2pdf().set(opt).from(reportContentElement).save();
+      console.log('PDF export successful!');
+    } catch (error) {
+      console.error('PDF export failed:', error);
+      alert('Failed to export PDF. Please try again.');
+    } finally {
+      // --- Restore original styles ---
+      if (reportContentElement) {
+        reportContentElement.style.cssText = originalReportWrapperStyle;
+      }
+      if (parentReportPanel) {
+        parentReportPanel.style.cssText = originalParentReportPanelStyle;
+      }
+      if (grandParentReportChatContainer) {
+        grandParentReportChatContainer.style.cssText =
+          originalGrandParentReportChatContainerStyle;
+      }
+      if (greatGrandParentScreenLayout) {
+        greatGrandParentScreenLayout.style.cssText =
+          originalGreatGrandParentScreenLayoutStyle;
+      }
+
+      isExporting = false;
+    }
+  }
 </script>
 
 <div class="button-container">

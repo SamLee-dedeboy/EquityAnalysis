@@ -1,88 +1,88 @@
 <script>
   //Local Modules
-  import BackButton from "../lib/BackButton.svelte";
+  import BackButton from '../lib/BackButton.svelte';
   // src/lib/stores.js
-  import { currentPolicy } from "../lib/stores/currentPolicy.js";
-  import { equity_colors } from "../constants.js";
+  import { currentPolicy } from '../lib/stores/currentPolicy.js';
+  import { equity_colors } from '../constants.js';
   const equities = [
     {
-      name: "Procedural",
-      color: equity_colors["Procedural"],
+      name: 'Procedural',
+      color: equity_colors['Procedural'],
       description:
-        "Fair and inclusive processes in policy development, implementation, and enforcement. Ensures all stakeholders have meaningful participation opportunities.",
+        'Fair and inclusive processes in policy development, implementation, and enforcement. Ensures all stakeholders have meaningful participation opportunities.',
       keyElements: [
-        "Transparent processes",
-        "Community engagement",
-        "Accessible participation",
+        'Transparent processes',
+        'Community engagement',
+        'Accessible participation',
       ],
       assessmentAreas: [
-        "Decision making processes",
-        "Stakeholder involvement",
-        "Information accessibility",
+        'Decision making processes',
+        'Stakeholder involvement',
+        'Information accessibility',
       ],
     },
     {
-      name: "Structural",
-      color: equity_colors["Structural"],
+      name: 'Structural',
+      color: equity_colors['Structural'],
       description:
-        "Addresses underlying systems and institutions that create inequities. Focuses on reforming organizational structures, legal frameworks, and policies that systematically advantage some groups while disadvantaging others.",
+        'Addresses underlying systems and institutions that create inequities. Focuses on reforming organizational structures, legal frameworks, and policies that systematically advantage some groups while disadvantaging others.',
       keyElements: [
-        "Institutional analysis",
-        "Policy framework",
-        "System redesign",
+        'Institutional analysis',
+        'Policy framework',
+        'System redesign',
       ],
       assessmentAreas: [
-        "Institutional barriers",
-        "Policy coherence",
-        "Structure reform",
+        'Institutional barriers',
+        'Policy coherence',
+        'Structure reform',
       ],
     },
     {
-      name: "Distributional",
-      color: equity_colors["Distributional"],
+      name: 'Distributional',
+      color: equity_colors['Distributional'],
       description:
-        "Fair allocation of benefits, burdens, and resources. Examines who gets what, when, and how much in policy outcomes.",
+        'Fair allocation of benefits, burdens, and resources. Examines who gets what, when, and how much in policy outcomes.',
       keyElements: [
-        "Resource allocation",
-        "Benefit distribution",
-        "Burden sharing",
+        'Resource allocation',
+        'Benefit distribution',
+        'Burden sharing',
       ],
       assessmentAreas: [
-        "Impact distribution",
-        "Access patterns",
-        "Outcome Disparities",
+        'Impact distribution',
+        'Access patterns',
+        'Outcome Disparities',
       ],
     },
     {
-      name: "Recognitional",
-      color: equity_colors["Recognitional"],
+      name: 'Recognitional',
+      color: equity_colors['Recognitional'],
       description:
         "Recognition of historical, cultural, and social contexts that shape communities' relationships with water resources and governance.",
       keyElements: [
-        "Cultural recognition",
-        "Identity affirmation",
-        "Diverse Perspectives",
+        'Cultural recognition',
+        'Identity affirmation',
+        'Diverse Perspectives',
       ],
       assessmentAreas: [
-        "Representation analysis",
-        "Cultural competency",
-        "Bias identification",
+        'Representation analysis',
+        'Cultural competency',
+        'Bias identification',
       ],
     },
     {
-      name: "Transformational",
-      color: equity_colors["Transformational"],
+      name: 'Transformational',
+      color: equity_colors['Transformational'],
       description:
-        "Goes beyond fixing current systems to fundamentally reimagining them. Create new approaches that center equity from the ground up, building regenerative systems that prevent inequities from occurring.",
+        'Goes beyond fixing current systems to fundamentally reimagining them. Create new approaches that center equity from the ground up, building regenerative systems that prevent inequities from occurring.',
       keyElements: [
-        "System transformation",
-        "Root cause analysis",
-        "Power redistribution",
+        'System transformation',
+        'Root cause analysis',
+        'Power redistribution',
       ],
       assessmentAreas: [
-        "Systemic barriers",
-        "Innovation potential",
-        "Long term impact",
+        'Systemic barriers',
+        'Innovation potential',
+        'Long term impact',
       ],
     },
   ];
@@ -175,12 +175,12 @@
       <div class="cta-buttons">
         <button
           class="secondary"
-          on:click={() => (window.location.hash = "#/aview")}
+          on:click={() => (window.location.hash = '#/aview')}
           >View Sample Analysis</button
         >
         <button
           class="primary"
-          on:click={() => (window.location.hash = "#/tool")}
+          on:click={() => (window.location.hash = '#/tool')}
           >Get Started with EquiFlow</button
         >
       </div>
@@ -194,7 +194,7 @@
     /* max-width: 900px; */
     margin: auto;
     padding: 0 2rem;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;

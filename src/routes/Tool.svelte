@@ -1,21 +1,20 @@
 <script>
-  import { onMount, tick } from "svelte"; // Import tick for DOM updates
-  import { slide } from "svelte/transition";
+  import { onMount, tick } from 'svelte'; // Import tick for DOM updates
+  import { slide } from 'svelte/transition';
 
   // Importing Local Modules
-  import LogoBar from "../lib/LogoBar.svelte";
-  import ReportView from "./_ReportView.svelte";
-  import ChatPanel from "../lib/ChatPanel.svelte";
+  import LogoBar from '../lib/LogoBar.svelte';
+  import ChatPanel from '../lib/ChatPanel.svelte';
 
   import {
     currentPolicy,
     fetchPolicies,
     fetchPolicyDataById,
-  } from "../lib/stores/currentPolicy.js";
-  import EmptyPage from "../lib/EmptyPage.svelte";
-  import AnalysisView from "./AnalysisView.svelte";
+  } from '../lib/stores/currentPolicy.js';
+  import EmptyPage from '../lib/EmptyPage.svelte';
+  import AnalysisView from './AnalysisView.svelte';
 
-  import { server_address } from "../constants";
+  import { server_address } from '../constants';
   let policies = []; // This will now be dynamically loaded and updated from the API
   let isUploading = false; // True if file upload/VS creation is in progress
   let analysisStatus = null; // 'pending', 'waiting_vs_processing', 'analysis_generating', 'completed', 'failed'
@@ -26,40 +25,23 @@
   const ANALYSIS_POLLING_INTERVAL_MS = 5000; // Poll every 5 seconds for analysis status
 
   // --- Lifecycle Hook ---
-  // onMount(async () => {
-  //   currentPolicy.set(null); // Clear any previous selection when component mounts
-  //   await loadInitialPolicies(); // Load existing policies from API
-  // });
+  onMount(async () => {
+    currentPolicy.set(null); // Clear any previous selection when component mounts
+    await loadInitialPolicies(); // Load existing policies from API
+  });
 
   // Function to load policies from the backend
   async function loadInitialPolicies() {
     try {
       policies = await fetchPolicies();
-      policies = policies.map((p) => ({
+      policies = policies.map(p => ({
         ...p,
         analysis_status:
           p.analysis_status ||
-          (p.source === "preprocessed" ? "completed" : "unknown"),
+          (p.source === 'preprocessed' ? 'completed' : 'unknown'),
       }));
-      // const res = await fetch(`${server_address}/api/policies`);
-      // if (res.ok) {
-      //   // Ensure that fetched policies have a default analysis_status if it's missing (e.g., for preprocessed)
-      //   policies = await res.json();
-      //   policies = policies.map((p) => ({
-      //     ...p,
-      //     analysis_status:
-      //       p.analysis_status ||
-      //       (p.source === "preprocessed" ? "completed" : "unknown"),
-      //   }));
-      // } else {
-      //   console.error(
-      //     "Failed to load initial policies list:",
-      //     res.status,
-      //     await res.text()
-      //   );
-      // }
     } catch (err) {
-      console.error("Network error loading initial policies list:", err);
+      console.error('Network error loading initial policies list:', err);
     }
   }
 
@@ -69,16 +51,15 @@
     analysisResultFetched = false; // Reset fetching flag for the new policy
 
     // Find the policy in our local 'policies' array to get its basic info
-    const selectedPolicy = policies.find((p) => p.id === policyId);
+    const selectedPolicy = policies.find(p => p.id === policyId);
     if (selectedPolicy) {
       // Set the currentPolicy store with the basic metadata first. This immediately updates the sidebar selection.
       currentPolicy.set(selectedPolicy);
-      // currentDoc = selectedPolicy; // Pass this basic info to ReportView immediately
 
       // If the selected policy is preprocessed or already marked completed (from a prior session/load)
       if (
-        selectedPolicy.source === "preprocessed" ||
-        selectedPolicy.analysis_status === "completed"
+        selectedPolicy.source === 'preprocessed' ||
+        selectedPolicy.analysis_status === 'completed'
       ) {
         try {
           // Fetch the full detailed data for display in ReportView
@@ -86,24 +67,19 @@
           const fullPolicyData = await fetchPolicyDataById(policyId);
           currentPolicy.set(fullPolicyData); // Update store with full detailed data
           // currentDoc = fullPolicyData; // Update local reference for ReportView
-          analysisStatus = "completed"; // Explicitly set status to completed for UI
+          analysisStatus = 'completed'; // Explicitly set status to completed for UI
         } catch (err) {
-          console.error("Error loading full policy data:", err);
-          analysisStatus = "failed";
-          currentPolicy.update((p) => ({
+          console.error('Error loading full policy data:', err);
+          analysisStatus = 'failed';
+          currentPolicy.update(p => ({
             ...p,
-            analysis_status: "failed",
-            analysis_error: "Network error loading report data.",
+            analysis_status: 'failed',
+            analysis_error: 'Network error loading report data.',
           }));
-          // currentDoc = {
-          //   ...currentDoc,
-          //   analysis_status: "failed",
-          //   analysis_error: "Network error loading report data.",
-          // };
         }
       } else if (
-        selectedPolicy.source === "user" &&
-        selectedPolicy.analysis_status !== "failed"
+        selectedPolicy.source === 'user' &&
+        selectedPolicy.analysis_status !== 'failed'
       ) {
         // If it's a user upload and not yet completed or failed, start/continue polling
         currentSessionId = policyId; // For user uploads, the policy ID is the session ID
@@ -120,28 +96,21 @@
         );
         pollAnalysisStatus(currentSessionId); // Initial immediate poll to display current status
       } else if (
-        selectedPolicy.source === "user" &&
-        selectedPolicy.analysis_status === "failed"
+        selectedPolicy.source === 'user' &&
+        selectedPolicy.analysis_status === 'failed'
       ) {
         // If it's a user upload that previously failed, ensure UI reflects that
-        analysisStatus = "failed";
-        currentPolicy.update((p) => ({
+        analysisStatus = 'failed';
+        currentPolicy.update(p => ({
           ...p,
-          analysis_status: "failed",
+          analysis_status: 'failed',
           analysis_error:
-            selectedPolicy.analysis_error || "Analysis previously failed.",
+            selectedPolicy.analysis_error || 'Analysis previously failed.',
         }));
-        // currentDoc = {
-        //   ...currentDoc,
-        //   analysis_status: "failed",
-        //   analysis_error:
-        //     selectedPolicy.analysis_error || "Analysis previously failed.",
-        // };
       }
     } else {
       console.warn(`Policy with ID ${policyId} not found in the list.`);
       currentPolicy.set(null); // Clear if not found
-      // currentDoc = null;
       analysisStatus = null; // No status if no policy selected
     }
     chatPanel = true; // Open chat panel when a document is selected/loaded
@@ -166,7 +135,7 @@
     isUploading = true; // Set upload state to true for UI feedback (changes button color)
 
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append('file', file);
 
     // Add a temporary entry to the policies list immediately to show processing in sidebar
     // This uses a temporary ID that will be replaced by the real session_id from the backend
@@ -179,8 +148,8 @@
         size_kb: Math.round(file.size / 1024),
         upload_date_utc: new Date().toISOString(),
       },
-      source: "user",
-      analysis_status: "pending", // Initial status for this new entry
+      source: 'user',
+      analysis_status: 'pending', // Initial status for this new entry
       analysis_error: null, // No error yet
     };
     policies = [tempPolicyEntry, ...policies]; // Add to top of sidebar list
@@ -189,7 +158,7 @@
 
     try {
       const response = await fetch(`${server_address}/upload`, {
-        method: "POST",
+        method: 'POST',
         body: formData,
       });
       const result = await response.json();
@@ -198,14 +167,14 @@
         currentSessionId = result.session_id; // Get the real session ID from backend
         analysisStatus = result.analysis_status; // This should be "pending"
 
-        policies = policies.map((p) =>
+        policies = policies.map(p =>
           p.id === tempId
             ? { ...p, id: currentSessionId, analysis_status: analysisStatus }
             : p
         );
 
         // Also update currentPolicy with the real ID, so ReportView uses the correct ID for polling
-        currentPolicy.update((p) => ({
+        currentPolicy.update(p => ({
           ...p,
           id: currentSessionId,
           analysis_status: analysisStatus,
@@ -224,34 +193,29 @@
         pollAnalysisStatus(currentSessionId); // Initial immediate poll to display first status
         chatPanel = true; // Open chat panel automatically for new uploads
       } else {
-        console.error("Upload failed:", result.message || "Unknown error");
-        analysisStatus = "failed";
-        policies = policies.filter((p) => p.id !== tempId); // Remove if upload failed at this stage
+        console.error('Upload failed:', result.message || 'Unknown error');
+        analysisStatus = 'failed';
+        policies = policies.filter(p => p.id !== tempId); // Remove if upload failed at this stage
         currentPolicy.set(null); // Clear selection
         // currentDoc = null;
       }
     } catch (error) {
-      console.error("Upload network error:", error);
-      analysisStatus = "failed";
-      policies = policies.map((p) =>
+      console.error('Upload network error:', error);
+      analysisStatus = 'failed';
+      policies = policies.map(p =>
         p.id === tempId
           ? {
               ...p,
-              analysis_status: "failed",
-              analysis_error: "Network error during upload.",
+              analysis_status: 'failed',
+              analysis_error: 'Network error during upload.',
             }
           : p
       );
-      currentPolicy.update((p) => ({
+      currentPolicy.update(p => ({
         ...p,
-        analysis_status: "failed",
-        analysis_error: "Network error during upload.",
+        analysis_status: 'failed',
+        analysis_error: 'Network error during upload.',
       }));
-      // currentDoc = {
-      //   ...currentDoc,
-      //   analysis_status: "failed",
-      //   analysis_error: "Network error during upload.",
-      // };
     } finally {
       isUploading = false; // Reset upload state
     }
@@ -263,7 +227,7 @@
     if (analysisResultFetched) {
       clearInterval(analysisPollingTimer);
       analysisPollingTimer = null;
-      analysisStatus = "completed"; // Ensure state is completed
+      analysisStatus = 'completed'; // Ensure state is completed
       return;
     }
 
@@ -272,30 +236,25 @@
         `${server_address}/get_analysis_status/${sessionId}`
       );
       if (!response.ok) {
-        console.error("Polling error:", response.status, await response.text());
-        analysisStatus = "failed";
+        console.error('Polling error:', response.status, await response.text());
+        analysisStatus = 'failed';
         clearInterval(analysisPollingTimer);
         analysisPollingTimer = null;
         // Update the specific policy entry in 'policies' array to reflect failure
-        policies = policies.map((p) =>
+        policies = policies.map(p =>
           p.id === sessionId
             ? {
                 ...p,
-                analysis_status: "failed",
-                analysis_error: "Failed to get status.",
+                analysis_status: 'failed',
+                analysis_error: 'Failed to get status.',
               }
             : p
         );
-        currentPolicy.update((p) => ({
+        currentPolicy.update(p => ({
           ...p,
-          analysis_status: "failed",
-          analysis_error: "Failed to get status.",
+          analysis_status: 'failed',
+          analysis_error: 'Failed to get status.',
         })); // Also update currentPolicy
-        // currentDoc = {
-        //   ...currentDoc,
-        //   analysis_status: "failed",
-        //   analysis_error: "Failed to get status.",
-        // }; // Update local for ReportView
         return;
       }
 
@@ -305,7 +264,7 @@
       analysisStatus = newStatus; // Update global analysisStatus for ReportView to react
 
       // Update the specific policy entry in 'policies' array with the new status and error (if any)
-      policies = policies.map((p) =>
+      policies = policies.map(p =>
         p.id === sessionId
           ? {
               ...p,
@@ -314,22 +273,17 @@
             }
           : p
       );
-      currentPolicy.update((p) => ({
+      currentPolicy.update(p => ({
         ...p,
         analysis_status: newStatus,
         analysis_error: result.analysis_error,
       })); // Update currentPolicy store
-      // currentDoc = {
-      //   ...currentDoc,
-      //   analysis_status: newStatus,
-      //   analysis_error: result.analysis_error,
-      // }; // Update local for ReportView
 
-      if (newStatus === "completed") {
+      if (newStatus === 'completed') {
         clearInterval(analysisPollingTimer);
         analysisPollingTimer = null;
         await displayAnalysisResult(sessionId); // Fetch and display the full JSON
-      } else if (newStatus === "failed") {
+      } else if (newStatus === 'failed') {
         clearInterval(analysisPollingTimer);
         analysisPollingTimer = null;
         console.error(
@@ -337,29 +291,24 @@
         );
       }
     } catch (error) {
-      console.error("Network error during analysis status polling:", error);
-      analysisStatus = "failed";
+      console.error('Network error during analysis status polling:', error);
+      analysisStatus = 'failed';
       clearInterval(analysisPollingTimer);
       analysisPollingTimer = null;
-      policies = policies.map((p) =>
+      policies = policies.map(p =>
         p.id === sessionId
           ? {
               ...p,
-              analysis_status: "failed",
-              analysis_error: "Network error.",
+              analysis_status: 'failed',
+              analysis_error: 'Network error.',
             }
           : p
       );
-      currentPolicy.update((p) => ({
+      currentPolicy.update(p => ({
         ...p,
-        analysis_status: "failed",
-        analysis_error: "Network error.",
+        analysis_status: 'failed',
+        analysis_error: 'Network error.',
       }));
-      // currentDoc = {
-      //   ...currentDoc,
-      //   analysis_status: "failed",
-      //   analysis_error: "Network error.",
-      // };
     }
   }
 
@@ -367,7 +316,7 @@
   async function displayAnalysisResult(sessionId) {
     if (analysisResultFetched) {
       console.log(
-        "Analysis result already fetched, skipping duplicate display."
+        'Analysis result already fetched, skipping duplicate display.'
       );
       return;
     }
@@ -379,34 +328,29 @@
       );
       if (!response.ok) {
         console.error(
-          "Failed to retrieve analysis result:",
+          'Failed to retrieve analysis result:',
           response.status,
           await response.text()
         );
         analysisResultFetched = false; // Allow re-attempt if the fetch itself fails
-        analysisStatus = "failed";
-        currentPolicy.update((p) => ({
+        analysisStatus = 'failed';
+        currentPolicy.update(p => ({
           ...p,
-          analysis_status: "failed",
-          analysis_error: "Failed to retrieve analysis report data.",
+          analysis_status: 'failed',
+          analysis_error: 'Failed to retrieve analysis report data.',
         }));
-        // currentDoc = {
-        //   ...currentDoc,
-        //   analysis_status: "failed",
-        //   analysis_error: "Failed to retrieve analysis report data.",
-        // };
         return;
       }
 
       const result = await response.json();
-      if (result.analysis_status === "completed") {
+      if (result.analysis_status === 'completed') {
         // Update the policies list with the full data for the completed item
-        policies = policies.map((p) => {
+        policies = policies.map(p => {
           if (p.id === sessionId) {
             return {
               ...p,
               ...result.analysis_data,
-              analysis_status: "completed",
+              analysis_status: 'completed',
             }; // Merge full data into the existing policy object
           }
           return p;
@@ -415,7 +359,7 @@
         await tick(); // Ensure DOM updates are pending before setting full data
         currentPolicy.set(result.analysis_data);
         // currentDoc = result.analysis_data; // Also update local currentDoc for ReportView
-        analysisStatus = "completed"; // Ensure the global analysisStatus reflects completion
+        analysisStatus = 'completed'; // Ensure the global analysisStatus reflects completion
       } else {
         // This case should ideally not be hit if pollAnalysisStatus works correctly
         console.error(
@@ -423,32 +367,22 @@
           result.analysis_status
         );
         analysisResultFetched = false;
-        analysisStatus = "failed";
-        currentPolicy.update((p) => ({
+        analysisStatus = 'failed';
+        currentPolicy.update(p => ({
           ...p,
-          analysis_status: "failed",
-          analysis_error: "Unexpected status when retrieving full report.",
+          analysis_status: 'failed',
+          analysis_error: 'Unexpected status when retrieving full report.',
         }));
-        // currentDoc = {
-        //   ...currentDoc,
-        //   analysis_status: "failed",
-        //   analysis_error: "Unexpected status when retrieving full report.",
-        // };
       }
     } catch (error) {
-      console.error("Error fetching analysis result:", error);
+      console.error('Error fetching analysis result:', error);
       analysisResultFetched = false;
-      analysisStatus = "failed";
-      currentPolicy.update((p) => ({
+      analysisStatus = 'failed';
+      currentPolicy.update(p => ({
         ...p,
-        analysis_status: "failed",
-        analysis_error: "Network error while fetching analysis report.",
+        analysis_status: 'failed',
+        analysis_error: 'Network error while fetching analysis report.',
       }));
-      // currentDoc = {
-      //   ...currentDoc,
-      //   analysis_status: "failed",
-      //   analysis_error: "Network error while fetching analysis report.",
-      // };
     }
   }
 
@@ -467,7 +401,7 @@
 
     // Remove the ended policy from the sidebar list
     // This will automatically cause currentPolicy.set(null) if the ended policy was selected
-    policies = policies.filter((p) => p.id !== currentSessionId);
+    policies = policies.filter(p => p.id !== currentSessionId);
     currentPolicy.set(null); // Explicitly clear the selected policy in the store
     // currentDoc = null; // Clear ReportView content
     currentSessionId = null; // Clear active session ID
@@ -478,8 +412,6 @@
   // State Variables, Third Panel (Overview) - Original position
   let chatPanel = false;
   // Chat Logic - Original position
-  // let currentDoc = null; // Will be set by loadPolicyData and displayAnalysisResult
-
 </script>
 
 <section>
@@ -492,7 +424,6 @@
 
     <!-- (1) Panel, Sidebar -->
     <aside class="sidebar">
-
       <!-- (1.1) Upload Button -->
       <label
         class="upload-button"
@@ -548,16 +479,16 @@
               >
                 {policy.document?.title || policy.id}
                 <!-- Display title, fallback to ID -->
-                {#if policy.source === "user"}
+                {#if policy.source === 'user'}
                   <span
                     class="analysis-status-dot"
                     class:status-pending={policy.analysis_status ===
-                      "pending" ||
-                      policy.analysis_status === "waiting_vs_processing" ||
-                      policy.analysis_status === "analysis_generating"}
+                      'pending' ||
+                      policy.analysis_status === 'waiting_vs_processing' ||
+                      policy.analysis_status === 'analysis_generating'}
                     class:status-completed={policy.analysis_status ===
-                      "completed"}
-                    class:status-failed={policy.analysis_status === "failed"}
+                      'completed'}
+                    class:status-failed={policy.analysis_status === 'failed'}
                     title="Analysis Status: {policy.analysis_status?.replace(
                       /_/g,
                       ' '
@@ -589,7 +520,7 @@
             on:click={async () => {
               // Filters policies to only keep those sourced as 'preprocessed'.
               // This is a local frontend-only clear. Backend cleanup requires explicit calls.
-              policies = policies.filter((p) => p.source === "preprocessed");
+              policies = policies.filter(p => p.source === 'preprocessed');
               currentPolicy.set(null); // Deselect any policy
               // currentDoc = null; // Clear ReportView content
               currentSessionId = null; // Clear active session ID if it was a user upload
@@ -617,7 +548,7 @@
       <button
         class="chat-toggle-btn"
         on:click={() => (chatPanel = !chatPanel)}
-        title={chatPanel ? "Close Chat" : "Open Chat"}
+        title={chatPanel ? 'Close Chat' : 'Open Chat'}
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           {#if chatPanel}
@@ -652,11 +583,11 @@
 
       <!-- (3) Panel, Main Chat -->
       {#if chatPanel}
-        <div class="chat-panel" in:slide={{ axis: "x" }}>
+        <div class="chat-panel" in:slide={{ axis: 'x' }}>
           <ChatPanel
             {currentSessionId}
-            analysisIsGenerating={analysisStatus !== "completed" &&
-              analysisStatus !== "failed" &&
+            analysisIsGenerating={analysisStatus !== 'completed' &&
+              analysisStatus !== 'failed' &&
               currentSessionId !== null}
             on:endSession={handleEndSessionFromChat}
           ></ChatPanel>
@@ -755,7 +686,7 @@
     min-width: 65%;
     overflow: auto;
   }
-  
+
   .report-content {
     flex: 1;
     background: #f9fafb;
@@ -787,4 +718,3 @@
     background: #0d304f;
   }
 </style>
-

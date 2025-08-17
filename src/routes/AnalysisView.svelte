@@ -1,68 +1,67 @@
 <script>
   // Local Modules
-  import BackButton from "../lib/BackButton.svelte";
-  import InfoTab from "../lib/InfoTab.svelte";
-  import { slide, fade } from "svelte/transition";
+  import BackButton from '../lib/BackButton.svelte';
+  import InfoTab from '../lib/InfoTab.svelte';
+  import { slide, fade } from 'svelte/transition';
 
   // Import Store Variable
-  import { currentPolicy } from "../lib/stores/currentPolicy.js";
+  import { currentPolicy } from '../lib/stores/currentPolicy.js';
 
   export const equity_colors = {
-    Procedural: "#227C9D",
-    Structural: "#17C3B2",
-    Distributional: "#FFCB77",
-    Recognitional: "#FEB3B1",
-    Transformational: "#FE6D73",
+    Procedural: '#227C9D',
+    Structural: '#17C3B2',
+    Distributional: '#FFCB77',
+    Recognitional: '#FEB3B1',
+    Transformational: '#FE6D73',
   };
   const equitySections = [
     {
-      key: "recognitional_equity",
-      label: "Recognitional",
-      color: equity_colors["Recognitional"],
+      key: 'recognitional_equity',
+      label: 'Recognitional',
+      color: equity_colors['Recognitional'],
     },
     {
-      key: "procedural_equity",
-      label: "Procedural",
-      color: equity_colors["Procedural"],
+      key: 'procedural_equity',
+      label: 'Procedural',
+      color: equity_colors['Procedural'],
     },
     {
-      key: "structural_equity",
-      label: "Structural",
-      color: equity_colors["Structural"],
+      key: 'structural_equity',
+      label: 'Structural',
+      color: equity_colors['Structural'],
     },
     {
-      key: "distributional_equity",
-      label: "Distributional",
-      color: equity_colors["Distributional"],
+      key: 'distributional_equity',
+      label: 'Distributional',
+      color: equity_colors['Distributional'],
     },
   ];
 
   const tabOptions = [
     {
-      key: "general_equity_assessment",
-      label: "Equity Assessment",
-      image: "chart.svg",
+      key: 'general_equity_assessment',
+      label: 'Equity Assessment',
+      image: 'chart.svg',
     },
     {
-      key: "vulnerable_groups",
-      label: "Vulnerable Groups",
-      image: "user-group.svg",
+      key: 'vulnerable_groups',
+      label: 'Vulnerable Groups',
+      image: 'user-group.svg',
     },
     {
-      key: "impact_severity",
-      label: "Impact Severity",
-      image: "shield-x.svg",
+      key: 'impact_severity',
+      label: 'Impact Severity',
+      image: 'shield-x.svg',
     },
     {
-      key: "mitigation_strategies",
-      label: "Mitigation Strategies",
-      image: "shield-plus.svg",
+      key: 'mitigation_strategies',
+      label: 'Mitigation Strategies',
+      image: 'shield-plus.svg',
     },
   ];
-  let activeTab = "general_equity_assessment";
-  $: general = $currentPolicy["analysis_sections"];
-  $: console.log("Current Policy Analysis Data:", $currentPolicy);
-  
+  let activeTab = 'general_equity_assessment';
+  $: general = $currentPolicy['analysis_sections'];
+  $: console.log('Current Policy Analysis Data:', $currentPolicy);
 </script>
 
 <section>
@@ -107,7 +106,7 @@
         {/each}
       </div>
       <!-- General Equity Assessment -->
-      {#if activeTab === "general_equity_assessment"}
+      {#if activeTab === 'general_equity_assessment'}
         <div in:slide style="overflow: hidden;">
           <p class="summary">{general[activeTab].summary}</p>
           <div class="section-grid">
@@ -155,7 +154,7 @@
       {/if}
 
       <!-- Vulnerable Groups Formatting -->
-      {#if activeTab === "vulnerable_groups"}
+      {#if activeTab === 'vulnerable_groups'}
         <div in:slide style="overflow: hidden;">
           <p class="summary">{general.vulnerable_groups_analysis.summary}</p>
 
@@ -191,7 +190,7 @@
         </div>
       {/if}
       <!-- Impact Severity Formatting -->
-      {#if activeTab === "impact_severity"}
+      {#if activeTab === 'impact_severity'}
         <div in:slide style="overflow: hidden;">
           <p class="summary">{general.severity_impact_analysis.summary}</p>
 
@@ -236,7 +235,7 @@
       {/if}
 
       <!-- Mitigation Strategies Formatting -->
-      {#if activeTab === "mitigation_strategies"}
+      {#if activeTab === 'mitigation_strategies'}
         <div in:slide style="overflow: hidden;">
           <p class="summary">
             {general.mitigation_strategies_analysis.summary}

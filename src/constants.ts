@@ -1,9 +1,9 @@
 export const equity_colors = {
-    Procedural: "#227C9D",
-    Structural: "#17C3B2",
-    Distributional: "#FFCB77",
-    Recognitional: "#FEB3B1",
-    Transformational: "#FE6D73",
-  };
+  Procedural: '#227C9D',
+  Structural: '#17C3B2',
+  Distributional: '#FFCB77',
+  Recognitional: '#FEB3B1',
+  Transformational: '#FE6D73',
+};
 
-export const server_address = "http://localhost:8000";
+export const server_address = 'http://localhost:8000';
