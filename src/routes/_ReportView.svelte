@@ -2,7 +2,9 @@
   import { currentPolicy } from "../lib/stores/currentPolicy.js";
   import ExportButton from "../lib/ExportButton.svelte";
 
-  export let analysisStatus = null; // New prop for analysis loading status. Passed from Tool.svelte
+  export let analysisStatus = null; // Prop for analysis loading status. Passed from Tool.svelte
+
+  let reportContentRef; // Declare a variable to hold the DOM reference for PDF export
 </script>
 
 <section>
@@ -46,7 +48,7 @@
 
   <!-- Main Report Content (only display if analysis is completed, or it's a preprocessed doc) -->
   {#if $currentPolicy?.document?.title && (analysisStatus === 'completed' || $currentPolicy.source === 'preprocessed')}
-    <div class="report-wrapper">
+    <div class="report-wrapper" bind:this={reportContentRef}> <!-- BIND THE DIV TO reportContentRef -->
       <h1>{$currentPolicy.document.title}</h1>
       <p><strong>Filename:</strong> {$currentPolicy.document.filename}</p>
       {#if $currentPolicy.document.size_kb}
@@ -55,126 +57,116 @@
 
       <hr />
 
-      <!-- General Equity Assessment -->
-      {#if $currentPolicy.analysis_sections?.general_equity_assessment}
-        <h2>{$currentPolicy.analysis_sections.general_equity_assessment.title}</h2>
-        <p>{$currentPolicy.analysis_sections.general_equity_assessment.summary}</p>
-
-        {#each ["recognitional_equity", "procedural_equity", "distributional_equity", "structural_equity"] as axis}
-          <div>
-            <h3>{$currentPolicy.analysis_sections.general_equity_assessment[axis]?.title}</h3>
-            <p>
-              <strong>Positive Findings:</strong>
-              {$currentPolicy.analysis_sections.general_equity_assessment[axis]?.positive_findings}
-            </p>
-            <p>
-              <strong>Concerns:</strong>
-              {$currentPolicy.analysis_sections.general_equity_assessment[axis]?.concerns}
-            </p>
-            <p>
-              <strong>Conclusion:</strong>
-              {$currentPolicy.analysis_sections.general_equity_assessment[axis]?.conclusion}
-            </p>
-          </div>
-        {/each}
-      {/if}
-
-      <hr />
-
-      <!-- Vulnerable Groups Analysis -->
-      {#if $currentPolicy.analysis_sections?.vulnerable_groups_analysis}
-        <h2>{$currentPolicy.analysis_sections.vulnerable_groups_analysis.title}</h2>
-        <p>{$currentPolicy.analysis_sections.vulnerable_groups_analysis.summary}</p>
-        <p>
-          <strong>Identified Groups and Impacts:</strong>
-          {$currentPolicy.analysis_sections.vulnerable_groups_analysis.identified_groups_and_impacts}
-        </p>
-        <p>
-          <strong>Equity Assessment:</strong>
-          {$currentPolicy.analysis_sections.vulnerable_groups_analysis.equity_assessment_summary}
-        </p>
-        <p>
-          <strong>Conclusion:</strong>
-          {$currentPolicy.analysis_sections.vulnerable_groups_analysis.conclusion}
-        </p>
-      {/if}
-
-      <hr />
-
-      <!-- Severity of Impact Analysis -->
-      {#if $currentPolicy.analysis_sections?.severity_impact_analysis}
-        <h2>{$currentPolicy.analysis_sections.severity_impact_analysis.title}</h2>
-        <p>{$currentPolicy.analysis_sections.severity_impact_analysis.summary}</p>
-        <p>
-          <strong>High Severity Impacts:</strong>
-          {$currentPolicy.analysis_sections.severity_impact_analysis.high_severity_impaCTS}
-        </p>
-        <p>
-          <strong>Moderate Severity Impacts:</strong>
-          {$currentPolicy.analysis_sections.severity_impact_analysis.moderate_severity_impacts}
-        </p>
-        <p>
-          <strong>Equity Implications:</strong>
-          {$currentPolicy.analysis_sections.severity_impact_analysis.equity_implications_of_impacts}
-        </p>
-        <p>
-          <strong>Conclusion:</strong>
-          {$currentPolicy.analysis_sections.severity_impact_analysis.conclusion}
-        </p>
-      {/if}
-
-      <hr />
-
-      <!-- Mitigation Strategies Analysis -->
-      {#if $currentPolicy.analysis_sections?.mitigation_strategies_analysis}
-        <h2>{$currentPolicy.analysis_sections.mitigation_strategies_analysis.title}</h2>
-        <p>{$currentPolicy.analysis_sections.mitigation_strategies_analysis.summary}</p>
-        <p>
-          <strong>Strategies:</strong>
-          {$currentPolicy.analysis_sections.mitigation_strategies_analysis.identified_strategies}
-        </p>
-        <p>
-          <strong>Equity Assessment:</strong>
-          {$currentPolicy.analysis_sections.mitigation_strategies_analysis.equity_assessment}
-        </p>
-        <p>
-          <strong>Conclusion:</strong>
-          {$currentPolicy.analysis_sections.mitigation_strategies_analysis.conclusion}
-        </p>
-      {/if}
-
-      <hr />
-
-      <!-- Equity Analysis By Perspective -->
-      {#if $currentPolicy.equity_analysis_by_perspective?.length}
-        <h2>Equity Analysis by Group Perspective</h2>
-        {#each $currentPolicy.equity_analysis_by_perspective as perspective}
+      <!-- NEW: Overall Analysis by Perspective (Main loop through stakeholders) -->
+      {#if $currentPolicy.overall_analysis_by_perspective?.length}
+        <h2>Comprehensive Analysis by Stakeholder Perspective</h2>
+        {#each $currentPolicy.overall_analysis_by_perspective as perspective}
+          <!-- Re-using existing .equity-perspective class for each stakeholder group -->
           <div class="equity-perspective">
-            <h3>{perspective.group}</h3>
-            {#if perspective.general_equity_assessment}
-              <p>
-                <strong>{perspective.general_equity_assessment.title}:</strong>
-                {perspective.general_equity_assessment.narrative}
-              </p>
-            {/if}
-            {#each ["recognitional_equity", "procedural_equity", "distributional_equity", "structural_equity"] as axis}
-              <div>
-                <h4>
-                  {axis
-                    .replace('_equity', '')
-                    .replace('_', ' ')
-                    .replace(/\b\w/g, l => l.toUpperCase())}
-                </h4>
-                <p>{perspective[axis]?.description}</p>
-              </div>
-            {/each}
+            <h3>{perspective.group_name}</h3>
+            <p><em>Focus: {perspective.group_description}</em></p>
+
+            <!-- Nested loop for each analysis type within this perspective -->
+            {#if perspective.analyses}
+              <!-- General Equity Assessment for this perspective -->
+              {#if perspective.analyses.general_equity_assessment}
+                <h4>{perspective.analyses.general_equity_assessment.title}</h4>
+                <p>{perspective.analyses.general_equity_assessment.summary}</p>
+                {#each ["recognitional_equity", "procedural_equity", "distributional_equity", "structural_equity"] as axis}
+                  <div>
+                    <h5>
+                      {axis
+                        .replace('_equity', '')
+                        .replace('_', ' ')
+                        .replace(/\b\w/g, l => l.toUpperCase())} Equity
+                    </h5>
+                    <p>
+                      <strong>Positive Findings:</strong>
+                      {perspective.analyses.general_equity_assessment[axis]?.positive_findings}
+                    </p>
+                    <p>
+                      <strong>Concerns:</strong>
+                      {perspective.analyses.general_equity_assessment[axis]?.concerns}
+                    </p>
+                    <p>
+                      <strong>Conclusion:</strong>
+                      {perspective.analyses.general_equity_assessment[axis]?.conclusion}
+                    </p>
+                  </div>
+                {/each}
+              {/if}
+
+              <hr /> <!-- Re-using original hr for separation between analysis types -->
+
+              <!-- Vulnerable Groups Analysis for this perspective -->
+              {#if perspective.analyses.vulnerable_groups_analysis}
+                <h4>{perspective.analyses.vulnerable_groups_analysis.title}</h4>
+                <p>{perspective.analyses.vulnerable_groups_analysis.summary}</p>
+                <p>
+                  <strong>Identified Groups and Impacts:</strong>
+                  {perspective.analyses.vulnerable_groups_analysis.identified_groups_and_impacts}
+                </p>
+                <p>
+                  <strong>Equity Assessment:</strong>
+                  {perspective.analyses.vulnerable_groups_analysis.equity_assessment_summary}
+                </p>
+                <p>
+                  <strong>Conclusion:</strong>
+                  {perspective.analyses.vulnerable_groups_analysis.conclusion}
+                </p>
+              {/if}
+
+              <hr />
+
+              <!-- Severity of Impact Analysis for this perspective -->
+              {#if perspective.analyses.severity_impact_analysis}
+                <h4>{perspective.analyses.severity_impact_analysis.title}</h4>
+                <p>{perspective.analyses.severity_impact_analysis.summary}</p>
+                <p>
+                  <strong>High Severity Impacts:</strong>
+                  {perspective.analyses.severity_impact_analysis.high_severity_impacts}
+                </p>
+                <p>
+                  <strong>Moderate Severity Impacts:</strong>
+                  {perspective.analyses.severity_impact_analysis.moderate_severity_impacts}
+                </p>
+                <p>
+                  <strong>Equity Implications:</strong>
+                  {perspective.analyses.severity_impact_analysis.equity_implications_of_impacts}
+                </p>
+                <p>
+                  <strong>Conclusion:</strong>
+                  {perspective.analyses.severity_impact_analysis.conclusion}
+                </p>
+              {/if}
+
+              <hr />
+
+              <!-- Mitigation Strategies Analysis for this perspective -->
+              {#if perspective.analyses.mitigation_strategies_analysis}
+                <h4>{perspective.analyses.mitigation_strategies_analysis.title}</h4>
+                <p>{perspective.analyses.mitigation_strategies_analysis.summary}</p>
+                <p>
+                  <strong>Strategies:</strong>
+                  {perspective.analyses.mitigation_strategies_analysis.identified_strategies}
+                </p>
+                <p>
+                  <strong>Equity Assessment:</strong>
+                  {perspective.analyses.mitigation_strategies_analysis.equity_assessment}
+                </p>
+                <p>
+                  <strong>Conclusion:</strong>
+                  {perspective.analyses.mitigation_strategies_analysis.conclusion}
+                </p>
+              {/if}
+
+            {/if} <!-- End if perspective.analyses -->
           </div>
+          <hr /> <!-- Use original hr for separation between perspectives -->
         {/each}
-      {/if}
+      {/if} <!-- End if overall_analysis_by_perspective -->
 
-      <hr />
-
-      <!-- Overall Summary & Recommendations -->
+      <!-- Overall Summary & Recommendations (Remains at top level) -->
       {#if $currentPolicy.overall_summary_and_recommendations}
         <h2>{$currentPolicy.overall_summary_and_recommendations.title}</h2>
         <p>
@@ -191,7 +183,8 @@
         </p>
       {/if}
 
-      <ExportButton />
+      <!-- Export Button -->
+      <ExportButton policyId={$currentPolicy?.id} reportContentElement={reportContentRef} />
     </div>
   {/if}
 </section>
@@ -269,7 +262,8 @@
   }
   .loading-hint {
       font-size: 0.9rem;
-      color: #9ca3af;
+      color: #6b7280; /* Ensure this is the original color */
+      max-width: 400px; /* Ensure this is the original max-width */
   }
   
   /* NEW Error State Styles */
@@ -307,7 +301,7 @@
   }
   h1,
   h2,
-  h3 {
+  h3 { /* Keep only h1, h2, h3 as per original */
     margin-top: 1.5rem;
     color: #1f2937;
   }

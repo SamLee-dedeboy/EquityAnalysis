@@ -68,71 +68,143 @@ PERSPECTIVES = [
 ]
 JSON_SKELETON = """
 {
-    "id": "...",
-    "source": "user",
-    "document": {
-        "filename": "...",
-        "title": "...",
-        "size_kb": 0,
-        "upload_date_utc": "..."
-    },
-    "analysis_sections": {
+  "id": "...",
+  "source": "user",
+  "document": {
+    "filename": "...",
+    "title": "...",
+    "size_kb": 0,
+    "upload_date_utc": "..."
+  },
+  "overall_analysis_by_perspective": [
+    {
+      "group_name": "Policy Makers",
+      "group_description": "the overall equity implications from the perspective of federal and state policymakers, considering their regulatory responsibilities and influence on equity outcomes. This assessment could indicate how effectively equity measures are embedded in their processes, or if there might be systematic gaps in addressing social or racial disparities.",
+      "analyses": {
         "general_equity_assessment": {
-        "title": "General Equity Assessment",
-        "summary": "...",
-        "sources": [],
-        "recognitional_equity": { "title": "Recognitional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-        "procedural_equity": { "title": "Procedural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-        "distributional_equity": { "title": "Distributional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-        "structural_equity": { "title": "Structural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." }
+          "title": "General Equity Assessment for Policy Makers",
+          "summary": "...",
+          "recognitional_equity": { "title": "Recognitional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "procedural_equity": { "title": "Procedural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "distributional_equity": { "title": "Distributional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "structural_equity": { "title": "Structural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "sources": []
         },
         "vulnerable_groups_analysis": {
-        "title": "Vulnerable Groups Analysis",
-        "summary": "...",
-        "identified_groups_and_impacts": "...",
-        "equity_assessment_summary": "...",
-        "conclusion": "...",
-        "sources": []
+          "title": "Vulnerable Groups Analysis for Policy Makers",
+          "summary": "...",
+          "identified_groups_and_impacts": "...",
+          "equity_assessment_summary": "...",
+          "conclusion": "...",
+          "sources": []
         },
         "severity_impact_analysis": {
-        "title": "Severity of Impact Analysis",
-        "summary": "...",
-        "high_severity_impacts": "...",
-        "moderate_severity_impacts": "...",
-        "equity_implications_of_impacts": "...",
-        "conclusion": "...",
-        "sources": []
+          "title": "Severity of Impact Analysis for Policy Makers",
+          "summary": "...",
+          "high_severity_impacts": "...",
+          "moderate_severity_impacts": "...",
+          "equity_implications_of_impacts": "...",
+          "conclusion": "...",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
-        "title": "Mitigation Strategies Analysis",
-        "summary": "...",
-        "identified_strategies": "...",
-        "equity_assessment": "...",
-        "conclusion": "...",
-        "sources": []
+          "title": "Mitigation Strategies Analysis for Policy Makers",
+          "summary": "...",
+          "identified_strategies": "...",
+          "equity_assessment": "...",
+          "conclusion": "...",
+          "sources": []
         }
+      }
     },
-    "equity_analysis_by_perspective": [
-        {
-        "group": "...",
+    {
+      "group_name": "Residents",
+      "group_description": "the overall equity implications from the perspective of ordinary residents, especially those in vulnerable communities, regarding their access to clean and affordable water. The assessment might indicate if community voices appear to be sufficiently represented in decisions affecting their health and well-being.",
+      "analyses": {
         "general_equity_assessment": {
-            "title": "...",
-            "narrative": "...",
-            "sources": []
+          "title": "General Equity Assessment for Residents",
+          "summary": "...",
+          "recognitional_equity": { "title": "Recognitional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "procedural_equity": { "title": "Procedural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "distributional_equity": { "title": "Distributional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "structural_equity": { "title": "Structural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "sources": []
         },
-        "recognitional_equity": { "description": "...", "sources": [] },
-        "procedural_equity": { "description": "...", "sources": [] },
-        "distributional_equity": { "description": "...", "sources": [] },
-        "structural_equity": { "description": "...", "sources": [] }
+        "vulnerable_groups_analysis": {
+          "title": "Vulnerable Groups Analysis for Residents",
+          "summary": "...",
+          "identified_groups_and_impacts": "...",
+          "equity_assessment_summary": "...",
+          "conclusion": "...",
+          "sources": []
+        },
+        "severity_impact_analysis": {
+          "title": "Severity of Impact Analysis for Residents",
+          "summary": "...",
+          "high_severity_impacts": "...",
+          "moderate_severity_impacts": "...",
+          "equity_implications_of_impacts": "...",
+          "conclusion": "...",
+          "sources": []
+        },
+        "mitigation_strategies_analysis": {
+          "title": "Mitigation Strategies Analysis for Residents",
+          "summary": "...",
+          "identified_strategies": "...",
+          "equity_assessment": "...",
+          "conclusion": "...",
+          "sources": []
         }
-    ],
-    "overall_summary_and_recommendations": {
-        "title": "Overall Summary & Recommendations",
-        "key_equity_gaps": "...",
-        "key_equity_strengths": "...",
-        "recommendations": "...",
-        "sources": []
+      }
+    },
+    {
+      "group_name": "Farmers/Business Owners",
+      "group_description": "the overall equity implications from the perspective of farmers and business owners, particularly small operators, considering their roles as regulated entities and community members. The assessment could indicate if compliance costs or infrastructure funding might impose disproportionate economic hardship.",
+      "analyses": {
+        "general_equity_assessment": {
+          "title": "General Equity Assessment for Farmers/Business Owners",
+          "summary": "...",
+          "recognitional_equity": { "title": "Recognitional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "procedural_equity": { "title": "Procedural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "distributional_equity": { "title": "Distributional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "structural_equity": { "title": "Structural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "sources": []
+        },
+        "vulnerable_groups_analysis": {
+          "title": "Vulnerable Groups Analysis for Farmers/Business Owners",
+          "summary": "...",
+          "identified_groups_and_impacts": "...",
+          "equity_assessment_summary": "...",
+          "conclusion": "...",
+          "sources": []
+        },
+        "severity_impact_analysis": {
+          "title": "Severity of Impact Analysis for Farmers/Business Owners",
+          "summary": "...",
+          "high_severity_impacts": "...",
+          "moderate_severity_impacts": "...",
+          "equity_implications_of_impacts": "...",
+          "conclusion": "...",
+          "sources": []
+        },
+        "mitigation_strategies_analysis": {
+          "title": "Mitigation Strategies Analysis for Farmers/Business Owners",
+          "summary": "...",
+          "identified_strategies": "...",
+          "equity_assessment": "...",
+          "conclusion": "...",
+          "sources": []
+        }
+      }
     }
+  ],
+  "overall_summary_and_recommendations": {
+    "title": "Overall Summary & Recommendations",
+    "key_equity_gaps": "...",
+    "key_equity_strengths": "...",
+    "recommendations": "...",
+    "sources": []
+  }
 }
 """
 
@@ -158,61 +230,59 @@ def _populate_sources_into_json(structured_data: Dict[str, Any], raw_analyses: D
     Local sources are explicitly excluded as per new requirement.
     This is done purely by Python after the LLM has filled the text fields.
     """
+    logger.debug("Populating sources into final JSON structure...")
+
+    # Handle sources for each perspective and each analysis type within it
+    for perspective_entry in structured_data.get("overall_analysis_by_perspective", []):
+        group_name_slug = perspective_entry["group_name"].replace(" ", "_").lower()
+        
+        # Iterate through each analysis type within this perspective
+        analyses_section = perspective_entry.get("analyses", {})
+        
+        for analysis_type_key in ["general_equity_assessment", "vulnerable_groups_analysis", "severity_impact_analysis", "mitigation_strategies_analysis"]:
+            if analysis_type_key in analyses_section:
+                raw_analysis_key_map = {
+                    "general_equity_assessment": "general",
+                    "vulnerable_groups_analysis": "vulnerable_groups",
+                    "severity_impact_analysis": "severity_of_impact",
+                    "mitigation_strategies_analysis": "mitigation_strategies"
+                }
+                # Example raw_analysis_key: "perspective_policymakers_general" or "perspective_residents_vulnerable_groups"
+                raw_key_suffix = raw_analysis_key_map.get(analysis_type_key)
+                if raw_key_suffix:
+                    raw_analysis_lookup_key = f"perspective_{group_name_slug}_{raw_key_suffix}"
+                else:
+                    logger.warning(f"Unknown analysis_type_key '{analysis_type_key}', skipping source mapping.")
+                    continue
+
+                if raw_analysis_lookup_key in raw_analyses:
+                    raw_openai_sources = raw_analyses[raw_analysis_lookup_key].get("openai_sources", [])
+                    combined_sources = []
+                    for openai_source_str in raw_openai_sources:
+                        combined_sources.append({"type": "openai", "data": openai_source_str})
+                    
+                    analyses_section[analysis_type_key]["sources"] = combined_sources
+                    logger.debug(f"Injected {len(combined_sources)} sources for {group_name_slug}_{analysis_type_key}")
+                else:
+                    logger.debug(f"Raw analysis key '{raw_analysis_lookup_key}' not found, skipping source injection for corresponding section.")
+                    # Ensure sources array exists even if empty
+                    analyses_section[analysis_type_key]["sources"] = []
+
+    if "overall_summary_and_recommendations" in structured_data:
+        overall_summary_raw_key = "overall_summary" # Define a key if you add a top-level summary analysis
+        if overall_summary_raw_key in raw_analyses:
+            main_openai_sources = []
+            for openai_source_str in raw_analyses[overall_summary_raw_key].get("openai_sources", []):
+                main_openai_sources.append({"type": "openai", "data": openai_source_str})
+            structured_data["overall_summary_and_recommendations"]["sources"] = main_openai_sources
+        else:
+            structured_data["overall_summary_and_recommendations"]["sources"] = []
     
-    # Mapping from raw_analyses keys to structured_data paths for sources
-    source_mappings = {
-        # Standard Focus Areas
-        "general": structured_data["analysis_sections"]["general_equity_assessment"],
-        "vulnerable_groups": structured_data["analysis_sections"]["vulnerable_groups_analysis"],
-        "severity_of_impact": structured_data["analysis_sections"]["severity_impact_analysis"],
-        "mitigation_strategies": structured_data["analysis_sections"]["mitigation_strategies_analysis"],
-    }
-
-    # Add Perspective-Based mappings
-    for perspective_info in PERSPECTIVES:
-        group_key = perspective_info["group_name"].replace(" ", "_").lower()
-        
-        # Find the correct perspective entry in structured_data
-        # This assumes the LLM successfully created the perspective entries.
-        perspective_entry = next((item for item in structured_data["equity_analysis_by_perspective"] if item.get("group") == perspective_info["group_name"]), None)
-        
-        if perspective_entry:
-            source_mappings[f"perspective_{group_key}_general"] = perspective_entry["general_equity_assessment"]
-            for dim in ["recognitional", "procedural", "distributional", "structural"]:
-                source_mappings[f"perspective_{group_key}_{dim}"] = perspective_entry[f"{dim}_equity"]
-        else:
-            logger.warning(f"Could not find perspective entry for '{perspective_info['group_name']}' in structured_data. Sources for this perspective will not be added.")
-
-    # Populate sources for each mapped section
-    for key, target_section in source_mappings.items():
-        if key in raw_analyses:
-            # ONLY include openai_sources as per requirement
-            raw_openai_sources = raw_analyses[key].get("openai_sources", [])
-            
-            # Create the list of source objects, only for OpenAI type
-            combined_sources = []
-            for openai_source_str in raw_openai_sources:
-                combined_sources.append({"type": "openai", "data": openai_source_str})
-            
-            # Assign to the target section's "sources" field
-            target_section["sources"] = combined_sources
-        else:
-            logger.debug(f"Raw analysis key '{key}' not found, skipping source injection for corresponding section.")
-
-    # Handle overall_summary_and_recommendations sources
-    # For simplicity, copy sources from the main general_equity_assessment if it exists.
-    if "overall_summary_and_recommendations" in structured_data and "general" in raw_analyses:
-        main_general_openai_sources = []
-        for openai_source_str in raw_analyses["general"].get("openai_sources", []):
-            main_general_openai_sources.append({"type": "openai", "data": openai_source_str})
-        structured_data["overall_summary_and_recommendations"]["sources"] = main_general_openai_sources
-    else:
-        structured_data["overall_summary_and_recommendations"]["sources"] = [] # Ensure it's an empty list if no sources.
-
+    logger.debug("Source population complete.")
 
 def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename: str, title: str,
-                            file_size_kb: int, upload_date_utc: str, client: OpenAI,
-                            session_id: str, source: str = "user") -> Optional[Dict[str, Any]]:
+                              file_size_kb: int, upload_date_utc: str, client: OpenAI,
+                              session_id: str, source: str = "user") -> Optional[Dict[str, Any]]:
     """
     Synthesizes raw text analyses into the final structured JSON format.
     Sources are inserted *after* LLM generation, purely by Python.
@@ -223,24 +293,27 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
     if any("ANALYSIS FAILED" in raw_analysis.get("text", "") for raw_analysis in raw_analyses.values()):
         logger.error("Skipping full JSON formatting due to failure in raw analysis generation for one or more sections.")
         error_json = json.loads(JSON_SKELETON)
+        error_json["id"] = session_id
+        error_json["source"] = source
         error_json["document"]["filename"] = filename
         error_json["document"]["title"] = title
         error_json["document"]["size_kb"] = file_size_kb
         error_json["document"]["upload_date_utc"] = upload_date_utc
-        error_json["analysis_sections"]["general_equity_assessment"]["summary"] = "One or more raw analyses failed during text generation. See logs for details."
-        # Clear/default other fields to reflect failure
-        error_json["equity_analysis_by_perspective"] = []
+        # Set a generic error message
+        error_json["overall_analysis_by_perspective"] = [] # Clear nested analyses on failure
         error_json["overall_summary_and_recommendations"]["key_equity_gaps"] = "Due to incomplete raw analysis generation."
-        # Still attempt to populate sources for any sections that might have succeeded
-        _populate_sources_into_json(error_json, raw_analyses)
+        _populate_sources_into_json(error_json, raw_analyses) # Still attempt to populate sources
         return error_json
 
-
-    # Dynamically build the raw analyses string (text only) to include in the prompt for the formatter LLM
+    # Dynamically build the raw analyses text for the formatter LLM
+    # This will be a more complex string now, including perspective and analysis type.
     raw_analyses_text_str = ""
     for k, v in raw_analyses.items():
         raw_analyses_text_str += f"\n--- RAW ANALYSIS TEXT FOR: {k.replace('_', ' ').upper()} ---\n{v.get('text', 'Not provided.')}\n"
-
+    
+    # --- NEW FORMATTER PROMPT ---
+    # This prompt needs to guide the LLM to fill the new nested structure.
+    # It must map raw_analyses_text_str content into the correct paths.
     formatter_prompt = textwrap.dedent(f"""
     You are an expert data structurer and equity analyst. Your task is to populate the provided JSON structure.
     All generated content in the JSON must be derived **ONLY** from the raw analysis texts provided below.
@@ -248,20 +321,23 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
     Avoid definitive or authoritative statements. Employ phrases like "This may indicate...", "It suggests that...",
     "A potential interpretation is...", "It appears to...", "Could be seen as...", "There is an indication that...",
     "The document seems to...", "It might imply...", etc.
+    If the provided raw analysis text does not contain information for a specific field in the JSON, use phrases like "Not explicitly indicated by the document." or "The document does not appear to provide details on this aspect."
 
     **Instructions:**
-    1.  Carefully read all provided raw text analyses.
+    1.  Carefully read all provided raw text analyses. Each raw analysis is clearly labeled (e.g., "RAW ANALYSIS TEXT FOR: PERSPECTIVE_POLICY_MAKERS_GENERAL").
     2.  Fill in every "..." placeholder in the JSON skeleton with **detailed and comprehensive** information synthesized from these analysis texts. Do not over-summarize; preserve key details and nuanced interpretations.
     3.  Ensure all content strictly adheres to the schema and the required indicative tone.
     4.  **DO NOT ADD ANY SOURCE INFORMATION OR CITATIONS TO THE TEXT FIELDS OR THE 'sources' ARRAYS.** The 'sources' arrays in the JSON skeleton will be populated separately by Python.
-    5.  Specifically for the `general_equity_assessment` within `analysis_sections`, break down the 'general' raw analysis into the sub-fields for each of the four equity dimensions (Recognitional, Procedural, Distributional, Structural). For each dimension, aim to identify both "positive_findings" and "concerns" if discernible, and provide a "conclusion". If information is not provided for a sub-field, use "Not explicitly indicated by the document." or similar indicative phrasing.
-    6.  For the `equity_analysis_by_perspective` array, create an entry for each perspective mentioned in the raw analyses (e.g., Policy Makers, Residents, Farmers/Business Owners). For each perspective entry:
-        *   Populate the `group` name (e.g., "Policy Makers").
-        *   Fill the `general_equity_assessment` (title and narrative) using the corresponding raw analysis text (e.g., the content for key `perspective_policymakers_general`). The title should reflect the group's perspective.
-        *   Fill the individual equity dimension descriptions (recognitional_equity, procedural_equity, distributional_equity, structural_equity) using the specific raw analysis texts for that dimension and group (e.g., the content for key `perspective_policymakers_recognitional`).
-    7.  Ensure the output is a single, valid JSON object and nothing else.
+    5.  For the `overall_analysis_by_perspective` array, there will be one entry for each stakeholder group (Policy Makers, Residents, Farmers/Business Owners).
+        *   For each `group_name`, ensure the `group_description` is precisely copied from the provided JSON_SKELETON's default value for that group.
+        *   Within each perspective's `analyses` object, fill in the four types of analysis: `general_equity_assessment`, `vulnerable_groups_analysis`, `severity_impact_analysis`, and `mitigation_strategies_analysis`.
+        *   **For `general_equity_assessment` within each perspective:** Break down the corresponding "general" raw analysis into the sub-fields for each of the four equity dimensions (Recognitional, Procedural, Distributional, Structural). Aim to identify both "positive_findings" and "concerns" if discernible, and provide a "conclusion".
+        *   **For other analysis types (vulnerable groups, severity, mitigation) within each perspective:** Fill their respective `summary`, `identified_groups_and_impacts`, `high_severity_impacts`, `identified_strategies`, etc., fields using the relevant raw analysis text.
+    6.  Ensure the `overall_summary_and_recommendations` section is populated using any relevant overarching themes or conclusions found in the raw analyses.
+    7.  The `id`, `source`, and `document` fields at the top-level of the JSON will be populated by Python, leave them as `...` in your output.
+    8.  Ensure the output is a single, valid JSON object and nothing else.
 
-    **JSON SKELETON TO POPULATE (Text fields only):**
+    **JSON SKELETON TO POPULATE (Text fields only, leaving 'id', 'source', 'document' as '...'):**
     {JSON_SKELETON}
 
     **RAW TEXT ANALYSES TO USE:**
@@ -276,20 +352,22 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
                 {"role": "user", "content": formatter_prompt}
             ],
             response_format={"type": "json_object"}
-            #temperature=0.2 # Keep temperature low for structured output - COMMENTED OUT
+            # temperature=0.2 # Keep temperature low for structured output
         )
         json_output_str = response.choices[0].message.content
         structured_data = json.loads(json_output_str)
 
-        # Assign new top-level fields
-        structured_data["id"] = session_id # <--- ADD THIS
-        structured_data["source"] = source # <--- ADD THIS
-
-        # Assign document metadata
+        # Assign document metadata and top-level fields (Python-controlled)
+        structured_data["id"] = session_id
+        structured_data["source"] = source
         structured_data["document"]["filename"] = filename
         structured_data["document"]["title"] = title
         structured_data["document"]["size_kb"] = file_size_kb
         structured_data["document"]["upload_date_utc"] = upload_date_utc
+        # Also ensure top-level analysis_status for consistency with /api/policies list
+        structured_data["analysis_status"] = "completed" # Mark as completed here
+        structured_data["analysis_error"] = None
+
 
         # --- Python Logic to Inject Raw Sources (POST-LLM) ---
         _populate_sources_into_json(structured_data, raw_analyses)
@@ -300,43 +378,53 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
         logger.error(f"Error decoding JSON from OpenAI response during formatting: {e}. Response was: {json_output_str[:500]}...", exc_info=True)
         # Attempt to return a partial JSON indicating formatting failure and populate sources
         error_json = json.loads(JSON_SKELETON)
-        error_json["id"] = session_id # <--- ADD THIS
-        error_json["source"] = source # <--- ADD THIS
+        error_json["id"] = session_id
+        error_json["source"] = source
         error_json["document"]["filename"] = filename
         error_json["document"]["title"] = title
         error_json["document"]["size_kb"] = file_size_kb
         error_json["document"]["upload_date_utc"] = upload_date_utc
-        error_json["analysis_sections"]["general_equity_assessment"]["summary"] = f"JSON formatting failed: {e}. Raw analyses might be incomplete or malformed."
-        error_json["equity_analysis_by_perspective"] = []
+        error_json["analysis_status"] = "failed" # Mark as failed due to JSON error
+        error_json["analysis_error"] = f"JSON formatting failed: {e}. Raw analyses might be incomplete or malformed."
+        # Clear main analysis content on failure to avoid malformed output
+        error_json["overall_analysis_by_perspective"] = []
         error_json["overall_summary_and_recommendations"]["key_equity_gaps"] = "Due to JSON formatting failure."
         _populate_sources_into_json(error_json, raw_analyses) # Still try to populate sources on error
         return error_json
     except Exception as e:
         logger.error(f"Failed to format analyses into JSON for unknown reason: {e}", exc_info=True)
         error_json = json.loads(JSON_SKELETON)
-        error_json["id"] = session_id # <--- ADD THIS
-        error_json["source"] = source # <--- ADD THIS
+        error_json["id"] = session_id
+        error_json["source"] = source
         error_json["document"]["filename"] = filename
         error_json["document"]["title"] = title
         error_json["document"]["size_kb"] = file_size_kb
         error_json["document"]["upload_date_utc"] = upload_date_utc
-        error_json["analysis_sections"]["general_equity_assessment"]["summary"] = f"An unexpected error occurred during final JSON synthesis: {e}"
-        error_json["equity_analysis_by_perspective"] = []
+        error_json["analysis_status"] = "failed" # Mark as failed due to unexpected error
+        error_json["analysis_error"] = f"An unexpected error occurred during final JSON synthesis: {e}"
+        # Clear main analysis content on failure
+        error_json["overall_analysis_by_perspective"] = []
         error_json["overall_summary_and_recommendations"]["key_equity_gaps"] = "Due to unexpected error during JSON formatting."
         _populate_sources_into_json(error_json, raw_analyses) # Still try to populate sources on error
         return error_json
 
+ANALYSIS_TYPE_DESCRIPTIONS = {
+    "general": "the overall equity implications, considering all relevant dimensions of the COEQWAL framework.",
+    "vulnerable_groups": "how vulnerable groups are affected or mentioned.",
+    "severity_of_impact": "the severity of the document's impacts on equity.",
+    "mitigation_strategies": "strategies or solutions for equity concerns."
+}
+
 async def perform_equity_analysis(
     session_id: str,
-    #temp_file_path: str, # Path to the temporarily saved file (not the original one in Documents)
     original_filename: str,
     title: str,
     file_size_kb: int,
     upload_date_utc: str,
     rag_system_instance: HybridRAGSystem,
-    openai_interface_instance: OpenAIInteraction, # Pass this for wait_for_vector_store_file_processing
-    user_sessions_dict: Dict[str, Dict[str, Any]], # Direct reference to the main app's user_sessions dict
-    analysis_output_dir: str # Directory to save the final JSON file
+    openai_interface_instance: OpenAIInteraction,
+    user_sessions_dict: Dict[str, Dict[str, Any]],
+    analysis_output_dir: str # This will be ANALYSES_DIR from main.py
 ):
     """
     Performs the full equity analysis for a single document as a background task.
@@ -347,7 +435,6 @@ async def perform_equity_analysis(
     session_info = user_sessions_dict.get(session_id)
     if not session_info:
         logger.error(f"Session {session_id} not found in user_sessions_dict during background analysis start.")
-        # No temp_file_path to delete here anymore if session_info is missing
         return
 
     session_info['analysis_status'] = 'in_progress'
@@ -355,9 +442,9 @@ async def perform_equity_analysis(
     session_info['analysis_result_path'] = None
     session_info['analysis_error'] = None
 
-    # --- MAIN TRY BLOCK FOR THE ENTIRE ANALYSIS PROCESS ---
     try:
         # --- NEW STEP: WAIT FOR OPENAI VECTOR STORE PROCESSING TO COMPLETE ---
+        # (NO CHANGE HERE - existing logic)
         vector_store_id = session_info.get("vector_store_id")
         openai_file_id = session_info.get("file_id")
 
@@ -367,7 +454,6 @@ async def perform_equity_analysis(
         logger.info(f"[{session_id}] Waiting for OpenAI Vector Store file processing to complete...")
         session_info['analysis_status'] = 'waiting_vs_processing' # More granular status for frontend
         
-        # Use the openai_interface_instance to wait
         processing_success = openai_interface_instance.wait_for_vector_store_file_processing(
             vector_store_id=vector_store_id,
             file_id=openai_file_id,
@@ -384,84 +470,68 @@ async def perform_equity_analysis(
         # --- SIMULATION TOGGLE ---
         if settings.SIMULATE_ANALYSIS:
             logger.info(f"[{session_id}] Running analysis in SIMULATION MODE (no OpenAI calls).")
-            # Simulate some work time
             await asyncio.sleep(2) 
             
-            dummy_json_result = {
-                "id": session_id,
-                "source": "user",
-                "document": {
-                    "filename": original_filename,
-                    "title": title or "Simulated Document Title",
-                    "size_kb": file_size_kb,
-                    "upload_date_utc": upload_date_utc
-                },
-                "analysis_sections": {
-                    "general_equity_assessment": {
-                        "title": "General Equity Assessment (Simulated)",
-                        "summary": "This is a simulated general equity assessment. It provides a placeholder for detailed analysis content when in simulation mode. The document appears to touch upon various aspects that could pertain to equitable distribution and fair processes, hinting at areas where further real analysis would elaborate on both strengths and potential concerns. This section aims to mimic a comprehensive output without actual LLM processing.",
-                        "sources": [{"type": "openai", "data": "Simulated Source from Doc A: <blockquote>This is a dummy chunk that would normally be retrieved by OpenAI file search during real analysis. It demonstrates source inclusion.</blockquote>"}]
-                    },
-                    "vulnerable_groups_analysis": {
-                        "title": "Vulnerable Groups Analysis (Simulated)",
-                        "summary": "In simulation, the analysis might suggest a focus on how policies could implicitly affect vulnerable populations, even if not explicitly stated. A real analysis would identify specific groups and detailed impacts.",
-                        "identified_groups_and_impacts": "Placeholder for identified groups and their simulated impacts.",
-                        "equity_assessment_summary": "Simulated equity summary for vulnerable groups.",
-                        "conclusion": "Simulated conclusion for vulnerable groups.",
-                        "sources": [{"type": "openai", "data": "Simulated Source from Doc A: <blockquote>Dummy source related to vulnerable groups.</blockquote>"}]
-                    },
-                    "severity_impact_analysis": {
-                        "title": "Severity of Impact Analysis (Simulated)",
-                        "summary": "Simulated summary on impact severity. A real analysis would detail high and moderate severity impacts on equity.",
-                        "high_severity_impacts": "Placeholder for high severity impacts.",
-                        "moderate_severity_impacts": "Placeholder for moderate severity impacts.",
-                        "equity_implications_of_impacts": "Simulated equity implications.",
-                        "conclusion": "Simulated conclusion on impact severity.",
-                        "sources": [{"type": "openai", "data": "Simulated Source from Doc A: <blockquote>Dummy source related to impact severity.</blockquote>"}]
-                    },
-                    "mitigation_strategies_analysis": {
-                        "title": "Mitigation Strategies Analysis (Simulated)",
-                        "summary": "Simulated summary of mitigation strategies. Real analysis would identify and assess their fairness and effectiveness comprehensively.",
-                        "identified_strategies": "Placeholder for identified strategies.",
-                        "equity_assessment": "Simulated equity assessment of strategies.",
-                        "conclusion": "Simulated conclusion on strategies.",
-                        "sources": [{"type": "openai", "data": "Simulated Source from Doc A: <blockquote>Dummy source related to mitigation strategies.</blockquote>"}]
+            # --- UPDATED DUMMY JSON RESULT FOR SIMULATION ---
+            dummy_json_result = json.loads(JSON_SKELETON) # Load skeleton
+            dummy_json_result["id"] = session_id
+            dummy_json_result["source"] = "user"
+            dummy_json_result["document"]["filename"] = original_filename
+            dummy_json_result["document"]["title"] = title or "Simulated Document Title"
+            dummy_json_result["document"]["size_kb"] = file_size_kb
+            dummy_json_result["document"]["upload_date_utc"] = upload_date_utc
+            dummy_json_result["analysis_status"] = "completed" # Set top-level status for list
+            dummy_json_result["analysis_error"] = None
+
+
+            # Populate dummy data for each perspective and analysis type
+            for p_idx, perspective_info in enumerate(PERSPECTIVES):
+                # Ensure the perspective entry exists in the skeleton (if it's not already pre-populated)
+                if p_idx < len(dummy_json_result["overall_analysis_by_perspective"]):
+                    perspective_entry = dummy_json_result["overall_analysis_by_perspective"][p_idx]
+                else: # Add if skeleton didn't have enough entries
+                    perspective_entry = {
+                        "group_name": perspective_info["group_name"],
+                        "group_description": perspective_info["description"],
+                        "analyses": {}
                     }
-                },
-                "equity_analysis_by_perspective": [
-                    {
-                        "group": "Policy Makers",
-                        "general_equity_assessment": {
-                            "title": "Policy Makers Perspective (Simulated)",
-                            "narrative": "A simulated narrative from the policy makers' perspective, indicating their role and potential equity considerations. This would usually be several detailed paragraphs.",
-                            "sources": [{"type": "openai", "data": "Simulated Source from Policy Doc: <blockquote>Dummy source from policy maker context.</blockquote>"}]
-                        },
-                        "recognitional_equity": { "description": "Simulated description of recognitional equity from this perspective.", "sources": [] },
-                        "procedural_equity": { "description": "Simulated description of procedural equity from this perspective.", "sources": [] },
-                        "distributional_equity": { "description": "Simulated description of distributional equity from this perspective.", "sources": [] },
-                        "structural_equity": { "description": "Simulated description of structural equity from this perspective.", "sources": [] }
-                    },
-                    {
-                        "group": "Residents",
-                        "general_equity_assessment": {
-                            "title": "Residents Perspective (Simulated)",
-                            "narrative": "A simulated narrative from the residents' perspective, focusing on their experiences with water policy and potential equity impacts. Expect more detail in a real analysis.",
-                            "sources": [{"type": "openai", "data": "Simulated Source from Resident Testimony: <blockquote>Dummy source from resident context.</blockquote>"}]
-                        },
-                        "recognitional_equity": { "description": "Simulated description of recognitional equity from this perspective.", "sources": [] },
-                        "procedural_equity": { "description": "Simulated description of procedural equity from this perspective.", "sources": [] },
-                        "distributional_equity": { "description": "Simulated description of distributional equity from this perspective.", "sources": [] },
-                        "structural_equity": { "description": "Simulated description of structural equity from this perspective.", "sources": [] }
-                    }
-                ],
-                "overall_summary_and_recommendations": {
-                    "title": "Overall Summary & Recommendations (Simulated)",
-                    "key_equity_gaps": "Simulated key equity gaps, indicating areas for improvement.",
-                    "key_equity_strengths": "Simulated key equity strengths, highlighting positive aspects.",
-                    "recommendations": "Simulated recommendations, suggesting future actions for equity enhancement.",
-                    "sources": [{"type": "openai", "data": "Simulated Overall Source: <blockquote>A general dummy source for the overall summary.</blockquote>"}]
-                }
+                    dummy_json_result["overall_analysis_by_perspective"].append(perspective_entry)
+
+                perspective_entry["group_name"] = perspective_info["group_name"]
+                perspective_entry["group_description"] = perspective_info["description"]
+                
+                for analysis_type in ANALYSIS_TYPE_DESCRIPTIONS.keys():
+                    if analysis_type == "general": # Special handling for general equity assessment
+                        perspective_entry["analyses"]["general_equity_assessment"] = {
+                            "title": f"General Equity Assessment for {perspective_info['group_name']} (Simulated)",
+                            "summary": f"This is a simulated general equity assessment for {perspective_info['group_name']}. The document appears to provide some insights.",
+                            "recognitional_equity": { "title": "Recognitional Equity", "positive_findings": "Simulated positive findings.", "concerns": "Simulated concerns.", "conclusion": "Simulated conclusion." },
+                            "procedural_equity": { "title": "Procedural Equity", "positive_findings": "Simulated positive findings.", "concerns": "Simulated concerns.", "conclusion": "Simulated conclusion." },
+                            "distributional_equity": { "title": "Distributional Equity", "positive_findings": "Simulated positive findings.", "concerns": "Simulated concerns.", "conclusion": "Simulated conclusion." },
+                            "structural_equity": { "title": "Structural Equity", "positive_findings": "Simulated positive findings.", "concerns": "Simulated concerns.", "conclusion": "Simulated conclusion." },
+                            "sources": [{"type": "openai", "data": f"Simulated Source from Doc for {perspective_info['group_name']} General."}]
+                        }
+                    else: # Other analysis types
+                        perspective_entry["analyses"][f"{analysis_type}_analysis"] = {
+                            "title": f"{analysis_type.replace('_', ' ').title()} Analysis for {perspective_info['group_name']} (Simulated)",
+                            "summary": f"This is a simulated summary for {analysis_type} from {perspective_info['group_name']}'s perspective.",
+                            "identified_groups_and_impacts": "Simulated identified groups and impacts.",
+                            "high_severity_impacts": "Simulated high severity impacts.",
+                            "identified_strategies": "Simulated identified strategies.",
+                            "equity_assessment": "Simulated equity assessment.",
+                            "conclusion": "Simulated conclusion.",
+                            "sources": [{"type": "openai", "data": f"Simulated Source from Doc for {perspective_info['group_name']} {analysis_type}."}]
+                        }
+            
+            # Populate overall_summary_and_recommendations
+            dummy_json_result["overall_summary_and_recommendations"] = {
+                "title": "Overall Summary & Recommendations (Simulated)",
+                "key_equity_gaps": "Simulated key equity gaps across all perspectives.",
+                "key_equity_strengths": "Simulated key equity strengths across all perspectives.",
+                "recommendations": "Simulated recommendations for future actions.",
+                "sources": [{"type": "openai", "data": "Simulated Overall Summary Source."}]
             }
+
             # Save to file
             output_file_path = os.path.join(analysis_output_dir, f"{session_id}.json")
             os.makedirs(analysis_output_dir, exist_ok=True)
@@ -477,59 +547,60 @@ async def perform_equity_analysis(
 
         else: # --- REAL ANALYSIS LOGIC ---
             logger.info(f"[{session_id}] Running analysis in REAL MODE (making OpenAI calls).")
-            raw_analyses: Dict[str, Dict[str, Any]] = {}
+            # raw_analyses will now be structured as {perspective_slug: {analysis_type_slug: {text: ..., sources: ...}}}
+            raw_analyses: Dict[str, Dict[str, Any]] = {} 
             final_json_result: Optional[Dict[str, Any]] = None
             
-            # --- Generate analyses for standard FOCUS_AREAS ---
-            focus_description_map = {
-                "general": "the overall equity implications, considering all relevant dimensions of the COEQWAL framework.",
-                "vulnerable_groups": "how vulnerable groups are affected or mentioned.",
-                "severity_of_impact": "the severity of the document's impacts on equity.",
-                "mitigation_strategies": "strategies or solutions for equity concerns."
-            }
-            for focus in FOCUS_AREAS:
-                logger.info(f"[{session_id}] -> Generating raw analysis for focus: '{focus}'...")
-                query_for_rag_system = ANALYSIS_QUERY_GENERIC.format(focus_description=focus_description_map.get(focus, "equity implications."))
-                
-                answer, _, openai_srcs = rag_system_instance.answer_question(session_id=session_id, query=query_for_rag_system, focus_area=focus)
-                
-                if "Error:" in answer:
-                    logger.error(f"[{session_id}] Received an error for standard focus '{focus}': {answer}. Marking as failed.")
-                    raw_analyses[focus] = {"text": f"ANALYSIS FAILED: {answer}", "openai_sources": openai_srcs}
-                else:
-                    raw_analyses[focus] = {"text": answer, "openai_sources": openai_srcs}
-                logger.info(f"[{session_id}] Generated raw analysis for '{focus}'. Waiting for {DELAY_BETWEEN_REQUESTS_SECONDS}s...")
-                time.sleep(DELAY_BETWEEN_REQUESTS_SECONDS)
-
-            # --- Generate analyses for each PERSPECTIVE ---
+            # --- Generate analyses for each PERSPECTIVE and each ANALYSIS TYPE within it ---
             for perspective_info in PERSPECTIVES:
                 perspective_group_key = perspective_info["group_name"].replace(" ", "_").lower()
-                logger.info(f"[{session_id}] -> Generating analysis for perspective: '{perspective_info['group_name']}'...")
+                raw_analyses[perspective_group_key] = {} # Initialize inner dict for this perspective
+                logger.info(f"[{session_id}] -> Generating analyses for perspective: '{perspective_info['group_name']}'...")
 
-                # General Equity Assessment for this perspective
-                query_general_perspective = ANALYSIS_QUERY_GENERIC.format(focus_description=perspective_info['description'])
-                answer_general, _, openai_srcs = rag_system_instance.answer_question(session_id=session_id, query=query_general_perspective, focus_area="general")
-                if "Error:" in answer_general:
-                    logger.error(f"[{session_id}] Error for perspective '{perspective_info['group_name']}' general analysis: {answer_general}. Marking as failed.")
-                    raw_analyses[f"perspective_{perspective_group_key}_general"] = {"text": f"ANALYSIS FAILED: {answer_general}", "openai_sources": openai_srcs}
-                else:
-                    raw_analyses[f"perspective_{perspective_group_key}_general"] = {"text": answer_general, "openai_sources": openai_srcs}
-                logger.info(f"[{session_id}] Generated general analysis for '{perspective_info['group_name']}'. Waiting for {DELAY_BETWEEN_REQUESTS_SECONDS}s...")
-                time.sleep(DELAY_BETWEEN_REQUESTS_SECONDS)
+                for focus_type, focus_description_suffix in ANALYSIS_TYPE_DESCRIPTIONS.items():
+                    # Construct query specific to perspective and analysis type
+                    # For general, use the group description. For others, use specific analysis type description.
+                    
+                    if focus_type == "general":
+                        query_focus = perspective_info['description'] # Use perspective's general description
+                    else:
+                        query_focus = f"Regarding {perspective_info['group_name']}'s perspective, {focus_description_suffix}"
+                    
+                    full_query_for_rag_system = ANALYSIS_QUERY_GENERIC.format(focus_description=query_focus)
+                    
+                    # Store raw analysis by perspective_key and focus_type
+                    raw_analysis_key_for_rag_system = f"perspective_{perspective_group_key}_{focus_type}"
+                    
+                    logger.info(f"[{session_id}]    -> Querying for '{perspective_info['group_name']}' - '{focus_type}' analysis...")
+                    
+                    answer, _, openai_srcs = rag_system_instance.answer_question(
+                        session_id=session_id,
+                        query=full_query_for_rag_system,
+                        focus_area=focus_type # Pass original focus_type for prompt selection
+                    )
+                    
+                    if "Error:" in answer:
+                        logger.error(f"[{session_id}] Received an error for '{perspective_info['group_name']}' - '{focus_type}': {answer}. Marking as failed.")
+                        raw_analyses[raw_analysis_key_for_rag_system] = {"text": f"ANALYSIS FAILED: {answer}", "openai_sources": openai_srcs}
+                    else:
+                        raw_analyses[raw_analysis_key_for_rag_system] = {"text": answer, "openai_sources": openai_srcs}
+                    
+                    logger.info(f"[{session_id}]    Generated raw analysis for '{perspective_info['group_name']}' - '{focus_type}'. Waiting {DELAY_BETWEEN_REQUESTS_SECONDS}s...")
+                    time.sleep(DELAY_BETWEEN_REQUESTS_SECONDS)
 
-                # Individual Equity Dimensions for this perspective
-                for dim in ["recognitional", "procedural", "distributional", "structural"]:
-                    prompt_description = perspective_info["dimensions"].get(dim)
-                    if prompt_description:
-                        query_dim_perspective = ANALYSIS_QUERY_GENERIC.format(focus_description=prompt_description)
-                        answer_dim, _, openai_srcs = rag_system_instance.answer_question(session_id=session_id, query=query_dim_perspective, focus_area="general")
-                        if "Error:" in answer_dim:
-                            logger.error(f"[{session_id}] Error for perspective '{perspective_info['group_name']}' {dim} analysis: {answer_dim}. Marking as failed.")
-                            raw_analyses[f"perspective_{perspective_group_key}_{dim}"] = {"text": f"ANALYSIS FAILED: {answer_dim}", "openai_sources": openai_srcs}
-                        else:
-                            raw_analyses[f"perspective_{perspective_group_key}_{dim}"] = {"text": answer_dim, "openai_sources": openai_srcs}
-                        logger.info(f"[{session_id}] Generated '{dim}' analysis for '{perspective_info['group_name']}'. Waiting for {DELAY_BETWEEN_REQUESTS_SECONDS}s...")
-                        time.sleep(DELAY_BETWEEN_REQUESTS_SECONDS)
+            # --- Generate an overall summary analysis if needed (optional, for overall_summary_and_recommendations) ---
+            # You might want a dedicated query here not tied to a specific perspective for the "overall_summary" section.
+            # Example:
+            overall_summary_query = "Provide an overall summary of the document's equity implications and recommendations, synthesizing findings across all perspectives previously considered."
+            logger.info(f"[{session_id}] -> Generating overall summary analysis...")
+            overall_answer, _, overall_openai_srcs = rag_system_instance.answer_question(
+                session_id=session_id,
+                query=overall_summary_query,
+                focus_area="general" # Use general focus for overall summary
+            )
+            raw_analyses["overall_summary"] = {"text": overall_answer, "openai_sources": overall_openai_srcs}
+            logger.info(f"[{session_id}] Generated overall summary.")
+            time.sleep(DELAY_BETWEEN_REQUESTS_SECONDS) # Add a small delay
 
             # --- Synthesize all raw analyses text into final JSON structure (Python injects sources after) ---
             final_json_result = format_analyses_into_json(
@@ -542,6 +613,7 @@ async def perform_equity_analysis(
                 raise Exception("Failed to synthesize the final JSON structure from raw analyses.")
 
             # --- Save result to file and update in-memory dict ---
+            # (NO CHANGE - uses analysis_output_dir passed from main.py)
             output_file_path = os.path.join(analysis_output_dir, f"{session_id}.json")
             os.makedirs(analysis_output_dir, exist_ok=True)
             with open(output_file_path, 'w', encoding='utf-8') as f:
@@ -554,11 +626,9 @@ async def perform_equity_analysis(
             session_info['analysis_result_cached'] = final_json_result
             logger.info(f"[{session_id}] Analysis completed and session info updated.")
 
-    except Exception as e: # This handles exceptions within the REAL analysis block
+    except Exception as e:
         logger.error(f"[{session_id}] Critical error during background REAL analysis: {e}", exc_info=True)
         session_info['analysis_status'] = 'failed'
         session_info['analysis_error'] = str(e)
-    # --- END REAL ANALYSIS LOGIC ---
-
-    finally: # This finally block encapsulates the entire function's execution.
+    finally:
         pass

@@ -79,7 +79,7 @@ class HybridRAGSystem:
         """
         Selects or generates the appropriate system prompt based on the focus area.
         Ensures an indicative, tentative, or suggestive tone while preserving directives.
-        **Emphasizes generating comprehensive content.**
+        **Emphasizes generating comprehensive content based on document detail.**
         """
         base_intro = f"""
             **Framework Definitions (from COEQWAL Context - Four Equity Dimensions):**
@@ -96,10 +96,11 @@ class HybridRAGSystem:
             **User Query:** {query}
 
             **IMPORTANT - Output Style & Tone:** Please write your analysis in clear, accessible language. Avoid overly academic or technical jargon.
-            Crucially, your analysis should be presented in a **tentative, suggestive, or indicative tone**. Avoid definitive or authoritative statements. You might use phrases such as: "This could suggest...", "It may indicate...", "A possible interpretation is...", "It appears to...", "Could be seen as...", "There seems to be an indication that...", "The document seems to imply...", "It might be perceived as...", "It might suggest the presence of...". If information is not explicitly available in the document, you may state that it is not directly mentioned or that the document does not appear to provide sufficient detail.
-            **Provide a comprehensive response, aiming for detailed analysis and multiple paragraphs where appropriate for each section/point.** Elaborate thoroughly on each finding. Conclude your response with a bulleted summary of the key findings.
+            Crucially, your analysis should be presented in a **tentative, suggestive, or indicative tone**. Avoid definitive or authoritative statements. You might use phrases such as: "This could suggest...", "It may indicate...", "A possible interpretation is...", "It appears to...", "Could be seen as...", "There seems to be an indication that...", "The document seems to imply...", "It might be perceived as...", "It might suggest the presence of...".
+            
+            **Content Extent:** Provide a comprehensive response, extracting all relevant information from the document. **If the document does not explicitly provide information for a particular point, state that the document does not appear to provide sufficient detail or does not directly address that aspect, rather than hallucinating.** Elaborate thoroughly on each finding where content allows, aiming for multiple paragraphs for each section/point if supported by the document. Conclude your response with a bulleted summary of the key findings.
         """
-        
+
         if focus_area == "custom" and custom_instructions:
             return textwrap.dedent(f"""
                 **Your Task:** You are an equity analyst. Your goal is to analyze the uploaded 'User Document' based on a specific set of custom instructions provided by the user. You should strive to follow these instructions while using the COEQWAL Equity Framework as a guiding lens.
@@ -117,9 +118,9 @@ class HybridRAGSystem:
                 3.  Where applicable, you might consider how the COEQWAL dimensions (Recognition, Procedure, Distribution, Structure) could help illuminate the analysis as per the user's instructions.
                 4.  Strive to provide a balanced view, discussing both potential strengths and possible weaknesses that you might identify.
                 5.  Where possible, you may refer to instances or examples from the User Document that could support your observations.
-                6.  If the document seems to lack the necessary information to follow the instructions, it may be appropriate to state this limitation.
+                6.  **If the document seems to lack the necessary information to follow the instructions, it may be appropriate to state this limitation.**
 
-                **Final Output:** Provide a detailed analysis that directly addresses the User's Custom Focus Instructions. Start with a clear overview, then offer the detailed analysis, and conclude with a bulleted summary of your key findings. Ensure comprehensive coverage.
+                **Final Output:** Provide a detailed analysis that directly addresses the User's Custom Focus Instructions. Start with a clear overview, then offer the detailed analysis, and conclude with a bulleted summary of your key findings. Ensure comprehensive coverage based on available information.
             """).strip()
 
         elif focus_area == "vulnerable_groups":
@@ -138,7 +139,7 @@ class HybridRAGSystem:
                 7.  **Present a Balanced View:** Discuss both the potential strengths (positive considerations) and possible weaknesses (potential concerns) that you might discern in the User Document comprehensively, providing ample detail.
                 8.  **Handle Missing Information:** If the User Document appears to lack detail on this topic, it may be appropriate to state this clearly.
 
-                **Final Output:** Provide a **thorough and comprehensive** analysis focused on vulnerable groups, supported by specific examples from the document. Start with a clear overview and ensure each point is well-developed with sufficient content.
+                **Final Output:** Provide a **thorough and comprehensive** analysis focused on vulnerable groups, supported by specific examples from the document. Start with a clear overview and ensure each point is well-developed with sufficient content based on the document.
                 """).strip()
 
         elif focus_area == "severity_of_impact":
@@ -155,10 +156,10 @@ class HybridRAGSystem:
                 5.  **Process for Addressing Severe Impacts (Procedural Equity):** Does the document appear to describe a fair process for evaluating and possibly dealing with severe impacts? Elaborate on these processes and their perceived fairness.
                 6.  **Structural Link to Severity (Structural Equity):** Do the severe potential impacts seem to stem from deeper, systemic issues? Discuss any apparent structural connections and their implications.
                 7.  **Suggest Evidence:** Where possible, you may refer to specific examples or data from the *User Document* that could support your observations.
-                8.  **Present a Balanced View:** Discuss both significant potential positive outcomes and possible severe negative impacts comprehensively, ensuring ample detail.
+                8.  **Present a Balanced View:** Discuss both significant potential positive outcomes and possible severe negative impacts comprehensively, ensuring ample detail based on the document.
                 9.  **Handle Missing Information:** If the User Document appears to lack detail on the severity of impacts, it may be appropriate to state this clearly.
                 
-                **Final Output:** Provide a **thorough and comprehensive** analysis focused on the potential severity of impact, supported by specific examples from the document. Start with a clear overview and ensure each point is well-developed with sufficient content.
+                **Final Output:** Provide a **thorough and comprehensive** analysis focused on the potential severity of impact, supported by specific examples from the document. Start with a clear overview and ensure each point is well-developed with sufficient content based on the document.
                 """).strip()
 
         elif focus_area == "mitigation_strategies":
@@ -177,10 +178,10 @@ class HybridRAGSystem:
                 3.  **Consider Unintended Consequences:** Does the User Document hint at potential new problems that the strategies themselves might inadvertently create? Discuss these potential issues in detail.
                 4.  **Assess Sufficiency:** Do the strategies appear to be sufficiently robust to address the problem they are meant to target? Provide a comprehensive assessment of their perceived adequacy.
                 5.  **Suggest Evidence:** Where possible, you may refer to specific details from the *User Document* that could support your evaluation.
-                6.  **Present a Balanced View:** Discuss both the potential strengths and possible weaknesses of the suggested mitigation strategies comprehensively, ensuring ample detail for each.
+                6.  **Present a Balanced View:** Discuss both the potential strengths and possible weaknesses of the suggested mitigation strategies comprehensively, ensuring ample detail for each based on the document.
                 7.  **Handle Missing Information:** If the User Document appears to lack detail on mitigation strategies, it may be appropriate to state this clearly.
 
-                **Final Output:** Provide a **thorough and comprehensive** analysis focused on mitigation strategies, supported by specific examples from the document. Start with a clear overview and ensure each point is well-developed with sufficient content.
+                **Final Output:** Provide a **thorough and comprehensive** analysis focused on mitigation strategies, supported by specific examples from the document. Start with a clear overview and ensure each point is well-developed with sufficient content based on the document.
             """).strip()
 
         else: # Default to the general COEQWAL analysis prompt
@@ -196,7 +197,7 @@ class HybridRAGSystem:
                 4.  **Suggest Evidence:** Where possible, you may refer to instances or examples from the *User Document* that could support your observations.
                 5.  **Address Information Gaps:** If the User Document appears to lack detail on a specific aspect, it may be appropriate to note this limitation.
 
-                **Final Output:** Provide a balanced analysis of the User Document. Start with a clear overview, then offer the detailed analysis, and conclude with a bulleted summary of your key potential strengths and concerns. Ensure comprehensive coverage for all aspects.
+                **Final Output:** Provide a balanced analysis of the User Document. Start with a clear overview, then offer the detailed analysis, and conclude with a bulleted summary of your key potential strengths and concerns. Ensure comprehensive coverage for all aspects based on the document.
             """).strip()
 
     def decode_hex_utf16le(hex_string: str) -> str:
