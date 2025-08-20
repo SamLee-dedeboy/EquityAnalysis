@@ -18,11 +18,6 @@ class OpenAIInteraction:
 
         try:
             self.client = OpenAI(api_key=resolved_key)
-            # Test connection by listing models (optional, remove if causes issues)
-            # REMOVED: self.client.models.list(limit=1) # <--- This line caused the TypeError
-            # If the client initializes without error, we assume basic connectivity.
-            # A more robust check might involve another simple, parameterless call if needed,
-            # but often initialization success is sufficient.
             logger.info("OpenAI client initialized successfully.")
         except Exception as e:
             logger.error(f"Failed to initialize OpenAI client: {e}", exc_info=True)
@@ -104,7 +99,7 @@ class OpenAIInteraction:
                     logger.warning(f"Unexpected VS File status '{status}' for file {file_id}. Continuing poll.")
 
             except NotFoundError:
-                 # This is important: it means the file IS NOT associated with the VS *yet* or bad IDs.
+                 # File IS NOT associated with the VS *yet* or bad IDs.
                  # Let's keep polling for a short while in case it's a delay.
                  logger.warning(f"VS File {file_id} in VS {vector_store_id} not found (404). May not be linked yet or IDs incorrect. Retrying...")
                  # Optionally add a small delay specific to 404 before the main poll_interval

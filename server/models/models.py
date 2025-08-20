@@ -41,3 +41,7 @@ class EndSessionResponse(BaseModel):
 
 class ErrorResponse(BaseModel):
     detail: str
+    
+class ChatMessage(BaseModel):
+    type: str
+    content: str

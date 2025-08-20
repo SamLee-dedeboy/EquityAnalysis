@@ -15,6 +15,9 @@ class Settings(BaseSettings):
     # --- Local DB Settings ---
     LOCAL_EMBEDDING_MODEL: str = "all-mpnet-base-v2"
     LOCAL_DB_PATH: str = "db_v9.json" # Relative to project root
+    
+    # --- Application Database Setting ---
+    DATABASE_URL: str = "sqlite:///./server/analysis_platform.db"
 
     # --- OpenAI Model Settings ---
     # Model for the specialized responses.create endpoint
@@ -47,13 +50,8 @@ try:
     # Check if API key was loaded
     if not settings.OPENAI_API_KEY or "YOUR_OPENAI_API_KEY_HERE" in settings.OPENAI_API_KEY:
         logger.error("OpenAI API Key is missing in .env file.")
-    # You might want to raise an exception here or handle it appropriately
-    # raise ValueError("OpenAI API Key not configured correctly.")
     else:
         logger.info("Configuration loaded successfully.")
-    # Optionally mask part of the key for logging
-    # logger.info(f"OpenAI API Key loaded (starts with: {settings.OPENAI_API_KEY[:5]}...).")
 except Exception as e:
     logger.error(f"CRITICAL: Failed to load settings: {e}", exc_info=True)
-    # Handle the failure, maybe exit or provide default settings if applicable
     settings = None # Indicate failure

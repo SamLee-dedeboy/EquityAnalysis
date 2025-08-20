@@ -18,4 +18,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Analysis Data
-policy_analyses/
+/server/policy_analyses/user/
+
+# Database
+analysis_platform.db

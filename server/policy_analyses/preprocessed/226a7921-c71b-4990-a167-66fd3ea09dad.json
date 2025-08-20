@@ -1,0 +1,734 @@
+{
+  "id": "226a7921-c71b-4990-a167-66fd3ea09dad",
+  "source": "preprocessed",
+  "document": {
+    "filename": "endangered-species-act.pdf",
+    "title": "Endangered Species Act of 1973, As Amended through the 108th Congress",
+    "size_kb": 312,
+    "upload_date_utc": "2025-08-20T00:47:20Z"
+  },
+  "overall_analysis_by_perspective": [
+    {
+      "group_name": "Policy Makers",
+      "group_description": "the overall equity implications from the perspective of federal and state policymakers, considering their regulatory responsibilities and influence on equity outcomes. This assessment could indicate how effectively equity measures are embedded in their processes, or if there might be systematic gaps in addressing social or racial disparities.",
+      "analyses": {
+        "general_equity_assessment": {
+          "title": "General Equity Assessment for Policy Makers",
+          "summary": "The analysis of the Endangered Species Act (ESA) through the lens of the COEQWAL Equity Framework reveals both strengths and potential areas of concern regarding equity implications for federal and state policymakers.",
+          "recognitional_equity": {
+            "title": "Recognitional Equity",
+            "positive_findings": "The ESA recognizes the intrinsic value of biodiversity and acknowledges the importance of various species and ecosystems.",
+            "concerns": "However, there may be a lack of explicit recognition of marginalized communities and their unique needs within the decision-making processes.",
+            "conclusion": "This suggests that while the ESA recognizes biodiversity, it may overlook the specific rights and needs of affected communities."
+          },
+          "procedural_equity": {
+            "title": "Procedural Equity",
+            "positive_findings": "Public participation is emphasized through provisions for public comment which may indicate a commitment to procedural equity.",
+            "concerns": "Effectiveness may be hampered if processes do not engage historically marginalized communities adequately.",
+            "conclusion": "There is a possibility that the complexity of regulations could pose barriers to meaningful participation."
+          },
+          "distributional_equity": {
+            "title": "Distributional Equity",
+            "positive_findings": "Funding allocated by the ESA based on conservation needs could imply efforts to prioritize resources where they are most needed.",
+            "concerns": "However, the lack of attention to social or racial disparities in fund allocation raises concerns about equitable resource distribution.",
+            "conclusion": "There may be unintended consequences where marginalized communities continue to face disproportionate impacts."
+          },
+          "structural_equity": {
+            "title": "Structural Equity",
+            "positive_findings": "The ESA encourages cooperation with state and local agencies which could reflect an understanding of interconnected environmental and social issues.",
+            "concerns": "Notably, there appears to be insufficient attention to the systemic barriers faced by marginalized communities.",
+            "conclusion": "The reliance on state-level implementation may lead to inconsistencies in equity considerations."
+          },
+          "sources": [
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(A) authority resides in the State agency to conserve resident species of plants \ndetermined by the State agency or the Secretary to be endangered or threat­\nened; \n\n(B) the State agency has established acceptable conservation programs, con­\nsistent with the purposes and policies of this Act, for all resident species of plants \nin the State which are deemed by the Secretary to be endangered or thr...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>18. Notwithstanding section 3003 of Public Law 104-66 (31 U.S.C. 1113 note; 109 Stat. 734), on or before January 15, 1990, and each January 15 thereafter, the Secretary of the Interior, acting through the Fish and Wildlife Service, shall submit to the Congress an annual report covering the preceding fiscal year which shall contain— \n\t(1)\n\t(1)\n\t(1)\n\t an accounting on a species by species basis of a...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(d) ALLOCATION OF FUNDS.—(1) The Secretary is authorized to provide financial assistance to any State, through its respective State agency, which has entered into a cooperative agreement pursuant to subsection (c) of this section to assist in devel­opment of programs for the conservation of endangered and threatened species or to assist in monitoring the status of candidate species pursuant to sub...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(2) Such cooperative agreements shall provide for (A) the actions to be taken by \nthe Secretary and the States; (B) the benefits that are expected to be derived in \nconnection with the conservation of endangered or threatened species; (C) the esti­\nmated cost of these actions; and (D) the share of such costs to be borne by the Fed­\neral Government and by the States; except that— \n\n(i) the Federal ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(d) ALLOCATION OF  FUNDS.—(1) The Secretary is authorized to provide financial \nassistance to any State, through its respective State agency, which has entered into \na cooperative agreement pursuant to subsection (c) of this section to assist in devel­\nopment of programs for the conservation of endangered and threatened species or \nto assist in monitoring the status of candidate species pursuant t...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>1\n \n\nENDANGERED SPECIES ACT OF 1973* \n\nFINDINGS, PURPOSES, AND POLICY \n\nSEC. 2. (a) FINDINGS.—The Congress finds and declares that— \n(1) various species of fish, wildlife, and plants in the United States have \n\nbeen rendered extinct as a consequence of economic growth and development \nuntempered by adequate concern and conservation; \n\n(2) other species of fish, wildlife, and plants have been so de...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(k)\n\t(k)\n\t(k)\n\t SPECIAL PROVISIONS.—An exemption decision by the Committee under this section shall not be a major Federal action for purposes of the National Environ­\n\n\tmental Policy Act of 1969 (42 U.S.C. 4321 et seq.): Provided, That an environmental impact statement which discusses the impacts upon endangered species or threat­ened species or their critical habitats shall have been previously ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t The Secretary shall report every two years to the Committee on Environment and Public Works of the Senate and the Committee on Merchant Marine and Fish­eries of the House of Representatives on the status of efforts to develop and imple­ment recovery plans for all species listed pursuant to this section and on the status of all species for which such plans have been developed. \n\n\t(4)\n\t(4...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t not to exceed $ 2,200,000 for fiscal year 1988, $ 2,400,000 for each of fiscal years 1989 and 1990, and $ 2,600,000 for each of fiscal years 1991 and 1992, to enable the Department of Agriculture to carry out its functions and responsi­bilities with respect to the enforcement of this Act and the Convention which pertain to the importation or exportation of plants. \n\n\n\t(b)\n\t(b)\n\t(b)\n\t EX...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(e) SIMILARITY OF APPEARANCE CASES.—The Secretary may, by regulation of com­\nmerce or taking, and to the extent he deems advisable, treat any species as an en­\ndangered species or threatened species even though it is not listed pursuant to sec­\ntion 4 of this Act if he finds that— \n\n(A) such species so closely resembles in appearance, at the point in ques­\ntion, a species which has been listed pur...</blockquote>"
+            }
+          ]
+        },
+        "vulnerable_groups_analysis": {
+          "title": "Vulnerable Groups Analysis for Policy Makers",
+          "summary": "The ESA may disproportionately affect communities reliant on natural resources, such as rural populations and Indigenous groups.",
+          "identified_groups_and_impacts": "While specific groups are not explicitly identified, rural communities dependent on natural ecosystems may be at risk due to economic impacts from conservation measures.",
+          "equity_assessment_summary": "The assessment suggests that although conservation efforts are critical, a more nuanced understanding of how these efforts impact vulnerable groups is necessary.",
+          "conclusion": "Policy makers may need to integrate explicit measures that address the inequalities faced by these groups in conservation strategies.",
+          "sources": [
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(2) The Secretary, pursuant to the provisions of this subsection, may exempt, if \nsuch exemption is not in violation of the Convention, any pre-Act endangered spe­\ncies part from one or more of the following prohibitions: \n\n(A) The prohibition on exportation from the United States set forth in section \n9(a)(1)(A) of this Act. \n\n(B) Any prohibition set forth in section 9(a)(1)(E) or (F) of this Act...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>Sec. 16. Effective date \n\tSec. 16. Effective date \n\t............................................................................................. \n\t41. \n\n\tSec. 17. Marine Mammal Protection Act of 1972 \n\tSec. 17. Marine Mammal Protection Act of 1972 \n\t................................................ \n\t41. \n\n\tSec. 18. Annual cost analysis by the Fish and Wildlife Service \n\tSec. 18. Annual cost analy...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>Sec. 3. Definitions \n\tSec. 3. Definitions \n\t.................................................................................................. \n\t2. \n\n\tSec. 4. Determination of endangered species and threatened species \n\tSec. 4. Determination of endangered species and threatened species \n\t......... \n\t4. \n\n\tSec. 5. Land acquisition \n\tSec. 5. Land acquisition \n\t..........................................</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>tion made under this subsection shall have force and effect after the close of the \nthree-year period beginning on the date of issuance of the certificate unless \nsuch exemption is renewed under paragraph (8); and \n\n(D) any term or condition prescribed pursuant to paragraph (5)(A) or (B), or \nboth, which the Secretary deems necessary or appropriate. \n\n(5) The Secretary shall prescribe such regulat...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>courses of action consistent with conserving the species or its critical habi­\ntat, and such action is in the public interest; \n\n(iii) the action is of regional or national significance; and \n(iv) neither the Federal agency concerned nor the exemption applicant \n\nmade any irreversible or irretrievable commitment of resources prohibited \nby subsection (d); and \n\n(B) it establishes such reasonable m...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(B) except for any time within the establishment period when— \n(i) the Secretary applies such prohibition to such species at the request of \n\nthe State, or \n(ii) the Secretary applies such prohibition after he finds, and publishes \n\nhis finding, that an emergency exists posing a significant risk to the well­\nbeing of such species and that the prohibition must be applied to protect \nsuch species. T...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(2) not to exceed $ 5,750,000 for fiscal year 1988, $ 6,250,000 for each of fiscal \nyears 1989 and 1990, and $ 6,750,000 for each of fiscal years 1991 and 1992 to en­\n\n\n\n41\n \n\nable the Department of Commerce to carry out such functions and responsibili­\nties as it may have been given under this Act; and \n\n(3) not to exceed $ 2,200,000 for fiscal year 1988, $ 2,400,000 for each of fiscal \nyears 198...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>17\n \n\n(iv) sets forth the terms and conditions (including, but not limited to, reporting \nrequirements) that must be complied with by the Federal agency or applicant (if \nany), or both, to implement the measures specified under clauses (ii) and (iii). \n\n(c) BIOLOGICAL  ASSESSMENT.—(1) To facilitate compliance with the requirements \nof subsection (a)(2), each Federal agency shall, with respect to a...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>Endangered Species Act of 1973, As Amended through the 108th Congress\n\n\nU.S. Fish & Wildlife Service \n\nENDANGERED SPECIES ACT OF 1973 \nAs Amended through the \n\n108th Congress \n\nDepartment of the Interior\n \nU.S. Fish and Wildlife Service\n \n\nWashington, D.C. 20240\n \n\n\n\nTABLE OF CONTENTS \n\nPage\n \nSec. 2. Findings, purposes, and policy ............................................................... 1\n...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(i)\n\t(i)\n\t(i)\n\t solely for purposes of section 7 (other than subsection (a)(1) thereof), an experimental population determined under subparagraph (B) to be not essen­tial to the continued existence of a species shall be treated, except when it oc­curs in an area within the National Wildlife Refuge System or the National Park System, as a species proposed to be listed under section 4; and \n\n\t(ii)\n\t...</blockquote>"
+            }
+          ]
+        },
+        "severity_impact_analysis": {
+          "title": "Severity of Impact Analysis for Policy Makers",
+          "summary": "The potential economic impacts of the ESA could lead to hardships for communities dependent on resource extraction, suggesting varying degrees of severity among impacted populations.",
+          "high_severity_impacts": "Negative impacts may include significant economic loss for those reliant on species for livelihood activities, particularly in rural areas.",
+          "moderate_severity_impacts": "Moderate effects may stem from restrictions on development that limit economic opportunities.",
+          "equity_implications_of_impacts": "Such impacts may disproportionately affect marginalized communities who lack alternative resources or economic stability.",
+          "conclusion": "Consideration of these equity implications is critical in understanding the broader impacts of the ESA.",
+          "sources": [
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(A)\n\t(A)\n\t(A)\n\t substantial economic loss resulting from inability caused by this Act to perform contracts with respect to species of fish and wildlife entered into prior to the date of publication in the Federal Register of a notice of consideration of such species as an endangered species; \n\n\t(B)\n\t(B)\n\t substantial economic loss to persons who, for the year prior to the notice of consideration o...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(II)\n\t(II)\n\t the information that is required to complete the consultation, and \n\n\n\t(III) the estimated date on which consultation will be completed; or \n\n\t(ii)\n\t(ii)\n\t if the consultation period proposed to be agreed to will end 150 or more days after the date on which consultation was initiated, obtains the consent of the applicant to such period. \n\n\n\tThe Secretary and the Federal agency may mut...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t Subject to such guidelines as the Secretary may establish, a Federal agency shall consult with the Secretary on any prospective agency action at the request of, and in cooperation with, the prospective permit or license applicant if the applicant has reason to believe that an endangered species or a threatened species may be present in the area affected by his project and that implement...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(B)\n\t(B)\n\t the effect of this substantial difficulty is an additional threat to an en­dangered or threatened species; and \n\n\t(C)\n\t(C)\n\t such treatment of an unlisted species will substantially facilitate the en­forcement and further the policy of this Act. \n\n\n\n\n\t(f)(1) RECOVERY PLANS.—The Secretary shall develop and implement plans (here­inafter in this subsection referred to as “recovery plans”) ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(b) OPINION OF SECRETARY.—(1)(A) Consultation under subsection (a)(2) with re­\nspect to any agency action shall be concluded within the 90-day period beginning on \nthe date on which initiated or, subject to subparagraph (B), within such other period \nof time as is mutually agreeable to the Secretary and the Federal agency. \n\n(B) In the case of an agency action involving a permit or license applica...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>107-171, May 13, 2002; P.L. 108-136, November 24, 2003. \n\tdepartments and agencies shall seek to conserve endangered species and threatened species and shall utilize their authorities in furtherance of the purposes of this Act. \n\t(2) It is further declared to be the policy of Congress that Federal agencies shall cooperate with State and local agencies to resolve water resource issues in concert wi...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(D) the International Convention for the Northwest Atlantic Fisheries; \n\n\t(E)\n\t(E)\n\t the International Convention for the High Seas Fisheries of the North Pacific Ocean; \n\n\t(F)\n\t(F)\n\t the Convention on International Trade in Endangered Species of Wild Fauna and Flora; and \n\n\n\t(G) other international agreements; and \n\n\t(5)\n\t(5)\n\t encouraging the States and other interested parties, through Federal ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(B) Consultation under subsection (a)(3), and an opinion issued by the Secretary \nincident to such consultation, regarding an agency action shall be treated respec­\ntively as a consultation under subsection (a)(2), and as an opinion issued after con­\nsultation under such subsection, regarding that action if the Secretary reviews the \naction before it is commenced by the Federal agency and finds, a...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>EFFECTIVE DATE \n\nSEC. 16. This Act shall take effect on the date of its enactment. \n\nMARINE MAMMAL PROTECTION ACT OF 1972 \n\nSEC. 17. Except as otherwise provided in this Act, no provision of this Act shall \ntake precedence over any more restrictive conflicting provision of the Marine Mam­\nmal Protection Act of 1972. \n\nANNUAL COST ANALYSIS BY THE FISH AND WILDLIFE SERVICE \n\nSEC. 18. Notwithstanding...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(k)\n\t(k)\n\t(k)\n\t SPECIAL PROVISIONS.—An exemption decision by the Committee under this section shall not be a major Federal action for purposes of the National Environ­\n\n\tmental Policy Act of 1969 (42 U.S.C. 4321 et seq.): Provided, That an environmental impact statement which discusses the impacts upon endangered species or threat­ened species or their critical habitats shall have been previously ...</blockquote>"
+            }
+          ]
+        },
+        "mitigation_strategies_analysis": {
+          "title": "Mitigation Strategies Analysis for Policy Makers",
+          "summary": "The ESA outlines several strategies that aim to address equity concerns, including public participation and interagency cooperation.",
+          "identified_strategies": "Key strategies involve developing recovery plans with public input and state cooperation.",
+          "equity_assessment": "However, the effectiveness of these strategies is contingent on their implementation and the engagement of historically underrepresented communities.",
+          "conclusion": "While the strategies show promise, their sufficiency in addressing systemic inequities remains uncertain.",
+          "sources": [
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>EFFECTIVE DATE \n\nSEC. 16. This Act shall take effect on the date of its enactment. \n\nMARINE MAMMAL PROTECTION ACT OF 1972 \n\nSEC. 17. Except as otherwise provided in this Act, no provision of this Act shall \ntake precedence over any more restrictive conflicting provision of the Marine Mam­\nmal Protection Act of 1972. \n\nANNUAL COST ANALYSIS BY THE FISH AND WILDLIFE SERVICE \n\nSEC. 18. Notwithstanding...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(b) OPINION OF SECRETARY.—(1)(A) Consultation under subsection (a)(2) with re­\nspect to any agency action shall be concluded within the 90-day period beginning on \nthe date on which initiated or, subject to subparagraph (B), within such other period \nof time as is mutually agreeable to the Secretary and the Federal agency. \n\n(B) In the case of an agency action involving a permit or license applica...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t Subject to such guidelines as the Secretary may establish, a Federal agency shall consult with the Secretary on any prospective agency action at the request of, and in cooperation with, the prospective permit or license applicant if the applicant has reason to believe that an endangered species or a threatened species may be present in the area affected by his project and that implement...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(II)\n\t(II)\n\t the information that is required to complete the consultation, and \n\n\n\t(III) the estimated date on which consultation will be completed; or \n\n\t(ii)\n\t(ii)\n\t if the consultation period proposed to be agreed to will end 150 or more days after the date on which consultation was initiated, obtains the consent of the applicant to such period. \n\n\n\tThe Secretary and the Federal agency may mut...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>107-171, May 13, 2002; P.L. 108-136, November 24, 2003. \n\tdepartments and agencies shall seek to conserve endangered species and threatened species and shall utilize their authorities in furtherance of the purposes of this Act. \n\t(2) It is further declared to be the policy of Congress that Federal agencies shall cooperate with State and local agencies to resolve water resource issues in concert wi...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(B)\n\t(B)\n\t the effect of this substantial difficulty is an additional threat to an en­dangered or threatened species; and \n\n\t(C)\n\t(C)\n\t such treatment of an unlisted species will substantially facilitate the en­forcement and further the policy of this Act. \n\n\n\n\n\t(f)(1) RECOVERY PLANS.—The Secretary shall develop and implement plans (here­inafter in this subsection referred to as “recovery plans”) ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>10\n \n\n(iii) estimates of the time required and the cost to carry out those mea­\nsures needed to achieve the plan’s goal and to achieve intermediate steps \ntoward that goal. \n\n(2) The Secretary, in developing and implementing recovery plans, may procure \nthe services of appropriate public and private agencies and institutions, and other \nqualified persons. Recovery teams appointed pursuant to this ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(e) SIMILARITY OF APPEARANCE CASES.—The Secretary may, by regulation of com­\nmerce or taking, and to the extent he deems advisable, treat any species as an en­\ndangered species or threatened species even though it is not listed pursuant to sec­\ntion 4 of this Act if he finds that— \n\n(A) such species so closely resembles in appearance, at the point in ques­\ntion, a species which has been listed pur...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(b) PURPOSES.—The purposes of this Act are to provide a means whereby the eco­\nsystems upon which endangered species and threatened species depend may be con­\nserved, to provide a program for the conservation of such endangered species and \nthreatened species, and to take such steps as may be appropriate to achieve the \npurposes of the treaties and conventions set forth in subsection (a) of this s...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(p) EXEMPTIONS IN PRESIDENTIALLY DECLARED DISASTER AREAS.—In any area which \nhas been declared by the President to be a major disaster area under the Disaster \nRelief and Emergency Assistance Act, the President is authorized to make the de­\nterminations required by subsections (g) and (h) of this section for any project for \nthe repair or replacement of a public facility substantially as it existe...</blockquote>"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "group_name": "Residents",
+      "group_description": "the overall equity implications from the perspective of ordinary residents, especially those in vulnerable communities, regarding their access to clean and affordable water. The assessment might indicate if community voices appear to be sufficiently represented in decisions affecting their health and well-being.",
+      "analyses": {
+        "general_equity_assessment": {
+          "title": "General Equity Assessment for Residents",
+          "summary": "The Endangered Species Act (ESA) indirectly affects residents' access to clean water through environmental protections that could impact water quality.",
+          "recognitional_equity": {
+            "title": "Recognitional Equity",
+            "positive_findings": "The Act recognizes the broader context of ecosystems which could support community health.",
+            "concerns": "However, it does not adequately reflect the unique identities and needs of vulnerable populations, potentially overlooking their specific challenges.",
+            "conclusion": "This raises concerns about the inclusiveness of the policy regarding marginalized communities."
+          },
+          "procedural_equity": {
+            "title": "Procedural Equity",
+            "positive_findings": "Consultation processes outlined in the ESA may promote transparency and stakeholder involvement.",
+            "concerns": "The lack of explicit engagement mechanisms for ordinary residents could suggest inadequate procedural equity.",
+            "conclusion": "Community voices may not be fully represented in decision-making processes affecting water quality."
+          },
+          "distributional_equity": {
+            "title": "Distributional Equity",
+            "positive_findings": "Protecting ecosystems could lead to improved water quality for all communities.",
+            "concerns": "Without explicit measures for equitable distribution, residents in vulnerable areas may continue to face disproportionate impacts.",
+            "conclusion": "Thus, residents may be at risk of inequitable burdens in water management considerations."
+          },
+          "structural_equity": {
+            "title": "Structural Equity",
+            "positive_findings": "Management considerations for critical habitats may reflect some understanding of structural issues.",
+            "concerns": "However, historical injustices affecting water access and rights are not sufficiently addressed.",
+            "conclusion": "This oversight could perpetuate existing inequities for marginalized communities."
+          },
+          "sources": [
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>/Description <<\n    /CHS <FEFF4f7f75288fd94e9b8bbe5b9a521b5efa7684002000500044004600206587686353ef901a8fc7684c976262535370673a548c002000700072006f006f00660065007200208fdb884c9ad88d2891cf62535370300260a853ef4ee54f7f75280020004100630072006f0062006100740020548c002000410064006f00620065002000520065006100640065007200200035002e003000204ee553ca66f49ad87248672c676562535f00521b5efa76840020005000440046002065...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>07000720065007300730069006f006e00730020006400650020006800610075007400650020007100750061006c0069007400e90020007300750072002000640065007300200069006d007000720069006d0061006e0074006500730020006400650020006200750072006500610075002e0020004c0065007300200064006f00630075006d0065006e00740073002000500044004600200063007200e900e90073002000700065007500760065006e0074002000ea0074007200650020006f00750076006500720...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>3007400e4006c006c006e0069006e006700610072006e00610020006f006d002000640075002000760069006c006c00200073006b006100700061002000410064006f006200650020005000440046002d0064006f006b0075006d0065006e00740020006600f600720020006b00760061006c00690074006500740073007500740073006b0072006900660074006500720020007000e5002000760061006e006c00690067006100200073006b0072006900760061007200650020006f006300680020006600f6007...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>f00730074006500720069006f007200650073002e>\n    /FRA <FEFF005500740069006c006900730065007a00200063006500730020006f007000740069006f006e00730020006100660069006e00200064006500200063007200e900650072002000640065007300200064006f00630075006d0065006e00740073002000410064006f00620065002000500044004600200070006f007500720020006400650073002000e90070007200650075007600650073002000650074002000640065007300200069006...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>0740073002000640061006e00730020004100630072006f006200610074002c002000610069006e00730069002000710075002700410064006f00620065002000520065006100640065007200200035002e0030002000650074002000760065007200730069006f006e007300200075006c007400e90072006900650075007200650073002e>\n    /ITA <FEFF005500740069006c0069007a007a006100720065002000710075006500730074006500200069006d0070006f007300740061007a0069006f006e0...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(5)(A) The term “critical habitat” for a threatened or endangered species means— \n\t(i)\n\t(i)\n\t(i)\n\t the specific areas within the geographical area occupied by the species, at the time it is listed in accordance with the provisions of section 4 of this Act, on which are found those physical or biological features (I) essential to the conservation of the species and (II) which may require special ma...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>>>\n  /Namespace [\n    (Adobe)\n    (Common)\n    (1.0)\n  ]\n  /OtherNamespaces [\n    <<\n      /AsReaderSpreads false\n      /CropImagesToFrames true\n      /ErrorControl /WarnAndContinue\n      /FlattenerIgnoreSpreadOverrides false\n      /IncludeGuidesGrids false\n      /IncludeNonPrinting false\n      /IncludeSlug false\n      /Namespace [\n        (Adobe)\n        (InDesign)\n        (4.0)\n      ]\n      /Om...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>f600720020006b006f007200720065006b007400750072002e002000200053006b006100700061006400650020005000440046002d0064006f006b0075006d0065006e00740020006b0061006e002000f600700070006e00610073002000690020004100630072006f0062006100740020006f00630068002000410064006f00620065002000520065006100640065007200200035002e00300020006f00630068002000730065006e006100720065002e>\n    /ENU (Use these settings to create Adobe...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(B) Consultation under subsection (a)(3), and an opinion issued by the Secretary \nincident to such consultation, regarding an agency action shall be treated respec­\ntively as a consultation under subsection (a)(2), and as an opinion issued after con­\nsultation under such subsection, regarding that action if the Secretary reviews the \naction before it is commenced by the Federal agency and finds, a...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>18. Notwithstanding section 3003 of Public Law 104-66 (31 U.S.C. 1113 note; 109 Stat. 734), on or before January 15, 1990, and each January 15 thereafter, the Secretary of the Interior, acting through the Fish and Wildlife Service, shall submit to the Congress an annual report covering the preceding fiscal year which shall contain— \n\t(1)\n\t(1)\n\t(1)\n\t an accounting on a species by species basis of a...</blockquote>"
+            }
+          ]
+        },
+        "vulnerable_groups_analysis": {
+          "title": "Vulnerable Groups Analysis for Residents",
+          "summary": "The document suggests that certain vulnerable groups may include subsistence users and low-income households, though specific mentions are lacking.",
+          "identified_groups_and_impacts": "Impacts may significantly affect those reliant on natural resources for sustenance, such as hunting and fishing communities.",
+          "equity_assessment_summary": "Current protections may not encompass the unique needs of these groups sufficiently.",
+          "conclusion": "There may be a need for targeted strategies that consider the needs and voices of these vulnerable groups in decision-making.",
+          "sources": [
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(5)\n\t(5)\n\t With respect to any regulation proposed by the Secretary to implement a de­termination, designation, or revision referred to in subsection (a)(1) or (3), the Sec­retary shall— \n\n\n\t(A) not less than 90 days before the effective date of the regulation— \n\t(i)\n\t(i)\n\t(i)\n\t publish a general notice and the complete text of the proposed regula­tion in the Federal Register, and \n\n\t(ii)\n\t(ii)\n\t ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>18. Notwithstanding section 3003 of Public Law 104-66 (31 U.S.C. 1113 note; 109 Stat. 734), on or before January 15, 1990, and each January 15 thereafter, the Secretary of the Interior, acting through the Fish and Wildlife Service, shall submit to the Congress an annual report covering the preceding fiscal year which shall contain— \n\t(1)\n\t(1)\n\t(1)\n\t an accounting on a species by species basis of a...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(I) a final regulation to implement such determination, \n\t(II) a final regulation to implement such revision or a finding that such revision should not be made, \n\t(III) notice that such one-year period is being extended under subpara­graph (B)(i), or \n\t(IV) notice that the proposed regulation is being withdrawn under sub­paragraph (B)(ii), together with the finding on which such withdrawal is base...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(B) Consultation under subsection (a)(3), and an opinion issued by the Secretary \nincident to such consultation, regarding an agency action shall be treated respec­\ntively as a consultation under subsection (a)(2), and as an opinion issued after con­\nsultation under such subsection, regarding that action if the Secretary reviews the \naction before it is commenced by the Federal agency and finds, a...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(4) Except as provided in paragraphs (5) and (6) of this subsection, the provisions \nof section 553 of title 5, United States Code (relating to rulemaking procedures), \nshall apply to any regulation promulgated to carry out the purposes of this Act. \n\n(5) With respect to any regulation proposed by the Secretary to implement a de­\ntermination, designation, or revision referred to in subsection (a)(...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(A)\n\t(A)\n\t(A)\n\t substantial economic loss resulting from inability caused by this Act to perform contracts with respect to species of fish and wildlife entered into prior to the date of publication in the Federal Register of a notice of consideration of such species as an endangered species; \n\n\t(B)\n\t(B)\n\t substantial economic loss to persons who, for the year prior to the notice of consideration o...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(II)\n\t(II)\n\t the information that is required to complete the consultation, and \n\n\n\t(III) the estimated date on which consultation will be completed; or \n\n\t(ii)\n\t(ii)\n\t if the consultation period proposed to be agreed to will end 150 or more days after the date on which consultation was initiated, obtains the consent of the applicant to such period. \n\n\n\tThe Secretary and the Federal agency may mut...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(D) publish a summary of the proposed regulation in a newspaper of general \ncirculation in each area of the United States in which the species is believed to \noccur; and \n\n(E) promptly hold one public hearing on the proposed regulation if any per­\nson files a request for such a hearing within 45 days after the date of publication \nof general notice. \n\n(6)(A) Within the one-year period beginning on...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(2) Amounts deposited into the special fund are authorized to be appropriated \nannually and allocated in accordance with subsection (d) of this section. \n\nINTERAGENCY COOPERATION \n\nSEC. 7. (a) FEDERAL AGENCY ACTIONS AND CONSULTATIONS.—(1) The Secretary shall \nreview other programs administered by him and utilize such programs in further­\nance of the purposes of this Act. All other Federal agencies...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t Subject to such guidelines as the Secretary may establish, a Federal agency shall consult with the Secretary on any prospective agency action at the request of, and in cooperation with, the prospective permit or license applicant if the applicant has reason to believe that an endangered species or a threatened species may be present in the area affected by his project and that implement...</blockquote>"
+            }
+          ]
+        },
+        "severity_impact_analysis": {
+          "title": "Severity of Impact Analysis for Residents",
+          "summary": "The ESA may yield mixed impacts on residents, exhibiting both positive outcomes for ecosystem health and challenges related to land use restrictions.",
+          "high_severity_impacts": "Residents dependent on land for agricultural or recreational use may experience significant hardships due to restrictions.",
+          "moderate_severity_impacts": "Moderate impacts may arise for those facing reduced opportunities stemming from habitat protection measures.",
+          "equity_implications_of_impacts": "Negative effects could disproportionately burden economically disadvantaged residents, necessitating consideration of equity.",
+          "conclusion": "Analysis suggests that the potential for substantial long-term impacts must be part of the equity considerations.",
+          "sources": [
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(b) OPINION OF SECRETARY.—(1)(A) Consultation under subsection (a)(2) with re­\nspect to any agency action shall be concluded within the 90-day period beginning on \nthe date on which initiated or, subject to subparagraph (B), within such other period \nof time as is mutually agreeable to the Secretary and the Federal agency. \n\n(B) In the case of an agency action involving a permit or license applica...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(5)\n\t(5)\n\t With respect to any regulation proposed by the Secretary to implement a de­termination, designation, or revision referred to in subsection (a)(1) or (3), the Sec­retary shall— \n\n\n\t(A) not less than 90 days before the effective date of the regulation— \n\t(i)\n\t(i)\n\t(i)\n\t publish a general notice and the complete text of the proposed regula­tion in the Federal Register, and \n\n\t(ii)\n\t(ii)\n\t ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>Endangered Species Act of 1973, As Amended through the 108th Congress\n\n\nU.S. Fish & Wildlife Service \n\nENDANGERED SPECIES ACT OF 1973 \nAs Amended through the \n\n108th Congress \n\nDepartment of the Interior\n \nU.S. Fish and Wildlife Service\n \n\nWashington, D.C. 20240\n \n\n\n\nTABLE OF CONTENTS \n\nPage\n \nSec. 2. Findings, purposes, and policy ............................................................... 1\n...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(D) publish a summary of the proposed regulation in a newspaper of general \ncirculation in each area of the United States in which the species is believed to \noccur; and \n\n(E) promptly hold one public hearing on the proposed regulation if any per­\nson files a request for such a hearing within 45 days after the date of publication \nof general notice. \n\n(6)(A) Within the one-year period beginning on...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>reasons why such alternatives are not being utilized; and \n(iv) such other measures that the Secretary may require as being necessary \n\nor appropriate for purposes of the plan. \n(B) If the Secretary finds, after opportunity for public comment, with respect to a \n\npermit application and the related conservation plan that— \n(i) the taking will be incidental; \n(ii) the applicant will, to the maximum ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(II)\n\t(II)\n\t the information that is required to complete the consultation, and \n\n\n\t(III) the estimated date on which consultation will be completed; or \n\n\t(ii)\n\t(ii)\n\t if the consultation period proposed to be agreed to will end 150 or more days after the date on which consultation was initiated, obtains the consent of the applicant to such period. \n\n\n\tThe Secretary and the Federal agency may mut...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t Subject to such guidelines as the Secretary may establish, a Federal agency shall consult with the Secretary on any prospective agency action at the request of, and in cooperation with, the prospective permit or license applicant if the applicant has reason to believe that an endangered species or a threatened species may be present in the area affected by his project and that implement...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(B)\n\t(B)\n\t the effect of this substantial difficulty is an additional threat to an en­dangered or threatened species; and \n\n\t(C)\n\t(C)\n\t such treatment of an unlisted species will substantially facilitate the en­forcement and further the policy of this Act. \n\n\n\n\n\t(f)(1) RECOVERY PLANS.—The Secretary shall develop and implement plans (here­inafter in this subsection referred to as “recovery plans”) ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(B) Consultation under subsection (a)(3), and an opinion issued by the Secretary \nincident to such consultation, regarding an agency action shall be treated respec­\ntively as a consultation under subsection (a)(2), and as an opinion issued after con­\nsultation under such subsection, regarding that action if the Secretary reviews the \naction before it is commenced by the Federal agency and finds, a...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(d) ALLOCATION OF FUNDS.—(1) The Secretary is authorized to provide financial assistance to any State, through its respective State agency, which has entered into a cooperative agreement pursuant to subsection (c) of this section to assist in devel­opment of programs for the conservation of endangered and threatened species or to assist in monitoring the status of candidate species pursuant to sub...</blockquote>"
+            }
+          ]
+        },
+        "mitigation_strategies_analysis": {
+          "title": "Mitigation Strategies Analysis for Residents",
+          "summary": "The ESA incorporates strategies like public consultation that potentially engage residents in conservation efforts.",
+          "identified_strategies": "Key strategies involve public comment periods and collaborative agreements aimed at enhancing community participation.",
+          "equity_assessment": "Challenges around ensuring all stakeholders can participate effectively may remain due to resource disparities.",
+          "conclusion": "While there are mechanisms in place, addressing these challenges is essential for equitable mitigation outcomes.",
+          "sources": [
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>EFFECTIVE DATE \n\nSEC. 16. This Act shall take effect on the date of its enactment. \n\nMARINE MAMMAL PROTECTION ACT OF 1972 \n\nSEC. 17. Except as otherwise provided in this Act, no provision of this Act shall \ntake precedence over any more restrictive conflicting provision of the Marine Mam­\nmal Protection Act of 1972. \n\nANNUAL COST ANALYSIS BY THE FISH AND WILDLIFE SERVICE \n\nSEC. 18. Notwithstanding...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t The Secretary shall report every two years to the Committee on Environment and Public Works of the Senate and the Committee on Merchant Marine and Fish­eries of the House of Representatives on the status of efforts to develop and imple­ment recovery plans for all species listed pursuant to this section and on the status of all species for which such plans have been developed. \n\n\t(4)\n\t(4...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(o)\n\t(o)\n\t Notwithstanding sections 4(d) and 9(a)(1)(B) and (C), sections 101 and 102 of the Marine Mammal Protection Act of 1972, or any regulation promulgated to imple­ment any such section— \n\n\n\t(1) any action for which an exemption is granted under subsection (h) shall not be considered to be a taking of any endangered species or threatened species with respect to any activity which is necessar...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(b) OPINION OF SECRETARY.—(1)(A) Consultation under subsection (a)(2) with re­\nspect to any agency action shall be concluded within the 90-day period beginning on \nthe date on which initiated or, subject to subparagraph (B), within such other period \nof time as is mutually agreeable to the Secretary and the Federal agency. \n\n(B) In the case of an agency action involving a permit or license applica...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(D) publish a summary of the proposed regulation in a newspaper of general \ncirculation in each area of the United States in which the species is believed to \noccur; and \n\n(E) promptly hold one public hearing on the proposed regulation if any per­\nson files a request for such a hearing within 45 days after the date of publication \nof general notice. \n\n(6)(A) Within the one-year period beginning on...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(II)\n\t(II)\n\t the information that is required to complete the consultation, and \n\n\n\t(III) the estimated date on which consultation will be completed; or \n\n\t(ii)\n\t(ii)\n\t if the consultation period proposed to be agreed to will end 150 or more days after the date on which consultation was initiated, obtains the consent of the applicant to such period. \n\n\n\tThe Secretary and the Federal agency may mut...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t Subject to such guidelines as the Secretary may establish, a Federal agency shall consult with the Secretary on any prospective agency action at the request of, and in cooperation with, the prospective permit or license applicant if the applicant has reason to believe that an endangered species or a threatened species may be present in the area affected by his project and that implement...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(B) determine on the basis of such review whether any such species should— \n\t(i) be removed from such list; \n\t(ii) be changed in status from an endangered species to a threatened species; or \n\t(iii) be changed in status from a threatened species to an endangered \n\tspecies. Each determination under subparagraph (B) shall be made in accordance with the provisions of subsections (a) and (b). \n\t(d)\n\t(...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(p) EXEMPTIONS IN PRESIDENTIALLY DECLARED DISASTER AREAS.—In any area which \nhas been declared by the President to be a major disaster area under the Disaster \nRelief and Emergency Assistance Act, the President is authorized to make the de­\nterminations required by subsections (g) and (h) of this section for any project for \nthe repair or replacement of a public facility substantially as it existe...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(d) ALLOCATION OF FUNDS.—(1) The Secretary is authorized to provide financial assistance to any State, through its respective State agency, which has entered into a cooperative agreement pursuant to subsection (c) of this section to assist in devel­opment of programs for the conservation of endangered and threatened species or to assist in monitoring the status of candidate species pursuant to sub...</blockquote>"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "group_name": "Farmers/Business Owners",
+      "group_description": "the overall equity implications from the perspective of farmers and business owners, particularly small operators, considering their roles as regulated entities and community members. The assessment could indicate if compliance costs or infrastructure funding might impose disproportionate economic hardship.",
+      "analyses": {
+        "general_equity_assessment": {
+          "title": "General Equity Assessment for Farmers/Business Owners",
+          "summary": "The Endangered Species Act (ESA) affects farmers and business owners by imposing certain responsibilities that may lead to economic challenges.",
+          "recognitional_equity": {
+            "title": "Recognitional Equity",
+            "positive_findings": "The ESA recognizes the value of public participation, which could empower small operators in conservation discussions.",
+            "concerns": "There is, however, a risk that the perspectives of smaller operators may not be adequately integrated into the decision-making process.",
+            "conclusion": "This raises questions about whether all voices are equally represented in conservation dialogues."
+          },
+          "procedural_equity": {
+            "title": "Procedural Equity",
+            "positive_findings": "The Act requires cooperation between federal and state agencies, potentially benefiting small operators.",
+            "concerns": "Procedural mechanisms may not effectively facilitate input from small operators, leading to inequities in representation.",
+            "conclusion": "Overall, procedural equity may demand further strengthening to ensure broader participation."
+          },
+          "distributional_equity": {
+            "title": "Distributional Equity",
+            "positive_findings": "The Act aims to equitably distribute conservation benefits which could be aligned with farmers' needs.",
+            "concerns": "However, compliance costs may disproportionately burden small operators compared to larger agricultural businesses.",
+            "conclusion": "This suggests a need for more careful consideration of how compliance impacts different-scale operations."
+          },
+          "structural_equity": {
+            "title": "Structural Equity",
+            "positive_findings": "The ESA includes initiatives aimed at habitat management, which could support equitable resource distribution.",
+            "concerns": "Yet, challenges related to technical resources and support for smaller operators remain unaddressed.",
+            "conclusion": "More focus on these structural issues could create a more equitable regulatory environment."
+          },
+          "sources": [
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(E) provision is made for public participation in designating resident species \nof fish or wildlife as endangered or threatened; or that under the State pro­\ngram— \n\n(i) the requirements set forth in subparagraphs (C), (D), and (E) of this \nparagraph are complied with, and \n\n(ii) plans are included under which immediate attention will be given to \nthose resident species of fish and wildlife which ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(h)\n\t(h)\n\t EXEMPTION.—(1) The Committee shall make a final determination whether or not to grant an exemption within 30 days after receiving the report of the Secretary pursuant to subsection (g)(5). The Committee shall grant an exemption from the re­quirements of subsection (a)(2) for an agency action if, by a vote of not less than five of its members voting in person— \n\n\n\t(A) it determines on th...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>LAND ACQUISITION \n\tSEC. 5. (a) PROGRAM.—The Secretary, and the Secretary of Agriculture with re­spect to the National Forest System, shall establish and implement a program to conserve fish, wildlife, and plants, including those which are listed as endangered species or threatened species pursuant to section 4 of this Act. To carry out such a program, the appropriate Secretary— \n\t(1)\n\t(1)\n\t(1)\n\t s...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>18. Notwithstanding section 3003 of Public Law 104-66 (31 U.S.C. 1113 note; 109 Stat. 734), on or before January 15, 1990, and each January 15 thereafter, the Secretary of the Interior, acting through the Fish and Wildlife Service, shall submit to the Congress an annual report covering the preceding fiscal year which shall contain— \n\t(1)\n\t(1)\n\t(1)\n\t an accounting on a species by species basis of a...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>107-171, May 13, 2002; P.L. 108-136, November 24, 2003. \n\tdepartments and agencies shall seek to conserve endangered species and threatened species and shall utilize their authorities in furtherance of the purposes of this Act. \n\t(2) It is further declared to be the policy of Congress that Federal agencies shall cooperate with State and local agencies to resolve water resource issues in concert wi...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t the exporter or owner of such fish or wildlife gave explicit instructions not to ship such fish or wildlife through any place subject to the jurisdiction of the United States, or did all that could have reasonably been done to prevent trans­shipment, and the circumstances leading to the transshipment were beyond the exporter’s or owner’s control; \n\n\n\t(4) the applicable requirements of t...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(d)\n\t(d)\n\t IMPORTS AND EXPORTS.— \n\n\n\t(1)\n\t(1)\n\t(1)\n\t(1)\n\t IN GENERAL.—It is unlawful for any person, without first having obtained permission from the Secretary, to engage in business— \n\n\t(A)\n\t(A)\n\t(A)\n\t as an importer or exporter of fish or wildlife (other than shellfish and fishery products which (i) are not listed pursuant to section 4 of this Act as endangered species or threatened species, an...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>11. (a) CIVIL PENALTIES.— (1) Any person who knowingly violates, and any person engaged in business as an importer or exporter of fish, wildlife, or plants who violates, any provision of this Act, or any provision of any permit or certificate issued hereunder, or of any regulation issued in order to implement subsection (a)(1)(A), (B), (C), (D), (E), or (F), (a)(2)(A), (B), (C), or (D), (c), (d) (...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>11. (a) CIVIL PENALTIES.— (1) Any person who knowingly violates, and any \nperson engaged in business as an importer or exporter of fish, wildlife, or plants \nwho violates, any provision of this Act, or any provision of any permit or certificate \nissued hereunder, or of any regulation issued in order to implement subsection \n(a)(1)(A), (B), (C), (D), (E), or (F), (a)(2)(A), (B), (C), or (D), (c), (...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(ii) Nothing in this paragraph affects the requirement to consult under sec­tion 7(a)(2) with respect to an agency action (as that term is defined in that section). \n\t(iii) Nothing in this paragraph affects the obligation of the Department of Defense to comply with section 9, including the prohibition preventing extinc­tion and taking of endangered species and threatened species. \n\t(b)\n\t(b)\n\t(b)\n\t...</blockquote>"
+            }
+          ]
+        },
+        "vulnerable_groups_analysis": {
+          "title": "Vulnerable Groups Analysis for Farmers/Business Owners",
+          "summary": "The document touches on various vulnerable groups, particularly those reliant on natural resources for their livelihoods.",
+          "identified_groups_and_impacts": "This includes farmers and Indigenous communities who may be economically disadvantaged by conservation measures.",
+          "equity_assessment_summary": "An understanding of their unique needs could foster more effective policy outcomes.",
+          "conclusion": "The Act may need to ensure that the voices of all impacted groups are adequately represented.",
+          "sources": [
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(B)\n\t(B)\n\t(B)\n\t(B)\n\t If the Secretary finds, after opportunity for public comment, with respect to a permit application and the related conservation plan that— \n\n\t(i) the taking will be incidental; \n\t(ii) the applicant will, to the maximum extent practicable, minimize and miti­gate the impacts of such taking; \n\t(iii) the applicant will ensure that adequate funding for the plan will be pro­vided; \n...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>107-171, May 13, 2002; P.L. 108-136, November 24, 2003. \n\tdepartments and agencies shall seek to conserve endangered species and threatened species and shall utilize their authorities in furtherance of the purposes of this Act. \n\t(2) It is further declared to be the policy of Congress that Federal agencies shall cooperate with State and local agencies to resolve water resource issues in concert wi...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>17\n \n\n(iv) sets forth the terms and conditions (including, but not limited to, reporting \nrequirements) that must be complied with by the Federal agency or applicant (if \nany), or both, to implement the measures specified under clauses (ii) and (iii). \n\n(c) BIOLOGICAL  ASSESSMENT.—(1) To facilitate compliance with the requirements \nof subsection (a)(2), each Federal agency shall, with respect to a...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>11. (a) CIVIL PENALTIES.— (1) Any person who knowingly violates, and any \nperson engaged in business as an importer or exporter of fish, wildlife, or plants \nwho violates, any provision of this Act, or any provision of any permit or certificate \nissued hereunder, or of any regulation issued in order to implement subsection \n(a)(1)(A), (B), (C), (D), (E), or (F), (a)(2)(A), (B), (C), or (D), (c), (...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(5)(A) The term “critical habitat” for a threatened or endangered species means— \n\t(i)\n\t(i)\n\t(i)\n\t the specific areas within the geographical area occupied by the species, at the time it is listed in accordance with the provisions of section 4 of this Act, on which are found those physical or biological features (I) essential to the conservation of the species and (II) which may require special ma...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(2) Such cooperative agreements shall provide for (A) the actions to be taken by \nthe Secretary and the States; (B) the benefits that are expected to be derived in \nconnection with the conservation of endangered or threatened species; (C) the esti­\nmated cost of these actions; and (D) the share of such costs to be borne by the Fed­\neral Government and by the States; except that— \n\n(i) the Federal ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(h)\n\t(h)\n\t REGULATIONS.—The Secretary is authorized to promulgate such regulations as may be appropriate to carry out the provisions of this section relating to financial assistance to States. \n\n\t(i)\n\t(i)\n\t APPROPRIATIONS.—(1) To carry out the provisions of this section for fiscal years after September 30, 1988, there shall be deposited into a special fund known as the cooperative endangered speci...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>18. Notwithstanding section 3003 of Public Law 104-66 (31 U.S.C. 1113 note; 109 Stat. 734), on or before January 15, 1990, and each January 15 thereafter, the Secretary of the Interior, acting through the Fish and Wildlife Service, shall submit to the Congress an annual report covering the preceding fiscal year which shall contain— \n\t(1)\n\t(1)\n\t(1)\n\t an accounting on a species by species basis of a...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(i)\n\t(i)\n\t(i)\n\t solely for purposes of section 7 (other than subsection (a)(1) thereof), an experimental population determined under subparagraph (B) to be not essen­tial to the continued existence of a species shall be treated, except when it oc­curs in an area within the National Wildlife Refuge System or the National Park System, as a species proposed to be listed under section 4; and \n\n\t(ii)\n\t...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>11. (a) CIVIL PENALTIES.— (1) Any person who knowingly violates, and any person engaged in business as an importer or exporter of fish, wildlife, or plants who violates, any provision of this Act, or any provision of any permit or certificate issued hereunder, or of any regulation issued in order to implement subsection (a)(1)(A), (B), (C), (D), (E), or (F), (a)(2)(A), (B), (C), or (D), (c), (d) (...</blockquote>"
+            }
+          ]
+        },
+        "severity_impact_analysis": {
+          "title": "Severity of Impact Analysis for Farmers/Business Owners",
+          "summary": "The ESA presents both positive and negative impacts, particularly concerning economic constraints for small operators.",
+          "high_severity_impacts": "Possible losses to income and operational viability due to compliance with conservation measures may be severe.",
+          "moderate_severity_impacts": "Moderate challenges could arise from navigating complex permitting processes.",
+          "equity_implications_of_impacts": "Consequently, equity concerns surrounding compliance and operational burdens emerge.",
+          "conclusion": "Despite benefits for biodiversity, significant challenges may complicate the situation for small operators.",
+          "sources": [
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(B)\n\t(B)\n\t(B)\n\t(B)\n\t If the Secretary finds, after opportunity for public comment, with respect to a permit application and the related conservation plan that— \n\n\t(i) the taking will be incidental; \n\t(ii) the applicant will, to the maximum extent practicable, minimize and miti­gate the impacts of such taking; \n\t(iii) the applicant will ensure that adequate funding for the plan will be pro­vided; \n...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>reasons why such alternatives are not being utilized; and \n(iv) such other measures that the Secretary may require as being necessary \n\nor appropriate for purposes of the plan. \n(B) If the Secretary finds, after opportunity for public comment, with respect to a \n\npermit application and the related conservation plan that— \n(i) the taking will be incidental; \n(ii) the applicant will, to the maximum ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>the Secretary, in order to minimize such hardship, may exempt such person from \nthe application of section 9(a) of this Act to the extent the Secretary deems appro­\npriate if such person applies to him for such exemption and includes with such appli­\ncation such information as the Secretary may require to prove such hardship; ex­\ncept that (A) no such exemption shall be for a duration of more than...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(II)\n\t(II)\n\t the information that is required to complete the consultation, and \n\n\n\t(III) the estimated date on which consultation will be completed; or \n\n\t(ii)\n\t(ii)\n\t if the consultation period proposed to be agreed to will end 150 or more days after the date on which consultation was initiated, obtains the consent of the applicant to such period. \n\n\n\tThe Secretary and the Federal agency may mut...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t Subject to such guidelines as the Secretary may establish, a Federal agency shall consult with the Secretary on any prospective agency action at the request of, and in cooperation with, the prospective permit or license applicant if the applicant has reason to believe that an endangered species or a threatened species may be present in the area affected by his project and that implement...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>courses of action consistent with conserving the species or its critical habi­\ntat, and such action is in the public interest; \n\n(iii) the action is of regional or national significance; and \n(iv) neither the Federal agency concerned nor the exemption applicant \n\nmade any irreversible or irretrievable commitment of resources prohibited \nby subsection (d); and \n\n(B) it establishes such reasonable m...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(b) OPINION OF SECRETARY.—(1)(A) Consultation under subsection (a)(2) with re­\nspect to any agency action shall be concluded within the 90-day period beginning on \nthe date on which initiated or, subject to subparagraph (B), within such other period \nof time as is mutually agreeable to the Secretary and the Federal agency. \n\n(B) In the case of an agency action involving a permit or license applica...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(B) Consultation under subsection (a)(3), and an opinion issued by the Secretary \nincident to such consultation, regarding an agency action shall be treated respec­\ntively as a consultation under subsection (a)(2), and as an opinion issued after con­\nsultation under such subsection, regarding that action if the Secretary reviews the \naction before it is commenced by the Federal agency and finds, a...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(A)\n\t(A)\n\t(A)\n\t substantial economic loss resulting from inability caused by this Act to perform contracts with respect to species of fish and wildlife entered into prior to the date of publication in the Federal Register of a notice of consideration of such species as an endangered species; \n\n\t(B)\n\t(B)\n\t substantial economic loss to persons who, for the year prior to the notice of consideration o...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(A) authority resides in the State agency to conserve resident species of plants \ndetermined by the State agency or the Secretary to be endangered or threat­\nened; \n\n(B) the State agency has established acceptable conservation programs, con­\nsistent with the purposes and policies of this Act, for all resident species of plants \nin the State which are deemed by the Secretary to be endangered or thr...</blockquote>"
+            }
+          ]
+        },
+        "mitigation_strategies_analysis": {
+          "title": "Mitigation Strategies Analysis for Farmers/Business Owners",
+          "summary": "The ESA outlines strategies intended to support equitable outcomes for farmers and business owners.",
+          "identified_strategies": "Mitigation strategies include consultation processes and potential financial assistance for compliance.",
+          "equity_assessment": "However, these strategies may not fully address systemic barriers hindering small operators.",
+          "conclusion": "Strengthening these strategies might enhance overall equity for all stakeholders involved.",
+          "sources": [
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(b) OPINION OF SECRETARY.—(1)(A) Consultation under subsection (a)(2) with re­\nspect to any agency action shall be concluded within the 90-day period beginning on \nthe date on which initiated or, subject to subparagraph (B), within such other period \nof time as is mutually agreeable to the Secretary and the Federal agency. \n\n(B) In the case of an agency action involving a permit or license applica...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>10\n \n\n(iii) estimates of the time required and the cost to carry out those mea­\nsures needed to achieve the plan’s goal and to achieve intermediate steps \ntoward that goal. \n\n(2) The Secretary, in developing and implementing recovery plans, may procure \nthe services of appropriate public and private agencies and institutions, and other \nqualified persons. Recovery teams appointed pursuant to this ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>EFFECTIVE DATE \n\nSEC. 16. This Act shall take effect on the date of its enactment. \n\nMARINE MAMMAL PROTECTION ACT OF 1972 \n\nSEC. 17. Except as otherwise provided in this Act, no provision of this Act shall \ntake precedence over any more restrictive conflicting provision of the Marine Mam­\nmal Protection Act of 1972. \n\nANNUAL COST ANALYSIS BY THE FISH AND WILDLIFE SERVICE \n\nSEC. 18. Notwithstanding...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>1\n \n\nENDANGERED SPECIES ACT OF 1973* \n\nFINDINGS, PURPOSES, AND POLICY \n\nSEC. 2. (a) FINDINGS.—The Congress finds and declares that— \n(1) various species of fish, wildlife, and plants in the United States have \n\nbeen rendered extinct as a consequence of economic growth and development \nuntempered by adequate concern and conservation; \n\n(2) other species of fish, wildlife, and plants have been so de...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(o)\n\t(o)\n\t Notwithstanding sections 4(d) and 9(a)(1)(B) and (C), sections 101 and 102 of the Marine Mammal Protection Act of 1972, or any regulation promulgated to imple­ment any such section— \n\n\n\t(1) any action for which an exemption is granted under subsection (h) shall not be considered to be a taking of any endangered species or threatened species with respect to any activity which is necessar...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(5)\n\t(5)\n\t With respect to any regulation proposed by the Secretary to implement a de­termination, designation, or revision referred to in subsection (a)(1) or (3), the Sec­retary shall— \n\n\n\t(A) not less than 90 days before the effective date of the regulation— \n\t(i)\n\t(i)\n\t(i)\n\t publish a general notice and the complete text of the proposed regula­tion in the Federal Register, and \n\n\t(ii)\n\t(ii)\n\t ...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(D) publish a summary of the proposed regulation in a newspaper of general \ncirculation in each area of the United States in which the species is believed to \noccur; and \n\n(E) promptly hold one public hearing on the proposed regulation if any per­\nson files a request for such a hearing within 45 days after the date of publication \nof general notice. \n\n(6)(A) Within the one-year period beginning on...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(II)\n\t(II)\n\t the information that is required to complete the consultation, and \n\n\n\t(III) the estimated date on which consultation will be completed; or \n\n\t(ii)\n\t(ii)\n\t if the consultation period proposed to be agreed to will end 150 or more days after the date on which consultation was initiated, obtains the consent of the applicant to such period. \n\n\n\tThe Secretary and the Federal agency may mut...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t Subject to such guidelines as the Secretary may establish, a Federal agency shall consult with the Secretary on any prospective agency action at the request of, and in cooperation with, the prospective permit or license applicant if the applicant has reason to believe that an endangered species or a threatened species may be present in the area affected by his project and that implement...</blockquote>"
+            },
+            {
+              "type": "openai",
+              "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(D) the International Convention for the Northwest Atlantic Fisheries; \n\n\t(E)\n\t(E)\n\t the International Convention for the High Seas Fisheries of the North Pacific Ocean; \n\n\t(F)\n\t(F)\n\t the Convention on International Trade in Endangered Species of Wild Fauna and Flora; and \n\n\n\t(G) other international agreements; and \n\n\t(5)\n\t(5)\n\t encouraging the States and other interested parties, through Federal ...</blockquote>"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "overall_summary_and_recommendations": {
+    "title": "Overall Summary & Recommendations",
+    "key_equity_gaps": "There are indications that gaps in recognitional, procedural, and distributional equity persist, particularly concerning marginalized communities and their voices in conservation policymaking.",
+    "key_equity_strengths": "However, the Act showcases strengths in terms of public participation and a recognition of the intrinsic value of biodiversity.",
+    "recommendations": "It may be beneficial to enhance mechanisms that ensure equitable input from all stakeholder groups, especially those most affected by conservation efforts. This could involve targeted outreach and the establishment of clearer guidelines for stakeholder engagement.",
+    "sources": [
+      {
+        "type": "openai",
+        "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>courses of action consistent with conserving the species or its critical habi­\ntat, and such action is in the public interest; \n\n(iii) the action is of regional or national significance; and \n(iv) neither the Federal agency concerned nor the exemption applicant \n\nmade any irreversible or irretrievable commitment of resources prohibited \nby subsection (d); and \n\n(B) it establishes such reasonable m...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(5)\n\t(5)\n\t(5)\n\t Within 140 days after making the determinations under paragraph (3) or within such other period of time as is mutually agreeable to the exemption applicant and the Secretary, the Secretary shall submit to the Committee a report discussing— \n\n\t(A)\n\t(A)\n\t(A)\n\t the availability of reasonable and prudent alternatives to the agency ac­tion, and the nature and extent of the benefits of t...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(II)\n\t(II)\n\t the information that is required to complete the consultation, and \n\n\n\t(III) the estimated date on which consultation will be completed; or \n\n\t(ii)\n\t(ii)\n\t if the consultation period proposed to be agreed to will end 150 or more days after the date on which consultation was initiated, obtains the consent of the applicant to such period. \n\n\n\tThe Secretary and the Federal agency may mut...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>from making any irreversible or irretrievable commitment of resources pro­\nhibited by subsection (d); or \n\n(B) deny the application for exemption because the Federal agency concerned \nor the exemption applicant have not met the requirements set forth in subpara­\ngraph (A)(i), (ii), and (iii). \n\nThe denial of an application under subparagraph (B) shall be considered final agency \naction for purpose...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>For purposes of the \npreceding sentence, the term “final agency action” means (i) a disposition by an \nagency with respect to the issuance of a permit or license that is subject to adminis­\ntrative review, whether or not such disposition is subject to judicial review; or (ii) if \nadministrative review is sought with respect to such disposition, the decision result­\ning after such review. Such appl...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t Subject to such guidelines as the Secretary may establish, a Federal agency shall consult with the Secretary on any prospective agency action at the request of, and in cooperation with, the prospective permit or license applicant if the applicant has reason to believe that an endangered species or a threatened species may be present in the area affected by his project and that implement...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(3)\n\t(3)\n\t The Secretary shall within 20 days after the receipt of an application for exemp­tion, or within such other period of time as is mutually agreeable to the exemption applicant and the Secretary— \n\n\n\t(A) determine that the Federal agency concerned and the exemption applicant have— \n\t(i) carried out the consultation responsibilities described in subsection (a) in good faith and made a reas...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>1\n \n\nENDANGERED SPECIES ACT OF 1973* \n\nFINDINGS, PURPOSES, AND POLICY \n\nSEC. 2. (a) FINDINGS.—The Congress finds and declares that— \n(1) various species of fish, wildlife, and plants in the United States have \n\nbeen rendered extinct as a consequence of economic growth and development \nuntempered by adequate concern and conservation; \n\n(2) other species of fish, wildlife, and plants have been so de...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(b) OPINION OF SECRETARY.—(1)(A) Consultation under subsection (a)(2) with re­\nspect to any agency action shall be concluded within the 90-day period beginning on \nthe date on which initiated or, subject to subparagraph (B), within such other period \nof time as is mutually agreeable to the Secretary and the Federal agency. \n\n(B) In the case of an agency action involving a permit or license applica...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 226a7921-c71b-4990-a167-66fd3ea09dad_endangered-species-act.pdf:\n<blockquote>(h)\n\t(h)\n\t EXEMPTION.—(1) The Committee shall make a final determination whether or not to grant an exemption within 30 days after receiving the report of the Secretary pursuant to subsection (g)(5). The Committee shall grant an exemption from the re­quirements of subsection (a)(2) for an agency action if, by a vote of not less than five of its members voting in person— \n\n\n\t(A) it determines on th...</blockquote>"
+      }
+    ]
+  },
+  "analysis_status": "completed",
+  "analysis_error": null
+}

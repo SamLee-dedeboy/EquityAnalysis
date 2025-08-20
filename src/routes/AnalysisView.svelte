@@ -1,18 +1,18 @@
 <script>
   // Local Modules
-  import BackButton from '../lib/BackButton.svelte';
   import InfoTab from '../lib/InfoTab.svelte';
-  import { slide, fade } from 'svelte/transition';
+  import { slide } from 'svelte/transition';
 
   // Import Store Variable
   import { currentPolicy } from '../lib/stores/currentPolicy.js';
+
+  export let analysisStatus = null; // Passed from Tool.svelte
 
   export const equity_colors = {
     Procedural: '#227C9D',
     Structural: '#17C3B2',
     Distributional: '#FFCB77',
     Recognitional: '#FEB3B1',
-    Transformational: '#FE6D73',
   };
   const equitySections = [
     {
@@ -44,24 +44,31 @@
       image: 'chart.svg',
     },
     {
-      key: 'vulnerable_groups',
+      key: 'vulnerable_groups_analysis',
       label: 'Vulnerable Groups',
       image: 'user-group.svg',
     },
     {
-      key: 'impact_severity',
+      key: 'severity_impact_analysis',
       label: 'Impact Severity',
       image: 'shield-x.svg',
     },
     {
-      key: 'mitigation_strategies',
+      key: 'mitigation_strategies_analysis',
       label: 'Mitigation Strategies',
       image: 'shield-plus.svg',
     },
   ];
+
   let activeTab = 'general_equity_assessment';
-  $: general = $currentPolicy['analysis_sections'];
+
+  $: primaryPerspective =
+    $currentPolicy?.overall_analysis_by_perspective?.[0] ?? null;
+  $: currentAnalysisSection = primaryPerspective?.analyses?.[activeTab] ?? null;
+
   $: console.log('Current Policy Analysis Data:', $currentPolicy);
+  $: console.log('Primary Perspective Used:', primaryPerspective?.group_name);
+  $: console.log('Active analysis section:', activeTab, currentAnalysisSection);
 </script>
 
 <section>
@@ -75,18 +82,40 @@
         style="height: 1lh; margin-right: 0.2em; vertical-align: bottom;"
         alt=""
       />
-      {$currentPolicy?.document?.title}
+      <!-- Display document title if available, otherwise a placeholder -->
+      {$currentPolicy?.document?.title || 'No Document Selected'}
       <!-- <img src="public/sel-btn.png" alt="{selectedPolicy?.document?.title}" style="height: 1em; vertical-align: middle; margin-right: 0.5em;">
         {selectedPolicy?.document?.title} -->
     </div>
 
-    {#if general === undefined}
-      <div class="header">
-        <span style="color: var(--primary-interactive);">
-          loading analysis...
-        </span>
+    {#if !analysisStatus && !$currentPolicy}
+      <!-- Initial state: No document selected or uploaded. This is often handled by EmptyPage.svelte in Tool.svelte -->
+      <div class="header" style="color: #6c757d;">
+        Please select or upload a document to begin analysis.
       </div>
-    {:else}
+    {:else if ['pending', 'waiting_vs_processing', 'analysis_generating'].includes(analysisStatus)}
+      <!-- Analysis is in progress (for user-uploaded documents) -->
+      <div class="header" style="color: var(--primary-interactive);">
+        <div
+          style="display: flex; align-items: center; justify-content: center; gap: 10px;"
+        >
+          <div class="spinner-small"></div>
+          Analysis in progress: {analysisStatus.replace(/_/g, ' ')}...
+        </div>
+        <p style="font-size: 0.8em; color: #888; margin-top: 10px;">
+          This may take a few minutes for complex documents.
+        </p>
+      </div>
+    {:else if analysisStatus === 'failed'}
+      <!-- Analysis failed (for user-uploaded documents) -->
+      <div class="header" style="color: red;">
+        Analysis Failed: {$currentPolicy?.analysis_error || 'Unknown error.'}
+        <p style="font-size: 0.8em; color: #888; margin-top: 10px;">
+          Please check the server logs for more details or try uploading another
+          document.
+        </p>
+      </div>
+    {:else if $currentPolicy && primaryPerspective}
       <!-- Tab Bar -->
       <div class="tab-bar">
         {#each tabOptions as t}
@@ -97,7 +126,7 @@
             aria-pressed={activeTab === t.key}
           >
             <img
-              src={t.image}
+              src="public/{t.image}"
               alt={t.label}
               style="height: 1.5rem; margin-right: 0.5rem;"
             />
@@ -105,172 +134,173 @@
           </button>
         {/each}
       </div>
-      <!-- General Equity Assessment -->
-      {#if activeTab === 'general_equity_assessment'}
-        <div in:slide style="overflow: hidden;">
-          <p class="summary">{general[activeTab].summary}</p>
-          <div class="section-grid">
-            {#each equitySections as section}
-              <div class="section">
-                <div class="title">
-                  <span class="pill" style="background-color: {section.color}"
-                    >{section.label}</span
-                  >
-                </div>
-
-                <div class="columns">
-                  <div class="box">
-                    <strong
-                      ><img
-                        src="public/green-dot.svg"
-                        alt="Positive Findings"
-                        style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
-                      /> Positive Findings</strong
+      <!-- Display content based on activeTab and the selected (first) perspective -->
+      {#if currentAnalysisSection}
+        <!-- General Equity Assessment -->
+        {#if activeTab === 'general_equity_assessment'}
+          <div in:slide style="overflow: hidden;">
+            <p class="summary">{currentAnalysisSection.summary}</p>
+            <div class="section-grid">
+              {#each equitySections as section}
+                <div class="section">
+                  <div class="title">
+                    <span class="pill" style="background-color: {section.color}"
+                      >{section.label}</span
                     >
-                    <p>
-                      {general[activeTab][section.key].positive_findings}
-                    </p>
                   </div>
-                  <div class="box">
-                    <strong
-                      ><img
-                        src="public/red-dot.svg"
-                        alt="Areas of Concern"
-                        style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
-                      /> Areas of Concern</strong
-                    >
-                    <p>{general[activeTab][section.key].concerns}</p>
+
+                  <div class="columns">
+                    <div class="box">
+                      <strong>
+                        <img
+                          src="public/green-dot.svg"
+                          alt="Positive Findings"
+                          style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
+                        />
+                        Positive Findings
+                      </strong>
+                      <p>
+                        {currentAnalysisSection[section.key]?.positive_findings}
+                      </p>
+                    </div>
+                    <div class="box">
+                      <strong>
+                        <img
+                          src="public/red-dot.svg"
+                          alt="Areas of Concern"
+                          style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
+                        />
+                        Areas of Concern
+                      </strong>
+                      <p>{currentAnalysisSection[section.key]?.concerns}</p>
+                    </div>
+                  </div>
+
+                  <div class="conclusion">
+                    <strong>Conclusion:</strong>
+                    {currentAnalysisSection[section.key]?.conclusion}
                   </div>
                 </div>
+              {/each}
+            </div>
+          </div>
+          <!-- Vulnerable Groups Formatting -->
+        {:else if activeTab === 'vulnerable_groups_analysis'}
+          <div in:slide style="overflow: hidden;">
+            <p class="summary">{currentAnalysisSection.summary}</p>
 
-                <div class="conclusion">
-                  <strong>Conclusion:</strong>
-                  {general[activeTab][section.key].conclusion}
+            <div class="section">
+              <div class="title">
+                <span
+                  class="pill"
+                  style="background-color: var(--primary-interactive)"
+                >
+                  Vulnerable Groups Analysis
+                </span>
+              </div>
+
+              <div class="columns">
+                <div class="box">
+                  <strong>Identified Groups</strong>
+                  <p>{currentAnalysisSection.identified_groups_and_impacts}</p>
                 </div>
               </div>
-            {/each}
-          </div>
-        </div>
-      {/if}
 
-      <!-- Vulnerable Groups Formatting -->
-      {#if activeTab === 'vulnerable_groups'}
-        <div in:slide style="overflow: hidden;">
-          <p class="summary">{general.vulnerable_groups_analysis.summary}</p>
-
-          <div class="section">
-            <div class="title">
-              <span
-                class="pill"
-                style="background-color: var(--primary-interactive)"
-                >Vulnerable Groups Analysis</span
-              >
-            </div>
-
-            <div class="columns">
-              <div class="box">
-                <strong>Identified Groups</strong>
-                <p>
-                  {general.vulnerable_groups_analysis
-                    .identified_groups_and_impacts}
-                </p>
+              <div class="conclusion">
+                <strong>Equity Assessment Summary:</strong>
+                {currentAnalysisSection.equity_assessment_summary}
               </div>
-            </div>
 
-            <div class="conclusion">
-              <strong>Equity Assessment Summary:</strong>
-              {general.vulnerable_groups_analysis.equity_assessment_summary}
-            </div>
-
-            <div class="conclusion" style="margin-top: 1rem;">
-              <strong>Conclusion:</strong>
-              {general.vulnerable_groups_analysis.conclusion}
+              <div class="conclusion" style="margin-top: 1rem;">
+                <strong>Conclusion:</strong>
+                {currentAnalysisSection.conclusion}
+              </div>
             </div>
           </div>
-        </div>
-      {/if}
-      <!-- Impact Severity Formatting -->
-      {#if activeTab === 'impact_severity'}
-        <div in:slide style="overflow: hidden;">
-          <p class="summary">{general.severity_impact_analysis.summary}</p>
+          <!-- Impact Severity Formatting -->
+        {:else if activeTab === 'severity_impact_analysis'}
+          <div in:slide style="overflow: hidden;">
+            <p class="summary">{currentAnalysisSection.summary}</p>
 
-          <div class="section">
-            <div class="title">
-              <span
-                class="pill"
-                style="background-color: var(--primary-interactive)"
-                >Severity of Impact Analysis</span
-              >
-            </div>
-
-            <div class="columns">
-              <div class="box">
-                <strong>High Severity Impacts</strong>
-                <p>{general.severity_impact_analysis.high_severity_impacts}</p>
+            <div class="section">
+              <div class="title">
+                <span
+                  class="pill"
+                  style="background-color: var(--primary-interactive)"
+                >
+                  Severity of Impact Analysis
+                </span>
               </div>
-              <div class="box">
-                <strong>Moderate Severity Impacts</strong>
-                <p>
-                  {general.severity_impact_analysis.moderate_severity_impacts}
-                </p>
-              </div>
-            </div>
 
-            <div class="columns" style="margin-top: 1rem;">
-              <div class="box" style="flex: 1 1 100%;">
-                <strong>Equity Implications of Impacts</strong>
-                <p>
-                  {general.severity_impact_analysis
-                    .equity_implications_of_impacts}
-                </p>
+              <div class="columns">
+                <div class="box">
+                  <strong>High Severity Impacts</strong>
+                  <p>{currentAnalysisSection.high_severity_impacts}</p>
+                </div>
+                <div class="box">
+                  <strong>Moderate Severity Impacts</strong>
+                  <p>{currentAnalysisSection.moderate_severity_impacts}</p>
+                </div>
               </div>
-            </div>
 
-            <div class="conclusion" style="margin-top: 1rem;">
-              <strong>Conclusion:</strong>
-              {general.severity_impact_analysis.conclusion}
+              <div class="columns" style="margin-top: 1rem;">
+                <div class="box" style="flex: 1 1 100%;">
+                  <strong>Equity Implications of Impacts</strong>
+                  <p>{currentAnalysisSection.equity_implications_of_impacts}</p>
+                </div>
+              </div>
+
+              <div class="conclusion" style="margin-top: 1rem;">
+                <strong>Conclusion:</strong>
+                {currentAnalysisSection.conclusion}
+              </div>
             </div>
           </div>
-        </div>
-      {/if}
+          <!-- Mitigation Strategies Formatting -->
+        {:else if activeTab === 'mitigation_strategies_analysis'}
+          <div in:slide style="overflow: hidden;">
+            <p class="summary">
+              {currentAnalysisSection.summary}
+            </p>
 
-      <!-- Mitigation Strategies Formatting -->
-      {#if activeTab === 'mitigation_strategies'}
-        <div in:slide style="overflow: hidden;">
-          <p class="summary">
-            {general.mitigation_strategies_analysis.summary}
-          </p>
-
-          <div class="section">
-            <div class="title">
-              <span
-                class="pill"
-                style="background-color: var(--primary-interactive)"
-                >Mitigation Strategies Analysis</span
-              >
-            </div>
-
-            <div class="columns">
-              <div class="box">
-                <strong>Identified Strategies</strong>
-                <p>
-                  {general.mitigation_strategies_analysis.identified_strategies}
-                </p>
+            <div class="section">
+              <div class="title">
+                <span
+                  class="pill"
+                  style="background-color: var(--primary-interactive)"
+                >
+                  Mitigation Strategies Analysis
+                </span>
+              </div>
+              <div class="columns">
+                <div class="box">
+                  <strong>Identified Strategies</strong>
+                  <p>
+                    {currentAnalysisSection.identified_strategies}
+                  </p>
+                </div>
+              </div>
+              <div class="conclusion">
+                <strong>Equity Assessment Summary:</strong>
+                {currentAnalysisSection.equity_assessment}
+              </div>
+              <div class="conclusion" style="margin-top: 1rem;">
+                <strong>Conclusion:</strong>
+                {currentAnalysisSection.conclusion}
               </div>
             </div>
-
-            <div class="conclusion">
-              <strong>Equity Assessment Summary:</strong>
-              {general.mitigation_strategies_analysis.equity_assessment}
-            </div>
-
-            <div class="conclusion" style="margin-top: 1rem;">
-              <strong>Conclusion:</strong>
-              {general.mitigation_strategies_analysis.conclusion}
-            </div>
           </div>
+        {/if}
+      {:else}
+        <!-- Fallback if analysis data for the specific tab is missing, but policy and primary perspective are there -->
+        <div class="header" style="color: var(--primary-interactive);">
+          No detailed data available for the selected analysis tab.
         </div>
       {/if}
+    {:else}
+      <div class="header" style="color: #6c757d;">
+        Awaiting analysis data...
+      </div>
     {/if}
   </div>
 </section>
@@ -403,5 +433,26 @@
     font-size: 1rem;
     margin-bottom: 2rem;
     line-height: 1.6;
+  }
+
+  /* Spinner Small */
+  .spinner-small {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border-left-color: var(
+      --primary-interactive
+    ); /* Use primary interactive color */
+    animation: spin 1s ease infinite;
+    flex-shrink: 0;
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 </style>

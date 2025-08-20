@@ -1,36 +1,46 @@
 <script>
-  import { onMount, tick } from 'svelte'; // Import tick for DOM updates
+  import { onMount, tick } from 'svelte';
   import { slide } from 'svelte/transition';
 
   // Importing Local Modules
   import LogoBar from '../lib/LogoBar.svelte';
   import ChatPanel from '../lib/ChatPanel.svelte';
 
+  // Importing store and view components
   import {
     currentPolicy,
     fetchPolicies,
     fetchPolicyDataById,
   } from '../lib/stores/currentPolicy.js';
   import EmptyPage from '../lib/EmptyPage.svelte';
-  import AnalysisView from './AnalysisView.svelte';
+  import AnalysisView from './AnalysisView.svelte'; // The main report view component
 
-  import { server_address } from '../constants';
-  let policies = []; // This will now be dynamically loaded and updated from the API
+  import { server_address } from '../constants'; // Assumed to be "http://localhost:8000"
+
+  // --- State Variables ---
+  let policies = []; // Dynamically loaded and updated from API
   let isUploading = false; // True if file upload/VS creation is in progress
   let analysisStatus = null; // 'pending', 'waiting_vs_processing', 'analysis_generating', 'completed', 'failed'
-  let currentSessionId = null; // Stores the session ID for the current user upload
-  let analysisPollingTimer = null;
+  let currentSessionId = null; // Stores the Session ID (which is also the document_id for user uploads)
+  let analysisPollingTimer = null; // Timer for polling analysis status
   let analysisResultFetched = false; // Flag to prevent multiple fetches/displays of the full analysis JSON
+  let currentDoc = null; // Full policy object for AnalysisView to render
 
   const ANALYSIS_POLLING_INTERVAL_MS = 5000; // Poll every 5 seconds for analysis status
 
   // --- Lifecycle Hook ---
   onMount(async () => {
     currentPolicy.set(null); // Clear any previous selection when component mounts
-    await loadInitialPolicies(); // Load existing policies from API
+    currentDoc = null;
+    currentSessionId = null;
+    analysisStatus = null;
+    analysisResultFetched = false;
+    if (analysisPollingTimer) clearInterval(analysisPollingTimer);
+
+    await loadInitialPolicies(); // Load existing policies from API (DB + preprocessed)
   });
 
-  // Function to load policies from the backend
+  // Function to load policies from the backend (both preprocessed and user-uploaded)
   async function loadInitialPolicies() {
     try {
       policies = await fetchPolicies();
@@ -39,7 +49,9 @@
         analysis_status:
           p.analysis_status ||
           (p.source === 'preprocessed' ? 'completed' : 'unknown'),
+        analysis_error: p.analysis_error || null,
       }));
+      console.log('Loaded policies:', policies);
     } catch (err) {
       console.error('Network error loading initial policies list:', err);
     }
@@ -47,99 +59,123 @@
 
   // Function to load a specific policy's full data (either preprocessed or user-uploaded)
   async function loadPolicyData(policyId) {
-    analysisStatus = null; // Reset analysis status for the UI when a new policy is clicked
-    analysisResultFetched = false; // Reset fetching flag for the new policy
+    // Reset status and fetched flags when a new policy is clicked to ensure fresh display
+    analysisStatus = null;
+    analysisResultFetched = false;
 
-    // Find the policy in our local 'policies' array to get its basic info
+    // Find the policy in our local 'policies' array to get its basic metadata
     const selectedPolicy = policies.find(p => p.id === policyId);
     if (selectedPolicy) {
-      // Set the currentPolicy store with the basic metadata first. This immediately updates the sidebar selection.
       currentPolicy.set(selectedPolicy);
+      currentDoc = selectedPolicy;
 
-      // If the selected policy is preprocessed or already marked completed (from a prior session/load)
+      // Stop any ongoing polling timer from a previous in-progress document
+      if (analysisPollingTimer) clearInterval(analysisPollingTimer);
+      analysisPollingTimer = null; // Ensure timer is cleared
+
+      // --- Manage currentSessionId based on selected policy type/status ---
       if (
-        selectedPolicy.source === 'preprocessed' ||
-        selectedPolicy.analysis_status === 'completed'
+        selectedPolicy.source === 'user' &&
+        (selectedPolicy.analysis_status === 'completed' ||
+          selectedPolicy.analysis_status === 'failed')
       ) {
-        try {
-          // Fetch the full detailed data for display in ReportView
-          // const res = await fetch(`${server_address}/api/policies/${policyId}`);
-          const fullPolicyData = await fetchPolicyDataById(policyId);
-          currentPolicy.set(fullPolicyData); // Update store with full detailed data
-          // currentDoc = fullPolicyData; // Update local reference for ReportView
-          analysisStatus = 'completed'; // Explicitly set status to completed for UI
-        } catch (err) {
-          console.error('Error loading full policy data:', err);
-          analysisStatus = 'failed';
-          currentPolicy.update(p => ({
-            ...p,
-            analysis_status: 'failed',
-            analysis_error: 'Network error loading report data.',
-          }));
-        }
+        currentSessionId = policyId;
       } else if (
         selectedPolicy.source === 'user' &&
+        selectedPolicy.analysis_status !== 'completed' &&
         selectedPolicy.analysis_status !== 'failed'
       ) {
-        // If it's a user upload and not yet completed or failed, start/continue polling
-        currentSessionId = policyId; // For user uploads, the policy ID is the session ID
-        analysisStatus = selectedPolicy.analysis_status; // Use the existing status from the sidebar list
-
-        // Clear any existing polling timer from a previous session
-        if (analysisPollingTimer) {
-          clearInterval(analysisPollingTimer);
-        }
-        // Start polling for status updates
+        // If it's an in-progress user doc, set currentSessionId and initiate polling
+        currentSessionId = policyId;
+        analysisStatus = selectedPolicy.analysis_status; // Reflect its current analysis status
         analysisPollingTimer = setInterval(
           () => pollAnalysisStatus(currentSessionId),
           ANALYSIS_POLLING_INTERVAL_MS
         );
-        pollAnalysisStatus(currentSessionId); // Initial immediate poll to display current status
-      } else if (
-        selectedPolicy.source === 'user' &&
-        selectedPolicy.analysis_status === 'failed'
-      ) {
-        // If it's a user upload that previously failed, ensure UI reflects that
-        analysisStatus = 'failed';
-        currentPolicy.update(p => ({
-          ...p,
-          analysis_status: 'failed',
-          analysis_error:
-            selectedPolicy.analysis_error || 'Analysis previously failed.',
-        }));
+        pollAnalysisStatus(currentSessionId); // Initial immediate poll
+      } else {
+        // It's a 'preprocessed' document
+        currentSessionId = null; // Preprocessed docs don't have a live session for chat interaction
+      }
+
+      // Fetch the full detailed data for display in AnalysisView
+      try {
+        const fullPolicyData = await fetchPolicyDataById(policyId);
+        currentPolicy.set(fullPolicyData);
+        currentDoc = fullPolicyData;
+        analysisStatus = fullPolicyData.analysis_status || 'completed';
+        console.log(
+          `Loaded Policy Data for ID ${policyId}. Status: ${analysisStatus}. currentSessionId: ${currentSessionId}`
+        );
+      } catch (err) {
+        console.error('Error loading full policy data:', err);
+        if (
+          err.status === 409 &&
+          err.response &&
+          err.response.analysis_status
+        ) {
+          const result = err.response;
+          analysisStatus = result.analysis_status;
+          currentPolicy.update(p => ({
+            ...p,
+            analysis_status: result.analysis_status,
+            analysis_error: result.analysis_error,
+          }));
+          // If it's still processing, ensure polling starts for it if not already handled
+          if (analysisStatus !== 'completed' && analysisStatus !== 'failed') {
+            currentSessionId = policyId; // Re-confirm session ID for polling
+            if (!analysisPollingTimer) {
+              // Only start if not already polling
+              analysisPollingTimer = setInterval(
+                () => pollAnalysisStatus(currentSessionId),
+                ANALYSIS_POLLING_INTERVAL_MS
+              );
+              pollAnalysisStatus(currentSessionId);
+            }
+          }
+        } else {
+          analysisStatus = 'failed';
+          currentPolicy.update(p => ({
+            ...p,
+            analysis_status: 'failed',
+            analysis_error: err.message || 'Network error loading report data.',
+          }));
+          currentDoc = {
+            ...currentDoc,
+            analysis_status: 'failed',
+            analysis_error: err.message || 'Network error loading report data.',
+          };
+        }
       }
     } else {
       console.warn(`Policy with ID ${policyId} not found in the list.`);
-      currentPolicy.set(null); // Clear if not found
+      currentPolicy.set(null);
+      currentDoc = null; // Clear currentDoc
+      currentSessionId = null; // Clear currentSessionId
       analysisStatus = null; // No status if no policy selected
     }
     chatPanel = true; // Open chat panel when a document is selected/loaded
   }
 
-  // NEW: handleFileUpload function for the upload button
+  // handleFileUpload function for the upload button
   async function handleFileUpload(event) {
     const file = event.target.files[0];
     if (!file) return;
 
     // --- Reset all relevant state for a new upload session ---
-    if (analysisPollingTimer) {
-      clearInterval(analysisPollingTimer);
-      analysisPollingTimer = null;
-    }
+    if (analysisPollingTimer) clearInterval(analysisPollingTimer);
     currentSessionId = null;
     analysisStatus = null;
     analysisResultFetched = false;
     currentPolicy.set(null); // Clear any currently selected policy in the store
-    // currentDoc = null; // Clear ReportView content
-
-    isUploading = true; // Set upload state to true for UI feedback (changes button color)
+    currentDoc = null; // Clear currentDoc on new upload start
+    isUploading = true; // Set upload state to true for UI feedback
 
     const formData = new FormData();
     formData.append('file', file);
 
     // Add a temporary entry to the policies list immediately to show processing in sidebar
-    // This uses a temporary ID that will be replaced by the real session_id from the backend
-    const tempId = `temp-${Date.now()}`;
+    const tempId = `temp-${Date.now()}`; // Temporary ID for optimistic update
     const tempPolicyEntry = {
       id: tempId,
       document: {
@@ -154,7 +190,7 @@
     };
     policies = [tempPolicyEntry, ...policies]; // Add to top of sidebar list
     currentPolicy.set(tempPolicyEntry); // Select this newly uploaded/processing entry
-    // currentDoc = tempPolicyEntry; // Pass to ReportView for immediate display of loading state
+    currentDoc = tempPolicyEntry; // Set currentDoc for optimistic update
 
     try {
       const response = await fetch(`${server_address}/upload`, {
@@ -165,39 +201,38 @@
 
       if (response.ok && result.success) {
         currentSessionId = result.session_id; // Get the real session ID from backend
-        analysisStatus = result.analysis_status; // This should be "pending"
+        analysisStatus = result.analysis_status; // This should be "pending" or "vs_processing_pending"
 
         policies = policies.map(p =>
           p.id === tempId
             ? { ...p, id: currentSessionId, analysis_status: analysisStatus }
             : p
         );
-
         // Also update currentPolicy with the real ID, so ReportView uses the correct ID for polling
         currentPolicy.update(p => ({
           ...p,
           id: currentSessionId,
           analysis_status: analysisStatus,
         }));
-        // currentDoc = {
-        //   ...currentDoc,
-        //   id: currentSessionId,
-        //   analysis_status: analysisStatus,
-        // };
+        currentDoc = {
+          ...currentDoc,
+          id: currentSessionId,
+          analysis_status: analysisStatus,
+        }; // <--- Update currentDoc with real ID/status
 
         // Start polling for analysis status
         analysisPollingTimer = setInterval(
           () => pollAnalysisStatus(currentSessionId),
           ANALYSIS_POLLING_INTERVAL_MS
         );
-        pollAnalysisStatus(currentSessionId); // Initial immediate poll to display first status
-        chatPanel = true; // Open chat panel automatically for new uploads
+        pollAnalysisStatus(currentSessionId); // Initial immediate poll
+        chatPanel = true;
       } else {
         console.error('Upload failed:', result.message || 'Unknown error');
         analysisStatus = 'failed';
         policies = policies.filter(p => p.id !== tempId); // Remove if upload failed at this stage
-        currentPolicy.set(null); // Clear selection
-        // currentDoc = null;
+        currentPolicy.set(null);
+        currentDoc = null; // Clear selection on failure
       }
     } catch (error) {
       console.error('Upload network error:', error);
@@ -216,14 +251,18 @@
         analysis_status: 'failed',
         analysis_error: 'Network error during upload.',
       }));
+      currentDoc = {
+        ...currentDoc,
+        analysis_status: 'failed',
+        analysis_error: 'Network error during upload.',
+      };
     } finally {
       isUploading = false; // Reset upload state
     }
   }
 
-  // NEW: Polling function for analysis status (updates sidebar and ReportView state)
+  // Polling function for analysis status (updates sidebar and ReportView state)
   async function pollAnalysisStatus(sessionId) {
-    // If analysis result for this session is already fetched and displayed, stop polling
     if (analysisResultFetched) {
       clearInterval(analysisPollingTimer);
       analysisPollingTimer = null;
@@ -254,16 +293,21 @@
           ...p,
           analysis_status: 'failed',
           analysis_error: 'Failed to get status.',
-        })); // Also update currentPolicy
+        }));
+        currentDoc = {
+          ...currentDoc,
+          analysis_status: 'failed',
+          analysis_error: 'Failed to get status.',
+        }; // Update currentDoc
         return;
       }
 
       const result = await response.json();
       const newStatus = result.analysis_status;
 
-      analysisStatus = newStatus; // Update global analysisStatus for ReportView to react
+      analysisStatus = newStatus; // Update global status for ReportView to react
 
-      // Update the specific policy entry in 'policies' array with the new status and error (if any)
+      // Update the specific policy entry in 'policies' array and currentPolicy store
       policies = policies.map(p =>
         p.id === sessionId
           ? {
@@ -277,7 +321,12 @@
         ...p,
         analysis_status: newStatus,
         analysis_error: result.analysis_error,
-      })); // Update currentPolicy store
+      }));
+      currentDoc = {
+        ...currentDoc,
+        analysis_status: newStatus,
+        analysis_error: result.analysis_error,
+      }; // Update currentDoc
 
       if (newStatus === 'completed') {
         clearInterval(analysisPollingTimer);
@@ -309,6 +358,11 @@
         analysis_status: 'failed',
         analysis_error: 'Network error.',
       }));
+      currentDoc = {
+        ...currentDoc,
+        analysis_status: 'failed',
+        analysis_error: 'Network error.',
+      }; // Update currentDoc
     }
   }
 
@@ -332,13 +386,18 @@
           response.status,
           await response.text()
         );
-        analysisResultFetched = false; // Allow re-attempt if the fetch itself fails
+        analysisResultFetched = false;
         analysisStatus = 'failed';
         currentPolicy.update(p => ({
           ...p,
           analysis_status: 'failed',
           analysis_error: 'Failed to retrieve analysis report data.',
         }));
+        currentDoc = {
+          ...currentDoc,
+          analysis_status: 'failed',
+          analysis_error: 'Failed to retrieve analysis report data.',
+        }; // Update currentDoc with error
         return;
       }
 
@@ -351,17 +410,21 @@
               ...p,
               ...result.analysis_data,
               analysis_status: 'completed',
-            }; // Merge full data into the existing policy object
+              analysis_error: null,
+            }; // Merge full data
           }
           return p;
         });
-        // Important: Set the full analysis data to currentPolicy store and local currentDoc
         await tick(); // Ensure DOM updates are pending before setting full data
-        currentPolicy.set(result.analysis_data);
-        // currentDoc = result.analysis_data; // Also update local currentDoc for ReportView
-        analysisStatus = 'completed'; // Ensure the global analysisStatus reflects completion
+        currentPolicy.set(result.analysis_data); // Set the full data to the store
+        currentDoc = result.analysis_data; // Update currentDoc with full data
+        analysisStatus = 'completed'; // Ensure global status is updated
+        currentSessionId = sessionId; // Re-confirm currentSessionId (should already be this, but ensures reactivity)
+        console.log(
+          'Analysis completed. Chat should be active for session:',
+          currentSessionId
+        );
       } else {
-        // This case should ideally not be hit if pollAnalysisStatus works correctly
         console.error(
           "Analysis result was not 'completed' when fetched via get_analysis_result:",
           result.analysis_status
@@ -373,6 +436,11 @@
           analysis_status: 'failed',
           analysis_error: 'Unexpected status when retrieving full report.',
         }));
+        currentDoc = {
+          ...currentDoc,
+          analysis_status: 'failed',
+          analysis_error: 'Unexpected status when retrieving full report.',
+        }; // Update currentDoc
       }
     } catch (error) {
       console.error('Error fetching analysis result:', error);
@@ -383,6 +451,11 @@
         analysis_status: 'failed',
         analysis_error: 'Network error while fetching analysis report.',
       }));
+      currentDoc = {
+        ...currentDoc,
+        analysis_status: 'failed',
+        analysis_error: 'Network error while fetching analysis report.',
+      }; // Update currentDoc
     }
   }
 
@@ -390,7 +463,7 @@
   async function handleEndSessionFromChat() {
     if (!currentSessionId) return;
 
-    // Reset Tool.svelte's state associated with the session that just ended
+    // Reset Tool.svelte's state associated with the document that just ended.
     if (analysisPollingTimer) {
       clearInterval(analysisPollingTimer);
       analysisPollingTimer = null;
@@ -399,19 +472,17 @@
     analysisStatus = null;
     analysisResultFetched = false;
 
-    // Remove the ended policy from the sidebar list
-    // This will automatically cause currentPolicy.set(null) if the ended policy was selected
+    // Remove the ended policy from the sidebar list.
     policies = policies.filter(p => p.id !== currentSessionId);
     currentPolicy.set(null); // Explicitly clear the selected policy in the store
-    // currentDoc = null; // Clear ReportView content
+    currentDoc = null; // Clear currentDoc here
     currentSessionId = null; // Clear active session ID
 
-    chatPanel = false; // Close chat panel as the session has ended and nothing new is selected
+    chatPanel = false; // Close chat panel as the active document/session has ended.
   }
 
   // State Variables, Third Panel (Overview) - Original position
   let chatPanel = false;
-  // Chat Logic - Original position
 </script>
 
 <section>
@@ -477,8 +548,11 @@
                        display:flex; justify-content:space-between; align-items:center;"
                 on:click={() => loadPolicyData(policy.id)}
               >
-                {policy.document?.title || policy.id}
-                <!-- Display title, fallback to ID -->
+                <!-- Displays filename, then title, then ID -->
+                {policy.document?.filename ||
+                  policy.document?.title ||
+                  policy.id}
+
                 {#if policy.source === 'user'}
                   <span
                     class="analysis-status-dot"
@@ -518,11 +592,10 @@
             class="clear"
             style="background: none; border: none; color: #0F3C5F; font-size: 13px; cursor: pointer; padding: 4px 10px; border-radius: 6px; transition: background 0.15s;"
             on:click={async () => {
-              // Filters policies to only keep those sourced as 'preprocessed'.
-              // This is a local frontend-only clear. Backend cleanup requires explicit calls.
+              // This clears frontend list of user-uploaded docs.
+              // Backend cleanup for specific user data would require explicit API calls for each doc.
               policies = policies.filter(p => p.source === 'preprocessed');
               currentPolicy.set(null); // Deselect any policy
-              // currentDoc = null; // Clear ReportView content
               currentSessionId = null; // Clear active session ID if it was a user upload
               analysisStatus = null; // Reset analysis status display
               analysisResultFetched = false;
@@ -639,11 +712,11 @@
   .upload-button:hover {
     background: #0d304f;
   }
-  /* NEW: Uploading state color for button (added this class and style) */
+  /* Uploading state color for button  */
   .upload-button.uploading {
-    background: #6c757d; /* A muted grey, consistent with disabled states */
+    background: #6c757d;
     cursor: not-allowed;
-    opacity: 0.8; /* Slightly less opaque */
+    opacity: 0.8;
   }
 
   /* (1.2) Policy Selection */
@@ -657,10 +730,15 @@
     transition: background 0.15s;
   }
 
-  /* NEW: Analysis Status Dots (added these classes and styles) */
+  /* Analysis Status Dots (added these classes and styles) */
   .analysis-status-dot {
-    /* Base styles are inline in HTML to preserve original button layout */
-    transition: background-color 0.3s ease; /* Smooth color transition */
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 8px;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
   }
   .analysis-status-dot.status-pending,
   .analysis-status-dot.status-waiting_vs_processing,

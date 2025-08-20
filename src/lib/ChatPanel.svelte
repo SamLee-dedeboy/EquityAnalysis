@@ -1,18 +1,26 @@
 <script>
   import { createEventDispatcher, tick } from 'svelte';
 
+  import { server_address } from '../constants';
+
   // Props passed from Tool.svelte
   export let currentSessionId = null;
   export let analysisIsGenerating = false; // True if the background analysis is still running
 
   // Internal state for the chat panel
   let inputText = '';
-  // Messages array to store chat history
-  let messages = [
-    // The initial bot message with its original HTML structure, flagged as raw HTML
-    {
-      type: 'bot-initial',
-      contentHtml: `
+
+  // Use a Map to store messages, keyed by session_id
+  let sessionMessages = new Map();
+  // This will be the reactive array for the *currently* displayed messages
+  let currentMessages = [];
+  // A Set to track which session IDs have had their persistent history loaded
+  let historyLoadedForSession = new Set();
+
+  // Initial bot message template, kept separate for reusability
+  const initialBotMessage = {
+    type: 'bot-initial',
+    contentHtml: `
         <div style="display: flex; align-items: flex-start; margin-bottom: 24px;">
           <div class="bot-avatar" style="aspect-ratio: 1/1; width: 2.5em; height: 2.5em; background: var(--primary-interactive); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; overflow: hidden; min-width: 2.5em;">
             <img src="public/botpic.svg" alt="EquiFlow Logo" style="height: 1.5em; width: 1.5em; object-fit: contain; vertical-align: middle;">
@@ -28,17 +36,67 @@
           </div>
         </div>
       `,
-    },
-  ];
-  let isQuerying = false; // True when a query is being sent and a response awaited
-  let noteAnalysisGeneratingDisplayed = false; // Flag to show "Note: Full analysis report..." only once per query
+  };
 
+  let isQuerying = false;
+  let noteAnalysisGeneratingDisplayed = false;
   const dispatch = createEventDispatcher();
 
-  // Function to dynamically add messages to the chatbox
-  async function addMessage(content, type = 'status') {
-    messages = [...messages, { type, content }];
-    await tick(); // Wait for DOM update to ensure scrollHeight is correct
+  // Reactive statement to reset isQuerying when analysis completes
+  $: if (!analysisIsGenerating && isQuerying) {
+    console.log('Analysis completed, resetting isQuerying to false.');
+    isQuerying = false;
+  }
+  // Reactive block to update `currentMessages` when `currentSessionId` changes
+  $: {
+    if (currentSessionId) {
+      // If history for this session hasn't been loaded yet
+      if (!historyLoadedForSession.has(currentSessionId)) {
+        // Initialize with bot message immediately, then fetch persistent history
+        sessionMessages = new Map(sessionMessages); // Immutable update for reactivity
+        sessionMessages.set(currentSessionId, [initialBotMessage]);
+        historyLoadedForSession.add(currentSessionId); // Mark as loading initiated
+        loadChatHistory(currentSessionId);
+      }
+      currentMessages = sessionMessages.get(currentSessionId); // Point to the current session's messages
+
+      // Reset temporary UI states for the new session
+      isQuerying = false;
+      noteAnalysisGeneratingDisplayed = false;
+    } else {
+      // No session active, clear displayed messages
+      currentMessages = [];
+      isQuerying = false;
+      noteAnalysisGeneratingDisplayed = false;
+    }
+    // Ensure scroll to bottom after messages update, using tick()
+    tick().then(() => {
+      const chatboxElement = document.querySelector('.chat-messages');
+      if (chatboxElement) {
+        chatboxElement.scrollTop = chatboxElement.scrollHeight;
+      }
+    });
+  }
+
+  async function addMessage(content, type = 'status', isHtml = false) {
+    const msg = { type, content };
+    if (isHtml) msg.contentHtml = content; // Store as contentHtml if it's raw HTML
+
+    // Update the specific session's message array in the Map
+    if (currentSessionId) {
+      // Svelte requires Map updates to be done immutably to trigger reactivity properly
+      sessionMessages = new Map(sessionMessages); // Create a new Map instance
+      const messagesForSession = sessionMessages.get(currentSessionId) || [];
+      messagesForSession.push(msg);
+      sessionMessages.set(currentSessionId, messagesForSession);
+      currentMessages = messagesForSession; // Ensure currentMessages points to the updated array
+    } else {
+      // Fallback if no currentSessionId
+      currentMessages = [...currentMessages, msg]; // Continue appending to a temporary array
+    }
+
+    await tick();
+
     const chatboxElement = document.querySelector('.chat-messages');
     if (chatboxElement) {
       chatboxElement.scrollTop = chatboxElement.scrollHeight; // Scroll to bottom
@@ -80,7 +138,7 @@
     };
 
     try {
-      const response = await fetch('http://localhost:8000/query', {
+      const response = await fetch(`${server_address}/query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -113,7 +171,7 @@
     isQuerying = true; // Temporarily disable inputs
 
     try {
-      const response = await fetch('http://localhost:8000/end-session', {
+      const response = await fetch(`${server_address}/end-session`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ session_id: currentSessionId }),
@@ -123,31 +181,15 @@
       if (response.ok && result.success) {
         addMessage('Session ended. All resources cleaned up.', 'status');
         dispatch('endSession'); // Notify parent (Tool.svelte) to reset its state
-        // Reset ChatPanel's internal state
+
+        // Clear this session's messages from the Map and the historyLoaded Set
+        if (sessionMessages.has(currentSessionId)) {
+          sessionMessages = new Map(sessionMessages);
+          sessionMessages.delete(currentSessionId);
+          historyLoadedForSession.delete(currentSessionId);
+        }
+        currentMessages = []; // Clear currently displayed messages
         inputText = '';
-        messages = [
-          {
-            type: 'bot-initial',
-            contentHtml: `
-              <div style="display: flex; align-items: flex-start; margin-bottom: 24px;">
-                <div class="bot-avatar" style="height: 1.5em; width: 1.5em; background: var(--primary-interactive); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; overflow: hidden; min-width: 2.5em;">
-                  <img src="public/botpic.svg" alt="EquiFlow Logo" style="height: 1em; vertical-align: middle;">
-                </div>
-                <div style="background:#f1f5fb;border-radius:12px;padding:18px 20px;max-width:420px;box-shadow:0 2px 8px rgba(0,0,0,0.04);color:#1f2937;">
-                  <strong>Hello! I'm EquiFlow, your AI assistant for policy equity analysis.</strong>
-                  <ul style="margin:12px 0 0 18px;padding:0;font-size:15px;">
-                    <li>Analyze documents for equity impacts across multiple dimensions</li>
-                    <li>Answer detailed questions about specific policy sections</li>
-                    <li>Provide actionable recommendations for improvement</li>
-                    <li>Compare policies across equity frameworks</li>
-                  </ul>
-                </div>
-              </div>
-            `,
-          },
-        ];
-        currentSessionId = null;
-        analysisIsGenerating = false;
         noteAnalysisGeneratingDisplayed = false;
       } else {
         addMessage(
@@ -162,6 +204,46 @@
       isQuerying = false;
     }
   }
+
+  async function loadChatHistory(sessionId) {
+    addMessage('Loading chat history...', 'status'); // Temporary status message
+
+    try {
+      const response = await fetch(
+        `${server_address}/get_chat_history/${sessionId}`
+      );
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || 'Failed to load chat history.');
+      }
+      const history = await response.json();
+
+      let loadedMessages = [initialBotMessage]; // Always start with the initial bot message
+      history.forEach(msg => {
+        loadedMessages.push({ type: msg.type, content: msg.content });
+      });
+
+      // Update the Map and the reactive currentMessages
+      sessionMessages = new Map(sessionMessages); // Make immutable copy for reactivity
+      sessionMessages.set(sessionId, loadedMessages);
+      currentMessages = loadedMessages; // Update reactive array
+    } catch (error) {
+      console.error('Error loading chat history:', error);
+      addMessage(`Error loading chat history: ${error.message}`, 'status');
+      // If an error occurs, ensure at least the initial bot message is there
+      if (
+        !sessionMessages.has(sessionId) ||
+        sessionMessages.get(sessionId).length === 0 ||
+        (sessionMessages.get(sessionId).length === 1 &&
+          sessionMessages.get(sessionId)[0].type === 'status')
+      ) {
+        // If the session only contains status messages or is empty, re-initialize with initial bot message
+        sessionMessages = new Map(sessionMessages);
+        sessionMessages.set(sessionId, [initialBotMessage]);
+        currentMessages = sessionMessages.get(sessionId);
+      }
+    }
+  }
 </script>
 
 <div class="chat-container">
@@ -174,7 +256,7 @@
   <!-- (3.2) Chat Box -->
   <div class="chat-content">
     <div class="chat-messages">
-      {#each messages as message}
+      {#each currentMessages as message}
         {#if message.type === 'bot-initial'}
           <!-- Render the initial complex bot message -->
           {@html message.contentHtml}
@@ -306,7 +388,6 @@
 </div>
 
 <style>
-  /* --- Original Styles (Copied Directly) --- */
   .chat-container {
     height: 100%; /* Ensure it takes full height of its parent container */
     display: flex;
@@ -381,7 +462,7 @@
     background: #0d304f;
   }
 
-  /* --- Disabled Styles (Inherited from general project CSS/templates.html where applicable) --- */
+  /* --- Disabled Styles --- */
   .input-bar input:disabled,
   .input-bar button:disabled,
   select:disabled {
@@ -393,7 +474,7 @@
     background-color: #6c757d; /* Grey button for disabled */
   }
 
-  /* --- NEW: Spinner Small (copied from previous instructions) --- */
+  /* --- Spinner Small --- */
   .spinner-small {
     border: 2px solid rgba(0, 0, 0, 0.1);
     width: 16px;

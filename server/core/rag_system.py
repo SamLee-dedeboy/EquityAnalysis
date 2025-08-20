@@ -1,15 +1,20 @@
-# core/rag_system.py
 import os
 import textwrap
 import logging
 import time
 import json
+import sqlite3
+import uuid
+
 from typing import Optional, List, Dict, Any, Tuple
 from openai import APIError, APIStatusError, RateLimitError
 
 from .config import settings
-from .local_db import VectorDatabase, get_local_db
 from .openai_interaction import OpenAIInteraction
+from .local_db import get_local_db 
+
+# Ensure database utilities are available for direct DB access
+from core.database import get_db_connection, close_db_connection
 
 logger = logging.getLogger("rag_system")
 
@@ -17,63 +22,113 @@ class HybridRAGSystem:
     def __init__(self, openai_interaction: OpenAIInteraction):
         self.config = settings
         self.openai_interaction = openai_interaction
-        self.local_db = get_local_db()
+        self.local_db = get_local_db() # Get local_db instance for RAG context
         if self.local_db is None: logger.warning("HybridRAGSystem initialized WITHOUT a functional local database.")
         else: logger.info("HybridRAGSystem initialized WITH local database.")
-        # user_sessions structure now holds more states for main.py to track
-        self.user_sessions: Dict[str, Dict[str, Any]] = {} 
 
-    def add_user_document_for_session(self, session_id: str, file_path: str, original_filename: str) -> Tuple[bool, str]:
+
+    def add_user_document_for_session(self, session_id: str, file_path: str, original_filename: str, db_conn: sqlite3.Connection) -> Tuple[bool, str, Optional[str], Optional[str]]:
+        """
+        Handles uploading the document to OpenAI, creating a Vector Store,
+        and persisting the OpenAI resource IDs (file_id, vector_store_id) to the database.
+        Deletes the local temporary file after successful OpenAI upload.
+
+        Args:
+            session_id (str): The unique ID for the user's session/document.
+            file_path (str): The local path to the temporary file to be uploaded.
+            original_filename (str): The original name of the file.
+            db_conn (sqlite3.Connection): An active database connection for persisting IDs.
+
+        Returns:
+            Tuple[bool, str, Optional[str], Optional[str]]:
+                (success_status, message, openai_file_id, openai_vector_store_id)
+                openai_file_id and openai_vector_store_id are returned if successful, None otherwise.
+        """
         logger.info(f"Processing user document for session '{session_id}': '{original_filename}' from path '{file_path}'")
         
-        # Assume main.py has already initialized the session_id in self.user_sessions
-        # with basic info and initial analysis_status.
-        session_info = self.user_sessions.get(session_id)
-        if not session_info:
-            logger.error(f"Session {session_id} not pre-initialized in user_sessions for add_user_document_for_session. Critical error.")
-            return False, "Internal error: Session not tracked correctly."
-        
-        # --- PHASE 1: Upload file to OpenAI ---
-        session_info["upload_status"] = "uploading_file" # Update more granular status for frontend/backend tracking
-        file_id = self.openai_interaction.upload_file(file_path, purpose="assistants")
-        if not file_id:
-            msg = f"Failed to upload file {original_filename} for session {session_id}."
-            logger.error(msg)
-            session_info["upload_status"] = "failed_upload"
-            return False, msg
-        
-        session_info["file_id"] = file_id # Store file_id as soon as obtained
-        
-        # --- PHASE 2: Create Vector Store with the uploaded file ---
-        session_info["upload_status"] = "creating_vs"
-        vs_name = f"vs_{session_id}_{original_filename}".replace(" ", "_")[:100]
-        vector_store_id = self.openai_interaction.create_vector_store_with_files(name=vs_name, file_ids=[file_id])
-        if not vector_store_id:
-            msg = f"Failed to create Vector Store for file ID {file_id} (session {session_id}). Cleaning up uploaded file."
-            logger.error(msg)
-            self.openai_interaction.delete_file(file_id) # Clean up uploaded file if VS creation failed
-            session_info["upload_status"] = "failed_vs_creation"
-            return False, msg
-        
-        session_info["vector_store_id"] = vector_store_id # Store vector_store_id as soon as obtained
-        session_info["upload_status"] = "vs_processing_pending" # Indicate VS processing is now pending (to be handled by background task)
+        cursor = db_conn.cursor() # Use the provided database connection
+        file_id_openai = None
+        vector_store_id_openai = None
 
-        # --- CRITICAL CHANGE: Delete the local temporary file immediately after successful upload to OpenAI ---
-        # It's no longer needed by this function or the background task after this point.
-        if os.path.exists(file_path):
-            try:
-                os.remove(file_path)
-                logger.info(f"[{session_id}] Deleted local temporary file '{file_path}' after OpenAI upload.")
-                # Also remove the temp_file_path reference from session_info as it's no longer needed/valid
-                session_info.pop("temp_file_path", None) # Remove it from the session_info dict
-            except OSError as e:
-                logger.error(f"[{session_id}] Error deleting temporary file {file_path}: {e}")
-        
-        # Final status for the immediate /upload response (before background analysis starts)
-        msg = f"User document '{original_filename}' uploaded and Vector Store '{vector_store_id}' created. Processing will continue in background."
-        session_info["upload_status"] = "completed" # Mark the immediate upload part as completed
-        logger.info(msg)
-        return True, msg # Return True as VS creation succeeded, background processing is next.
+        try:
+            # 1. Upload file to OpenAI
+            logger.info(f"Uploading file '{original_filename}' to OpenAI...")
+            file_id_openai = self.openai_interaction.upload_file(file_path, purpose="assistants")
+            if not file_id_openai:
+                message = f"Failed to upload file {original_filename} to OpenAI for session {session_id}."
+                logger.error(message)
+                # Update DB status on failure immediately
+                cursor.execute("UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ("failed_upload", message, session_id))
+                db_conn.commit()
+                return False, message, None, None
+
+            logger.info(f"File uploaded successfully. OpenAI File ID: {file_id_openai}")
+            
+            # 2. Create Vector Store with the uploaded file
+            logger.info("Creating OpenAI Vector Store...")
+            # Generate a unique name for the vector store
+            vs_name = f"vs_{session_id}_{original_filename.replace(' ', '_')[:50]}_{uuid.uuid4().hex[:8]}" 
+            vector_store_id_openai = self.openai_interaction.create_vector_store_with_files(name=vs_name, file_ids=[file_id_openai])
+            if not vector_store_id_openai:
+                message = f"Failed to create Vector Store for file ID {file_id_openai} (session {session_id})."
+                logger.error(message)
+                # Clean up uploaded file if VS creation failed
+                try: self.openai_interaction.delete_file(file_id_openai)
+                except Exception as e: logger.warning(f"Failed to delete OpenAI file {file_id_openai} after VS creation failure: {e}")
+                
+                # Update DB status on failure
+                cursor.execute("UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ("failed_vs_creation", message, session_id))
+                db_conn.commit()
+                return False, message, file_id_openai, None
+
+            logger.info(f"Vector Store created successfully. VS ID: {vector_store_id_openai}")
+
+            # 3. Persist OpenAI resource IDs to the database
+            cursor.execute("""
+                INSERT OR REPLACE INTO openai_resources (openai_resource_id, document_id, openai_file_id, openai_vector_store_id)
+                VALUES (?, ?, ?, ?)
+            """, (str(uuid.uuid4()), session_id, file_id_openai, vector_store_id_openai)) # Generate a new UUID for the openai_resource_id
+            
+            db_conn.commit() # Commit the resource ID insertion
+            logger.info(f"OpenAI resource IDs for session {session_id} saved to DB.")
+
+            # 4. Delete the local temporary file IMMEDIATELY after successful OpenAI upload/VS creation.
+            if os.path.exists(file_path):
+                try:
+                    os.remove(file_path)
+                    logger.info(f"[{session_id}] Deleted local temporary file '{file_path}' after successful OpenAI upload and VS creation.")
+                except OSError as e:
+                    logger.error(f"[{session_id}] Error deleting temporary file {file_path}: {e}")
+
+            message = f"User document '{original_filename}' uploaded and Vector Store '{vector_store_id_openai}' created successfully."
+            logger.info(message)
+            
+            return True, message, file_id_openai, vector_store_id_openai
+
+        except sqlite3.Error as e:
+            logger.error(f"Database error in add_user_document_for_session for session {session_id}: {e}", exc_info=True)
+            db_conn.rollback() # Rollback any DB changes if error occurs within this function
+            message = f"Database error during document processing: {e}"
+            # Clean up partially created OpenAI resources if error before full commit
+            if file_id_openai:
+                 try: self.openai_interaction.delete_file(file_id_openai)
+                 except Exception as e_clean: logger.warning(f"Failed to delete OpenAI file {file_id_openai} during DB error cleanup: {e_clean}")
+            if vector_store_id_openai:
+                 try: self.openai_interaction.delete_vector_store(vector_store_id_openai)
+                 except Exception as e_clean: logger.warning(f"Failed to delete OpenAI VS {vector_store_id_openai} during DB error cleanup: {e_clean}")
+            return False, message, None, None
+        except Exception as e:
+            logger.error(f"Unexpected error in add_user_document_for_session for session {session_id}: {e}", exc_info=True)
+            message = f"Unexpected error during document processing: {e}"
+            # Clean up partially created OpenAI resources
+            if file_id_openai:
+                 try: self.openai_interaction.delete_file(file_id_openai)
+                 except Exception as e_clean: logger.warning(f"Failed to delete OpenAI file {file_id_openai} during unexpected error cleanup: {e_clean}")
+            if vector_store_id_openai:
+                 try: self.openai_interaction.delete_vector_store(vector_store_id_openai)
+                 except Exception as e_clean: logger.warning(f"Failed to delete OpenAI VS {vector_store_id_openai} during unexpected error cleanup: {e_clean}")
+            return False, message, None, None
+
 
     def _get_system_prompt(self, focus_area: str, original_filename: str, local_context_str: str, query: str, custom_instructions: Optional[str] = None) -> str:
         """
@@ -100,7 +155,7 @@ class HybridRAGSystem:
             
             **Content Extent:** Provide a comprehensive response, extracting all relevant information from the document. **If the document does not explicitly provide information for a particular point, state that the document does not appear to provide sufficient detail or does not directly address that aspect, rather than hallucinating.** Elaborate thoroughly on each finding where content allows, aiming for multiple paragraphs for each section/point if supported by the document. Conclude your response with a bulleted summary of the key findings.
         """
-
+        
         if focus_area == "custom" and custom_instructions:
             return textwrap.dedent(f"""
                 **Your Task:** You are an equity analyst. Your goal is to analyze the uploaded 'User Document' based on a specific set of custom instructions provided by the user. You should strive to follow these instructions while using the COEQWAL Equity Framework as a guiding lens.
@@ -118,7 +173,7 @@ class HybridRAGSystem:
                 3.  Where applicable, you might consider how the COEQWAL dimensions (Recognition, Procedure, Distribution, Structure) could help illuminate the analysis as per the user's instructions.
                 4.  Strive to provide a balanced view, discussing both potential strengths and possible weaknesses that you might identify.
                 5.  Where possible, you may refer to instances or examples from the User Document that could support your observations.
-                6.  **If the document seems to lack the necessary information to follow the instructions, it may be appropriate to state this limitation.**
+                6.  If the document seems to lack the necessary information to follow the instructions, it may be appropriate to state this limitation.
 
                 **Final Output:** Provide a detailed analysis that directly addresses the User's Custom Focus Instructions. Start with a clear overview, then offer the detailed analysis, and conclude with a bulleted summary of your key findings. Ensure comprehensive coverage based on available information.
             """).strip()
@@ -200,84 +255,77 @@ class HybridRAGSystem:
                 **Final Output:** Provide a balanced analysis of the User Document. Start with a clear overview, then offer the detailed analysis, and conclude with a bulleted summary of your key potential strengths and concerns. Ensure comprehensive coverage for all aspects based on the document.
             """).strip()
 
-    def decode_hex_utf16le(hex_string: str) -> str:
-        """
-        Try to decode hex-encoded UTF-16LE text snippets to readable string.
-        Returns original string on failure.
-        """
-        try:
-            # Clean whitespace/newlines, if any
-            hex_str_clean = ''.join(hex_string.split())
-            byte_data = bytes.fromhex(hex_str_clean)
-            return byte_data.decode('utf-16le')
-        except Exception:
-            return hex_string
-
-
+    # Method main.py calls for chat queries
     def answer_question(
         self,
         session_id: str,
         query: str,
         focus_area: str = "general",
-        custom_instructions: Optional[str] = None
+        custom_instructions: Optional[str] = None,
+        db_conn: sqlite3.Connection = None
     ) -> Tuple[str, List[Dict[str, Any]], List[str]]:
         """
-        Answers a query using openai.responses.create with the 'include' parameter
-        to reliably get source citations and raw search results.
-
-        Returns:
-            - final answer string
-            - list of local DB source chunks (dictionaries, raw) -- This will be discarded by generate_analysis.py for JSON output
-            - list of OpenAI source strings (file search results, raw formatted by OpenAI)
+        Answers a query using OpenAI's file search tool (RAG).
+        Retrieves necessary OpenAI Vector Store ID and document metadata from the DB.
         """
         if not query:
             return "Please provide a query.", [], []
 
         logger.info(f"Answering query for session {session_id} with focus: {focus_area}")
+        
+        if not db_conn:
+            logger.error("Database connection not provided to answer_question.")
+            return "Error: Internal server issue (DB connection missing for RAG).", [], []
 
-        session_data = self.user_sessions.get(session_id)
+        cursor = db_conn.cursor()
         user_vector_store_id = None
         original_filename = "N/A"
-
-        if session_data:
-            original_filename = session_data.get("original_filename", "N/A")
-            # Check 'upload_status' from rag_system.add_user_document_for_session. VS must be completed.
-            if session_data.get("upload_status") == "completed":
-                user_vector_store_id = session_data.get("vector_store_id")
-            # Added more specific checks for debugging purposes in case of non-completion
-            elif session_data.get("upload_status") == "failed_upload":
-                logger.warning(f"Session {session_id} upload failed. No VS available for query.")
-            elif session_data.get("upload_status") == "failed_vs_creation":
-                logger.warning(f"Session {session_id} VS creation failed. No VS available for query.")
-            elif session_data.get("upload_status") == "vs_processing_pending":
-                logger.warning(f"Session {session_id} VS is still processing. File search might not be ready, or may return incomplete results.")
-            else:
-                logger.warning(f"Session {session_id} upload_status is '{session_data.get('upload_status')}'. VS might not be ready for query.")
-
-
-        local_chunks = self.local_db.search(query, top_k=self.config.TOP_K_LOCAL) if (self.local_db and self.local_db.model) else []
-        local_context_str = self._format_local_context_for_prompt(local_chunks)
-        prompt_content_string = self._get_system_prompt(
-            focus_area,
-            original_filename,
-            local_context_str,
-            query,
-            custom_instructions
-        )
+        document_analysis_status = "not_found" # Using 'analysis_status' from DB for RAG condition
 
         try:
+            # Fetch document info and OpenAI VS ID from DB
+            cursor.execute("""
+                SELECT d.original_filename, d.analysis_status, o.openai_vector_store_id
+                FROM documents d
+                LEFT JOIN openai_resources o ON d.document_id = o.document_id
+                WHERE d.document_id = ? AND d.source = 'user' -- Ensure it's a user document
+            """, (session_id,))
+            doc_data = cursor.fetchone()
+
+            if not doc_data:
+                logger.warning(f"No active user document found in DB for session {session_id}. Query will proceed without document-specific RAG.")
+                user_vector_store_id = None
+                original_filename = "Generic Document"
+                document_analysis_status = "not_found"
+            else:
+                original_filename, document_analysis_status, user_vector_store_id = doc_data
+                logger.debug(f"Document found for session {session_id}. Analysis Status: '{document_analysis_status}'. VS ID: '{user_vector_store_id}'")
+
+            # --- Local DB context (for COEQWAL framework definitions) ---
+            local_db_instance = self.local_db # Access the local_db instance stored in self
+            local_chunks = local_db_instance.search(query, top_k=self.config.TOP_K_LOCAL) if local_db_instance else []
+            local_context_str = self._format_local_context_for_prompt(local_chunks)
+
+            # Generate the prompt for the LLM
+            prompt_content_string = self._get_system_prompt(
+                focus_area,
+                original_filename,
+                local_context_str,
+                query,
+                custom_instructions
+            )
+
             tools = []
-            # Only add file_search tool if a vector store ID is available AND its upload_status is "completed"
-            # This ensures we don't try to use a VS that failed creation or is still processing.
-            if user_vector_store_id and session_data and session_data.get("upload_status") == "completed":
+            # Add OpenAI file_search tool ONLY if a Vector Store ID is available
+            # AND the document's analysis_status in DB is 'completed'
+            if user_vector_store_id and document_analysis_status == "completed":
                 tools.append({
                     "type": "file_search",
                     "vector_store_ids": [user_vector_store_id],
-                    "max_num_results": getattr(self.config, "MAX_NUM_RESULTS", 5),
+                    "max_num_results": self.config.MAX_NUM_RESULTS,
                 })
             else:
-                logger.warning(f"No usable vector store ID for session {session_id}. OpenAI file search will not be used for this query. Status: {session_data.get('upload_status') if session_data else 'N/A'}")
-
+                logger.warning(f"OpenAI file search disabled for session {session_id}. Document status: {document_analysis_status}, VS ID: {user_vector_store_id}. It needs to be 'completed'.")
 
             kwargs = {
                 "model": self.config.RESPONSES_MODEL,
@@ -289,20 +337,13 @@ class HybridRAGSystem:
             if tools:
                 kwargs["tools"] = tools
                 kwargs["include"] = ["file_search_call.results"]
-
-            logger.info(f"Session {session_id}: Calling client.responses.create with include=['file_search_call.results']")
-            response = self.openai_interaction.client.responses.create(**kwargs)
-
-            # Log full raw response for debugging
-            try:
-                resp_dict = response.model_dump()
-            except Exception:
-                resp_dict = response if isinstance(response, dict) else response.__dict__
-            logger.info(f"Full OpenAI response dump:\n{json.dumps(resp_dict, indent=2)}")
-
-            final_answer: Optional[str] = None
             
-            for item in response.output:
+            # --- MAKE OPENAI API CALL ---
+            response_openai = self.openai_interaction.client.responses.create(**kwargs)
+
+            # Parse the OpenAI response to extract the final answer and any retrieved sources
+            final_answer: Optional[str] = None
+            for item in response_openai.output:
                 if getattr(item, "type", None) == "message" and hasattr(item, "content"):
                     for content_item in item.content:
                         if getattr(content_item, "type", None) == "output_text":
@@ -310,7 +351,7 @@ class HybridRAGSystem:
                                 final_answer = getattr(content_item, "text", "").strip() or "Model returned empty answer."
 
             retrieved_chunks_from_openai_tool: List[str] = []
-            for item in response.output:
+            for item in response_openai.output:
                 if getattr(item, "type", None) == "file_search_call":
                     results = getattr(item, "results", None)
                     if results:
@@ -327,13 +368,14 @@ class HybridRAGSystem:
 
             return final_answer, local_chunks, retrieved_chunks_from_openai_tool
 
-        except APIError as e:
-            logger.error(f"Session {session_id}: APIError: {e}", exc_info=False)
-            return f"Error: OpenAI API failed ({getattr(e, 'status_code', 'N/A')}).", [], []
+        except sqlite3.Error as e:
+            logger.error(f"Database error during query processing in rag_system for session {session_id}: {e}", exc_info=True)
+            return "Error: Database issue accessing session data for RAG.", [], []
         except Exception as e:
-            logger.error(f"Session {session_id}: Unexpected error: {e}", exc_info=True)
-            return "Error: An unexpected issue occurred while generating the response.", [], []
+            logger.error(f"Unexpected error during query processing in rag_system for session {session_id}: {e}", exc_info=True)
+            return f"Error: An unexpected issue occurred during RAG response generation: {e}", [], []
 
+    # This is a helper method, kept for consistency if it's called by _get_system_prompt
     def _format_local_context_for_prompt(self, local_results: List[Dict[str, Any]]) -> str:
         if not local_results: return ""
         context_parts = []
@@ -351,28 +393,3 @@ class HybridRAGSystem:
             header = f"-- {' | '.join(header_parts)} --"
             context_parts.append(f"{header}\n{text}")
         return "\n\n".join(context_parts)
-
-    def remove_user_session_resources(self, session_id: str, delete_openai_resources: bool = True):
-        logger.info(f"Cleanup for session '{session_id}'. Delete OpenAI: {delete_openai_resources}")
-        if session_id in self.user_sessions:
-            doc_meta = self.user_sessions[session_id]
-            vs_id = doc_meta.get("vector_store_id")
-            file_id = doc_meta.get("file_id")
-            
-            if delete_openai_resources:
-                if vs_id:
-                    deleted_vs = self.openai_interaction.delete_vector_store(vs_id)
-                    if not deleted_vs: logger.warning(f"Session {session_id}: Failed to delete VS {vs_id}.")
-                if file_id:
-                    time.sleep(1) # Small delay before file deletion
-                    deleted_file = self.openai_interaction.delete_file(file_id)
-                    if not deleted_file: logger.warning(f"Session {session_id}: Failed to delete File {file_id}.")
-            
-            # Remove session from tracking ONLY AFTER all OpenAI cleanup attempts are done.
-            # This is the final step for this session's tracking in rag_system.
-            del self.user_sessions[session_id]
-            logger.info(f"Removed session '{session_id}' from tracking.")
-            return True
-        else:
-            logger.warning(f"Session ID '{session_id}' not found for cleanup.")
-            return False

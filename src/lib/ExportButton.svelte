@@ -49,17 +49,9 @@
       },
       jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
       pagebreak: {
-        // Try different modes. 'css' respects CSS page-break-before/after
-        // 'avoid-all' tries to prevent breaks inside elements.
-        // You might need to add CSS like page-break-after: always; to specific elements if this isn't enough.
         mode: ['css', 'avoid-all', 'legacy'],
       },
     };
-
-    // --- Critical adjustment: Temporarily remove overflow properties from parents ---
-    // This is often the trickiest part. You need to identify the parent elements
-    // that limit the height (e.g., body, .screen-layout, .report-panel, .report-content)
-    // and temporarily remove their height/overflow constraints.
 
     const originalReportWrapperStyle = reportContentElement.style.cssText;
     const parentReportPanel = reportContentElement.parentElement; // .report-content
@@ -93,7 +85,6 @@
       parentReportPanel.style.height = 'auto';
       parentReportPanel.style.maxHeight = 'none';
     }
-    // These might be overkill or cause layout shifts, but for capture:
     if (grandParentReportChatContainer) {
       grandParentReportChatContainer.style.overflow = 'visible';
       grandParentReportChatContainer.style.height = 'auto';
