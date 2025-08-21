@@ -103,6 +103,19 @@ The frontend dev server will start (usually at [http://localhost:5173](http://lo
 The backend will now be running on:  
 [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
+### Database Setup (SQLite)
+
+The application uses a SQLite database (`analysis_platform.db`) for managing sessions, document metadata, and chat history.
+
+**No manual setup is required.** The database file and its tables will be automatically created on the first launch of the FastAPI backend.
+
+---
+
+**Important Notes:**
+
+- **Preprocessed Policies:** JSON reports in `server/policy_analyses/preprocessed/` are read directly from the file system and are not stored in the database. They remain available even if the database is reset.
+- **Database Reset:** To reset all application data, simply delete `server/analysis_platform.db`. A new, empty database will be created automatically on the next server startup.
+
 ### Folder Structure
 
 ```bash
@@ -175,6 +188,7 @@ npm run lint:fix
 ### Configuration Files
 
 The following files control code quality and are already configured:
+
 - `.prettierrc` - Prettier formatting rules
 - `.eslintrc.json` - ESLint linting rules
 - `.vscode/settings.json` - VS Code workspace settings
