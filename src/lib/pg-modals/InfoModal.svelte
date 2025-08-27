@@ -16,7 +16,7 @@
     {
       id: 'structural',
       label: 'Structural',
-      def: 'Addresses underlying systems and institutions that create inequities. Focuses on reforming organizational structures, legal frameworks, and policies that systematically advantage some groups.',
+      def: 'Addresses underlying systems and institutions that create inequities. Focuses on reforming organizational structures, legal frameworks, and policies that systematically advantage some groups while disadvantaging others.',
       color: 'var(--equity-color-structural)',
     },
     {
@@ -34,7 +34,7 @@
     {
       id: 'transformational',
       label: 'Transformational',
-      def: 'Reimagines systems to center equity from the ground up, creating new approaches rather than marginal fixes.',
+      def: 'Goes beyond fixing current systems to fundamentally reimagining and restructuring them. Creates entirely new approaches that center equity from the ground up, building regenerative systems that prevent inequities from occurring.',
       color: 'var(--equity-color-transformational)',
     },
   ];
@@ -51,10 +51,7 @@
 </script>
 
 <section>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
   <button
     type="button"
     class="modal-backdrop"
@@ -74,10 +71,6 @@
       <!-- Header -->
       <header class="ef-head">
         <h2>Understanding our Equity Definitions</h2>
-        <p>
-          Click any equity to view its definition. You can open multiple at
-          once. Colors are placeholders for now.
-        </p>
       </header>
       <!-- Body -->
       <div class="ef-body">

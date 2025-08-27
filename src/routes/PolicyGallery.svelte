@@ -21,40 +21,6 @@
   let modalElement;
   let policies = [];
 
-  // ---- Equity Framework modal content state (for Info modal) ----
-  const efItems = [
-    {
-      id: 'procedural',
-      label: 'Procedural',
-      def: 'Fair and inclusive processes in policy development, implementation, and enforcement. Ensures all stakeholders have meaningful participation opportunities.',
-      color: 'var(--equity-color-procedural)',
-    },
-    {
-      id: 'structural',
-      label: 'Structural',
-      def: 'Addresses underlying systems and institutions that create inequities. Focuses on reforming organizational structures, legal frameworks, and policies that systematically advantage some groups.',
-      color: 'var(--equity-color-structural)',
-    },
-    {
-      id: 'distributional',
-      label: 'Distributional',
-      def: 'Fair allocation of benefits, burdens, and resources. Examines who gets what, when, and how in policy outcomes.',
-      color: 'var(--equity-color-distributional)',
-    },
-    {
-      id: 'recognitional',
-      label: 'Recognitional',
-      def: 'Recognition of historical, cultural, and social contexts that shape communities’ relationships with water resources and governance.',
-      color: 'var(--equity-color-recognitional)',
-    },
-    {
-      id: 'transformational',
-      label: 'Transformational',
-      def: 'Reimagines systems to center equity from the ground up, creating new approaches rather than marginal fixes.',
-      color: 'var(--equity-color-transformational)',
-    },
-  ];
-
   // multi‑expand: which rows are open
   let efOpen = new Set(); // e.g. Set([0, 2])
   function efToggle(i) {
@@ -104,7 +70,7 @@
   <p class="caption-1">
     Explore our analysis on water policies. Each policy has been automatically
     evaluated using the
-    <button class="quickef-btn" on:click={() => (showInfo = true)}>
+    <button class="quickef-btn" on:click={() => (window.location.hash = '#/info')}>
       Equity Framework <img
         src="box-arrow-top-right.svg"
         alt="Arrow"
@@ -182,6 +148,7 @@
         </p>
       </div>
     </button>
+
   </div>
 
   <!-- --- Modals!! --- -->

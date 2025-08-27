@@ -1,12 +1,15 @@
 <script>
-  //
+  // Local Modules
+  import InfoModal from '../lib/pg-modals/InfoModal.svelte'; 
+  // State Management
+  let showInfo = false;
 </script>
 
 <div class="info-tab-wrapper">
   <button
     class="info-tab"
     type="button"
-    on:click={() => (window.location.hash = '#/info')}
+    on:click={() => (showInfo = true)}
   >
     <img
       class="it-icon"
@@ -16,6 +19,10 @@
     />
   </button>
 </div>
+
+{#if showInfo}
+  <InfoModal on:close={() => (showInfo = false)} />
+{/if}
 
 <style>
   .info-tab-wrapper {
