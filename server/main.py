@@ -462,7 +462,21 @@ async def get_analysis_result(
     _=Depends(check_system_ready)
 ):
     cursor = db.cursor()
+    
+    # Initialize variables for potentially missing data
+    source = None
+    analysis_status = None
+    analysis_error = None
+    analysis_json_filepath = None
+    original_filename = None
+    document_title = None
+    file_size_kb = None
+    upload_date_utc = None
+    
+    analysis_data = None # To hold the loaded JSON content
+
     try:
+        # 1. First, check if it's a user-uploaded document in the DB
         cursor.execute("""
             SELECT d.source, d.analysis_status, d.analysis_error, d.analysis_json_filepath,
                    d.original_filename, d.document_title, d.file_size_kb, d.upload_date_utc
@@ -471,48 +485,82 @@ async def get_analysis_result(
         """, (session_id,))
         doc_data = cursor.fetchone()
 
-        if not doc_data:
-            logger.warning(f"Analysis result requested for session {session_id}, but user document not found in DB.")
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User document for session {session_id} not found.")
-        
-        source, status, error, filepath, original_filename, doc_title, file_size_kb, upload_date_utc = doc_data
+        if doc_data:
+            source, analysis_status, analysis_error, analysis_json_filepath, \
+            original_filename, document_title, file_size_kb, upload_date_utc = doc_data
 
-        if status != "completed":
-            logger.info(f"Analysis result requested for {session_id}, but status is {status}. Returning conflict.")
-            raise HTTPException(
-                status_code=status.HTTP_409_CONFLICT,
-                detail=f"Analysis for session {session_id} is not yet completed. Current status: {status}. Error: {error or 'N/A'}"
-            )
-        
-        if not filepath or not os.path.exists(filepath):
-            logger.error(f"Analysis result file not found on disk for session {session_id} at path: {filepath}")
-            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Analysis result file not found on server.")
+            if analysis_status != "completed":
+                logger.info(f"Analysis result requested for {session_id}, but status is {analysis_status}. Returning conflict.")
+                return JSONResponse(
+                    status_code=status.HTTP_409_CONFLICT,
+                    content={
+                        "session_id": session_id,
+                        "analysis_status": analysis_status,
+                        "message": f"Analysis for session {session_id} is not yet completed. Current status: {analysis_status}. Error: {analysis_error or 'N/A'}",
+                        "analysis_error": analysis_error
+                    }
+                )
+            
+            # If status is 'completed', try to load the file from disk
+            if not analysis_json_filepath or not os.path.exists(analysis_json_filepath):
+                logger.error(f"Analysis result file not found on disk for session {session_id} at path: {analysis_json_filepath}")
+                raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Analysis result file not found on server for user document.")
 
-        with open(filepath, 'r', encoding='utf-8') as f:
-            analysis_data = json.load(f)
-        
+            with open(analysis_json_filepath, 'r', encoding='utf-8') as f:
+                analysis_data = json.load(f)
+            
+        else: # If not found in user documents, check preprocessed folder
+            preprocessed_filepath = os.path.join(PREPROCESSED_ANALYSES_DIR, f"{session_id}.json")
+            if os.path.exists(preprocessed_filepath):
+                try:
+                    with open(preprocessed_filepath, 'r', encoding='utf-8') as f:
+                        analysis_data = json.load(f)
+                    source = "preprocessed"
+                    analysis_status = "completed"
+                    analysis_error = None
+                    # Attempt to extract metadata from the preprocessed JSON itself
+                    doc_metadata_from_file = analysis_data.get("document", {})
+                    original_filename = doc_metadata_from_file.get("filename", f"{session_id}.json")
+                    document_title = doc_metadata_from_file.get("title", session_id)
+                    file_size_kb = doc_metadata_from_file.get("size_kb", 0)
+                    upload_date_utc = doc_metadata_from_file.get("upload_date_utc", "N/A")
+
+                except (FileNotFoundError, json.JSONDecodeError) as e:
+                    logger.error(f"Error loading preprocessed analysis result {preprocessed_filepath}: {e}", exc_info=True)
+                    raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Could not load preprocessed analysis result file: {e}")
+            else:
+                logger.warning(f"Analysis result requested for session {session_id}, but neither user document nor preprocessed file found.")
+                raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Policy analysis for ID {session_id} not found.")
+
+        # Ensure analysis_data is loaded before proceeding
+        if analysis_data is None:
+             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Analysis data could not be loaded for an unknown reason.")
+
+        # Ensure top-level fields are present for consistency, merging with loaded data
         analysis_data["id"] = session_id
         analysis_data["source"] = source
-        analysis_data["analysis_status"] = status
-        analysis_data["analysis_error"] = error
+        analysis_data["analysis_status"] = analysis_status
+        analysis_data["analysis_error"] = analysis_error
         if "document" not in analysis_data: analysis_data["document"] = {}
         analysis_data["document"]["filename"] = original_filename or session_id
-        analysis_data["document"]["title"] = doc_title or original_filename or session_id
+        analysis_data["document"]["title"] = document_title or original_filename or session_id
         analysis_data["document"]["size_kb"] = file_size_kb
         analysis_data["document"]["upload_date_utc"] = upload_date_utc
 
 
         return AnalysisResultResponse(
             session_id=session_id,
-            analysis_status="completed",
+            analysis_status=analysis_status, # Use the determined status
             analysis_data=analysis_data,
             message="Analysis completed and retrieved successfully."
         )
+    except HTTPException:
+        raise # Re-raise already handled HTTPExceptions
     except sqlite3.Error as e:
         logger.error(f"Database error while fetching analysis result for {session_id}: {e}", exc_info=True)
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Database error retrieving analysis result.")
-    except (FileNotFoundError, json.JSONDecodeError, Exception) as e:
-        logger.error(f"Error reading analysis result file for session {session_id}: {e}", exc_info=True)
+    except Exception as e:
+        logger.error(f"Error reading analysis result file or general error for session {session_id}: {e}", exc_info=True)
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Could not load analysis result file: {e}")
 
 
