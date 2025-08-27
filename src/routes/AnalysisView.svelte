@@ -6,8 +6,6 @@
   // Import Store Variable
   import { currentPolicy } from '../lib/stores/currentPolicy.js';
 
-  export let analysisStatus = null; // Passed from Tool.svelte
-
   export const equity_colors = {
     Procedural: '#227C9D',
     Structural: '#17C3B2',
@@ -89,25 +87,28 @@
         {selectedPolicy?.document?.title} -->
     </div>
 
-    {#if !analysisStatus && !$currentPolicy}
-      <!-- Initial state: No document selected or uploaded. This is often handled by EmptyPage.svelte in Tool.svelte -->
+    {#if !$currentPolicy}
+      <!-- Initial state: No document selected or uploaded. -->
       <div class="header" style="color: #6c757d;">
         Please select or upload a document to begin analysis.
       </div>
-    {:else if ['pending', 'waiting_vs_processing', 'analysis_generating'].includes(analysisStatus)}
+    {:else if $currentPolicy?.source === 'user' && ['pending', 'waiting_vs_processing', 'analysis_generating', 'vs_processing_pending'].includes($currentPolicy.analysis_status)}
       <!-- Analysis is in progress (for user-uploaded documents) -->
       <div class="header" style="color: var(--primary-interactive);">
         <div
           style="display: flex; align-items: center; justify-content: center; gap: 10px;"
         >
           <div class="spinner-small"></div>
-          Analysis in progress: {analysisStatus.replace(/\_/g, ' ')}...
+          Analysis in progress: {$currentPolicy.analysis_status?.replace(
+            /\_/g,
+            ' '
+          )}...
         </div>
         <p style="font-size: 0.8em; color: #888; margin-top: 10px;">
-          This may take a few minutes for complex documents.
+          This may take a few minutes.
         </p>
       </div>
-    {:else if analysisStatus === 'failed'}
+    {:else if $currentPolicy?.source === 'user' && $currentPolicy.analysis_status === 'failed'}
       <!-- Analysis failed (for user-uploaded documents) -->
       <div class="header" style="color: red;">
         Analysis Failed: {$currentPolicy?.analysis_error || 'Unknown error.'}
@@ -116,7 +117,7 @@
           document.
         </p>
       </div>
-    {:else if $currentPolicy && currentPerspective}
+    {:else if ($currentPolicy?.analysis_status === 'completed' || $currentPolicy?.source === 'preprocessed') && currentPerspective}
       <!-- Tab Bar -->
       {#if perspectives.length > 1}
         <div class="perspective-nav">
@@ -327,6 +328,7 @@
         </div>
       {/if}
     {:else}
+      <!-- Final fallback, if currentPolicy exists but isn't completed/failed yet, and currentPerspective is null -->
       <div class="header" style="color: #6c757d;">
         Awaiting analysis data...
       </div>

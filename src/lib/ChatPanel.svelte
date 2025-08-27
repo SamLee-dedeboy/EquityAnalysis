@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher, tick } from 'svelte';
-
-  import { server_address } from '../constants';
+  import { server_address } from '../constants.ts';
+  import { currentPolicy } from './stores/currentPolicy.js';
 
   // Props passed from Tool.svelte
   export let currentSessionId = null;
@@ -50,14 +50,26 @@
   }
   // Reactive block to update `currentMessages` when `currentSessionId` changes
   $: {
-    if (currentSessionId) {
-      // If history for this session hasn't been loaded yet
-      if (!historyLoadedForSession.has(currentSessionId)) {
-        // Initialize with bot message immediately, then fetch persistent history
-        sessionMessages = new Map(sessionMessages); // Immutable update for reactivity
-        sessionMessages.set(currentSessionId, [initialBotMessage]);
-        historyLoadedForSession.add(currentSessionId); // Mark as loading initiated
+    if (currentSessionId && $currentPolicy?.source === 'user') {
+      const policyStatus = $currentPolicy.analysis_status;
+
+      // Case 1: Analysis is completed, and we haven't loaded history yet for this session.
+      if (
+        policyStatus === 'completed' &&
+        !historyLoadedForSession.has(currentSessionId)
+      ) {
+        sessionMessages = new Map(sessionMessages);
+        sessionMessages.set(currentSessionId, []);
+        historyLoadedForSession.add(currentSessionId);
         loadChatHistory(currentSessionId);
+      }
+      // Case 2: Analysis is NOT completed (still processing) OR history already loaded.
+      else if (
+        !sessionMessages.has(currentSessionId) ||
+        sessionMessages.get(currentSessionId).length === 0
+      ) {
+        sessionMessages = new Map(sessionMessages);
+        sessionMessages.set(currentSessionId, [initialBotMessage]);
       }
       currentMessages = sessionMessages.get(currentSessionId); // Point to the current session's messages
 
@@ -65,7 +77,7 @@
       isQuerying = false;
       noteAnalysisGeneratingDisplayed = false;
     } else {
-      // No session active, clear displayed messages
+      // No session active or it's a preprocessed document, clear displayed messages
       currentMessages = [];
       isQuerying = false;
       noteAnalysisGeneratingDisplayed = false;
@@ -110,7 +122,13 @@
     const focusAreaValue = 'general'; // Always send as 'general' for now
     const customInstructions = null;
 
-    if (!query || !currentSessionId || isQuerying) {
+    // Added check for $currentPolicy?.source === 'user'
+    if (
+      !query ||
+      !currentSessionId ||
+      isQuerying ||
+      $currentPolicy?.source !== 'user'
+    ) {
       return;
     }
 
@@ -168,7 +186,9 @@
 
   // Handle "End Chat" button click
   async function handleEndSession() {
-    if (!currentSessionId || isQuerying) return;
+    // Added check for $currentPolicy?.source === 'user'
+    if (!currentSessionId || isQuerying || $currentPolicy?.source !== 'user')
+      return;
 
     addMessage('Ending session...', 'status');
     isQuerying = true; // Temporarily disable inputs
@@ -209,7 +229,8 @@
   }
 
   async function loadChatHistory(sessionId) {
-    addMessage('Loading chat history...', 'status'); // Temporary status message
+    // This function is now ONLY called if $currentPolicy?.source === 'user' AND analysis_status is 'completed'
+    addMessage('Loading chat history...', 'status');
 
     try {
       const response = await fetch(
@@ -331,7 +352,6 @@
   </div>
 
   <!-- Analysis Focus Selector - HTML retained, value currently ignored for API calls -->
-  <!-- Note: Styles applied via the global style tag for 'select' elements in templates.html if applicable. -->
   <div class="focus-area-selector" style="padding: 16px 32px 0 32px;">
     <label
       for="analysis-focus"
@@ -341,7 +361,9 @@
     <select
       id="analysis-focus"
       name="analysis-focus"
-      disabled={!currentSessionId || isQuerying}
+      disabled={!currentSessionId ||
+        isQuerying ||
+        $currentPolicy?.source !== 'user'}
       style="padding: 10px 16px; border: 1px solid #ccc; border-radius: 999px; font-size: 14px; flex-grow: 1; height: 38px;"
     >
       <option value="general">General COEQWAL Analysis</option>
@@ -360,17 +382,22 @@
     <input
       bind:value={inputText}
       placeholder="Ask about equity impact..."
-      disabled={!currentSessionId || isQuerying}
+      disabled={!currentSessionId ||
+        isQuerying ||
+        $currentPolicy?.source !== 'user'}
       style="flex: 1; border: 1px solid #ccc; padding: 10px 16px; border-radius: 999px; font-size: 14px;"
     />
     <button
       type="submit"
       aria-label="Send"
       style="height:38px; width:38px; display: flex; align-items: center; justify-content: center; background: #0f3c5f; color: #fff; border: none; padding: 10px 16px; border-radius: 999px; font-size: 18px; cursor: pointer;"
-      disabled={!currentSessionId || isQuerying || !inputText.trim()}
+      disabled={!currentSessionId ||
+        isQuerying ||
+        !inputText.trim() ||
+        $currentPolicy?.source !== 'user'}
     >
       <img
-        src="public/rhs-arrow.svg"
+        src="rhs-arrow.svg"
         alt="Send"
         style="height: .8em; width: .8em; vertical-align: middle; margin-left: 0.3em;"
       />
@@ -384,7 +411,9 @@
   >
     <button
       on:click={handleEndSession}
-      disabled={!currentSessionId || isQuerying}
+      disabled={!currentSessionId ||
+        isQuerying ||
+        $currentPolicy?.source !== 'user'}
       style="background-color: #dc3545; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;"
     >
       End Chat & Clean Up Resources
