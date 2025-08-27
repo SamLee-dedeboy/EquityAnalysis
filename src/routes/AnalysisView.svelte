@@ -62,12 +62,13 @@
 
   let activeTab = 'general_equity_assessment';
 
-  $: primaryPerspective =
-    $currentPolicy?.overall_analysis_by_perspective?.[0] ?? null;
-  $: currentAnalysisSection = primaryPerspective?.analyses?.[activeTab] ?? null;
+  let perspectiveIndex = 0;
+  $: perspectives = $currentPolicy?.overall_analysis_by_perspective ?? [];
+  $: currentPerspective = perspectives[perspectiveIndex] ?? null;
+  $: currentAnalysisSection = currentPerspective?.analyses?.[activeTab] ?? null;
 
   $: console.log('Current Policy Analysis Data:', $currentPolicy);
-  $: console.log('Primary Perspective Used:', primaryPerspective?.group_name);
+  $: console.log('Current Perspective Used:', currentPerspective?.group_name);
   $: console.log('Active analysis section:', activeTab, currentAnalysisSection);
 </script>
 
@@ -100,7 +101,7 @@
           style="display: flex; align-items: center; justify-content: center; gap: 10px;"
         >
           <div class="spinner-small"></div>
-          Analysis in progress: {analysisStatus.replace(/_/g, ' ')}...
+          Analysis in progress: {analysisStatus.replace(/\_/g, ' ')}...
         </div>
         <p style="font-size: 0.8em; color: #888; margin-top: 10px;">
           This may take a few minutes for complex documents.
@@ -115,8 +116,36 @@
           document.
         </p>
       </div>
-    {:else if $currentPolicy && primaryPerspective}
+    {:else if $currentPolicy && currentPerspective}
       <!-- Tab Bar -->
+      {#if perspectives.length > 1}
+        <div class="perspective-nav">
+          <button
+            aria-label="Previous Perspective"
+            on:click={() =>
+              (perspectiveIndex =
+                (perspectiveIndex - 1 + perspectives.length) %
+                perspectives.length)}
+          >
+            <img src="/carousel-left.svg" alt="Previous Perspective" />
+          </button>
+          <span class="perspective-label">
+            Perspective: {currentPerspective?.group_name}
+          </span>
+          <button
+            aria-label="Next Perspective"
+            on:click={() =>
+              (perspectiveIndex = (perspectiveIndex + 1) % perspectives.length)}
+          >
+            <img src="/carousel-right.svg" alt="Next Perspective" />
+          </button>
+        </div>
+      {:else}
+        <div class="perspective-label" style="margin:1rem">
+          Perspective: {currentPerspective?.group_name}
+        </div>
+      {/if}
+
       <div class="tab-bar">
         {#each tabOptions as t}
           <button
@@ -126,7 +155,7 @@
             aria-pressed={activeTab === t.key}
           >
             <img
-              src="public/{t.image}"
+              src={'/' + t.image}
               alt={t.label}
               style="height: 1.5rem; margin-right: 0.5rem;"
             />
@@ -153,7 +182,7 @@
                     <div class="box">
                       <strong>
                         <img
-                          src="public/green-dot.svg"
+                          src="green-dot.svg"
                           alt="Positive Findings"
                           style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
                         />
@@ -166,7 +195,7 @@
                     <div class="box">
                       <strong>
                         <img
-                          src="public/red-dot.svg"
+                          src="red-dot.svg"
                           alt="Areas of Concern"
                           style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
                         />
@@ -327,6 +356,32 @@
   }
 
   /* Tab Elements */
+  .perspective-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .perspective-label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-text);
+    text-align: center;
+  }
+  .perspective-nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: filter 0.2s;
+  }
+  .perspective-nav button:hover {
+    filter: brightness(0.8);
+  }
+  .perspective-nav img {
+    height: 24px;
+  }
   .tab-bar {
     display: flex;
     flex-wrap: wrap;

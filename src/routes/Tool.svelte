@@ -501,11 +501,7 @@
         class:uploading={isUploading}
         style="display:flex;align-items:center;gap:6px;padding:8px 10px; min-width:100%; width:100%; justify-content:center; cursor:pointer;"
       >
-        <img
-          src="public/docup.svg"
-          alt="Upload"
-          style="width:18px;height:18px;"
-        />
+        <img src="docup.svg" alt="Upload" style="width:18px;height:18px;" />
         <span style="white-space:nowrap;">
           {#if isUploading}
             Uploading...
