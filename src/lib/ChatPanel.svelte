@@ -23,7 +23,7 @@
     contentHtml: `
         <div style="display: flex; align-items: flex-start; margin-bottom: 24px;">
           <div class="bot-avatar" style="aspect-ratio: 1/1; width: 2.5em; height: 2.5em; background: var(--primary-interactive); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; overflow: hidden; min-width: 2.5em;">
-            <img src="public/botpic.svg" alt="EquiFlow Logo" style="height: 1.5em; width: 1.5em; object-fit: contain; vertical-align: middle;">
+            <img src="/botpic.svg" alt="EquiFlow Logo" style="height: 1.5em; width: 1.5em; object-fit: contain; vertical-align: middle;">
           </div>
           <div style="background:#f1f5fb;border-radius:12px;padding:18px 20px;max-width:420px;box-shadow:0 2px 8px rgba(0,0,0,0.04);color:#1f2937;">
             <strong>Hello! I'm EquiFlow, your AI assistant for policy equity analysis.</strong>
@@ -39,6 +39,7 @@
   };
 
   let isQuerying = false;
+  let isTyping = false;
   let noteAnalysisGeneratingDisplayed = false;
   const dispatch = createEventDispatcher();
 
@@ -129,6 +130,7 @@
     inputText = ''; // Clear input field
 
     isQuerying = true; // Set querying state to true
+    isTyping = true;
 
     let payload = {
       session_id: currentSessionId,
@@ -160,6 +162,7 @@
       addMessage(`An error occurred: ${error.message}`, 'status');
     } finally {
       isQuerying = false; // Reset querying state
+      isTyping = false;
     }
   }
 
@@ -276,14 +279,11 @@
           <div
             style="display: flex; align-items: flex-start; margin-bottom: 24px;"
           >
-            <div
-              class="bot-avatar"
-              style="height: 1.5em; width: 1.5em; background: var(--primary-interactive); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 16px; overflow: hidden; min-width: 2.5em;"
-            >
+            <div class="bot-avatar">
               <img
-                src="public/botpic.svg"
+                src="/botpic.svg"
                 alt="EquiFlow Logo"
-                style="height: 1em; vertical-align: middle;"
+                style="height: 1.5em; width: 1.5em; object-fit: contain; vertical-align: middle;"
               />
             </div>
             <div
@@ -309,16 +309,21 @@
         {/if}
       {/each}
 
-      {#if isQuerying && messages.at(-1)?.type !== 'status'}
-        <!-- General "Analyzing..." status for current query if not already showing status -->
+      {#if isTyping}
         <div
-          style="display: flex; justify-content: center; margin-bottom: 12px;"
+          style="display: flex; align-items: flex-start; margin-bottom: 24px;"
         >
-          <div
-            style="font-style: italic; color: #666; font-size: 0.9em; padding: 8px 15px; border-radius: 8px; background-color: #f8f8f8; display: flex; align-items: center; gap: 8px;"
-          >
-            <div class="spinner-small"></div>
-            Analyzing...
+          <div class="bot-avatar">
+            <img
+              src="/botpic.svg"
+              alt="EquiFlow Logo"
+              style="height: 1.5em; width: 1.5em; object-fit: contain; vertical-align: middle;"
+            />
+          </div>
+          <div class="typing-indicator">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
           </div>
         </div>
       {/if}
@@ -428,8 +433,8 @@
   /* --- Original .bot-avatar style, used for bot messages --- */
   .bot-avatar {
     aspect-ratio: 1/1;
-    width: 1.5em; /* Matches original width */
-    height: 1.5em; /* Ensures square aspect ratio */
+    width: 2.5em;
+    height: 2.5em;
     background: var(--primary-interactive);
     border-radius: 50%;
     display: flex;
@@ -437,11 +442,13 @@
     justify-content: center;
     margin-right: 16px;
     overflow: hidden;
-    min-width: 2.5em; /* Matches original min-width */
-    flex-shrink: 0; /* Prevent it from shrinking */
+    min-width: 2.5em;
+    flex-shrink: 0;
   }
   .bot-avatar img {
-    height: 1em; /* Matches original img height */
+    height: 1.5em;
+    width: 1.5em;
+    object-fit: contain;
     vertical-align: middle;
   }
 
@@ -490,6 +497,47 @@
     }
     100% {
       transform: rotate(360deg);
+    }
+  }
+
+  /* --- Typing Dots Animation --- */
+  .typing-indicator {
+    background: #f1f5fb;
+    border-radius: 12px;
+    padding: 18px 20px;
+    max-width: 420px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 24px;
+  }
+
+  .typing-indicator .dot {
+    background-color: var(--primary-interactive);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    animation: bounce 1.4s infinite ease-in-out both;
+  }
+
+  .typing-indicator .dot:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+  .typing-indicator .dot:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+
+  @keyframes bounce {
+    0%,
+    80%,
+    100% {
+      transform: scale(0);
+    }
+    40% {
+      transform: scale(1);
     }
   }
 </style>
