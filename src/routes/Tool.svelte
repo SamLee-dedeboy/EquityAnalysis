@@ -633,7 +633,11 @@
   /* (1.2) Policy Selection */
   .policies {
     margin-top: 24px;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
   }
+
   .policies li.selected {
     background: #e0e7ef;
     color: #0f3c5f;
