@@ -533,8 +533,8 @@
       </div>
     </aside>
 
-    <!-- (2) Panel, Report -->
-    <div class="report-chat-container">
+    <!-- (2) Panel, Main (for Analysis View) -->
+    <div class="analysis-container">
       <!-- Chat Toggle Button -->
       <button
         class="chat-toggle-btn"
@@ -558,20 +558,17 @@
           {/if}
         </svg>
       </button>
-
-      <div class="report-panel">
-        <div class="report-content">
-          {#if $currentPolicy}
-            <AnalysisView />
-          {:else}
-            <EmptyPage></EmptyPage>
-          {/if}
-        </div>
+      <!-- Analysis View -->
+      <div class="analysis-view">
+        {#if $currentPolicy}
+          <AnalysisView />
+        {:else}
+          <EmptyPage></EmptyPage>
+        {/if}
       </div>
 
-      <!-- (3) Panel, Main Chat -->
       {#if chatPanel}
-        <div class="chat-panel" in:slide={{ axis: 'x' }}>
+        <div class="chat-container" in:slide={{ axis: 'x' }}>
           <ChatPanel
             {currentSessionId}
             analysisIsGenerating={$currentPolicy?.analysis_status !==
@@ -621,12 +618,11 @@
   .upload-button {
     font-size: 13px;
     border-radius: 6px;
-    cursor: pointer;
-    background: #0f3c5f;
+    background: var(--primary-interactive);
     color: #fff;
   }
   .upload-button:hover {
-    background: #0d304f;
+    background: var(--primary-interactive-hover);
   }
   .upload-button.uploading {   /* Uploading state color for button  */
     background: #6c757d;
@@ -669,28 +665,25 @@
     background-color: #f44336; /* Red for failed */
   }
 
-  /* --- (2) Panel, Overview --- */
-  .report-chat-container {
+  /* --- (2) Analysis Container --- */
+  .analysis-container {
     display: flex;
     width: 100%;
+    height: 100%;
   }
-  .report-panel {
-    display: flex;
-    flex-grow: 1;
-    min-width: 65%;
-    overflow: auto;
-  }
-  .report-content {
+  .analysis-view {
     flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
     background: #f9fafb;
     border-right: 1px solid #e5e7eb;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
-    display: flex;
-    flex-direction: column;
   }
 
-  /* --- (3) Panel, Chat--- */
-  .chat-panel {
+  /* --- (3) Chat Container --- */
+  .chat-container {
     width: 440px;
     min-width: 440px;
     max-width: 440px;
@@ -703,13 +696,12 @@
     position: relative;
   }
 
-
   /* --- Chat Toggle Button --- */
   .chat-toggle-btn {
     position: absolute;
     top: 24px;
     right: 24px;
-    background: #0f3c5f;
+    background: var(--primary-interactive);
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -718,11 +710,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     transition: background 0.15s;
     z-index: 100;
   }
   .chat-toggle-btn:hover {
-    background: #0d304f;
+    background: var(--primary-interactive-hover);
   }
 </style>
