@@ -6,16 +6,17 @@
   import LogoBar from '../lib/LogoBar.svelte';
   import ChatPanel from '../lib/ChatPanel.svelte';
 
-  // Importing store and view components
+  // Importing View Components
+  import EmptyPage from '../lib/EmptyPage.svelte';
+  import AnalysisView from './AnalysisView.svelte'; // The main report view component
+
+  // Importing Stores
+  import { server_address } from '../constants'; // Assumed to be "http://localhost:8000"
   import {
     currentPolicy,
     fetchPolicies,
     fetchPolicyDataById,
   } from '../lib/stores/currentPolicy.js';
-  import EmptyPage from '../lib/EmptyPage.svelte';
-  import AnalysisView from './AnalysisView.svelte'; // The main report view component
-
-  import { server_address } from '../constants'; // Assumed to be "http://localhost:8000"
 
   // --- State Variables ---
   let policies = []; // Dynamically loaded and updated from API
@@ -413,7 +414,6 @@
     <div style="position:absolute;top:0;left:0;width:320px;z-index:100;">
       <LogoBar />
     </div>
-    <!-- (ii) Top Right Back Button -->
 
     <!-- (1) Panel, Sidebar -->
     <aside class="sidebar">
@@ -561,10 +561,7 @@
 
       <div class="report-panel">
         <div class="report-content">
-          <!-- Report Header?
-          <h1 style="text-align: center; position: absolute; width: 100%;">Equity Analysis Report</h1> -->
           {#if $currentPolicy}
-            <!-- <ReportView {currentDoc} {analysisStatus} /> -->
             <AnalysisView />
           {:else}
             <EmptyPage></EmptyPage>
@@ -615,11 +612,7 @@
     background: #fff;
     position: relative;
   }
-  .sidebar h2 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 36px 0 12px;
-  }
+  
   /* (1.1) Upload Button*/
   .upload-button {
     font-size: 13px;
@@ -631,8 +624,7 @@
   .upload-button:hover {
     background: #0d304f;
   }
-  /* Uploading state color for button  */
-  .upload-button.uploading {
+  .upload-button.uploading {   /* Uploading state color for button  */
     background: #6c757d;
     cursor: not-allowed;
     opacity: 0.8;
@@ -648,9 +640,7 @@
     border-radius: 8px;
     transition: background 0.15s;
   }
-
-  /* Analysis Status Dots (added these classes and styles) */
-  .analysis-status-dot {
+  .analysis-status-dot {  /* Analysis Status Dots (added these classes and styles) */
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -672,7 +662,6 @@
   }
 
   /* --- (2) Panel, Overview --- */
-
   .report-chat-container {
     display: flex;
     width: 100%;
@@ -683,7 +672,6 @@
     min-width: 65%;
     overflow: auto;
   }
-
   .report-content {
     flex: 1;
     background: #f9fafb;
