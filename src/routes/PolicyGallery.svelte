@@ -239,9 +239,11 @@
     padding-right: 2rem;
     align-items: stretch;
     font-family: 'Inter', sans-serif;
+    margin-bottom: 4rem;
   }
   .card-grid > .card {
     min-height: 240px;
+    height: 100%;
     position: relative;
     background: var(--primary-background);
     padding: 1rem;
@@ -251,7 +253,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-self: center;
+    justify-self: stretch;
     font-size: 1.05rem;
     cursor: pointer;
   }
