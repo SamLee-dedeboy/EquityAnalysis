@@ -595,6 +595,8 @@
     right: 0;
     bottom: 0;
     display: flex;
+    width: 100%;
+    height: 100%;
     font-family: system-ui, sans-serif;
     background: #fff;
     color: #1f2937;
@@ -603,6 +605,8 @@
   /* --- (1) Panel, Sidebar --- */
   .sidebar {
     width: 320px;
+    min-width: 320px;
+    max-width: 320px;
     height: 100%;
     padding: 24px;
     padding-top: 7rem;
@@ -684,6 +688,21 @@
     display: flex;
     flex-direction: column;
   }
+
+  /* --- (3) Panel, Chat--- */
+  .chat-panel {
+    width: 440px;
+    min-width: 440px;
+    max-width: 440px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    position: relative;
+  }
+
 
   /* --- Chat Toggle Button --- */
   .chat-toggle-btn {
