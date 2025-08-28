@@ -5,33 +5,27 @@
 
   // Import Store Variable
   import { currentPolicy } from '../lib/stores/currentPolicy.js';
-
-  export const equity_colors = {
-    Procedural: '#227C9D',
-    Structural: '#17C3B2',
-    Distributional: '#FFCB77',
-    Recognitional: '#FEB3B1',
-  };
+ 
   const equitySections = [
     {
       key: 'recognitional_equity',
       label: 'Recognitional',
-      color: equity_colors['Recognitional'],
+      color: 'var(--equity-color-recognitional)',
     },
     {
       key: 'procedural_equity',
       label: 'Procedural',
-      color: equity_colors['Procedural'],
+      color: 'var(--equity-color-procedural)',
     },
     {
       key: 'structural_equity',
       label: 'Structural',
-      color: equity_colors['Structural'],
+      color: 'var(--equity-color-structural)',
     },
     {
       key: 'distributional_equity',
       label: 'Distributional',
-      color: equity_colors['Distributional'],
+      color: 'var(--equity-color-distributional)',
     },
   ];
 
