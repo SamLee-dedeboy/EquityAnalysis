@@ -690,7 +690,7 @@
     z-index: 2;
     position: relative;
   }
-  /* --- (3.1) Chat Toggle Button --- */
+  /* (3.1) Chat Toggle Button  */
   .chat-toggle-btn {
     position: absolute;
     top: 12px;

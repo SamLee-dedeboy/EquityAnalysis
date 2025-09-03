@@ -2,49 +2,36 @@
   import { onMount } from 'svelte';
   import { server_address } from '../constants.js';
 
-  // Importing Local Module
+  // Importing Local Modules
   import InfoTab from '../lib/InfoTab.svelte';
   import InfoModal from '../lib/pg-modals/InfoModal.svelte';
   import DocUpModal from '../lib/pg-modals/DocUpModal.svelte';
 
-  // Policies data
+  // Importing Stores
   import {
     currentPolicy,
     fetchPolicies,
     fetchPolicyDataById,
   } from '../lib/stores/currentPolicy.js';
 
-  // State variables for modals
+  // --- State Variables ---
   let showInfo = false; // Info modal state
-  let docUp = false; // Document upload state
+  let docUp = false; // Document upload modal state
 
-  let modalElement;
   let policies = [];
 
-  // multi‑expand: which rows are open
-  let efOpen = new Set(); // e.g. Set([0, 2])
-  function efToggle(i) {
-    const next = new Set(efOpen);
-    next.has(i) ? next.delete(i) : next.add(i);
-    efOpen = next;
-  }
+  // --- Lifecycle Hook --- 
+  onMount(async () => {
+    policies = await fetchPolicies();
+  });
 
-  // Auto-focus modal when opened
-  $: if (showInfo && modalElement) {
-    modalElement.focus();
-  }
-
-  // State Variable from Store, Selection for Analysis Modal
+  // handleSelect function for updating policy store variable
   async function handleSelect(policy) {
     console.log('Setting currentPolicy with:', policy);
     const policyData = await fetchPolicyDataById(policy.id);
     currentPolicy.set(policyData);
     window.location.hash = '#/aview';
   }
-
-  onMount(async () => {
-    policies = await fetchPolicies();
-  });
 </script>
 
 <section>
@@ -53,19 +40,6 @@
     rel="stylesheet"
   />
 
-  <!-- (0) Info Tab -->
-  <InfoTab />
-
-  <!-- (1) Tool Button -->
-  <button
-    class="tool-button"
-    on:click={() => (window.location.hash = '#/tool')}
-  >
-    <img src="magic-wand.svg" alt="Tool Icon" style="height: 1rem;" />
-    Equiflow AI
-  </button>
-
-  <!-- (2) Headers, Caption -->
   <!-- Caption 1 -->
   <p class="caption-1">
     Explore our analysis on water policies. Each policy has been automatically
@@ -88,23 +62,11 @@
       style="height: 0.9em; position: relative; top: 0.1em;"
     />
     Analysis Gallery
-    <span
-      style="display: inline-flex; align-items: center; gap: 0.25em; margin-left: -0.15em;"
-    >
-      <!-- <img
-        src="line-arrow-down.svg"
-        alt="Down Arrow"
-        style="height: 0.9em; position: relative; top: 0.1em;"
-      /> -->
-    </span>
   </h3>
 
-  <!-- (3) Grid-Enabled Gallery View -->
-  <div
-    class="card-grid"
-    style="grid-template-columns: repeat(3, 1fr); gap: 2.5rem; align-items: stretch;"
-  >
-    <!-- Policy Cards -->
+  <!-- (1) Grid-Enabled Gallery View -->
+  <div class="card-grid">
+    <!-- (1.1) Each Policy Card -->
     {#each policies as policy}
       <div
         class="card"
@@ -115,17 +77,12 @@
       >
         <h3>{policy.document.title}</h3>
         <p>{policy.document.description}</p>
-        <!-- <button class="analysis-btn" on:click={() => handleSelect(policy)}
-          >View Analysis</button
-        > -->
       </div>
     {/each}
-
-    <!-- (4) Add Policy Card Outline Button-->
+    <!-- (1.2) Add Policy Card Outline Button-->
     <button
-      class="card add-button"
+      class="card outline-card"
       type="button"
-      style=""
       on:click={() => (docUp = true)}
       title="Add a new policy"
       aria-label="Add Policy"
@@ -148,8 +105,18 @@
         </p>
       </div>
     </button>
-
   </div>
+
+  <!-- Tool Button -->
+  <button
+    class="tool-button"
+    on:click={() => (window.location.hash = '#/tool')}
+  >
+    <img src="magic-wand.svg" alt="Tool Icon" style="height: 1rem;" />
+    Equiflow AI
+  </button>
+  <!-- Info Tab -->
+  <InfoTab />
 
   <!-- --- Modals!! --- -->
   <!-- i. CTA Modal, Info/Onboarding -->
@@ -163,7 +130,7 @@
 </section>
 
 <style>
-  /* --- Main Container --- */
+  /* --- Captions --- */
   .caption-1 {
     font-family: 'Inter', sans-serif;
     font-size: 26px;
@@ -205,40 +172,19 @@
     background: var(--primary-interactive-hover);
     color: white;
   }
-  .tool-button {
-    position: absolute;
-    top: 0.8rem;
-    right: 1rem;
-    background: var(--primary-interactive);
-    background: 0.2s;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    font-size: 1.1em;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    z-index: 10;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .tool-button:hover {
-    background: var(--primary-interactive-hover);
-    color: white;
-  }
 
-  /* --- Grid, Policy Cards --- */
+  /* --- (1) Grid, Policy Cards --- */
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
     padding-left: 2rem;
     padding-right: 2rem;
     align-items: stretch;
     font-family: 'Inter', sans-serif;
     margin-bottom: 4rem;
   }
+  /* --- (1.1) Each Policy Card --- */  
   .card-grid > .card {
     min-height: 240px;
     height: 100%;
@@ -269,8 +215,8 @@
   .card-grid > .card p {
     text-align: center;
   }
-  /* --- ./Outline Card --- */
-  .add-button {
+  /* --- (1.2) Outline Card --- */
+  .outline-card {
     border: none;
     outline: 2px dashed #0c8ba7;
     background: #f8fafc;
@@ -284,5 +230,29 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 1em;
+  }
+
+  /* Tool Button */
+  .tool-button {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    background: var(--primary-interactive);
+    background: 0.2s;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 1.1em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .tool-button:hover {
+    background: var(--primary-interactive-hover);
+    color: white;
   }
 </style>
