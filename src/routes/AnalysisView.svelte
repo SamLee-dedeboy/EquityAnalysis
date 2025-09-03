@@ -1,11 +1,22 @@
 <script>
-  // Local Modules
-  import InfoTab from '../lib/InfoTab.svelte';
   import { slide } from 'svelte/transition';
 
-  // Import Store Variable
+  // Local Modules
+  import InfoTab from '../lib/InfoTab.svelte';
+
+  // Importing Store
   import { currentPolicy } from '../lib/stores/currentPolicy.js';
- 
+
+  // --- State Variables ---
+  let activeTab = 'general_equity_assessment';
+  let perspectiveIndex = 0;
+
+  // --- Reactive Statements ---
+  $: perspectives = $currentPolicy?.overall_analysis_by_perspective ?? []; // Binds perspectives to the analysis JSON
+  $: currentPerspective = perspectives[perspectiveIndex] ?? null; // Sets currentPerspective with perspectiveIndex
+  $: currentAnalysisSection = currentPerspective?.analyses?.[activeTab] ?? null; // Binds to perspective's dimension
+
+  // Analysis Nav Constants
   const equitySections = [
     {
       key: 'recognitional_equity',
@@ -28,7 +39,6 @@
       color: 'var(--equity-color-distributional)',
     },
   ];
-
   const tabOptions = [
     {
       key: 'general_equity_assessment',
@@ -52,42 +62,33 @@
     },
   ];
 
-  let activeTab = 'general_equity_assessment';
-
-  let perspectiveIndex = 0;
-  $: perspectives = $currentPolicy?.overall_analysis_by_perspective ?? [];
-  $: currentPerspective = perspectives[perspectiveIndex] ?? null;
-  $: currentAnalysisSection = currentPerspective?.analyses?.[activeTab] ?? null;
-
+  // Debugging Logs
   $: console.log('Current Policy Analysis Data:', $currentPolicy);
   $: console.log('Current Perspective Used:', currentPerspective?.group_name);
   $: console.log('Active analysis section:', activeTab, currentAnalysisSection);
 </script>
 
 <section>
-  <!-- <BackButton destination="#/" /> -->
-  <InfoTab />
-
-  <div class="container">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <div class="analysis-layout">
+    <!-- (1)Header with Document Title -->
     <div class="header">
       <img
         src="document.svg"
         style="height: 1lh; margin-right: 0.2em; vertical-align: bottom;"
-        alt=""
+        alt="Document icon"
       />
-      <!-- Display document title if available, otherwise a placeholder -->
       {$currentPolicy?.document?.title || 'No Document Selected'}
-      <!-- <img src="public/sel-btn.png" alt="{selectedPolicy?.document?.title}" style="height: 1em; vertical-align: middle; margin-right: 0.5em;">
-        {selectedPolicy?.document?.title} -->
     </div>
-
-    {#if !$currentPolicy}
-      <!-- Initial state: No document selected or uploaded. -->
+:
+    {#if !$currentPolicy} <!-- Initial State: No document selected or uploaded -->
       <div class="header" style="color: #6c757d;">
         Please select or upload a document to begin analysis.
       </div>
-    {:else if $currentPolicy?.source === 'user' && ['pending', 'waiting_vs_processing', 'analysis_generating', 'vs_processing_pending'].includes($currentPolicy.analysis_status)}
-      <!-- Analysis is in progress (for user-uploaded documents) -->
+    {:else if $currentPolicy?.source === 'user' && ['pending', 'waiting_vs_processing', 'analysis_generating', 'vs_processing_pending'].includes($currentPolicy.analysis_status)} <!-- In Progress State: for user-uploaded documents -->
       <div class="header" style="color: var(--primary-interactive);">
         <div
           style="display: flex; align-items: center; justify-content: center; gap: 10px;"
@@ -102,8 +103,7 @@
           This may take a few minutes.
         </p>
       </div>
-    {:else if $currentPolicy?.source === 'user' && $currentPolicy.analysis_status === 'failed'}
-      <!-- Analysis failed (for user-uploaded documents) -->
+    {:else if $currentPolicy?.source === 'user' && $currentPolicy.analysis_status === 'failed'} <!-- Failed State: for user-uploaded documents -->
       <div class="header" style="color: red;">
         Analysis Failed: {$currentPolicy?.analysis_error || 'Unknown error.'}
         <p style="font-size: 0.8em; color: #888; margin-top: 10px;">
@@ -111,8 +111,8 @@
           document.
         </p>
       </div>
-    {:else if ($currentPolicy?.analysis_status === 'completed' || $currentPolicy?.source === 'preprocessed') && currentPerspective}
-      <!-- Tab Bar -->
+    {:else if ($currentPolicy?.analysis_status === 'completed' || $currentPolicy?.source === 'preprocessed') && currentPerspective} <!-- (1) Expected Case (Analysis Completed, Data Available)-->
+      <!-- (2) Perspective Carousel -->
       {#if perspectives.length > 1}
         <div class="perspective-nav">
           <button
@@ -140,7 +140,7 @@
           Perspective: {currentPerspective?.group_name}
         </div>
       {/if}
-
+      <!-- (3) Analysis Dimension Tabs -->  
       <div class="tab-bar">
         {#each tabOptions as t}
           <button
@@ -158,9 +158,8 @@
           </button>
         {/each}
       </div>
-      <!-- Display content based on activeTab and the selected (first) perspective -->
+      <!-- (4) Analysis Content -->
       {#if currentAnalysisSection}
-        <!-- General Equity Assessment -->
         {#if activeTab === 'general_equity_assessment'}
           <div in:slide style="overflow: hidden;">
             <p class="summary">{currentAnalysisSection.summary}</p>
@@ -321,28 +320,28 @@
           No detailed data available for the selected analysis tab.
         </div>
       {/if}
-    {:else}
-      <!-- Final fallback, if currentPolicy exists but isn't completed/failed yet, and currentPerspective is null -->
+    {:else} <!--- Edge Case: Current Policy Exists but In Progress, currentPerspective = null -->
       <div class="header" style="color: #6c757d;">
         Awaiting analysis data...
       </div>
     {/if}
   </div>
+
+  <!-- Info Tab -->
+  <InfoTab />
 </section>
 
 <style>
-  section {
-    max-width: 1200px;
-  }
-  /* Container for the main content */
-  .container {
-    max-width: 1080;
+
+  /* --- Layout --- */
+  .analysis-layout {
+    max-width: 1400px;
     margin: 0.5rem auto;
     padding: 0rem 1rem;
-    font-family: system-ui, sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
-  /* Header and Subtitle */
+  /* --- (1) Header --- */
   .header {
     font-size: 1.7rem;
     font-weight: 700;
@@ -351,7 +350,7 @@
     color: var(--primary-text);
   }
 
-  /* Tab Elements */
+  /* --- (2) Perspective Carousel --- */
   .perspective-nav {
     display: flex;
     align-items: center;
@@ -377,6 +376,8 @@
   .perspective-nav img {
     height: 24px;
   }
+
+  /* --- (3) Analysis Dimension Tabs --- */
   .tab-bar {
     display: flex;
     flex-wrap: wrap;
@@ -417,7 +418,8 @@
     }
   }
 
-  /* Equity Tab, Cards */
+  /* --- (4) Analysis Content --- */  
+  /* Grid, Analysis Sections */
   .section-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -430,6 +432,7 @@
     border-radius: 12px;
     margin-bottom: 2rem;
   }
+  /* Chips for Analysis Sections */
   .pill {
     padding: 0.4rem 0.8rem;
     font-weight: bold;
@@ -465,26 +468,20 @@
     margin-bottom: 0.4rem;
     font-size: 0.95rem;
   }
-  /* Conclusion text styling */
-  .conclusion {
-    margin-top: 1rem;
-    font-style: italic;
-    color: #444;
-  }
-
-  h1 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-  .summary {
-    color: #444;
+  /* Captions and Context */
+  .summary {   /* Misnomer. This is the caption text styling */
+    color: var(--primary-text);
     font-size: 1rem;
     margin-bottom: 2rem;
     line-height: 1.6;
   }
+  .conclusion {   /* Conclusion and summmary at bottom of dimensions */
+    color: var(--primary-text);
+    margin-top: 1rem;
+    font-style: italic;
+  }
 
-  /* Spinner Small */
+  /* Spinner */
   .spinner-small {
     border: 2px solid rgba(0, 0, 0, 0.1);
     width: 20px;

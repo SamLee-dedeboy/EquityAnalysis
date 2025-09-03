@@ -140,7 +140,6 @@
     margin-left: auto;
     margin-right: auto;
     line-height: 1.8;
-    /* background-color: #f3f3f3; */
     color: var(--primary-text);
     border-radius: 8px;
   }

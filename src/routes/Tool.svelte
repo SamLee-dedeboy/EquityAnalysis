@@ -410,7 +410,7 @@
 
 <section>
   <div class="screen-layout">
-    <!-- (i) Logo -->
+    <!-- Logo -->
     <div style="position:absolute;top:0;left:0;width:320px;z-index:100;">
       <LogoBar />
     </div>
@@ -639,6 +639,7 @@
     border-radius: 8px;
     transition: background 0.15s;
   }
+  
   .analysis-status-dot {  /* Analysis Status Dots (added these classes and styles) */
     width: 10px;
     height: 10px;
