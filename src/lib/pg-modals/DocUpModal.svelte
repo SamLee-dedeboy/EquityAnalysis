@@ -163,7 +163,6 @@
     right: 1.2rem;
     background: none;
     border: none;
-    cursor: pointer;
     z-index: 101;
     padding: 0.5rem;
     border-radius: 50%;
@@ -211,7 +210,6 @@
     font-size: 1.1em;
     font-weight: 500;
     border: none;
-    cursor: pointer;
     transition: background 0.2s;
     box-shadow: none;
     outline: none;

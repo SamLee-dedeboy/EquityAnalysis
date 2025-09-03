@@ -193,7 +193,6 @@
     border: none;
     color: white;
     font-weight: 300;
-    cursor: pointer;
     font-size: 1em;
     padding: 0.2em 0.5em;
     border-radius: 6px;
@@ -219,7 +218,6 @@
     font-size: 1.1em;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    cursor: pointer;
     z-index: 10;
     display: inline-flex;
     align-items: center;

@@ -40,7 +40,6 @@
     padding: 12px 16px;
     display: flex;
     align-items: center;
-    cursor: pointer;
     min-width: 48px;
     min-height: 48px;
     transition: background 0.2s;
@@ -48,7 +47,7 @@
     outline: none;
   }
   .info-tab:hover {
-    background: #1a2547;
+    background: var(--primary-interactive-hover);
   }
   .it-icon {
     width: 22px;

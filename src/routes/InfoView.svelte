@@ -295,7 +295,6 @@
     font-size: 1rem;
     border: none;
     border-radius: 6px;
-    cursor: pointer;
   }
   .cta-buttons .secondary {
     background: white;

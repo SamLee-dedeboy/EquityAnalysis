@@ -28,7 +28,6 @@
     font-size: 1.1em;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    cursor: pointer;
     z-index: 10;
     display: flex;
     display: inline-flex;
@@ -38,6 +37,6 @@
   }
 
   .back-button:hover {
-    background: #1a2547;
+    background: var(--primary-interactive-hover);
   }
 </style>

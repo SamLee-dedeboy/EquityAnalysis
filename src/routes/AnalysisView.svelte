@@ -368,7 +368,6 @@
   .perspective-nav button {
     background: none;
     border: none;
-    cursor: pointer;
     padding: 0.5rem;
     transition: filter 0.2s;
   }
@@ -394,7 +393,6 @@
     font-size: 1rem;
     border: 2.5px solid #ccc;
     border-radius: 12px;
-    cursor: pointer;
     color: var(--primary-text);
     min-height: 64px;
     display: flex;

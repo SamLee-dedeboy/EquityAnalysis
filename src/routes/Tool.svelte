@@ -410,7 +410,7 @@
 
 <section>
   <div class="screen-layout">
-    <!-- (i) Sidebar Logo Overlay -->
+    <!-- (i) Logo -->
     <div style="position:absolute;top:0;left:0;width:320px;z-index:100;">
       <LogoBar />
     </div>
@@ -439,7 +439,6 @@
           disabled={isUploading}
         />
       </label>
-
       <!-- (1.2) Policies Section -->
       <div class="policies">
         <ul style="list-style: none; padding: 0; margin: 0;">
@@ -493,7 +492,6 @@
           {/each}
         </ul>
       </div>
-
       <!-- (1.3) Recent Documents Section -->
       <div
         class="recent"
@@ -508,7 +506,7 @@
           >
           <button
             class="clear"
-            style="background: none; border: none; color: #0F3C5F; font-size: 13px; cursor: pointer; padding: 4px 10px; border-radius: 6px; transition: background 0.15s;"
+            style="background: none; border: none; color: #0F3C5F; font-size: 13px; padding: 4px 10px; border-radius: 6px; transition: background 0.15s;"
             on:click={async () => {
               // This clears frontend list of user-uploaded docs.
               // Backend cleanup for specific user data would require explicit API calls for each doc.
@@ -533,9 +531,30 @@
       </div>
     </aside>
 
-    <!-- (2) Panel, Main (for Analysis View) -->
+    <!-- (2) Panel, Analysis -->
     <div class="analysis-container">
-      <!-- Chat Toggle Button -->
+      <!-- Analysis View -->
+      <div class="analysis-view">
+        {#if $currentPolicy}
+          <AnalysisView />
+        {:else}
+          <EmptyPage />
+        {/if}
+      </div>
+      <!-- (3) Panel, Chat -->
+      {#if chatPanel}
+        <div class="chat-container" in:slide={{ axis: 'x' }}>
+          <ChatPanel
+            {currentSessionId}
+            analysisIsGenerating={$currentPolicy?.analysis_status !==
+              'completed' &&
+              $currentPolicy?.analysis_status !== 'failed' &&
+              currentSessionId !== null}
+            on:endSession={handleEndSessionFromChat}
+          ></ChatPanel>
+        </div>
+      {/if}
+      <!-- (3.1) Chat Toggle Button -->
       <button
         class="chat-toggle-btn"
         on:click={() => (chatPanel = !chatPanel)}
@@ -558,27 +577,6 @@
           {/if}
         </svg>
       </button>
-      <!-- Analysis View -->
-      <div class="analysis-view">
-        {#if $currentPolicy}
-          <AnalysisView />
-        {:else}
-          <EmptyPage></EmptyPage>
-        {/if}
-      </div>
-
-      {#if chatPanel}
-        <div class="chat-container" in:slide={{ axis: 'x' }}>
-          <ChatPanel
-            {currentSessionId}
-            analysisIsGenerating={$currentPolicy?.analysis_status !==
-              'completed' &&
-              $currentPolicy?.analysis_status !== 'failed' &&
-              currentSessionId !== null}
-            on:endSession={handleEndSessionFromChat}
-          ></ChatPanel>
-        </div>
-      {/if}
     </div>
   </div>
 </section>
@@ -599,7 +597,7 @@
     color: #1f2937;
   }
 
-  /* --- (1) Panel, Sidebar --- */
+  /* --- (1) Sidebar --- */
   .sidebar {
     width: 320px;
     min-width: 320px;
@@ -613,8 +611,7 @@
     background: #fff;
     position: relative;
   }
-  
-  /* (1.1) Upload Button*/
+  /* (1.1) Upload Button */
   .upload-button {
     font-size: 13px;
     border-radius: 6px;
@@ -629,7 +626,6 @@
     cursor: not-allowed;
     opacity: 0.8;
   }
-
   /* (1.2) Policy Selection */
   .policies {
     margin-top: 24px;
@@ -637,7 +633,6 @@
     min-height: 0;
     overflow-y: auto;
   }
-
   .policies li.selected {
     background: #e0e7ef;
     color: #0f3c5f;
@@ -695,11 +690,10 @@
     z-index: 2;
     position: relative;
   }
-
-  /* --- Chat Toggle Button --- */
+  /* --- (3.1) Chat Toggle Button --- */
   .chat-toggle-btn {
     position: absolute;
-    top: 24px;
+    top: 12px;
     right: 24px;
     background: var(--primary-interactive);
     color: #fff;

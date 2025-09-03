@@ -142,7 +142,6 @@
     right: 1.2rem;
     background: none;
     border: none;
-    cursor: pointer;
     z-index: 101;
     padding: 0.5rem;
     border-radius: 50%;
@@ -176,18 +175,10 @@
     color: var(--primary-text);
     text-align: center;
   }
-  .ef-head p {
-    margin: 0;
-    color: #475569;
-    font-size: 0.95rem;
-    text-align: center;
-  }
-
   .ef-body {
     display: grid;
     gap: var(--ef-gap);
   }
-
   .ef-row {
     display: grid;
     grid-template-columns: 1fr;
@@ -212,13 +203,11 @@
     font-weight: 800;
     font-size: 1.15rem;
     letter-spacing: 0.2px;
-    cursor: pointer;
     outline: none;
     transition:
       transform 140ms ease,
       box-shadow 140ms ease,
       background 160ms ease;
-    box-sizing: border-box;
   }
   .ef-bar:hover {
     transform: translateY(-1px);
@@ -242,7 +231,6 @@
     border-radius: 12px;
     padding: 12px;
     height: 100%;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
   }
@@ -270,7 +258,6 @@
     padding: 0 14px;
     font-weight: 800;
     font-size: 1rem;
-    cursor: pointer;
     outline: none;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
     transition:
@@ -280,7 +267,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    box-sizing: border-box;
   }
   .ef-pill:hover {
     transform: translateY(-1px);

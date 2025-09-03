@@ -151,7 +151,6 @@
     border-radius: 0.5rem;
     font-weight: 500;
     border: 2px solid #09385b;
-    cursor: pointer;
     transition:
       background-color 0.2s ease,
       color 0.2s ease;

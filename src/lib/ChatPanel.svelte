@@ -390,7 +390,7 @@
     <button
       type="submit"
       aria-label="Send"
-      style="height:38px; width:38px; display: flex; align-items: center; justify-content: center; background: #0f3c5f; color: #fff; border: none; padding: 10px 16px; border-radius: 999px; font-size: 18px; cursor: pointer;"
+      style="height:38px; width:38px; display: flex; align-items: center; justify-content: center; background: #0f3c5f; color: #fff; border: none; padding: 10px 16px; border-radius: 999px; font-size: 18px;"
       disabled={!currentSessionId ||
         isQuerying ||
         !inputText.trim() ||
@@ -414,7 +414,7 @@
       disabled={!currentSessionId ||
         isQuerying ||
         $currentPolicy?.source !== 'user'}
-      style="background-color: #dc3545; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;"
+      style="background-color: #dc3545; color: white; border: none; padding: 10px 15px; border-radius: 5px;"
     >
       End Chat & Clean Up Resources
     </button>
@@ -445,7 +445,6 @@
   .chat-header,
   .input-bar {
     width: 100%;
-    box-sizing: border-box;
   }
   /* --- (3.2) Chat Content & Messages --- */
   .chat-content {
