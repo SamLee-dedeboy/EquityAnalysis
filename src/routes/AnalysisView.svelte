@@ -83,12 +83,13 @@
       />
       {$currentPolicy?.document?.title || 'No Document Selected'}
     </div>
-:
-    {#if !$currentPolicy} <!-- Initial State: No document selected or uploaded -->
+    {#if !$currentPolicy}
+      <!-- Initial State: No document selected or uploaded -->
       <div class="header" style="color: #6c757d;">
         Please select or upload a document to begin analysis.
       </div>
-    {:else if $currentPolicy?.source === 'user' && ['pending', 'waiting_vs_processing', 'analysis_generating', 'vs_processing_pending'].includes($currentPolicy.analysis_status)} <!-- In Progress State: for user-uploaded documents -->
+    {:else if $currentPolicy?.source === 'user' && ['pending', 'waiting_vs_processing', 'analysis_generating', 'vs_processing_pending'].includes($currentPolicy.analysis_status)}
+      <!-- In Progress State: for user-uploaded documents -->
       <div class="header" style="color: var(--primary-interactive);">
         <div
           style="display: flex; align-items: center; justify-content: center; gap: 10px;"
@@ -103,7 +104,8 @@
           This may take a few minutes.
         </p>
       </div>
-    {:else if $currentPolicy?.source === 'user' && $currentPolicy.analysis_status === 'failed'} <!-- Failed State: for user-uploaded documents -->
+    {:else if $currentPolicy?.source === 'user' && $currentPolicy.analysis_status === 'failed'}
+      <!-- Failed State: for user-uploaded documents -->
       <div class="header" style="color: red;">
         Analysis Failed: {$currentPolicy?.analysis_error || 'Unknown error.'}
         <p style="font-size: 0.8em; color: #888; margin-top: 10px;">
@@ -111,7 +113,8 @@
           document.
         </p>
       </div>
-    {:else if ($currentPolicy?.analysis_status === 'completed' || $currentPolicy?.source === 'preprocessed') && currentPerspective} <!-- (1) Expected Case (Analysis Completed, Data Available)-->
+    {:else if ($currentPolicy?.analysis_status === 'completed' || $currentPolicy?.source === 'preprocessed') && currentPerspective}
+      <!-- Expected Case (Analysis Completed, Data Available)-->
       <!-- (2) Perspective Carousel -->
       {#if perspectives.length > 1}
         <div class="perspective-nav">
@@ -140,7 +143,7 @@
           Perspective: {currentPerspective?.group_name}
         </div>
       {/if}
-      <!-- (3) Analysis Dimension Tabs -->  
+      <!-- (3) Analysis Dimension Tabs -->
       <div class="tab-bar">
         {#each tabOptions as t}
           <button
@@ -314,13 +317,34 @@
             </div>
           </div>
         {/if}
+        <!-- Sources section - available for all tabs -->
+        {#if currentAnalysisSection?.sources?.length}
+          <div class="sources">
+            <strong>Sources & References</strong>
+            <ul>
+              {#each currentAnalysisSection.sources as source}
+                <li>
+                  <div class="source-header">
+                    <span class="source-document">
+                      📄 {$currentPolicy?.document?.title || 'Document Source'}
+                    </span>
+                  </div>
+                  <div class="source-content">
+                    {@html source.data.replace(/Source from [^:]+:\s*/, '')}
+                  </div>
+                </li>
+              {/each}
+            </ul>
+          </div>
+        {/if}
       {:else}
         <!-- Fallback if analysis data for the specific tab is missing, but policy and primary perspective are there -->
         <div class="header" style="color: var(--primary-interactive);">
           No detailed data available for the selected analysis tab.
         </div>
       {/if}
-    {:else} <!--- Edge Case: Current Policy Exists but In Progress, currentPerspective = null -->
+    {:else}
+      <!--- Edge Case: Current Policy Exists but In Progress, currentPerspective = null -->
       <div class="header" style="color: #6c757d;">
         Awaiting analysis data...
       </div>
@@ -332,7 +356,6 @@
 </section>
 
 <style>
-
   /* --- Layout --- */
   .analysis-layout {
     max-width: 1400px;
@@ -418,7 +441,7 @@
     }
   }
 
-  /* --- (4) Analysis Content --- */  
+  /* --- (4) Analysis Content --- */
   /* Grid, Analysis Sections */
   .section-grid {
     display: grid;
@@ -469,16 +492,125 @@
     font-size: 0.95rem;
   }
   /* Captions and Context */
-  .summary {   /* Misnomer. This is the caption text styling */
+  .summary {
+    /* Misnomer. This is the caption text styling */
     color: var(--primary-text);
     font-size: 1rem;
     margin-bottom: 2rem;
     line-height: 1.6;
   }
-  .conclusion {   /* Conclusion and summmary at bottom of dimensions */
+  .conclusion {
+    /* Conclusion and summmary at bottom of dimensions */
     color: var(--primary-text);
     margin-top: 1rem;
     font-style: italic;
+  }
+  /* Sources */
+  .sources {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .sources > strong {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-text);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-interactive);
+  }
+
+  .sources > strong::before {
+    content: '📚';
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .sources ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sources li {
+    margin-bottom: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-interactive);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    line-height: 1.6;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    overflow: hidden;
+  }
+
+  .sources li:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .sources li:last-child {
+    margin-bottom: 0;
+  }
+
+  .source-header {
+    background: linear-gradient(
+      135deg,
+      var(--primary-interactive) 0%,
+      #0056b3 100%
+    );
+    color: white;
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 8px 8px 0 0;
+    margin: 0;
+    position: relative;
+  }
+
+  .source-header::after {
+    content: 'EXCERPT';
+    position: absolute;
+    top: 0.75rem;
+    right: 1.25rem;
+    font-size: 0.7rem;
+    opacity: 0.8;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+
+  .source-document {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .source-content {
+    padding: 1.25rem;
+  }
+
+  .sources blockquote {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 2px solid #e9ecef;
+    border-left: 4px solid var(--primary-interactive);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin: 0;
+    font-style: normal;
+    font-family: 'Georgia', serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #2c3e50;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
   /* Spinner */

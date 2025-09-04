@@ -20,7 +20,7 @@
 
   let policies = [];
 
-  // --- Lifecycle Hook --- 
+  // --- Lifecycle Hook ---
   onMount(async () => {
     policies = await fetchPolicies();
   });
@@ -44,7 +44,10 @@
   <p class="caption-1">
     Explore our analysis on water policies. Each policy has been automatically
     evaluated using the
-    <button class="quickef-btn" on:click={() => (window.location.hash = '#/info')}>
+    <button
+      class="quickef-btn"
+      on:click={() => (window.location.hash = '#/info')}
+    >
       Equity Framework <img
         src="box-arrow-top-right.svg"
         alt="Arrow"
@@ -183,7 +186,7 @@
     font-family: 'Inter', sans-serif;
     margin-bottom: 4rem;
   }
-  /* --- (1.1) Each Policy Card --- */  
+  /* --- (1.1) Each Policy Card --- */
   .card-grid > .card {
     min-height: 240px;
     height: 100%;

@@ -1,16 +1,12 @@
 <script>
   // Local Modules
-  import InfoModal from '../lib/pg-modals/InfoModal.svelte'; 
+  import InfoModal from '../lib/pg-modals/InfoModal.svelte';
   // State Management
   let showInfo = false;
 </script>
 
 <div class="info-tab-wrapper">
-  <button
-    class="info-tab"
-    type="button"
-    on:click={() => (showInfo = true)}
-  >
+  <button class="info-tab" type="button" on:click={() => (showInfo = true)}>
     <img
       class="it-icon"
       src="network.svg"

@@ -621,7 +621,8 @@
   .upload-button:hover {
     background: var(--primary-interactive-hover);
   }
-  .upload-button.uploading {   /* Uploading state color for button  */
+  .upload-button.uploading {
+    /* Uploading state color for button  */
     background: #6c757d;
     cursor: not-allowed;
     opacity: 0.8;
@@ -639,8 +640,9 @@
     border-radius: 8px;
     transition: background 0.15s;
   }
-  
-  .analysis-status-dot {  /* Analysis Status Dots (added these classes and styles) */
+
+  .analysis-status-dot {
+    /* Analysis Status Dots (added these classes and styles) */
     width: 10px;
     height: 10px;
     border-radius: 50%;
