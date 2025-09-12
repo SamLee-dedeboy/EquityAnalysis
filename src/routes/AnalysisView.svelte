@@ -209,6 +209,16 @@
                 </div>
               {/each}
             </div>
+            {#if currentAnalysisSection?.sources?.length}
+              <div class="sources">
+                <strong>Sources:</strong>
+                <ul>
+                  {#each currentAnalysisSection.sources as source}
+                    <li>{@html source.data}</li>
+                  {/each}
+                </ul>
+              </div>
+            {/if}
           </div>
           <!-- Vulnerable Groups Formatting -->
         {:else if activeTab === 'vulnerable_groups_analysis'}
@@ -242,6 +252,16 @@
                 {currentAnalysisSection.conclusion}
               </div>
             </div>
+            {#if currentAnalysisSection?.sources?.length}
+              <div class="sources">
+                <strong>Sources:</strong>
+                <ul>
+                  {#each currentAnalysisSection.sources as source}
+                    <li>{@html source.data}</li>
+                  {/each}
+                </ul>
+              </div>
+            {/if}
           </div>
           <!-- Impact Severity Formatting -->
         {:else if activeTab === 'severity_impact_analysis'}
@@ -281,6 +301,16 @@
                 {currentAnalysisSection.conclusion}
               </div>
             </div>
+            {#if currentAnalysisSection?.sources?.length}
+              <div class="sources">
+                <strong>Sources:</strong>
+                <ul>
+                  {#each currentAnalysisSection.sources as source}
+                    <li>{@html source.data}</li>
+                  {/each}
+                </ul>
+              </div>
+            {/if}
           </div>
           <!-- Mitigation Strategies Formatting -->
         {:else if activeTab === 'mitigation_strategies_analysis'}
@@ -315,26 +345,16 @@
                 {currentAnalysisSection.conclusion}
               </div>
             </div>
-          </div>
-        {/if}
-        <!-- Sources section - available for all tabs -->
-        {#if currentAnalysisSection?.sources?.length}
-          <div class="sources">
-            <strong>Sources & References</strong>
-            <ul>
-              {#each currentAnalysisSection.sources as source}
-                <li>
-                  <div class="source-header">
-                    <span class="source-document">
-                      📄 {$currentPolicy?.document?.title || 'Document Source'}
-                    </span>
-                  </div>
-                  <div class="source-content">
-                    {@html source.data.replace(/Source from [^:]+:\s*/, '')}
-                  </div>
-                </li>
-              {/each}
-            </ul>
+            {#if currentAnalysisSection?.sources?.length}
+              <div class="sources">
+                <strong>Sources:</strong>
+                <ul>
+                  {#each currentAnalysisSection.sources as source}
+                    <li>{@html source.data}</li>
+                  {/each}
+                </ul>
+              </div>
+            {/if}
           </div>
         {/if}
       {:else}
@@ -378,67 +398,106 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    margin: 1rem 0;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    background: var(--primary-background);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   }
   .perspective-label {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--primary-text);
     text-align: center;
+    padding: 0 1rem;
+    min-width: 200px;
+    flex-shrink: 0;
   }
   .perspective-nav button {
-    background: none;
-    border: none;
-    padding: 0.5rem;
-    transition: filter 0.2s;
+    background: white;
+    border: 2px solid #e5e7eb;
+    padding: 0.75rem;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    min-width: 44px;
+    min-height: 44px;
+    flex-shrink: 0;
   }
   .perspective-nav button:hover {
-    filter: brightness(0.8);
+    border-color: var(--primary-interactive);
+    background: var(--primary-interactive);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  .perspective-nav button:hover img {
+    filter: brightness(0) invert(1);
+  }
+  .perspective-nav button:focus {
+    outline: 2px solid var(--primary-interactive);
+    outline-offset: 2px;
+  }
+  .perspective-nav button:active {
+    transform: translateY(0);
   }
   .perspective-nav img {
-    height: 24px;
+    height: 20px;
+    width: 20px;
+    transition: filter 0.2s ease;
+    display: block;
   }
 
   /* --- (3) Analysis Dimension Tabs --- */
   .tab-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    justify-content: center;
-    /* background: #ededed; */
-    border-radius: 14px;
-    padding: 1.5rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: #f8fafc;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   }
   .tab {
-    max-width: 300px;
-    padding: 1.2rem 2rem;
+    padding: 1.5rem 2rem;
     font-size: 1rem;
-    border: 2.5px solid #ccc;
+    border: 2px solid #e5e7eb;
     border-radius: 12px;
     color: var(--primary-text);
-    min-height: 64px;
+    background: white;
+    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 300;
-    transition:
-      background 0.2s,
-      color 0.2s;
+    font-weight: 500;
+    transition: all 0.2s ease;
     white-space: nowrap;
-    > img {
-      filter: brightness(0.2);
-    }
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  .tab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-interactive);
+  }
+  .tab > img {
+    filter: brightness(0.4);
+    transition: filter 0.2s ease;
   }
   .tab.active {
     background: var(--primary-interactive);
     color: white;
-    font-weight: 500;
+    font-weight: 600;
     border-color: var(--primary-interactive);
-    > img {
-      filter: unset;
-    }
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(12, 57, 90, 0.25);
+  }
+  .tab.active > img {
+    filter: brightness(0) invert(1);
   }
 
   /* --- (4) Analysis Content --- */
@@ -509,108 +568,50 @@
   .sources {
     margin-top: 2rem;
     padding: 1.5rem;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: #f8fafc;
     border-radius: 12px;
-    border: 1px solid #dee2e6;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--primary-interactive);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   }
-
-  .sources > strong {
-    display: flex;
-    align-items: center;
+  .sources strong {
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--primary-text);
+    color: var(--primary-interactive);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--primary-interactive);
   }
-
-  .sources > strong::before {
-    content: '📚';
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
+  .sources strong::before {
+    content: '';
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url('/document.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: var(--primary-interactive);
   }
-
   .sources ul {
     margin: 0;
     padding: 0;
     list-style: none;
   }
-
   .sources li {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
     background: white;
     border-radius: 8px;
-    border-left: 4px solid var(--primary-interactive);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    position: relative;
+    border: 1px solid #e5e7eb;
     line-height: 1.6;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-    overflow: hidden;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
   }
-
   .sources li:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .sources li:last-child {
-    margin-bottom: 0;
-  }
-
-  .source-header {
-    background: linear-gradient(
-      135deg,
-      var(--primary-interactive) 0%,
-      #0056b3 100%
-    );
-    color: white;
-    padding: 0.75rem 1.25rem;
-    font-weight: 600;
-    font-size: 0.9rem;
-    border-radius: 8px 8px 0 0;
-    margin: 0;
-    position: relative;
-  }
-
-  .source-header::after {
-    content: 'EXCERPT';
-    position: absolute;
-    top: 0.75rem;
-    right: 1.25rem;
-    font-size: 0.7rem;
-    opacity: 0.8;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-  }
-
-  .source-document {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .source-content {
-    padding: 1.25rem;
-  }
-
-  .sources blockquote {
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-    border: 2px solid #e9ecef;
-    border-left: 4px solid var(--primary-interactive);
-    border-radius: 6px;
-    padding: 1.25rem;
-    margin: 0;
-    font-style: normal;
-    font-family: 'Georgia', serif;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #2c3e50;
-    position: relative;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-interactive);
   }
 
   /* Spinner */

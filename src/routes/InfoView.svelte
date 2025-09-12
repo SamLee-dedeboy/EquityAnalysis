@@ -1,13 +1,11 @@
 <script>
   //Local Modules
   import BackButton from '../lib/BackButton.svelte';
-  // src/lib/stores.js
-  import { currentPolicy } from '../lib/stores/currentPolicy.js';
-  import { equity_colors } from '../constants.js';
+
   const equities = [
     {
       name: 'Procedural',
-      color: equity_colors['Procedural'],
+      color: 'var(--equity-color-procedural)',
       description:
         'Fair and inclusive processes in policy development, implementation, and enforcement. Ensures all stakeholders have meaningful participation opportunities.',
       keyElements: [
@@ -23,7 +21,7 @@
     },
     {
       name: 'Structural',
-      color: equity_colors['Structural'],
+      color: 'var(--equity-color-structural)',
       description:
         'Addresses underlying systems and institutions that create inequities. Focuses on reforming organizational structures, legal frameworks, and policies that systematically advantage some groups while disadvantaging others.',
       keyElements: [
@@ -39,7 +37,7 @@
     },
     {
       name: 'Distributional',
-      color: equity_colors['Distributional'],
+      color: 'var(--equity-color-distributional)',
       description:
         'Fair allocation of benefits, burdens, and resources. Examines who gets what, when, and how much in policy outcomes.',
       keyElements: [
@@ -55,7 +53,7 @@
     },
     {
       name: 'Recognitional',
-      color: equity_colors['Recognitional'],
+      color: 'var(--equity-color-recognitional)',
       description:
         "Recognition of historical, cultural, and social contexts that shape communities' relationships with water resources and governance.",
       keyElements: [
@@ -71,7 +69,7 @@
     },
     {
       name: 'Transformational',
-      color: equity_colors['Transformational'],
+      color: 'var(--equity-color-transformational)',
       description:
         'Goes beyond fixing current systems to fundamentally reimagining them. Create new approaches that center equity from the ground up, building regenerative systems that prevent inequities from occurring.',
       keyElements: [
@@ -109,18 +107,6 @@
           justice, and systemic impact across diverse communities.
         </span>
       </div>
-      <!-- <h3>
-        The Five Equities
-        <span
-          style="display: inline-flex; align-items: center; gap: 0.25em; margin-left: -0.15em;"
-        >
-          <img
-            src="public/down-arrow.png"
-            alt="Down Arrow"
-            style="height: 0.9em; position: relative; top: 0.1em;"
-          />
-        </span>
-      </h3> -->
     </div>
 
     <!-- Equity Cards -->
@@ -173,9 +159,7 @@
         outcomes.
       </p>
       <div class="cta-buttons">
-        <button
-          class="secondary"
-          on:click={() => (window.location.hash = '#/aview')}
+        <button class="secondary" on:click={() => (window.location.hash = '#/')}
           >View Sample Analysis</button
         >
         <button
