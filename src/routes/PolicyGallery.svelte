@@ -4,6 +4,7 @@
 
   // Importing Local Modules
   import InfoTab from '../lib/InfoTab.svelte';
+  import EquityModals from '../lib/pg-modals/EquityModals.svelte';
   import InfoModal from '../lib/pg-modals/InfoModal.svelte';
   import DocUpModal from '../lib/pg-modals/DocUpModal.svelte';
 
@@ -15,6 +16,9 @@
   } from '../lib/stores/currentPolicy.js';
 
   // --- State Variables ---
+  let selectedEquity = null;
+  let showEquity = false; // Equity modal state
+
   let showInfo = false; // Info modal state
   let docUp = false; // Document upload modal state
 
@@ -33,7 +37,7 @@
     window.location.hash = '#/aview';
   }
 
-  // Helper function to check if a policy belongs to a specific tier
+  // Helper functions to check if a policy belongs to a specific tier
   function isFederal(policy) {
     return (
       policy.document.type === 'federal' ||
@@ -118,43 +122,24 @@
       alt=""
       style="height: 0.9em; position: relative; top: 0.1em;"
     />
-    Document Hierarchy Flow
+    Explore Our Equities!
     <!-- Document Hierarchy Flow Chart -->
-    <div class="hierarchy-flow">
-      <div class="flow-item">
-        <div class="flow-box federal">
-          <span class="flow-label">Federal Law</span>
-          <span class="flow-desc">Constitutional & Legislative Framework</span>
-        </div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">
-        <div class="flow-box agency">
-          <span class="flow-label">Agency Law</span>
-          <span class="flow-desc">Regulatory Implementation</span>
-        </div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">
-        <div class="flow-box court">
-          <span class="flow-label">Court Decision</span>
-          <span class="flow-desc">Judicial Interpretation</span>
-        </div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">
-        <div class="flow-box planning">
-          <span class="flow-label">Planning</span>
-          <span class="flow-desc">Strategic Development</span>
-        </div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">
-        <div class="flow-box operations">
-          <span class="flow-label">Daily Operations</span>
-          <span class="flow-desc">Implementation & Execution</span>
-        </div>
-      </div>
+    <div class="eqbox-container">
+      <button type="button" class="equity-box procedural" on:click={() => { selectedEquity = 'procedural'; showEquity = true; }} aria-label="Open Procedural Equity modal">
+        <span class="equity-name">Procedural Equity</span>
+      </button>
+      <button type="button" class="equity-box structural" on:click={() => { selectedEquity = 'structural'; showEquity = true; }} aria-label="Open Structural Equity modal">
+        <span class="equity-name">Structural Equity</span>
+      </button>
+      <button type="button" class="equity-box distributional" on:click={() => { selectedEquity = 'distributional'; showEquity = true; }} aria-label="Open Distributional Equity modal">
+        <span class="equity-name">Distributional Equity</span>
+      </button>
+      <button type="button" class="equity-box recognitional" on:click={() => { selectedEquity = 'recognitional'; showEquity = true; }} aria-label="Open Recognitional Equity modal">
+        <span class="equity-name">Recognitional Equity</span>
+      </button>
+      <button type="button" class="equity-box transformational" on:click={() => { selectedEquity = 'transformational'; showEquity = true; }} aria-label="Open Transformational Equity modal">
+        <span class="equity-name">Transformational Equity</span>
+      </button>
     </div>
   </h3>
 
@@ -406,6 +391,10 @@
   {#if docUp}
     <DocUpModal on:close={() => (docUp = false)} />
   {/if}
+  <!-- iii. Equity Definitions Modal -->
+  {#if showEquity}
+    <EquityModals selectedEquity={selectedEquity} on:close={() => (showEquity = false)} />
+  {/if}
 </section>
 
 <style>
@@ -434,7 +423,7 @@
     padding: 1rem 1rem;
   }
   /* --- Document Hierarchy Flow Chart --- */
-  .hierarchy-flow {
+  .eqbox-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -445,13 +434,11 @@
     overflow-x: auto;
     font-family: 'Inter', sans-serif;
   }
-  .flow-box {
-    background: white;
-    border: 2px solid;
+  .equity-box {
     border-radius: 8px;
     padding: 1rem 1.5rem;
     text-align: center;
-    min-width: 140px;
+    width: 180px;
     height: 80px;
     display: flex;
     flex-direction: column;
@@ -461,28 +448,34 @@
     transition:
       transform 0.2s ease,
       box-shadow 0.2s ease;
+    margin-right: 1rem;
   }
-  .flow-box:hover {
+  .equity-box.procedural {
+    background: var(--equity-color-procedural);
+  }
+  .equity-box.structural {
+    background: var(--equity-color-structural);
+  }
+  .equity-box.distributional {
+    background: var(--equity-color-distributional);
+  }
+  .equity-box.recognitional {
+    background: var(--equity-color-recognitional);
+  }
+  .equity-box.transformational {
+    background: var(--equity-color-transformational);
+  }
+  .equity-box:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
-  .flow-label {
+  .equity-name {
+    color: white;
     font-weight: 600;
     font-size: 0.9rem;
     line-height: 1.2;
   }
-  .flow-desc {
-    font-size: 0.7rem;
-    opacity: 0.8;
-    line-height: 1.1;
-  }
-  .flow-arrow {
-    font-size: 1.5rem;
-    color: var(--primary-interactive);
-    font-weight: bold;
-    margin: 0 0.25rem;
-    flex-shrink: 0;
-  }
+
   /* Color coding for different document types */
   .federal {
     border-color: var(--policy-federal);
@@ -509,19 +502,14 @@
     background: var(--policy-operations-light);
     color: var(--policy-operations);
   }
-  /* Responsive design for flow chart */
+  /* Responsive design for equity boxes */
   @media (max-width: 768px) {
-    .hierarchy-flow {
+    .eqbox-container {
       flex-direction: column;
       gap: 1rem;
     }
 
-    .flow-arrow {
-      transform: rotate(90deg);
-      font-size: 1.2rem;
-    }
-
-    .flow-box {
+    .equity-box {
       min-width: 200px;
       height: 70px;
     }
