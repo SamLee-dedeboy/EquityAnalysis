@@ -54,41 +54,24 @@
     );
   }
 
-  function isCourt(policy) {
+  function isState(policy) {
+    const title = policy.document.title.toLowerCase();
+    const dtype = (policy.document.type || '').toLowerCase();
     return (
-      policy.document.type === 'court' ||
-      policy.document.title.toLowerCase().includes('court') ||
-      policy.document.title.toLowerCase().includes('decision') ||
-      policy.document.title.toLowerCase().includes('ruling')
-    );
-  }
-
-  function isPlanning(policy) {
-    return (
-      policy.document.type === 'planning' ||
-      policy.document.title.toLowerCase().includes('plan') ||
-      policy.document.title.toLowerCase().includes('strategy') ||
-      policy.document.title.toLowerCase().includes('draft')
-    );
-  }
-
-  function isOperations(policy) {
-    return (
-      policy.document.type === 'operations' ||
-      policy.document.title.toLowerCase().includes('operation') ||
-      policy.document.title.toLowerCase().includes('implementation') ||
-      policy.document.title.toLowerCase().includes('procedure')
+      dtype === 'state' ||
+      title.includes('state') ||
+      title.includes('california') ||
+      title.includes('sgma') ||
+      title.includes('sustainable groundwater') ||
+      title.includes('human right to water') ||
+      title.includes('wrd 1641') ||
+      title.includes('decision 1641') ||
+      title.includes('d-1641')
     );
   }
 
   function isOther(policy) {
-    return (
-      !isFederal(policy) &&
-      !isAgency(policy) &&
-      !isCourt(policy) &&
-      !isPlanning(policy) &&
-      !isOperations(policy)
-    );
+    return !isFederal(policy) && !isState(policy) && !isAgency(policy);
   }
 </script>
 
@@ -117,12 +100,12 @@
   <!-- Caption 2 -->
   <h3 class="caption-2">
     <!-- Pre-Analyzed Documents -->
-    <img
+    <!-- <img
       src="landmark.svg"
       alt=""
       style="height: 0.9em; position: relative; top: 0.1em;"
-    />
-    Explore Our Equities!
+    /> -->
+    Understand the Five Equities
     <!-- Document Hierarchy Flow Chart -->
     <div class="eqbox-container">
       <button type="button" class="equity-box procedural" on:click={() => { selectedEquity = 'procedural'; showEquity = true; }} aria-label="Open Procedural Equity modal">
@@ -143,20 +126,17 @@
     </div>
   </h3>
 
-  <!-- (1) Hierarchical Policy Gallery -->
-  <div class="hierarchical-gallery">
-    <!-- Federal Law Section -->
-    <div class="policy-section">
-      <h4 class="section-header federal">
-        <span class="section-icon">
-          <img src="landmark.svg" alt="Federal Law" />
-        </span>
-        Federal Law
-        <span class="section-count"
-          >{policies.filter(isFederal).length} Documents</span
-        >
-      </h4>
-      <div class="policy-cards">
+  <!-- (1) Gantt-like Policy Gallery (Federal, State, Agency, Other) -->
+  <div class="gallery">
+
+    <!-- Row: Federal -->
+    <div class="row">
+      <div class="row-label federal">
+        <span class="row-icon"><img src="landmark.svg" alt="Federal" /></span>
+        Federal
+        <span class="row-count">{policies.filter(isFederal).length}</span>
+      </div>
+      <div class="row-track">
         {#each policies.filter(isFederal) as policy}
           <div
             class="policy-card"
@@ -164,33 +144,53 @@
             tabindex="0"
             on:click={() => handleSelect(policy)}
             on:keydown={e => e.key === 'Enter' && handleSelect(policy)}
+            title={policy.document.title}
           >
             <h5>{policy.document.title}</h5>
-            <p>{policy.document.description}</p>
-            <div class="tier-chip federal-chip">Federal Law</div>
-            <button class="analysis-btn" on:click={() => handleSelect(policy)}
-              >View Analysis</button
-            >
+            <div class="tier-chip federal-chip">Federal</div>
           </div>
         {/each}
         {#if policies.filter(isFederal).length === 0}
-          <div class="empty-section">No federal laws available</div>
+          <div class="empty-section">No federal documents available</div>
         {/if}
       </div>
     </div>
 
-    <!-- Agency Law Section -->
-    <div class="policy-section">
-      <h4 class="section-header agency">
-        <span class="section-icon">
-          <img src="user-group.svg" alt="Agency Law" />
-        </span>
-        Agency Law
-        <span class="section-count"
-          >{policies.filter(isAgency).length} Documents</span
-        >
-      </h4>
-      <div class="policy-cards">
+    <!-- Row: State -->
+    <div class="row">
+      <div class="row-label state">
+        <span class="row-icon"><img src="landmark.svg" alt="State" /></span>
+        State
+        <span class="row-count">{policies.filter(isState).length}</span>
+      </div>
+      <div class="row-track">
+        {#each policies.filter(isState) as policy}
+          <div
+            class="policy-card"
+            role="button"
+            tabindex="0"
+            on:click={() => handleSelect(policy)}
+            on:keydown={e => e.key === 'Enter' && handleSelect(policy)}
+            title={policy.document.title}
+          >
+            <h5>{policy.document.title}</h5>
+            <div class="tier-chip state-chip">State</div>
+          </div>
+        {/each}
+        {#if policies.filter(isState).length === 0}
+          <div class="empty-section">No state documents available</div>
+        {/if}
+      </div>
+    </div>
+
+    <!-- Row: Agency -->
+    <div class="row">
+      <div class="row-label agency">
+        <span class="row-icon"><img src="landmark.svg" alt="Agency"/></span>
+        Agency
+        <span class="row-count">{policies.filter(isAgency).length}</span>
+      </div>
+      <div class="row-track">
         {#each policies.filter(isAgency) as policy}
           <div
             class="policy-card"
@@ -198,135 +198,26 @@
             tabindex="0"
             on:click={() => handleSelect(policy)}
             on:keydown={e => e.key === 'Enter' && handleSelect(policy)}
+            title={policy.document.title}
           >
             <h5>{policy.document.title}</h5>
-            <p>{policy.document.description}</p>
-            <div class="tier-chip agency-chip">Agency Law</div>
-            <button class="analysis-btn" on:click={() => handleSelect(policy)}
-              >View Analysis</button
-            >
+            <div class="tier-chip agency-chip">Agency</div>
           </div>
         {/each}
         {#if policies.filter(isAgency).length === 0}
-          <div class="empty-section">No agency regulations available</div>
+          <div class="empty-section">No agency documents available</div>
         {/if}
       </div>
     </div>
 
-    <!-- Court Decision Section -->
-    <div class="policy-section">
-      <h4 class="section-header court">
-        <span class="section-icon">
-          <img src="landmark.svg" alt="Court Decision" />
-        </span>
-        Court Decision
-        <span class="section-count"
-          >{policies.filter(isCourt).length} Documents</span
-        >
-      </h4>
-      <div class="policy-cards">
-        {#each policies.filter(isCourt) as policy}
-          <div
-            class="policy-card"
-            role="button"
-            tabindex="0"
-            on:click={() => handleSelect(policy)}
-            on:keydown={e => e.key === 'Enter' && handleSelect(policy)}
-          >
-            <h5>{policy.document.title}</h5>
-            <p>{policy.document.description}</p>
-            <div class="tier-chip court-chip">Court Decision</div>
-            <button class="analysis-btn" on:click={() => handleSelect(policy)}
-              >View Analysis</button
-            >
-          </div>
-        {/each}
-        {#if policies.filter(isCourt).length === 0}
-          <div class="empty-section">No court decisions available</div>
-        {/if}
+    <!-- Row: Other -->
+    <div class="row">
+      <div class="row-label other">
+        <span class="row-icon"><img src="document.svg" alt="Other" /></span>
+        Other
+        <span class="row-count">{policies.filter(isOther).length}</span>
       </div>
-    </div>
-
-    <!-- Planning Section -->
-    <div class="policy-section">
-      <h4 class="section-header planning">
-        <span class="section-icon">
-          <img src="chart.svg" alt="Planning" />
-        </span>
-        Planning
-        <span class="section-count"
-          >{policies.filter(isPlanning).length} Documents</span
-        >
-      </h4>
-      <div class="policy-cards">
-        {#each policies.filter(isPlanning) as policy}
-          <div
-            class="policy-card"
-            role="button"
-            tabindex="0"
-            on:click={() => handleSelect(policy)}
-            on:keydown={e => e.key === 'Enter' && handleSelect(policy)}
-          >
-            <h5>{policy.document.title}</h5>
-            <p>{policy.document.description}</p>
-            <div class="tier-chip planning-chip">Planning</div>
-            <button class="analysis-btn" on:click={() => handleSelect(policy)}
-              >View Analysis</button
-            >
-          </div>
-        {/each}
-        {#if policies.filter(isPlanning).length === 0}
-          <div class="empty-section">No planning documents available</div>
-        {/if}
-      </div>
-    </div>
-
-    <!-- Daily Operations Section -->
-    <div class="policy-section">
-      <h4 class="section-header operations">
-        <span class="section-icon">
-          <img src="network.svg" alt="Daily Operations" />
-        </span>
-        Daily Operations
-        <span class="section-count"
-          >{policies.filter(isOperations).length} Documents</span
-        >
-      </h4>
-      <div class="policy-cards">
-        {#each policies.filter(isOperations) as policy}
-          <div
-            class="policy-card"
-            role="button"
-            tabindex="0"
-            on:click={() => handleSelect(policy)}
-            on:keydown={e => e.key === 'Enter' && handleSelect(policy)}
-          >
-            <h5>{policy.document.title}</h5>
-            <p>{policy.document.description}</p>
-            <div class="tier-chip operations-chip">Daily Operations</div>
-            <button class="analysis-btn" on:click={() => handleSelect(policy)}
-              >View Analysis</button
-            >
-          </div>
-        {/each}
-        {#if policies.filter(isOperations).length === 0}
-          <div class="empty-section">No operational documents available</div>
-        {/if}
-      </div>
-    </div>
-
-    <!-- Other Documents Section -->
-    <div class="policy-section">
-      <h4 class="section-header other">
-        <span class="section-icon">
-          <img src="document.svg" alt="Other Documents" />
-        </span>
-        Other Documents
-        <span class="section-count"
-          >{policies.filter(isOther).length} Documents</span
-        >
-      </h4>
-      <div class="policy-cards">
+      <div class="row-track">
         {#each policies.filter(isOther) as policy}
           <div
             class="policy-card"
@@ -334,13 +225,10 @@
             tabindex="0"
             on:click={() => handleSelect(policy)}
             on:keydown={e => e.key === 'Enter' && handleSelect(policy)}
+            title={policy.document.title}
           >
             <h5>{policy.document.title}</h5>
-            <p>{policy.document.description}</p>
-            <div class="tier-chip other-chip">Other Document</div>
-            <button class="analysis-btn" on:click={() => handleSelect(policy)}
-              >View Analysis</button
-            >
+            <div class="tier-chip other-chip">Other</div>
           </div>
         {/each}
         {#if policies.filter(isOther).length === 0}
@@ -349,8 +237,8 @@
       </div>
     </div>
 
-    <!-- Add Policy Section -->
-    <div class="add-policy-section">
+    <!-- Add Policy CTA aligned with lanes -->
+    <div>
       <button
         class="add-policy-card"
         type="button"
@@ -359,11 +247,7 @@
         aria-label="Add Policy"
       >
         <div class="add-icon">
-          <img
-            src="plus.svg"
-            alt="Plus Icon"
-            style="width: 2rem; height: 2rem;"
-          />
+          <img src="plus.svg" alt="Plus Icon" style="width: 2rem; height: 2rem;" />
         </div>
         <span class="add-text">Add New Policy</span>
         <p class="add-desc">Upload a document for equity analysis</p>
@@ -387,17 +271,18 @@
   {#if showInfo}
     <InfoModal on:close={() => (showInfo = false)} />
   {/if}
-  <!-- ii. Upload Modal, Document Loading for Tool -->
-  {#if docUp}
-    <DocUpModal on:close={() => (docUp = false)} />
-  {/if}
-  <!-- iii. Equity Definitions Modal -->
+  <!-- ii. Equity Definition Modals -->
   {#if showEquity}
     <EquityModals selectedEquity={selectedEquity} on:close={() => (showEquity = false)} />
+  {/if}
+  <!-- iii. Upload Modal, Document Loading for Tool -->
+  {#if docUp}
+    <DocUpModal on:close={() => (docUp = false)} />
   {/if}
 </section>
 
 <style>
+
   /* --- Captions --- */
   .caption-1 {
     font-family: 'Inter', sans-serif;
@@ -422,7 +307,51 @@
     background-color: var(--primary-background);
     padding: 1rem 1rem;
   }
-  /* --- Document Hierarchy Flow Chart --- */
+
+  /* Tool Button */
+  .tool-button {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    background: var(--primary-interactive);
+    background: 0.2s;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 1.1em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .tool-button:hover {
+    background: var(--primary-interactive-hover);
+    color: white;
+  }
+
+  /* --- Info Screen CTA --- */
+  .quickef-btn {
+    background: var(--primary-interactive);
+    border: none;
+    color: white;
+    font-weight: 300;
+    font-size: 1em;
+    padding: 0.2em 0.5em;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-style: italic;
+  }
+  .quickef-btn:hover {
+    background: var(--primary-interactive-hover);
+    color: white;
+  }
+
+  /* --- Equity Buttons --- */
   .eqbox-container {
     display: flex;
     align-items: center;
@@ -475,34 +404,7 @@
     font-size: 0.9rem;
     line-height: 1.2;
   }
-
-  /* Color coding for different document types */
-  .federal {
-    border-color: var(--policy-federal);
-    background: var(--policy-federal-light);
-    color: var(--policy-federal);
-  }
-  .agency {
-    border-color: var(--policy-agency);
-    background: var(--policy-agency-light);
-    color: var(--policy-agency);
-  }
-  .court {
-    border-color: var(--policy-court);
-    background: var(--policy-court-light);
-    color: var(--policy-court);
-  }
-  .planning {
-    border-color: var(--policy-planning);
-    background: var(--policy-planning-light);
-    color: var(--policy-planning);
-  }
-  .operations {
-    border-color: var(--policy-operations);
-    background: var(--policy-operations-light);
-    color: var(--policy-operations);
-  }
-  /* Responsive design for equity boxes */
+  
   @media (max-width: 768px) {
     .eqbox-container {
       flex-direction: column;
@@ -514,243 +416,67 @@
       height: 70px;
     }
   }
-  /* --- Info Screen CTA --- */
-  .quickef-btn {
-    background: var(--primary-interactive);
-    border: none;
-    color: white;
-    font-weight: 300;
-    font-size: 1em;
-    padding: 0.2em 0.5em;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-style: italic;
-  }
-  .quickef-btn:hover {
-    background: var(--primary-interactive-hover);
-    color: white;
-  }
 
-  /* Tool Button */
-  .tool-button {
-    position: absolute;
-    top: 0.8rem;
-    right: 1rem;
-    background: var(--primary-interactive);
-    background: 0.2s;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    font-size: 1.1em;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    z-index: 10;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .tool-button:hover {
-    background: var(--primary-interactive-hover);
-    color: white;
-  }
-
-  /* --- Hierarchical Policy Gallery --- */
-  .hierarchical-gallery {
-    max-width: 1200px;
-    margin: 0 auto 4rem auto;
-    padding: 0 2rem;
-    font-family: 'Inter', sans-serif;
-    overflow: visible;
-  }
-
-  .policy-section {
-    margin-bottom: 3rem;
-    position: relative;
-    z-index: 1;
-    overflow: visible;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    padding: 1rem 1.5rem;
-    border-radius: 12px;
-    border: 2px solid;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 1;
-  }
-
-  .section-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .section-icon img {
-    width: 1.5rem;
-    height: 1.5rem;
-    filter: currentColor;
-  }
-
-  /* Invert colors for agency and planning SVGs */
-  .agency .section-icon img,
-  .planning .section-icon img {
-    filter: invert(1);
-  }
-
-  .section-count {
-    font-size: 0.9rem;
-    font-weight: 400;
-    opacity: 0.8;
-    margin-left: auto;
-  }
-
-  .policy-cards {
-    display: flex;
-    gap: 1.5rem;
-    overflow-x: auto;
-    overflow-y: visible;
-    padding-bottom: 2rem;
-    padding-top: 0.5rem;
-    scroll-behavior: smooth;
-    z-index: 100;
-  }
-
-  .policy-cards::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  .policy-cards::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-  }
-
-  .policy-cards::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 4px;
-  }
-
-  .policy-cards::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
-  }
-
-  .policy-card {
-    background: white;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 1.5rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    position: relative;
-    min-height: 200px;
-    max-height: 200px;
-    min-width: 320px;
-    max-width: 320px;
-    flex-shrink: 0;
+  /* --- Gallery --- */
+  .gallery {
     display: flex;
     flex-direction: column;
-    z-index: 2;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
   }
 
-  .policy-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    z-index: 10;
-    border-color: var(--primary-interactive);
+  .row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    align-items: stretch;
+    gap: 0.75rem;
   }
 
-  .policy-card h5 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0 0 0.75rem 0;
-    line-height: 1.3;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    color: var(--primary-text);
+  .row-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    border: 2px solid currentColor;
+    border-radius: 10px;
+    padding: 0.75rem 0.9rem;
+    background: white;
+    max-height: 100px;
   }
 
-  .policy-card p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin: 0 0 1rem 0;
-    flex-grow: 1;
-    opacity: 0.8;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
-    -webkit-box-orient: vertical;
+  .row-label .row-icon img {
+    height: 1.2rem;
   }
 
-  .tier-chip {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    margin-top: auto;
-    text-align: center;
-    width: fit-content;
-  }
-
-  .federal-chip {
-    background: var(--policy-federal);
-    color: white;
-  }
-
-  .agency-chip {
-    background: var(--policy-agency);
-    color: white;
-  }
-
-  .court-chip {
-    background: var(--policy-court);
-    color: white;
-  }
-
-  .planning-chip {
-    background: var(--policy-planning);
-    color: white;
-  }
-
-  .operations-chip {
-    background: var(--policy-operations);
-    color: white;
-  }
-
-  .other-chip {
-    background: var(--policy-other);
-    color: white;
-  }
-
-  .analysis-btn {
-    background: var(--primary-interactive);
-    border: none;
-    border-radius: 6px;
-    padding: 0.5rem 1rem;
+  .row-count {
+    margin-left: auto;
     font-size: 0.85rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: white;
+    opacity: 0.8;
+    background: rgba(0, 0, 0, 0.04);
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
   }
 
-  .analysis-btn:hover {
-    background: var(--primary-interactive-hover);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  .row-track {
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 10px;
+    overflow-x: auto;
+    background: var(--policy-other-light);
+    min-height: 60px;
+  }
+
+  /* Lane colors */
+  .row-label.federal { color: var(--policy-federal); background: var(--policy-federal-light); }
+  .row-label.agency { color: var(--policy-agency); background: var(--policy-agency-light); }
+  .row-label.other { color: var(--policy-other); background: var(--policy-other-light); }
+  .row-label.state { color: var(--policy-state); background: var(--policy-state-light); }
+
+  @media (max-width: 768px) {
+    .row { grid-template-columns: 160px 1fr; }
   }
 
   .empty-section {
@@ -764,19 +490,121 @@
     min-width: 320px;
     max-width: 320px;
     flex-shrink: 0;
-    min-height: 200px;
-    max-height: 200px;
+    min-height: 100px;
+    max-height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .add-policy-section {
-    margin-top: 2rem;
+
+  /* Policy Cards */
+
+  .policy-card {
+    padding: 0.7rem;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+
+    /* Fix to a 100px card height */
+    height: 100px;
+    min-height: 100px;
+    max-height: 100px;
+
+    width: clamp(240px, 30vw, 320px);
+    flex-shrink: 0;
+
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between; /* ensures header, body and CTA distribute neatly */
+    gap: 0.25rem;
+    overflow: hidden;
+    z-index: 2;
+    word-break: break-word;
   }
 
+  .policy-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    border-color: var(--primary-interactive);
+  }
+
+  .policy-card h5 {
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.3;
+    color: var(--primary-text);
+
+    box-sizing: border-box;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  /* Tier Chips */
+  .tier-chip {
+    display: inline-block;
+    padding: 0.15rem 0.6rem; /* horizontal padding matches header */
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    margin-top: auto;
+    text-align: center;
+    width: fit-content;
+    margin-left: 0.0rem;
+    margin-right: 0.0rem;
+    box-sizing: border-box;
+  }
+
+  .federal-chip {
+    background: var(--policy-federal);
+    color: white;
+  }
+
+  .agency-chip {
+    background: var(--policy-agency);
+    color: white;
+  }
+
+  .state-chip {
+    background: var(--policy-state);
+    color: white;
+  }
+
+  .other-chip {
+    background: var(--policy-other);
+    color: white;
+  }
+
+  /* View Analysis Button */
+  /* .analysis-btn {
+    background: var(--primary-interactive);
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white;
+  } */
+  /* .analysis-btn:hover {
+    background: var(--primary-interactive-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  } */
+
+  /* Add-Policy Card */
   .add-policy-card {
     background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
     border: 2px dashed var(--primary-interactive);

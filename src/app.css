@@ -19,17 +19,11 @@
   --policy-federal: #dc3545;
   --policy-federal-light: #fff5f5;
 
-  --policy-agency: #fd7e14;
-  --policy-agency-light: #fff8f0;
+  --policy-state: #fd7e14;
+  --policy-state-light: #fff8f0;
 
-  --policy-court: #6f42c1;
-  --policy-court-light: #f8f5ff;
-
-  --policy-planning: #20c997;
-  --policy-planning-light: #f0fdf9;
-
-  --policy-operations: var(--primary-interactive);
-  --policy-operations-light: #f0f9ff;
+  --policy-agency: var(--primary-interactive);
+  --policy-agency-light: #f0f9ff;
 
   --policy-other: #6c757d;
   --policy-other-light: #f8f9fa;
