@@ -130,7 +130,7 @@
   <div class="gallery">
 
     <!-- Row: Federal -->
-    <div class="row">
+    <div class="row federal">
       <div class="row-label federal">
         <span class="row-icon"><img src="landmark.svg" alt="Federal" /></span>
         Federal
@@ -157,7 +157,7 @@
     </div>
 
     <!-- Row: State -->
-    <div class="row">
+    <div class="row state">
       <div class="row-label state">
         <span class="row-icon"><img src="landmark.svg" alt="State" /></span>
         State
@@ -184,7 +184,7 @@
     </div>
 
     <!-- Row: Agency -->
-    <div class="row">
+    <div class="row agency">
       <div class="row-label agency">
         <span class="row-icon"><img src="landmark.svg" alt="Agency"/></span>
         Agency
@@ -211,7 +211,7 @@
     </div>
 
     <!-- Row: Other -->
-    <div class="row">
+    <div class="row other">
       <div class="row-label other">
         <span class="row-icon"><img src="document.svg" alt="Other" /></span>
         Other
@@ -467,9 +467,21 @@
     overflow-x: auto;
     background: var(--policy-other-light);
     min-height: 60px;
+    width: 1200px;
   }
 
-  /* Lane colors */
+  /* Lane-specific Stylings */
+  .row.state {
+    padding-left: 1.2rem; /* slight indent for state row */
+  }
+  .row.agency {
+    padding-left: 2.4rem; /* larger indent for agency row */
+  }
+  .row.other {
+    padding-left: 3.6rem; /* largest indent for other row */
+  }
+
+
   .row-label.federal { color: var(--policy-federal); background: var(--policy-federal-light); }
   .row-label.agency { color: var(--policy-agency); background: var(--policy-agency-light); }
   .row-label.other { color: var(--policy-other); background: var(--policy-other-light); }
