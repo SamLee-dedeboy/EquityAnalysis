@@ -1,7 +1,7 @@
 # core/openai_interaction.py
 import os
-import time
 import logging
+import asyncio
 from typing import Optional, List
 from openai import OpenAI, APIError, APIStatusError, RateLimitError, NotFoundError
 
@@ -64,17 +64,17 @@ class OpenAIInteraction:
             logger.error(f"Unexpected error creating vector store '{name}': {e}", exc_info=True)
         return None
 
-    def wait_for_vector_store_file_processing(self, vector_store_id: str, file_id: str,
+    async def wait_for_vector_store_file_processing(self, vector_store_id: str, file_id: str,
                                             timeout: int = settings.PROCESSING_TIMEOUT_SECONDS,
                                             poll_interval: int = settings.POLLING_INTERVAL_SECONDS) -> bool:
         """Polls the status of a specific file within a vector store until processed or timeout."""
-        start_time = time.time()
+        start_time = asyncio.get_event_loop().time() # Use asyncio's time for async context
         logger.info(f"Waiting up to {timeout}s for File ID {file_id} processing within VS {vector_store_id}...")
         last_status = None
-        while time.time() - start_time < timeout:
+        while asyncio.get_event_loop().time() - start_time < timeout:
             try:
-                # Use client.vector_stores.files.retrieve with the *original* file ID
-                vs_file = self.client.vector_stores.files.retrieve(
+                vs_file = await asyncio.to_thread(
+                    self.client.vector_stores.files.retrieve,
                     vector_store_id=vector_store_id,
                     file_id=file_id
                 )
@@ -100,32 +100,28 @@ class OpenAIInteraction:
 
             except NotFoundError:
                  # File IS NOT associated with the VS *yet* or bad IDs.
-                 # Let's keep polling for a short while in case it's a delay.
                  logger.warning(f"VS File {file_id} in VS {vector_store_id} not found (404). May not be linked yet or IDs incorrect. Retrying...")
-                 # Optionally add a small delay specific to 404 before the main poll_interval
-                 time.sleep(poll_interval / 2) # Example: wait half the interval
+                 await asyncio.sleep(poll_interval / 2)
             except APIStatusError as e:
-                 # Handle other API errors (like 500s)
                  logger.error(f"API error checking VS file status (File ID {file_id}, VS {vector_store_id}): {e}")
-                 # Maybe retry once on 5xx errors? For now, treat as failure.
                  return False
             except RateLimitError:
                  logger.warning(f"Rate limit hit while checking VS file status for {file_id}. Retrying after delay...")
-                 time.sleep(poll_interval * 2) # Longer delay for rate limits
+                 await asyncio.sleep(poll_interval * 2)
             except Exception as e:
                 logger.error(f"Unexpected error checking VS file status (File ID {file_id}, VS {vector_store_id}): {e}", exc_info=True)
                 return False # Stop waiting on unexpected errors
 
-            time.sleep(poll_interval)
+            await asyncio.sleep(poll_interval)
 
         logger.error(f"Timeout ({timeout}s) waiting for file {file_id} processing in VS {vector_store_id}. Last status: {last_status}")
         return False
 
-    def delete_vector_store(self, vector_store_id: str) -> bool:
+    async def delete_vector_store(self, vector_store_id: str) -> bool:
         """Deletes an OpenAI Vector Store."""
         logger.info(f"Attempting to delete OpenAI Vector Store: {vector_store_id}")
         try:
-            response = self.client.vector_stores.delete(vector_store_id=vector_store_id)
+            response = await asyncio.to_thread(self.client.vector_stores.delete, vector_store_id=vector_store_id)
             if response.deleted:
                 logger.info(f"Vector Store {vector_store_id} deleted successfully.")
             else:
@@ -144,11 +140,11 @@ class OpenAIInteraction:
             logger.error(f"Unexpected error deleting Vector Store {vector_store_id}: {e}", exc_info=True)
             return False
 
-    def delete_file(self, file_id: str) -> bool:
+    async def delete_file(self, file_id: str) -> bool:
         """Deletes an OpenAI File."""
         logger.info(f"Attempting to delete OpenAI File: {file_id}")
         try:
-            response = self.client.files.delete(file_id=file_id)
+            response = await asyncio.to_thread(self.client.files.delete, file_id=file_id)
             if response.deleted:
                  logger.info(f"File {file_id} deleted successfully.")
             else:
