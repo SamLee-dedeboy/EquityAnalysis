@@ -66,6 +66,7 @@
   $: console.log('Current Policy Analysis Data:', $currentPolicy);
   $: console.log('Current Perspective Used:', currentPerspective?.group_name);
   $: console.log('Active analysis section:', activeTab, currentAnalysisSection);
+  
 </script>
 
 <section>
@@ -74,15 +75,19 @@
     rel="stylesheet"
   />
   <div class="analysis-layout">
-    <!-- (1)Header with Document Title -->
-    <div class="header">
+    <!-- (1) Header with Document Title -->
+    <!-- <div class="header">
       <img
         src="document.svg"
         style="height: 1lh; margin-right: 0.2em; vertical-align: bottom;"
         alt="Document icon"
       />
       {$currentPolicy?.document?.title || 'No Document Selected'}
-    </div>
+    </div> -->
+
+
+     
+
     {#if !$currentPolicy}
       <!-- Initial State: No document selected or uploaded -->
       <div class="header" style="color: #6c757d;">
@@ -115,6 +120,106 @@
       </div>
     {:else if ($currentPolicy?.analysis_status === 'completed' || $currentPolicy?.source === 'preprocessed') && currentPerspective}
       <!-- Expected Case (Analysis Completed, Data Available)-->
+
+      <!-- Test Content -->
+      <!-- Header -->
+      <div style="position:relative; width:100%; height:min(48vh, 340px); border-radius:8px; overflow:hidden; margin:0 0 0.75rem 0; box-shadow:0 8px 28px rgba(0,0,0,0.18);">
+        <div
+          aria-hidden="true"
+          style="position:absolute; inset:0; width:100%; height:100%; background-image:url('head-image.png'); background-size:cover; background-position:center; background-repeat:no-repeat; display:block;"
+        >
+          <div style="position:absolute; inset:0; background: rgba(0,0,0,0.45);"></div>
+        </div>
+        <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.55) 100%);"></div>
+        <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1rem; text-align:center; color:#fff; font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; text-shadow:0 2px 8px rgba(0,0,0,0.45);">
+          <div
+            style="background:rgba(12,57,90,0.85); color:#eaf5fb; padding:0.5rem 1rem; border-radius:9999px; font-weight:600; letter-spacing:0.2px; box-shadow:0 6px 20px rgba(12,57,90,0.35); backdrop-filter:saturate(140%) blur(2px);">
+            Placeholder Subject
+          </div>
+          <h1 style="font-size:clamp(1.6rem, 4.2vw, 3rem); line-height:1.1; font-weight:800; margin:0.15rem 0 0;">
+            Placeholder for Document Title 
+          </h1>
+          <div style="font-size:clamp(1rem, 2.2vw, 1.5rem); font-weight:600; opacity:0.95;">
+            Placeholder for Caption
+          </div>
+          <p style="max-width:900px; margin:0.35rem auto 0.25rem auto; font-size:clamp(0.95rem, 1.7vw, 1.15rem); line-height:1.6; opacity:0.95;">
+            This is a placeholder for a static caption that doesn't change with perspective. I want to implement general analysis fields and eliminate some of the pre-processing.
+          </p>
+          <div style="margin-top:0.5rem; font-size:clamp(1rem, 1.8vw, 1.25rem); font-weight:700;">
+            Placeholder: 1972
+          </div>
+        </div>
+      </div>
+      <!-- Summary (Choose if dynamic or not) -->
+      <div style="font-size:1.2rem; line-height:1.5; font-weight:100; color:var(--primary-text); margin:2.5rem 0;">
+        {currentAnalysisSection.summary}
+      </div>
+      <!-- Perspective Tabs -->
+      {#if perspectives.length > 1}
+        <div class="perspective-nav-buttons">
+          {#each perspectives as perspective, index}
+            <button
+              style="display:inline-flex; align-items:center; justify-content:center; padding:1.5rem 2rem; font-size:1rem; border:2px solid {perspectiveIndex === index ? 'var(--primary-interactive)' : '#e5e7eb'}; border-radius:12px; color:{perspectiveIndex === index ? 'white' : 'var(--primary-text)'}; background:{perspectiveIndex === index ? 'var(--primary-interactive)' : 'white'}; min-height:80px; font-weight:500; transition:all 0.2s ease; white-space:nowrap; cursor:pointer; box-shadow:0 2px 4px rgba(0,0,0,0.05); margin-right:0.75rem;"
+              class:selected={perspectiveIndex === index}
+              on:click={() => (perspectiveIndex = index)}
+              aria-pressed={perspectiveIndex === index}
+            >
+              {perspective.group_name}
+            </button>
+          {/each}
+        </div>
+      {/if}
+      <!-- Equity Tabs -->
+      <div aria-hidden="true" style="display:grid; grid-template-columns:1fr; gap:1rem; align-items:stretch; margin-top: 3rem;">
+        {#each equitySections as section}
+          <div class="test-ptabs">
+            <div>
+              <div style="display:flex; gap:1rem; align-items:flex-start; margin-top:0.5rem;">
+                <span class="test-pill" style="background-color: {section.color}">{section.label}</span>
+                <div style="flex:1; min-width:0;">
+                  <strong>Positive Findings</strong>
+                  <p style="margin-top:0.5rem; word-break:break-word;">
+                    {currentAnalysisSection[section.key]?.positive_findings}
+                  </p>
+                </div>
+                <div style="flex:1; min-width:0;">
+                  <strong>Areas of Concern</strong>
+                  <p style="margin-top:0.5rem; word-break:break-word;">
+                    {currentAnalysisSection[section.key]?.concerns}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        {/each}
+      </div>
+      <!-- Divider -->
+      <div class="styled-divider" role="separator" aria-label="Analysis divider">
+        <div class="line" aria-hidden="true"></div>
+        <div class="badge">
+          {currentPerspective?.group_name ?? 'Perspective'} · AI-Selected Excerpts
+        </div>
+        <div class="line" aria-hidden="true"></div>
+      </div>
+      <!-- Sources -->
+      {#if currentAnalysisSection?.sources?.length}
+        <div class="sources">
+          <strong>Sources:</strong>
+          <ul>
+            {#each currentAnalysisSection.sources as source}
+              <li>{@html source.data}</li>
+            {/each}
+          </ul>
+        </div>
+      {/if}
+
+
+
+
+
+
+
       <!-- (2) Perspective Carousel -->
       {#if perspectives.length > 1}
         <div class="perspective-nav">
@@ -376,6 +481,60 @@
 </section>
 
 <style>
+  /* --- Test Classes --- */
+  .test-ptabs {
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    min-height: 80px;
+  }
+    .styled-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .styled-divider .line {
+    flex: 1 1 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.12), transparent);
+  }
+
+  .styled-divider .badge {
+    background: linear-gradient(135deg, rgba(12,57,90,0.95), rgba(25,118,210,0.95));
+    color: #fff;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 18px rgba(12,57,90,0.18);
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1;
+  }
+  .test-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 180px;       
+    height: 80px;         /* fixed height for uniform size */
+    margin-right: 2rem;
+    padding: 0 0.8rem;
+    font-weight: bold;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    color: #fff;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
   /* --- Layout --- */
   .analysis-layout {
     max-width: 1400px;
