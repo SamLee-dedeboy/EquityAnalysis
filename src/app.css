@@ -15,18 +15,20 @@
   --equity-color-recognitional: #feb3b1;
   --equity-color-transformational: #fe6d73;
 
-  /* Policy Scope Tier Colors */
-  --policy-federal: #dc3545;
-  --policy-federal-light: #fff5f5;
+  /* Policy Scope Tier Colors — muted blue-gray scale (slightly more grey) */
+  --policy-federal: #2f393b;
+  --policy-federal-light: #e9edee;
 
-  --policy-state: #fd7e14;
-  --policy-state-light: #fff8f0;
+  --policy-state: #556162;
+  --policy-state-light: #eef2f3;
 
-  --policy-agency: var(--primary-interactive);
-  --policy-agency-light: #f0f9ff;
+  --policy-agency: #95a0a3;
+  --policy-agency-light: #f4f6f6;
 
-  --policy-other: #6c757d;
-  --policy-other-light: #f8f9fa;
+  --policy-other: #6B4B3A; /* muted brown — warm, restrained */
+  --policy-other-light: #F5ECE6; /* very light warm tint for surfaces */
+
+  --track-color: #f6f6f6;
 }
 
 /* Reset margins/padding */

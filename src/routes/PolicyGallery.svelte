@@ -465,7 +465,7 @@
     padding: 0.5rem;
     border-radius: 10px;
     overflow-x: auto;
-    background: var(--policy-other-light);
+    background: var(--track-color);
     min-height: 60px;
     width: 1200px;
   }
