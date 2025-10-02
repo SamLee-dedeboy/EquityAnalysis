@@ -4,6 +4,13 @@
   function closeModal() {
     dispatch('close');
   }
+  import { uploadTrigger } from '../stores/uploadTrigger.js';
+
+  function handleGalleryButtonClick() {
+    uploadTrigger.set(true);
+    window.location.hash = '#/Tool';
+    console.log("Upload store set to true");
+  }
 </script>
 
 <section>
@@ -87,9 +94,9 @@
           <br /> Upload a PDF policy document to begin analysis
         </p>
         <!-- Placeholder Button -->
-        <button on:click={() => (window.location.hash = '#/tool')}
-          >Upload Policy</button
-        >
+        <button 
+          on:click={handleGalleryButtonClick}
+        >Upload Policy</button>
       </div>
       <!-- Recent Documents Section (Static) -->
       <div class="recent-documents" style="margin-top:2rem;">

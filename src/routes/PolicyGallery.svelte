@@ -24,6 +24,7 @@
 
   let policies = [];
 
+
   // --- Lifecycle Hook ---
   onMount(async () => {
     policies = await fetchPolicies();
@@ -37,12 +38,12 @@
     window.location.hash = '#/aview';
   }
 
-  // Helper functions to check if a policy belongs to a specific tier
+  // Filters: Helper functions to check if a policy belongs to a specific tier
   function isFederal(policy) {
     return (
-      policy.document.type === 'federal' ||
-      policy.document.title.toLowerCase().includes('federal') ||
-      policy.document.title.toLowerCase().includes('act')
+        policy.document.type === 'federal' ||
+        policy.document.title.toLowerCase().includes('federal') ||
+        policy.document.title.toLowerCase().includes('act')
     );
   }
 
@@ -60,19 +61,28 @@
     return (
       dtype === 'state' ||
       title.includes('state') ||
-      title.includes('california') ||
-      title.includes('sgma') ||
-      title.includes('sustainable groundwater') ||
-      title.includes('human right to water') ||
-      title.includes('wrd 1641') ||
-      title.includes('decision 1641') ||
-      title.includes('d-1641')
+      title.includes('california')
+
     );
   }
 
   function isOther(policy) {
     return !isFederal(policy) && !isState(policy) && !isAgency(policy);
   }
+
+  // Testing Helper Functions
+  // function isFederal(policy) {
+  //   return (policy.test_fields.test_scope || '').toLowerCase() === 'federal';
+  // }
+
+  // function isState(policy) {
+  //   return (policy.test_fields.test_scope || '').toLowerCase() === 'state';
+  // }
+
+  // function isAgency(policy) {
+  //   return (policy.test_fields.test_scope || '').toLowerCase() === 'agency';
+  // }
+
 </script>
 
 <section>
@@ -245,6 +255,7 @@
         on:click={() => (docUp = true)}
         title="Add a new policy"
         aria-label="Add Policy"
+        style="display: block; margin: 0 auto;"
       >
         <div class="add-icon">
           <img src="plus.svg" alt="Plus Icon" style="width: 2rem; height: 2rem;" />
@@ -626,6 +637,7 @@
     transition: all 0.2s ease;
     text-align: center;
     min-width: 300px;
+
   }
 
   .add-policy-card:hover {

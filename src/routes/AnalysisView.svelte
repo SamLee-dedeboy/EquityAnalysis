@@ -134,19 +134,19 @@
         <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1rem; text-align:center; color:#fff; font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; text-shadow:0 2px 8px rgba(0,0,0,0.45);">
           <div
             style="background:rgba(12,57,90,0.85); color:#eaf5fb; padding:0.5rem 1rem; border-radius:9999px; font-weight:600; letter-spacing:0.2px; box-shadow:0 6px 20px rgba(12,57,90,0.35); backdrop-filter:saturate(140%) blur(2px);">
-            Placeholder Subject
+            {$currentPolicy?.test_fields?.test_subject || 'Placeholder Subject'}
           </div>
           <h1 style="font-size:clamp(1.6rem, 4.2vw, 3rem); line-height:1.1; font-weight:800; margin:0.15rem 0 0;">
-            Placeholder for Document Title 
+            {$currentPolicy?.test_fields?.test_title || 'Placeholder Title'}
           </h1>
           <div style="font-size:clamp(1rem, 2.2vw, 1.5rem); font-weight:600; opacity:0.95;">
-            Placeholder for Caption
+            {$currentPolicy?.test_fields?.test_short_caption || 'Placeholer Short Caption'}
           </div>
           <p style="max-width:900px; margin:0.35rem auto 0.25rem auto; font-size:clamp(0.95rem, 1.7vw, 1.15rem); line-height:1.6; opacity:0.95;">
-            This is a placeholder for a static caption that doesn't change with perspective. I want to implement general analysis fields and eliminate some of the pre-processing.
+            {$currentPolicy?.test_fields?.test_long_caption || 'Placeholder Long Caption'}
           </p>
           <div style="margin-top:0.5rem; font-size:clamp(1rem, 1.8vw, 1.25rem); font-weight:700;">
-            Placeholder: 1972
+            {$currentPolicy?.test_fields?.test_date || '...'}
           </div>
         </div>
       </div>
@@ -176,7 +176,10 @@
             <div>
               <div style="display:flex; gap:1rem; align-items:flex-start; margin-top:0.5rem;">
                 <span class="test-pill" style="background-color: {section.color}">{section.label}</span>
-                <div style="flex:1; min-width:0;">
+                <p style = "flex:1; min-width:0;">
+                  {currentAnalysisSection[section.key]?.findings}
+                </p>
+                <!-- <div style="flex:1; min-width:0;">
                   <strong>Positive Findings</strong>
                   <p style="margin-top:0.5rem; word-break:break-word;">
                     {currentAnalysisSection[section.key]?.positive_findings}
@@ -187,13 +190,54 @@
                   <p style="margin-top:0.5rem; word-break:break-word;">
                     {currentAnalysisSection[section.key]?.concerns}
                   </p>
-                </div>
+                </div> -->
               </div>
             </div>
 
           </div>
         {/each}
       </div>
+
+      <div>
+        <div class="section" in:slide aria-labelledby="overall-insights" style="background: white; margin-top: 1.5rem;">
+          <h2 id="overall-insights" style="font-size:1.5rem; font-weight:800; margin:0 0 0.75rem 0; color:var(--primary-text);">
+            Overall Insights
+          </h2>
+
+          <div class="columns" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:1.5rem; margin-top:1rem;">
+            <div class="box" aria-label="Positive insights" style="background-color: #eee;">
+              <strong style="display:block; font-size:1.05rem; margin-bottom:0.5rem;">
+                Positive Insights
+              </strong>
+              <p style="margin:0;">
+                {$currentPolicy?.overall_summary_and_recommendations?.key_equity_strengths || '...'}
+              </p>
+            </div>
+
+            <div class="box" aria-label="Negative insights" style="background-color: #eee;">
+              <strong style="display:block; font-size:1.05rem; margin-bottom:0.5rem;">
+                Key Equity Gaps
+              </strong>
+              <p style="margin:0;">
+                {$currentPolicy?.overall_summary_and_recommendations?.key_equity_gaps || '...'}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" in:slide aria-labelledby="recommendations" style="margin-top:1rem; background: white;">
+          <h2 id="recommendations" style="font-size:1.5rem; font-weight:800; margin:0 0 0.75rem 0; color:var(--primary-text);">
+            Recommendations
+          </h2>
+
+          <div style="margin-top:1rem;">
+            <p>
+              {$currentPolicy?.overall_summary_and_recommendations?.recommendations || '...'}
+            </p>
+          </div>
+        </div>
+      </div>
+
       <!-- Divider -->
       <div class="styled-divider" role="separator" aria-label="Analysis divider">
         <div class="line" aria-hidden="true"></div>
@@ -207,18 +251,17 @@
         <div class="sources">
           <strong>Sources:</strong>
           <ul>
-            {#each currentAnalysisSection.sources as source}
-              <li>{@html source.data}</li>
-            {/each}
+        {#each currentAnalysisSection.sources.slice(0, 3) as source}
+          <li>{@html source.data}</li>
+        {/each}
           </ul>
+          {#if currentAnalysisSection.sources.length > 3}
+        <div style="margin-top:0.5rem; color:#666; font-size:0.95rem;">
+          And {currentAnalysisSection.sources.length - 3} more...
+        </div>
+          {/if}
         </div>
       {/if}
-
-
-
-
-
-
 
       <!-- (2) Perspective Carousel -->
       {#if perspectives.length > 1}

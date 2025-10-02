@@ -18,6 +18,8 @@
     fetchPolicyDataById,
   } from '../lib/stores/currentPolicy.js';
 
+  import { uploadTrigger } from '../lib/stores/uploadTrigger.js'; 
+
   // --- State Variables ---
   let policies = []; // Dynamically loaded and updated from API
   let isUploading = false; // True if file upload/VS creation is in progress
@@ -25,6 +27,14 @@
   let analysisPollingTimer = null; // Timer for polling analysis status
   let analysisResultFetched = false; // Flag to prevent multiple fetches/displays of the full analysis JSON
   let currentDoc = null; // Full policy object for AnalysisView to render
+
+  let uploadLabel; // Reference to the hidden file input element
+
+  $: if ($uploadTrigger === true && uploadLabel) {
+    console.log('Trigger received — clicking file input');
+    uploadLabel.click();             // Simulate user click
+    uploadTrigger.set(null);        // Reset the trigger
+  }
 
   const ANALYSIS_POLLING_INTERVAL_MS = 5000; // Poll every 5 seconds for analysis status
 
@@ -420,6 +430,7 @@
       <!-- (1.1) Upload Button -->
       <label
         class="upload-button"
+        bind:this={uploadLabel}
         class:uploading={isUploading}
         style="display:flex;align-items:center;gap:6px;padding:8px 10px; min-width:100%; width:100%; justify-content:center; cursor:pointer;"
       >

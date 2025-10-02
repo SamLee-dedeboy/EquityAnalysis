@@ -36,6 +36,15 @@ JSON_SKELETON = """
     "size_kb": 0,
     "upload_date_utc": "..."
   },
+  "test_fields": {
+    "test_pic": "...",
+    "test_subject": "25",
+    "test_title": "40",
+    "test_short_caption": "50",
+    "test_long_caption": "120",
+    "test_date": "...", 
+    "test_scope": "..."
+  },
   "overall_analysis_by_perspective": [
     {
       "group_name": "Policy Makers",
@@ -43,11 +52,11 @@ JSON_SKELETON = """
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Policy Makers",
-          "summary": "...",
-          "recognitional_equity": { "title": "Recognitional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-          "procedural_equity": { "title": "Procedural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-          "distributional_equity": { "title": "Distributional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-          "structural_equity": { "title": "Structural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "summary": "200",
+          "recognitional_equity": { "title": "Recognitional Equity", "findings": "150" },
+          "procedural_equity": { "title": "Procedural Equity", "findings": "150" },
+          "distributional_equity": { "title": "Distributional Equity", "findings": "150" },
+          "structural_equity": { "title": "Structural Equity", "findings": "150" },
           "sources": []
         },
         "vulnerable_groups_analysis": {
@@ -83,11 +92,11 @@ JSON_SKELETON = """
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Residents",
-          "summary": "...",
-          "recognitional_equity": { "title": "Recognitional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-          "procedural_equity": { "title": "Procedural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-          "distributional_equity": { "title": "Distributional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-          "structural_equity": { "title": "Structural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "summary": "200",
+          "recognitional_equity": { "title": "Recognitional Equity", "findings": "150" },
+          "procedural_equity": { "title": "Procedural Equity", "findings": "150" },
+          "distributional_equity": { "title": "Distributional Equity", "findings": "150" },
+          "structural_equity": { "title": "Structural Equity", "findings": "150" },
           "sources": []
         },
         "vulnerable_groups_analysis": {
@@ -123,11 +132,11 @@ JSON_SKELETON = """
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Farmers/Business Owners",
-          "summary": "...",
-          "recognitional_equity": { "title": "Recognitional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-          "procedural_equity": { "title": "Procedural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-          "distributional_equity": { "title": "Distributional Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
-          "structural_equity": { "title": "Structural Equity", "positive_findings": "...", "concerns": "...", "conclusion": "..." },
+          "summary": "200",
+          "recognitional_equity": { "title": "Recognitional Equity", "findings": "150" },
+          "procedural_equity": { "title": "Procedural Equity", "findings": "150" },
+          "distributional_equity": { "title": "Distributional Equity", "findings": "150" },
+          "structural_equity": { "title": "Structural Equity", "findings": "150" },
           "sources": []
         },
         "vulnerable_groups_analysis": {
@@ -322,32 +331,90 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
     
     # --- Formatter Prompt (Updated for new JSON structure) ---
     formatter_prompt = textwrap.dedent(f"""
-    You are an expert data structurer and equity analyst. Your task is to populate the provided JSON structure.
-    All generated content in the JSON must be derived **ONLY** from the raw analysis texts provided below.
-    Crucially, all summary, narrative, and description fields must use an **indicative, tentative, or suggestive tone**.
-    Avoid definitive or authoritative statements. Employ phrases like "This may indicate...", "It suggests that...",
-    "A potential interpretation is...", "It appears to...", "Could be seen as...", "There is an indication that...",
-    "The document seems to...", "It might imply...", etc.
-    If the provided raw analysis text does not contain information for a specific field in the JSON, use phrases like "Not explicitly indicated by the document." or "The document does not appear to provide details on this aspect."
+    ## IDENTITY ##
+    You are an expert data structurer and equity analyst.
 
-    **Instructions:**
-    1.  Carefully read all provided raw text analyses. Each raw analysis is clearly labeled (e.g., "RAW ANALYSIS TEXT FOR: PERSPECTIVE_POLICY_MAKERS_GENERAL").
-    2.  Fill in every "..." placeholder in the JSON skeleton with **detailed and comprehensive** information synthesized from these analysis texts. Do not over-summarize; preserve key details and nuanced interpretations.
-    3.  Ensure all content strictly adheres to the schema and the required indicative tone.
-    4.  **DO NOT ADD ANY SOURCE INFORMATION OR CITATIONS TO THE TEXT FIELDS OR THE 'sources' ARRAYS.** The 'sources' arrays in the JSON skeleton will be populated separately by Python.
-    5.  For the `overall_analysis_by_perspective` array, there will be one entry for each stakeholder group (Policy Makers, Residents, Farmers/Business Owners).
-        *   For each `group_name`, ensure the `group_description` is precisely copied from the provided JSON_SKELETON's default value for that group.
-        *   Within each perspective's `analyses` object, fill in the four types of analysis: `general_equity_assessment`, `vulnerable_groups_analysis`, `severity_impact_analysis`, and `mitigation_strategies_analysis`.
-        *   **For `general_equity_assessment` within each perspective:** Break down the corresponding "general" raw analysis into the sub-fields for each of the four equity dimensions (Recognitional, Procedural, Distributional, Structural). Aim to identify both "positive_findings" and "concerns" if discernible, and provide a "conclusion".
-        *   **For other analysis types (vulnerable groups, severity, mitigation) within each perspective:** Fill their respective `summary`, `identified_groups_and_impacts`, `high_severity_impacts`, `identified_strategies`, etc., fields using the relevant raw analysis text.
-    6.  Ensure the `overall_summary_and_recommendations` section is populated using any relevant overarching themes or conclusions found in the raw analyses.
-    7.  The `id`, `source`, and `document` fields at the top-level of the JSON will be populated by Python, leave them as `...` in your output.
-    8.  Ensure the output is a single, valid JSON object and nothing else.
+    Your core task is to populate a provided JSON structure based solely on raw, unstructured analysis texts.
 
-    **JSON SKELETON TO POPULATE (Text fields only, leaving 'id', 'source', 'document' as '...'):**
+    ---
+
+    ## BEHAVIOR ##
+
+    ### A. CONTENT RULES
+
+    1. **Content Sourcing**  
+    - All generated content must be derived **only** from the raw analysis texts provided below.
+    - Do **not** use external knowledge, assumptions, or hallucinate missing context.
+
+    2. **Indicative Tone**  
+    - All summary, narrative, and description fields must use an **indicative, tentative, or suggestive tone**.
+    - Avoid definitive or authoritative claims.
+    - Use phrases like:
+        - “This may indicate...”
+        - “It suggests that...”
+        - “A potential interpretation is...”
+        - “Could be seen as...”
+        - “There is an indication that...”
+        - “The document appears to...”
+        - “Not explicitly indicated by the document.”
+
+    3. **Perspective-Specific Behavior**
+    - In `overall_analysis_by_perspective`, one entry exists per stakeholder group (Policy Makers, Residents, Farmers/Business Owners).
+        - For each `group_name`, **copy the exact `group_description`** from the JSON skeleton default.
+        - Populate all four analyses:
+        - `general_equity_assessment`
+        - `vulnerable_groups_analysis`
+        - `severity_impact_analysis`
+        - `mitigation_strategies_analysis`
+        - For `general_equity_assessment`, break down the corresponding “general” raw analysis into four subfields:
+        - Recognitional
+        - Procedural
+        - Distributional
+        - Structural
+        - Treat each `summary` subfield independently. Each one should contain ~200 characters, regardless of other fields. Do not compress or shorten later ones.
+        - Treat each `findings` subfield independently. Each one should contain ~150 characters, regardless of other fields. Do not compress or shorten later ones.
+        - For the remaining three analyses, fill in all subfields (`summary`, `identified_groups_and_impacts`, etc.) using the relevant raw analysis text.
+
+    4. **Overarching Summary**
+    - Populate the `overall_summary_and_recommendations` section with any cross-cutting or overarching insights derived from the raw texts.
+    - Maintain the same tentative tone.
+
+    ---
+
+    ### B. FORMATTING & STRUCTURE RULES
+
+    5. **Placeholder Replacement**
+    - Replace every `"..."` placeholder with fully formed, appropriate content.
+    - Preserve all structural elements of the original JSON schema.
+
+    6. **Numeric Placeholders**
+    - Any field containing a number (e.g., `"40"`, `"120"`) should be replaced with text of **approximately that many characters**.
+    - These are soft targets, not strict limits.
+
+    7. **Schema Adherence**
+    - Do **not** alter the schema structure in any way.
+    - Do **not** include citations, URLs, or references in any content field.
+    - Do **not** modify the `sources` arrays — they will be handled separately by Python.
+
+    8. **Top-Level Metadata Fields**
+    - Leave the fields `id`, `source`, and `document` as `"..."`.
+
+    9. **Test Fields Completion**
+    - Populate the `test_fields` object with careful attention:
+        - You should populate "test_pic" one of the following strings "head-image.png", "head-image-2.png", or "head-image-3.png" depending on the main subject of the document being 
+        - You should populate "test_subject" with the main subject of the document, e.g. "Managing Potable Tap Water", "Federal Water Pollution Control", etc.
+        - You should populate "test_title" with the actual title of the document e.g. "The Clean Water Act". Or if the title is not available, create a title based on the document's content. 
+        - You should populate "test_short_caption" with a short caption for the analysis' findings like "In 50 Years: Progress and Persistent Challenges" or "An Equity-Focused Review of Your Document"
+        - You should populate "test_long_caption" with a slightly longer caption for the analysiis that provides more context e.g. "An equity analysis of America's landmark environmental legislation and its impact on communities across the nation"
+        - You should populate "test_date" with the date the document was enacted or published, if available e.g. "Enacted: 1972" or "Published: 2020". If not available, leave the field completely blank.
+        - You should populate "test_scope" with either the strings "federal", "state", "agency", or "other" based on the document's scope. 
+    ---
+
+    ## INPUTS ##
+    **JSON SKELETON TO POPULATE (Text fields only, leaving 'id', 'source', 'document' as '...'):**  
     {JSON_SKELETON}
 
-    **RAW TEXT ANALYSES TO USE:**
+    **RAW TEXT ANALYSES TO USE:**  
     {raw_analyses_text_str}
     """)
 
