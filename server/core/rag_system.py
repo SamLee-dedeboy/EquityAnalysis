@@ -5,6 +5,7 @@ import time
 import json
 import sqlite3
 import uuid
+import asyncio
 
 from typing import Optional, List, Dict, Any, Tuple
 from openai import APIError, APIStatusError, RateLimitError
@@ -256,7 +257,7 @@ class HybridRAGSystem:
             """).strip()
 
     # Method main.py calls for chat queries
-    def answer_question(
+    async def answer_question(
         self,
         session_id: str,
         query: str,
@@ -277,20 +278,24 @@ class HybridRAGSystem:
             logger.error("Database connection not provided to answer_question.")
             return "Error: Internal server issue (DB connection missing for RAG).", [], []
 
-        cursor = db_conn.cursor()
         user_vector_store_id = None
         original_filename = "N/A"
         document_analysis_status = "not_found" # Using 'analysis_status' from DB for RAG condition
 
         try:
             # Fetch document info and OpenAI VS ID from DB
-            cursor.execute("""
+            cursor = await asyncio.to_thread(db_conn.cursor)
+            doc_data = await asyncio.to_thread(
+                cursor.execute,
+                """
                 SELECT d.original_filename, d.analysis_status, o.openai_vector_store_id
                 FROM documents d
                 LEFT JOIN openai_resources o ON d.document_id = o.document_id
                 WHERE d.document_id = ? AND d.source = 'user' -- Ensure it's a user document
-            """, (session_id,))
-            doc_data = cursor.fetchone()
+                """,
+                (session_id,)
+            )
+            doc_data = await asyncio.to_thread(cursor.fetchone)
 
             if not doc_data:
                 logger.warning(f"No active user document found in DB for session {session_id}. Query will proceed without document-specific RAG.")
@@ -330,7 +335,7 @@ class HybridRAGSystem:
             kwargs = {
                 "model": self.config.RESPONSES_MODEL,
                 "input": prompt_content_string,
-                "temperature": self.config.TEMPERATURE,
+                #"temperature": self.config.TEMPERATURE,
                 "max_output_tokens": self.config.MAX_OUTPUT_TOKENS,
             }
 
@@ -339,7 +344,7 @@ class HybridRAGSystem:
                 kwargs["include"] = ["file_search_call.results"]
             
             # --- MAKE OPENAI API CALL ---
-            response_openai = self.openai_interaction.client.responses.create(**kwargs)
+            response_openai = await asyncio.to_thread(self.openai_interaction.client.responses.create, **kwargs)
 
             # Parse the OpenAI response to extract the final answer and any retrieved sources
             final_answer: Optional[str] = None

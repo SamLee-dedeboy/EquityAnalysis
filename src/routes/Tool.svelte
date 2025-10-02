@@ -206,9 +206,16 @@
 
   // Polling function for analysis status (updates sidebar and ReportView state)
   async function pollAnalysisStatus(sessionId) {
-    if (analysisResultFetched) {
+    if (
+      $currentPolicy?.id === sessionId &&
+      $currentPolicy?.overall_analysis_by_perspective &&
+      analysisResultFetched
+    ) {
       clearInterval(analysisPollingTimer);
       analysisPollingTimer = null;
+      console.log(
+        `Polling stopped: Full analysis for ${sessionId} already loaded.`
+      );
       return;
     }
 
@@ -270,12 +277,22 @@
       if (newStatus === 'completed') {
         clearInterval(analysisPollingTimer);
         analysisPollingTimer = null;
+        console.log(
+          `Analysis status for ${sessionId} is 'completed'. Attempting to fetch full result.`
+        );
+        await new Promise(resolve => setTimeout(resolve, 500)); // Small delay for DB consistency
         await displayAnalysisResult(sessionId);
       } else if (newStatus === 'failed') {
         clearInterval(analysisPollingTimer);
         analysisPollingTimer = null;
         console.error(
           `Analysis for ${sessionId} failed: ${result.analysis_error}`
+        );
+        analysisResultFetched = false;
+      } else {
+        // If it's any other in-progress status, just log and continue polling
+        console.log(
+          `Analysis for ${sessionId} is still in progress: ${newStatus}. Continuing to poll.`
         );
       }
     } catch (error) {
@@ -301,6 +318,7 @@
         analysis_status: 'failed',
         analysis_error: 'Network error.',
       }; // Update currentDoc
+      analysisResultFetched = false;
     }
   }
 
@@ -308,25 +326,20 @@
   async function displayAnalysisResult(sessionId) {
     if (
       $currentPolicy?.id === sessionId &&
-      $currentPolicy?.overall_analysis_by_perspective
+      $currentPolicy?.overall_analysis_by_perspective &&
+      analysisResultFetched // Add analysisResultFetched check here for early exit
     ) {
       console.log(
         'Full analysis result already present in store for this session. Skipping API call.'
       );
-      analysisResultFetched = true; // Mark as fetched since we have it
       return;
     }
-
-    analysisResultFetched = false; // Always reset before potentially fetching new data
 
     try {
       // Use fetchPolicyDataById to get the full policy data (handles both user and preprocessed)
       const fullPolicyData = await fetchPolicyDataById(sessionId);
 
-      if (
-        fullPolicyData.analysis_status === 'completed' ||
-        fullPolicyData.analysis_status === 'failed'
-      ) {
+      if (fullPolicyData.analysis_status === 'completed') {
         policies = policies.map(p => {
           if (p.id === sessionId) {
             return {
@@ -340,35 +353,41 @@
         currentPolicy.set(fullPolicyData); // Set the full data to the store
         currentDoc = fullPolicyData; // Update currentDoc with full data
         currentSessionId = sessionId;
-        analysisResultFetched = true; // Mark as fetched after successful full load
+        analysisResultFetched = true; // Mark as fetched ONLY after successful full load
         console.log(
           'Analysis completed. Chat should be active for session:',
           currentSessionId
         );
-      } else {
+      } else if (fullPolicyData.analysis_status === 'failed') {
+        // Explicitly handle failed state from fetchPolicyDataById
         console.error(
-          "Analysis result was not 'completed' or 'failed' when fetched:",
-          fullPolicyData.analysis_status
+          "Analysis result was 'failed' when fetched via /api/policies:",
+          fullPolicyData.analysis_status,
+          fullPolicyData.analysis_error
         );
-        analysisResultFetched = false; // Reset if status is not final
+        // Ensure currentPolicy and currentDoc reflect the failure
         currentPolicy.update(p => ({
           ...p,
-          analysis_status: fullPolicyData.analysis_status,
+          analysis_status: 'failed',
           analysis_error:
             fullPolicyData.analysis_error ||
-            'Unexpected status when retrieving full report.',
+            'Failed to retrieve analysis report data after completion.',
         }));
         currentDoc = {
           ...currentDoc,
-          analysis_status: fullPolicyData.analysis_status,
+          analysis_status: 'failed',
           analysis_error:
             fullPolicyData.analysis_error ||
-            'Unexpected status when retrieving full report.',
+            'Failed to retrieve analysis report data after completion.',
         };
+      } else {
+        console.error(
+          'Analysis result from /api/policies had an unexpected status:',
+          fullPolicyData.analysis_status
+        );
       }
     } catch (error) {
       console.error('Error fetching analysis result:', error);
-      analysisResultFetched = false;
       // Ensure currentPolicy and currentDoc reflect the failure
       currentPolicy.update(p => ({
         ...p,
@@ -473,10 +492,12 @@
                 {#if policy.source === 'user'}
                   <span
                     class="analysis-status-dot"
-                    class:status-pending={policy.analysis_status ===
-                      'pending' ||
-                      policy.analysis_status === 'waiting_vs_processing' ||
-                      policy.analysis_status === 'analysis_generating'}
+                    class:status-pending={[
+                      'pending',
+                      'waiting_vs_processing',
+                      'vs_processing_completed',
+                      'generating_analysis_report',
+                    ].includes(policy.analysis_status)}
                     class:status-completed={policy.analysis_status ===
                       'completed'}
                     class:status-failed={policy.analysis_status === 'failed'}
