@@ -7,11 +7,26 @@
 
   --primary-background: #0c8ba71c;
   --primary-text: #3f3f3f;
+
+  /* Equity Colors */
   --equity-color-procedural: #227c9d;
   --equity-color-structural: #17c3b2;
   --equity-color-distributional: #ffcb77;
   --equity-color-recognitional: #feb3b1;
   --equity-color-transformational: #fe6d73;
+
+  /* Policy Scope Tier Colors */
+  --policy-federal: #dc3545;
+  --policy-federal-light: #fff5f5;
+
+  --policy-state: #fd7e14;
+  --policy-state-light: #fff8f0;
+
+  --policy-agency: var(--primary-interactive);
+  --policy-agency-light: #f0f9ff;
+
+  --policy-other: #6c757d;
+  --policy-other-light: #f8f9fa;
 }
 
 /* Reset margins/padding */
