@@ -5,6 +5,7 @@ import secrets
 import json
 import time
 import sqlite3
+import asyncio
 from typing import List, Optional, Dict
 
 from contextlib import asynccontextmanager
@@ -145,21 +146,23 @@ async def ensure_session(response: Response, session_id: str | None = Cookie(Non
      If a session_id exists, its 'last_active_at' timestamp is updated in the DB.
      """
      try:
-         cursor = db.cursor()
+         cursor = await asyncio.to_thread(db.cursor)
          
          if session_id is None:
              session_id = str(uuid.uuid4())
              logger.info(f"New session initiated with ID: {session_id}")
              response.set_cookie(key="session_id", value=session_id, httponly=True, samesite='lax')
              
-             cursor.execute("INSERT OR IGNORE INTO sessions (session_id, last_active_at) VALUES (?, CURRENT_TIMESTAMP)", (session_id,))
-             db.commit()
+             await asyncio.to_thread(cursor.execute, "INSERT OR IGNORE INTO sessions (session_id, last_active_at) VALUES (?, CURRENT_TIMESTAMP)", (session_id,))
+             await asyncio.to_thread(db.commit)
          else:
              logger.debug(f"Existing session ID '{session_id}' found. Updating last_active_at.")
-             cursor.execute("UPDATE sessions SET last_active_at = CURRENT_TIMESTAMP WHERE session_id = ?", (session_id,))
-             db.commit()
+             await asyncio.to_thread(cursor.execute, "UPDATE sessions SET last_active_at = CURRENT_TIMESTAMP WHERE session_id = ?", (session_id,))
+             await asyncio.to_thread(db.commit)
      except sqlite3.Error as e:
          logger.error(f"Database error during session management for {session_id}: {e}", exc_info=True)
+         # Rollback is also synchronous
+         await asyncio.to_thread(db.rollback)
      
      return session_id
 
@@ -190,34 +193,40 @@ async def upload_document(
     
     # Use the CORRECT path for session-specific user data. This is where the uploaded file will be temporarily saved.
     session_data_dir = os.path.join(USER_PERSISTENT_DATA_BASE_DIR, active_session_id)
-    os.makedirs(session_data_dir, exist_ok=True)
+    await asyncio.to_thread(os.makedirs, session_data_dir, exist_ok=True)
     temp_file_path = os.path.join(session_data_dir, f"{active_session_id}_{original_filename}")
 
     if rag_system is None:
         logger.error("RAG system is None during upload, indicating startup failure.")
         raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="RAG system not initialized. Cannot process upload.")
 
-    cursor = db.cursor()
-    
     try:
         logger.info(f"Receiving file '{original_filename}' for session: {active_session_id}. Saving temporarily to: {temp_file_path}")
-        with open(temp_file_path, "wb") as buffer:
-            content = await file.read()
-            buffer.write(content)
+        
+        content = await file.read()
+        
+        def _write_file_sync(path, content_bytes):
+            with open(path, "wb") as buffer:
+                buffer.write(content_bytes)
+        await asyncio.to_thread(_write_file_sync, temp_file_path, content)
         logger.info(f"File saved to temporary location.")
 
-        file_size_kb = os.path.getsize(temp_file_path) // 1024
-        title = equity_analyzer.get_pdf_title(temp_file_path, original_filename)
-        upload_date_utc = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(os.path.getmtime(temp_file_path)))
+        file_size_kb = (await asyncio.to_thread(os.path.getsize, temp_file_path)) // 1024
+        title = await asyncio.to_thread(equity_analyzer.get_pdf_title, temp_file_path, original_filename)
+
+        import time
+        upload_date_utc = await asyncio.to_thread(time.strftime, '%Y-%m-%dT%H:%M:%SZ', await asyncio.to_thread(time.gmtime, await asyncio.to_thread(os.path.getmtime, temp_file_path)))
 
         doc_id = active_session_id 
-        cursor.execute("""
+
+        cursor = await asyncio.to_thread(db.cursor)
+        await asyncio.to_thread(cursor.execute, """
             INSERT OR REPLACE INTO documents 
             (document_id, session_id, original_filename, document_title, file_size_kb, upload_date_utc, source, analysis_status)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """, (doc_id, active_session_id, original_filename, title, file_size_kb, upload_date_utc, "user", "pending"))
         
-        db.commit()
+        await asyncio.to_thread(db.commit)
 
         success_rag, message_rag, file_id_openai, vector_store_id_openai = rag_system.add_user_document_for_session(
             session_id=active_session_id,
@@ -227,10 +236,10 @@ async def upload_document(
         )
         
         if success_rag:
-            cursor.execute("UPDATE documents SET analysis_status = ? WHERE document_id = ?", ("vs_processing_pending", doc_id))
-            db.commit()
+            cursor = await asyncio.to_thread(db.cursor)
+            await asyncio.to_thread(cursor.execute, "UPDATE documents SET analysis_status = ? WHERE document_id = ?", ("vs_processing_pending", doc_id))
+            await asyncio.to_thread(db.commit)
             
-            # Pass USER_PERSISTENT_DATA_BASE_DIR as analysis_output_dir
             background_tasks.add_task(
                 equity_analyzer.perform_equity_analysis,
                 session_id=active_session_id,
@@ -252,28 +261,29 @@ async def upload_document(
             )
         else:
             logger.error(f"OpenAI upload or VS creation failed for session {active_session_id}. Reason: {message_rag}")
-            cursor.execute("UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ("failed_upload", message_rag, doc_id))
-            db.commit()
+            cursor = await asyncio.to_thread(db.cursor)
+            await asyncio.to_thread(cursor.execute, "UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ("failed_upload", message_rag, doc_id))
+            await asyncio.to_thread(db.commit)
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=message_rag)
 
     except sqlite3.Error as e:
         logger.error(f"Database error during upload process for session {active_session_id}: {e}", exc_info=True)
-        db.rollback()
+        await asyncio.to_thread(db.rollback)
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Database error during upload: {e}")
 
     except HTTPException:
         raise
     except Exception as e:
         logger.error(f"Unexpected error during upload process for session {active_session_id}: {e}", exc_info=True)
-        if os.path.exists(temp_file_path):
-            try: os.remove(temp_file_path); logger.info(f"Cleaned temp file on unexpected error: {temp_file_path}")
+        if await asyncio.to_thread(os.path.exists, temp_file_path):
+            try: await asyncio.to_thread(os.remove, temp_file_path); logger.info(f"Cleaned temp file on unexpected error: {temp_file_path}")
             except OSError: logger.error(f"Could not remove temp file on unexpected error: {temp_file_path}")
         
         try:
             if db:
-                cursor = db.cursor()
-                cursor.execute("UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('failed', f"Unexpected error: {e}", active_session_id))
-                db.commit()
+                cursor = await asyncio.to_thread(db.cursor)
+                await asyncio.to_thread(cursor.execute, "UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('failed', f"Unexpected error: {e}", active_session_id))
+                await asyncio.to_thread(db.commit)
         except sqlite3.Error as db_e:
             logger.error(f"Failed to update document status to 'failed' in DB for {active_session_id} after unexpected error: {db_e}", exc_info=True)
             
@@ -300,19 +310,19 @@ async def handle_query(
 
     logger.info(f"Received query for session {session_id}, focus '{focus_area}': '{query[:100]}...'")
     
-    cursor = db.cursor()
     user_vector_store_id = None
     original_filename = "N/A"
     document_analysis_status = "not_found"
 
     try:
-        cursor.execute("""
+        cursor = await asyncio.to_thread(db.cursor)
+        await asyncio.to_thread(cursor.execute, """
             SELECT d.original_filename, d.analysis_status, o.openai_vector_store_id
             FROM documents d
             LEFT JOIN openai_resources o ON d.document_id = o.document_id
             WHERE d.document_id = ? AND d.source = 'user'
         """, (session_id,))
-        doc_data = cursor.fetchone()
+        doc_data = await asyncio.to_thread(cursor.fetchone)
 
         if not doc_data:
             logger.warning(f"No active user document found in DB for session {session_id}. Query will proceed without document-specific RAG.")
@@ -324,7 +334,7 @@ async def handle_query(
             logger.debug(f"Document found for session {session_id}. Analysis Status: '{document_analysis_status}'. VS ID: '{user_vector_store_id}'")
 
         local_db_instance = get_local_db()
-        local_chunks = local_db_instance.search(query, top_k=settings.TOP_K_LOCAL) if local_db_instance else []
+        local_chunks = await asyncio.to_thread(local_db_instance.search, query, settings.TOP_K_LOCAL) if local_db_instance else []
         local_context_str = rag_system._format_local_context_for_prompt(local_chunks)
 
         prompt_content_string = rag_system._get_system_prompt(
@@ -356,7 +366,7 @@ async def handle_query(
             kwargs["tools"] = tools
             kwargs["include"] = ["file_search_call.results"]
         
-        response_openai = rag_system.openai_interaction.client.responses.create(**kwargs)
+        response_openai = await asyncio.to_thread(rag_system.openai_interaction.client.responses.create, **kwargs)
 
         final_answer: Optional[str] = None
         for item in response_openai.output:
@@ -383,22 +393,22 @@ async def handle_query(
             final_answer = "No valid answer returned by the model."
 
         try:
-            cursor = db.cursor() # Ensure cursor is available here
+            cursor = await asyncio.to_thread(db.cursor) # Ensure cursor is available here
             # Save user message
-            cursor.execute(
+            await asyncio.to_thread(cursor.execute,
                 "INSERT INTO chat_messages (message_id, document_id, session_id, sender, message_text) VALUES (?, ?, ?, ?, ?)",
                 (str(uuid.uuid4()), session_id, session_id, "user", query)
             )
             # Save bot response
-            cursor.execute(
+            await asyncio.to_thread(cursor.execute,
                 "INSERT INTO chat_messages (message_id, document_id, session_id, sender, message_text) VALUES (?, ?, ?, ?, ?)",
                 (str(uuid.uuid4()), session_id, session_id, "bot", final_answer)
             )
-            db.commit()
+            await asyncio.to_thread(db.commit)
             logger.info(f"Chat messages saved for session {session_id}.")
         except sqlite3.Error as db_insert_error:
             logger.error(f"Failed to save chat messages to DB for session {session_id}: {db_insert_error}", exc_info=True)
-            db.rollback() # Rollback if message insertion fails
+            await asyncio.to_thread(db.rollback) # Rollback if message insertion fails
             
         return QueryResponse(
             answer=final_answer,
@@ -408,8 +418,7 @@ async def handle_query(
 
     except sqlite3.Error as e:
         logger.error(f"Database error during query processing for session {session_id}: {e}", exc_info=True)
-        # Ensure DB rollback for any DB error in this block
-        db.rollback()
+        await asyncio.to_thread(db.rollback) # Ensure DB rollback for any DB error in this block
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Database error during query.")
     except Exception as e:
         logger.error(f"Unexpected error during query processing for session {session_id}: {e}", exc_info=True)
@@ -428,19 +437,20 @@ async def get_analysis_status(
     db: sqlite3.Connection = Depends(get_db_session),
     _=Depends(check_system_ready)
 ):
-    cursor = db.cursor()
+    cursor = await asyncio.to_thread(db.cursor)
     try:
-        cursor.execute("SELECT analysis_status, analysis_error FROM documents WHERE document_id = ? AND source = 'user'", (session_id,))
-        result = cursor.fetchone()
+        await asyncio.to_thread(cursor.execute, "SELECT analysis_status, analysis_error FROM documents WHERE document_id = ? AND source = 'user'", (session_id,))
+        result = await asyncio.to_thread(cursor.fetchone)
+
         if not result:
             logger.warning(f"Analysis status requested for session {session_id}, but user document not found in DB.")
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"User document for session {session_id} not found.")
         
-        status, error = result
+        doc_analysis_status, error = result
         return AnalysisStatusResponse(
             session_id=session_id,
-            analysis_status=status,
-            message=f"Analysis status for session {session_id} is {status}.",
+            analysis_status=doc_analysis_status,
+            message=f"Analysis status for session {session_id} is {doc_analysis_status}.",
             analysis_result_path=None, # Not needed by frontend for status polling
             analysis_error=error
         )
@@ -461,11 +471,10 @@ async def get_analysis_result(
     db: sqlite3.Connection = Depends(get_db_session),
     _=Depends(check_system_ready)
 ):
-    cursor = db.cursor()
     
     # Initialize variables for potentially missing data
     source = None
-    analysis_status = None
+    doc_analysis_status = None
     analysis_error = None
     analysis_json_filepath = None
     original_filename = None
@@ -477,46 +486,58 @@ async def get_analysis_result(
 
     try:
         # 1. First, check if it's a user-uploaded document in the DB
-        cursor.execute("""
+        cursor = await asyncio.to_thread(db.cursor)
+        await asyncio.to_thread(cursor.execute, """
             SELECT d.source, d.analysis_status, d.analysis_error, d.analysis_json_filepath,
                    d.original_filename, d.document_title, d.file_size_kb, d.upload_date_utc
             FROM documents d
             WHERE d.document_id = ? AND d.source = 'user'
         """, (session_id,))
-        doc_data = cursor.fetchone()
+        doc_data = await asyncio.to_thread(cursor.fetchone)
 
         if doc_data:
-            source, analysis_status, analysis_error, analysis_json_filepath, \
+            source, doc_analysis_status, analysis_error, analysis_json_filepath, \
             original_filename, document_title, file_size_kb, upload_date_utc = doc_data
 
-            if analysis_status != "completed":
-                logger.info(f"Analysis result requested for {session_id}, but status is {analysis_status}. Returning conflict.")
+            if doc_analysis_status != "completed":
+                logger.info(f"Analysis result requested for {session_id}, but status is {doc_analysis_status}. Returning conflict.")
                 return JSONResponse(
                     status_code=status.HTTP_409_CONFLICT,
                     content={
                         "session_id": session_id,
-                        "analysis_status": analysis_status,
-                        "message": f"Analysis for session {session_id} is not yet completed. Current status: {analysis_status}. Error: {analysis_error or 'N/A'}",
+                        "analysis_status": doc_analysis_status,
+                        "message": f"Analysis for session {session_id} is not yet completed. Current status: {doc_analysis_status}. Error: {analysis_error or 'N/A'}",
                         "analysis_error": analysis_error
                     }
                 )
             
-            # If status is 'completed', try to load the file from disk
-            if not analysis_json_filepath or not os.path.exists(analysis_json_filepath):
-                logger.error(f"Analysis result file not found on disk for session {session_id} at path: {analysis_json_filepath}")
-                raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Analysis result file not found on server for user document.")
+            # If status is 'completed' but filepath is None, it's an internal inconsistency
+            if not analysis_json_filepath:
+                logger.error(f"Analysis status for {session_id} is 'completed', but analysis_json_filepath is NULL in DB.")
+                raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Analysis report path missing in database despite 'completed' status.")
 
-            with open(analysis_json_filepath, 'r', encoding='utf-8') as f:
-                analysis_data = json.load(f)
+            # If filepath exists, check if the file is actually on disk
+            if not await asyncio.to_thread(os.path.exists, analysis_json_filepath):
+                logger.error(f"Analysis result file not found on disk for session {session_id} at path: {analysis_json_filepath}. Path existed in DB, but file not found.")
+                raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Analysis result file not found on server, despite path in DB.")
+
+            def _read_json_sync(path): # Helper to wrap file read
+                with open(path, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+
+            analysis_data = await asyncio.to_thread(_read_json_sync, analysis_json_filepath)
             
         else: # If not found in user documents, check preprocessed folder
             preprocessed_filepath = os.path.join(PREPROCESSED_ANALYSES_DIR, f"{session_id}.json")
-            if os.path.exists(preprocessed_filepath):
+            if await asyncio.to_thread(os.path.exists, preprocessed_filepath):
                 try:
-                    with open(preprocessed_filepath, 'r', encoding='utf-8') as f:
-                        analysis_data = json.load(f)
+                    def _read_json_sync(path): # Helper to wrap file read
+                        with open(path, 'r', encoding='utf-8') as f:
+                            return json.load(f)
+                    
+                    analysis_data = await asyncio.to_thread(_read_json_sync, preprocessed_filepath)
                     source = "preprocessed"
-                    analysis_status = "completed"
+                    doc_analysis_status = "completed"
                     analysis_error = None
                     # Attempt to extract metadata from the preprocessed JSON itself
                     doc_metadata_from_file = analysis_data.get("document", {})
@@ -534,12 +555,13 @@ async def get_analysis_result(
 
         # Ensure analysis_data is loaded before proceeding
         if analysis_data is None:
+             logger.error(f"Analysis data for {session_id} was unexpectedly None after processing.")
              raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Analysis data could not be loaded for an unknown reason.")
 
         # Ensure top-level fields are present for consistency, merging with loaded data
         analysis_data["id"] = session_id
         analysis_data["source"] = source
-        analysis_data["analysis_status"] = analysis_status
+        analysis_data["analysis_status"] = doc_analysis_status
         analysis_data["analysis_error"] = analysis_error
         if "document" not in analysis_data: analysis_data["document"] = {}
         analysis_data["document"]["filename"] = original_filename or session_id
@@ -547,21 +569,21 @@ async def get_analysis_result(
         analysis_data["document"]["size_kb"] = file_size_kb
         analysis_data["document"]["upload_date_utc"] = upload_date_utc
 
-
         return AnalysisResultResponse(
             session_id=session_id,
-            analysis_status=analysis_status, # Use the determined status
+            analysis_status=doc_analysis_status,
             analysis_data=analysis_data,
             message="Analysis completed and retrieved successfully."
         )
+
     except HTTPException:
-        raise # Re-raise already handled HTTPExceptions
+        raise
     except sqlite3.Error as e:
         logger.error(f"Database error while fetching analysis result for {session_id}: {e}", exc_info=True)
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Database error retrieving analysis result.")
     except Exception as e:
         logger.error(f"Error reading analysis result file or general error for session {session_id}: {e}", exc_info=True)
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Could not load analysis result file: {e}")
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Could not load analysis result: {e}")
 
 
 @app.post("/end-session",
@@ -585,21 +607,20 @@ async def end_session(
     document_id_to_delete = end_req.session_id # Frontend passes document_id as session_id
     logger.info(f"Received request to end and cleanup resources for document ID: {document_id_to_delete}")
 
-    cursor = db.cursor()
-    
     try:
         # 1. Fetch data needed for cleanup from the 'documents' table for the specific document_id
-        cursor.execute("""
+        cursor = await asyncio.to_thread(db.cursor)
+        await asyncio.to_thread(cursor.execute, """
             SELECT d.analysis_json_filepath, o.openai_file_id, o.openai_vector_store_id, d.session_id
             FROM documents d
             LEFT JOIN openai_resources o ON d.document_id = o.document_id
             WHERE d.document_id = ? AND d.source = 'user' -- Target only user-uploaded docs
         """, (document_id_to_delete,))
-        doc_info = cursor.fetchone()
+        doc_info = await asyncio.to_thread(cursor.fetchone)
         
         if not doc_info:
             logger.warning(f"Document ID {document_id_to_delete} not found or not a user-uploaded document. Assuming already cleaned or non-existent.")
-            if Cookie("session_id", None) == document_id_to_delete: # Check if current cookie matches deleted doc
+            if end_req.session_id == document_id_to_delete: # Using the value from the request body as the primary identifier
                  response.delete_cookie(key="session_id")
             return EndSessionResponse(success=True, message="Document not found or already cleaned up.")
 
@@ -614,7 +635,7 @@ async def end_session(
         # 2. Delete OpenAI resources (if IDs exist)
         if openai_file_id:
             try:
-                if not openai_interface.delete_file(openai_file_id):
+                if not await openai_interface.delete_file(openai_file_id):
                     logger.warning(f"Failed to delete OpenAI file {openai_file_id} for doc {document_id_to_delete}.")
                     openai_cleanup_success = False
                 else: logger.info(f"OpenAI file {openai_file_id} deleted.")
@@ -624,7 +645,7 @@ async def end_session(
 
         if openai_vector_store_id:
             try:
-                if not openai_interface.delete_vector_store(openai_vector_store_id):
+                if not await openai_interface.delete_vector_store(openai_vector_store_id):
                     logger.warning(f"Failed to delete OpenAI VS {openai_vector_store_id} for doc {document_id_to_delete}.")
                     openai_cleanup_success = False
                 else: logger.info(f"OpenAI VS {openai_vector_store_id} deleted.")
@@ -633,9 +654,9 @@ async def end_session(
                 openai_cleanup_success = False
 
         # 3. Delete local file system resources (analysis JSON file and potentially its directory)
-        if analysis_json_filepath and os.path.exists(analysis_json_filepath):
+        if analysis_json_filepath and await asyncio.to_thread(os.path.exists, analysis_json_filepath):
             try:
-                os.remove(analysis_json_filepath)
+                await asyncio.to_thread(os.remove, analysis_json_filepath)
                 logger.info(f"Deleted local analysis JSON file: {analysis_json_filepath}")
             except OSError as e:
                 logger.error(f"Error deleting local analysis JSON file {analysis_json_filepath}: {e}", exc_info=True)
@@ -644,36 +665,38 @@ async def end_session(
             logger.warning(f"Local analysis JSON file not found for deletion (already gone?): {analysis_json_filepath}")
             
         doc_folder_path = os.path.join(USER_PERSISTENT_DATA_BASE_DIR, document_id_to_delete)
-        if os.path.exists(doc_folder_path) and not os.listdir(doc_folder_path): # Check if directory is empty
+        if await asyncio.to_thread(os.path.exists, doc_folder_path) and not await asyncio.to_thread(os.listdir, doc_folder_path):
             try:
-                os.rmdir(doc_folder_path)
+                await asyncio.to_thread(os.rmdir, doc_folder_path)
                 logger.info(f"Removed empty document directory: {doc_folder_path}")
             except OSError as e:
                 logger.warning(f"Failed to remove empty document directory {doc_folder_path}: {e}")
 
         # 4. Delete database records for THIS specific document_id
         try:
-            cursor.execute("DELETE FROM chat_messages WHERE document_id = ?", (document_id_to_delete,))
-            cursor.execute("DELETE FROM openai_resources WHERE document_id = ?", (document_id_to_delete,))
-            cursor.execute("DELETE FROM documents WHERE document_id = ?", (document_id_to_delete,))
-            db.commit() # Commit the deletions
+            # All DB ops need to be wrapped
+            cursor = await asyncio.to_thread(db.cursor)
+            await asyncio.to_thread(cursor.execute, "DELETE FROM chat_messages WHERE document_id = ?", (document_id_to_delete,))
+            await asyncio.to_thread(cursor.execute, "DELETE FROM openai_resources WHERE document_id = ?", (document_id_to_delete,))
+            await asyncio.to_thread(cursor.execute, "DELETE FROM documents WHERE document_id = ?", (document_id_to_delete,))
+            await asyncio.to_thread(db.commit) # Commit the deletions
             logger.info(f"Database records for document {document_id_to_delete} removed.")
         except sqlite3.Error as e:
             logger.error(f"Database error deleting records for document {document_id_to_delete}: {e}", exc_info=True)
-            db.rollback() # Rollback if DB deletion fails
+            await asyncio.to_thread(db.rollback) # Rollback if DB deletion fails
             db_cleanup_success = False
 
         # 5. Final result based on all cleanup attempts
         if openai_cleanup_success and local_file_cleanup_success and db_cleanup_success:
             message = f"Document {document_id_to_delete} and associated resources cleaned up successfully."
             logger.info(message)
-            if associated_session_id_from_db == end_req.session_id: # Assuming end_req.session_id holds the current cookie's value
+            if end_req.session_id == document_id_to_delete: # Simplified cookie check
                  response.delete_cookie(key="session_id")
             return EndSessionResponse(success=True, message=message)
         else:
             message = f"Document {document_id_to_delete} cleanup encountered issues. Check server logs."
             logger.error(message)
-            if associated_session_id_from_db == end_req.session_id:
+            if end_req.session_id == document_id_to_delete: # Simplified cookie check
                  response.delete_cookie(key="session_id")
             return JSONResponse(
                  status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -682,7 +705,7 @@ async def end_session(
 
     except sqlite3.Error as e: # Catch overall DB errors during cleanup preparation
         logger.error(f"Database error during end session cleanup for document {document_id_to_delete}: {e}", exc_info=True)
-        if db: db.rollback()
+        if db: await asyncio.to_thread(db.rollback)
         # Still attempt to delete cookie if doc_id matches request's session_id
         if document_id_to_delete == end_req.session_id:
             response.delete_cookie(key="session_id")
@@ -700,16 +723,16 @@ async def health_check():
     db_ok = False
     db_conn = None
     try:
-        db_conn = get_db_connection()
-        db_conn.execute("SELECT 1") # Simple query to test connection
+        db_conn = await asyncio.to_thread(get_db_connection)
+        await asyncio.to_thread(db_conn.execute, "SELECT 1") # Simple query to test connection
         db_ok = True
     except sqlite3.Error:
         db_ok = False
         logger.error("Health check: Database connection failed.", exc_info=True)
     finally:
         if db_conn:
-            close_db_connection(db_conn)
-
+            await asyncio.to_thread(close_db_connection, db_conn)
+            
     # Check if rag_system and openai_interface are initialized
     rag_system_initialized_status = bool(rag_system)
     openai_initialized_status = bool(openai_interface)
@@ -735,48 +758,50 @@ async def list_policies(
     Includes both preprocessed (from static files) and user-uploaded (from DB/files).
     """
     policies_list_data = []
-    cursor = db.cursor()
-
+    
     try:
         # --- Fetch Preprocessed Policies ---
         # Scan the preprocessed folder for JSON files.
-        for fname in os.listdir(PREPROCESSED_ANALYSES_DIR):
-            if not fname.endswith(".json"): continue
-            fpath = os.path.join(PREPROCESSED_ANALYSES_DIR, fname)
-            try:
-                with open(fpath, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                    
-                    doc_metadata_from_file = data.get("document", {})
-                    display_filename = doc_metadata_from_file.get("filename")
-                    display_title = doc_metadata_from_file.get("title")
-                    
-                    final_display_name = display_filename or display_title or data.get("id", fname[:-5])
-                    
-                    policies_list_data.append({
-                        "id": data.get("id", fname[:-5]),
-                        "document": {
-                            "filename": display_filename or "",
-                            "title": display_title or final_display_name
-                        },
-                        "source": "preprocessed",
-                        "analysis_status": "completed", # Preprocessed are always considered completed
-                        "analysis_error": None
-                    })
-            except Exception as e:
-                logger.error(f"Error reading preprocessed policy {fname}: {e}", exc_info=True)
-                continue
+        def _read_preprocessed_policies_sync():
+            preprocessed_list = []
+            for fname in os.listdir(PREPROCESSED_ANALYSES_DIR):
+                if not fname.endswith(".json"): continue
+                fpath = os.path.join(PREPROCESSED_ANALYSES_DIR, fname)
+                try:
+                    with open(fpath, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                        doc_metadata_from_file = data.get("document", {})
+                        display_filename = doc_metadata_from_file.get("filename")
+                        display_title = doc_metadata_from_file.get("title")
+                        final_display_name = display_filename or display_title or data.get("id", fname[:-5])
+                        preprocessed_list.append({
+                            "id": data.get("id", fname[:-5]),
+                            "document": {
+                                "filename": display_filename or "",
+                                "title": display_title or final_display_name
+                            },
+                            "source": "preprocessed",
+                            "analysis_status": "completed",
+                            "analysis_error": None
+                        })
+                except Exception as e:
+                    logger.error(f"Error reading preprocessed policy {fname}: {e}", exc_info=True)
+                    continue
+            return preprocessed_list
         
+        policies_list_data.extend(await asyncio.to_thread(_read_preprocessed_policies_sync))
+
         # --- Fetch User-Uploaded Policies from DB ---
-        cursor.execute("""
+        cursor = await asyncio.to_thread(db.cursor)
+        await asyncio.to_thread(cursor.execute, """
             SELECT d.document_id, d.original_filename, d.document_title, d.source, d.analysis_status, d.analysis_error
             FROM documents d
             WHERE d.source = 'user'
         """)
-        user_docs = cursor.fetchall()
+        user_docs = await asyncio.to_thread(cursor.fetchall)
         
         for row in user_docs:
-            doc_id, original_filename, doc_title, source, status, error = row
+            doc_id, original_filename, doc_title, source, doc_analysis_status, error = row # Renamed status to doc_analysis_status
             policies_list_data.append({
                 "id": doc_id,
                 "document": {
@@ -784,7 +809,7 @@ async def list_policies(
                     "title": doc_title or original_filename or doc_id
                 },
                 "source": source,
-                "analysis_status": status,
+                "analysis_status": doc_analysis_status,
                 "analysis_error": error
             })
 
@@ -801,87 +826,106 @@ async def get_policy(
     db: sqlite3.Connection = Depends(get_db_session), # Inject DB connection
     _=Depends(check_system_ready)
 ):
-    """
-    Return the full data for one policy analysis.
-    Handles both preprocessed (from static JSON) and user-uploaded (from file system via DB path).
-    """
-    cursor = db.cursor()
+    source = None
+    doc_analysis_status = None 
+    analysis_error = None
+    filepath = None
+    original_filename = None
+    doc_title = None
+    file_size_kb = None
+    upload_date_utc = None
     
+    analysis_data = None # To hold the loaded JSON content
+
     try:
         # 1. Check if it's a user-uploaded document by looking in the DB
-        cursor.execute("""
+        cursor = await asyncio.to_thread(db.cursor)
+        await asyncio.to_thread(cursor.execute, """
             SELECT d.original_filename, d.document_title, d.file_size_kb, d.upload_date_utc, d.source, d.analysis_status, d.analysis_error, d.analysis_json_filepath
             FROM documents d
             WHERE d.document_id = ? AND d.source = 'user'
         """, (policy_id,))
-        doc_data_user = cursor.fetchone()
+        doc_data_user = await asyncio.to_thread(cursor.fetchone)
         
         if doc_data_user:
             # It's a user-uploaded document found in the DB
-            original_filename, doc_title, file_size_kb, upload_date_utc, source, status, error, filepath = doc_data_user
+            original_filename, doc_title, file_size_kb, upload_date_utc, source, doc_analysis_status, analysis_error, filepath = doc_data_user
             
-            if status != "completed":
+            if doc_analysis_status != "completed":
                 # If it's a user document, and analysis is not complete, return conflict
                 return JSONResponse(
                     status_code=status.HTTP_409_CONFLICT,
                     content={
                         "session_id": policy_id, # For user docs, session_id is policy_id
-                        "analysis_status": status,
-                        "message": f"Analysis for {policy_id} is not yet completed. Status: {status}. Error: {error or 'N/A'}",
-                        "analysis_error": error
+                        "analysis_status": doc_analysis_status,
+                        "message": f"Analysis for {policy_id} is not yet completed. Status: {doc_analysis_status}. Error: {analysis_error or 'N/A'}",
+                        "analysis_error": analysis_error
                     }
                 )
             
-            # If status is 'completed', try to load the file from disk
-            if not filepath or not os.path.exists(filepath):
-                logger.error(f"Analysis result file not found on disk for session {policy_id} at path: {filepath}")
-                raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Analysis result file not found on server.")
+            # If status is 'completed' but filepath is None, it's an internal inconsistency
+            if not filepath:
+                logger.error(f"Analysis status for {policy_id} is 'completed', but analysis_json_filepath is NULL in DB.")
+                raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Analysis report path missing in database despite 'completed' status.")
 
-            try:
-                with open(filepath, 'r', encoding='utf-8') as f:
-                    analysis_data = json.load(f)
-                
-                # Ensure top-level fields are present for consistency
-                analysis_data["id"] = policy_id
-                analysis_data["source"] = source
-                analysis_data["analysis_status"] = status
-                analysis_data["analysis_error"] = error
-                if "document" not in analysis_data: analysis_data["document"] = {}
-                analysis_data["document"]["filename"] = original_filename or policy_id
-                analysis_data["document"]["title"] = doc_title or original_filename or policy_id
-                analysis_data["document"]["size_kb"] = file_size_kb
-                analysis_data["document"]["upload_date_utc"] = upload_date_utc
+            # If filepath exists, check if the file is actually on disk
+            if not await asyncio.to_thread(os.path.exists, filepath):
+                logger.error(f"Analysis result file not found on disk for session {policy_id} at path: {filepath}. Path existed in DB, but file not found.")
+                raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Analysis result file not found on server, despite path in DB.")
 
-                return JSONResponse(content=analysis_data)
+            def _read_json_sync(path): # Helper to wrap file read
+                import json # Import locally
+                with open(path, 'r', encoding='utf-8') as f:
+                    return json.load(f)
 
-            except (FileNotFoundError, json.JSONDecodeError, Exception) as e:
-                logger.error(f"Error loading analysis result from file {filepath} for session {policy_id}: {e}", exc_info=True)
-                raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Could not load analysis result from file: {e}")
-
+            analysis_data = await asyncio.to_thread(_read_json_sync, filepath)
+            
         else: # If not found in user documents, check preprocessed folder
             preprocessed_filepath = os.path.join(PREPROCESSED_ANALYSES_DIR, f"{policy_id}.json")
-            if os.path.exists(preprocessed_filepath):
+            if await asyncio.to_thread(os.path.exists, preprocessed_filepath):
                 try:
-                    with open(preprocessed_filepath, 'r', encoding='utf-8') as f:
-                        analysis_data = json.load(f)
-                    # Ensure preprocessed data has necessary top-level fields
-                    analysis_data["id"] = policy_id
-                    analysis_data["source"] = "preprocessed"
-                    analysis_data["analysis_status"] = "completed"
-                    analysis_data["analysis_error"] = None
-                    if "document" not in analysis_data: analysis_data["document"] = {}
-                    if not analysis_data["document"].get("filename"):
-                        analysis_data["document"]["filename"] = policy_id + ".json"
-                    if not analysis_data["document"].get("title"):
-                        analysis_data["document"]["title"] = policy_id
+                    def _read_json_sync(path): # Helper to wrap file read
+                        with open(path, 'r', encoding='utf-8') as f:
+                            return json.load(f)
+                    
+                    analysis_data = await asyncio.to_thread(_read_json_sync, preprocessed_filepath)
+                    source = "preprocessed"
+                    doc_analysis_status = "completed"
+                    analysis_error = None
+                    doc_metadata_from_file = analysis_data.get("document", {})
+                    original_filename = doc_metadata_from_file.get("filename", f"{policy_id}.json")
+                    document_title = doc_metadata_from_file.get("title", policy_id)
+                    file_size_kb = doc_metadata_from_file.get("size_kb", 0)
+                    upload_date_utc = doc_metadata_from_file.get("upload_date_utc", "N/A")
 
-                    return JSONResponse(content=analysis_data)
                 except (FileNotFoundError, json.JSONDecodeError, Exception) as e:
                     logger.error(f"Error loading preprocessed analysis result {preprocessed_filepath}: {e}", exc_info=True)
                     raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Could not load preprocessed analysis result: {e}")
             else:
+                logger.warning(f"Policy analysis for ID {policy_id} not found in user documents or preprocessed files.")
                 raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Policy analysis for ID {policy_id} not found.")
 
+        # Ensure analysis_data is loaded before proceeding
+        if analysis_data is None:
+             logger.error(f"Analysis data for {policy_id} was unexpectedly None after processing.")
+             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Analysis data could not be loaded for an unknown reason.")
+
+        # Ensure top-level fields are present for consistency, merging with loaded data
+        analysis_data["id"] = policy_id
+        analysis_data["source"] = source
+        analysis_data["analysis_status"] = doc_analysis_status
+        analysis_data["analysis_error"] = analysis_error
+        if "document" not in analysis_data: analysis_data["document"] = {}
+        analysis_data["document"]["filename"] = original_filename or policy_id
+        analysis_data["document"]["title"] = doc_title or original_filename or policy_id
+        analysis_data["document"]["size_kb"] = file_size_kb
+        analysis_data["document"]["upload_date_utc"] = upload_date_utc
+
+        return JSONResponse(content=analysis_data)
+
+
+    except HTTPException:
+        raise
     except sqlite3.Error as e:
         logger.error(f"Database error while fetching policy {policy_id}: {e}", exc_info=True)
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Database error while fetching policy.")
@@ -899,18 +943,18 @@ async def get_chat_history(
     document_id: str,
     db: sqlite3.Connection = Depends(get_db_session)
 ):
-    cursor = db.cursor()
+    cursor = await asyncio.to_thread(db.cursor)
     try:
-        cursor.execute("SELECT 1 FROM documents WHERE document_id = ? AND source = 'user'", (document_id,))
-        if not cursor.fetchone():
+        await asyncio.to_thread(cursor.execute, "SELECT 1 FROM documents WHERE document_id = ? AND source = 'user'", (document_id,))
+        if not await asyncio.to_thread(cursor.fetchone):
             logger.warning(f"Attempted to retrieve chat history for non-existent or non-user document: {document_id}")
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Document {document_id} not found or not a user document.")
 
-        cursor.execute(
+        await asyncio.to_thread(cursor.execute,
             "SELECT sender, message_text FROM chat_messages WHERE document_id = ? ORDER BY created_at ASC",
             (document_id,)
         )
-        chat_records = cursor.fetchall()
+        chat_records = await asyncio.to_thread(cursor.fetchall)
 
         history = []
         for sender, message_text in chat_records:
@@ -930,4 +974,4 @@ async def get_chat_history(
 if __name__ == "__main__":
     import uvicorn
     logger.info("Starting Uvicorn server for local development...")
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True, log_level="info")
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True, log_level="info", lifespan="on")

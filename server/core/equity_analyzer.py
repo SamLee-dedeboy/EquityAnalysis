@@ -492,32 +492,33 @@ async def perform_equity_analysis(
     
     db_conn = None
     try:
-        db_conn = get_db_connection()
-        cursor = db_conn.cursor()
+        db_conn = await asyncio.to_thread(get_db_connection)
+        cursor = await asyncio.to_thread(db_conn.cursor)
 
         # Initial update of analysis_status to 'in_progress' in DB
-        cursor.execute("UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('in_progress', None, session_id))
-        db_conn.commit()
+        await asyncio.to_thread(cursor.execute, "UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('in_progress', None, session_id))
+        await asyncio.to_thread(db_conn.commit)
     except sqlite3.Error as e:
         logger.error(f"DB error setting status to 'in_progress' for {session_id} at task start: {e}", exc_info=True)
         temp_db_conn = None
         try:
-            temp_db_conn = get_db_connection()
-            temp_cursor = temp_db_conn.cursor()
-            temp_cursor.execute("UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('failed', f"Task start DB Error: {e}", session_id))
-            temp_db_conn.commit()
+            temp_db_conn = await asyncio.to_thread(get_db_connection)
+            temp_cursor = await asyncio.to_thread(temp_db_conn.cursor)
+            await asyncio.to_thread(temp_cursor.execute, "UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('failed', f"Task start DB Error: {e}", session_id))
+            await asyncio.to_thread(temp_db_conn.commit)
         except Exception as update_e:
             logger.error(f"Failed fallback DB update for {session_id}: {update_e}", exc_info=True)
         finally:
-            if temp_db_conn: close_db_connection(temp_db_conn)
+            if temp_db_conn: await asyncio.to_thread(close_db_connection, temp_db_conn)
         return
 
     # --- OpenAI VS Processing Wait ---
     vector_store_id = None
     openai_file_id = None
     try:
-        cursor.execute("SELECT openai_vector_store_id, openai_file_id FROM openai_resources WHERE document_id = ?", (session_id,))
-        vs_file_ids_row = cursor.fetchone()
+        cursor = await asyncio.to_thread(db_conn.cursor)
+        await asyncio.to_thread(cursor.execute, "SELECT openai_vector_store_id, openai_file_id FROM openai_resources WHERE document_id = ?", (session_id,))
+        vs_file_ids_row = await asyncio.to_thread(cursor.fetchone)
         if vs_file_ids_row:
             vector_store_id, openai_file_id = vs_file_ids_row
         else:
@@ -526,10 +527,10 @@ async def perform_equity_analysis(
         logger.info(f"[{session_id}] Waiting for OpenAI Vector Store file processing to complete (VS ID: {vector_store_id}, File ID: {openai_file_id})...")
         
         # Update status to 'waiting_vs_processing' while waiting for OpenAI
-        cursor.execute("UPDATE documents SET analysis_status = ? WHERE document_id = ?", ('waiting_vs_processing', session_id))
-        db_conn.commit()
+        await asyncio.to_thread(cursor.execute, "UPDATE documents SET analysis_status = ? WHERE document_id = ?", ('waiting_vs_processing', session_id))
+        await asyncio.to_thread(db_conn.commit)
 
-        processing_success = openai_interface_instance.wait_for_vector_store_file_processing(
+        processing_success = await openai_interface_instance.wait_for_vector_store_file_processing(
             vector_store_id=vector_store_id,
             file_id=openai_file_id,
             timeout=settings.PROCESSING_TIMEOUT_SECONDS,
@@ -541,32 +542,34 @@ async def perform_equity_analysis(
 
         logger.info(f"[{session_id}] OpenAI Vector Store file processing completed.")
 
-        cursor.execute("UPDATE documents SET analysis_status = ? WHERE document_id = ?", ('completed', session_id)) # <--- Set to 'completed' after VS processing
-        db_conn.commit()
-        logger.info(f"[{session_id}] Document status set to 'completed' in DB (RAG ready).")
+        # --- NEW STATUS UPDATE: VS Processing Completed ---
+        await asyncio.to_thread(cursor.execute, "UPDATE documents SET analysis_status = ? WHERE document_id = ?", ('vs_processing_completed', session_id))
+        await asyncio.to_thread(db_conn.commit)
+        logger.info(f"[{session_id}] Document status set to 'vs_processing_completed' in DB (RAG ready for LLM).")
 
     except sqlite3.Error as e: # Catch DB errors during VS processing wait
         logger.error(f"Database error during VS processing wait for {session_id}: {e}", exc_info=True)
-        cursor.execute("UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('failed', f"DB Error during VS wait: {e}", session_id))
-        db_conn.commit()
+        temp_cursor = await asyncio.to_thread(db_conn.cursor)
+        await asyncio.to_thread(temp_cursor.execute, "UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('failed', f"DB Error during VS wait: {e}", session_id))
+        await asyncio.to_thread(db_conn.commit)
         return # Exit task on DB error
     except Exception as e: # Catch OpenAI VS processing errors
         logger.error(f"OpenAI VS processing error for session {session_id}: {e}", exc_info=True)
-        cursor.execute("UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('failed', f"VS Processing Error: {e}", session_id))
-        db_conn.commit()
+        temp_cursor = await asyncio.to_thread(db_conn.cursor)
+        await asyncio.to_thread(temp_cursor.execute, "UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('failed', f"VS Processing Error: {e}", session_id))
+        await asyncio.to_thread(db_conn.commit)
         return
 
 
     # --- Analysis Generation ---
     try:
         session_output_dir = os.path.join(analysis_output_dir, session_id)
-        os.makedirs(session_output_dir, exist_ok=True)
+        await asyncio.to_thread(os.makedirs, session_output_dir, exist_ok=True)
         output_file_path = os.path.join(session_output_dir, "analysis_result.json")
 
         if settings.SIMULATE_ANALYSIS:
-            # ... (simulation logic, existing code here is fine) ...
             logger.info(f"[{session_id}] Running analysis in SIMULATION MODE.")
-            await asyncio.sleep(2) 
+            await asyncio.sleep(2)
             
             dummy_json_result = json.loads(JSON_SKELETON)
             dummy_json_result["id"] = session_id
@@ -618,110 +621,135 @@ async def perform_equity_analysis(
                 "sources": [{"type": "openai", "data": "Simulated Overall Summary Source."}]
             }
 
-            with open(output_file_path, 'w', encoding='utf-8') as f:
-                json.dump(dummy_json_result, f, indent=2, ensure_ascii=False)
+            def _write_json_sync(data, path):
+                with open(path, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, indent=2, ensure_ascii=False)
+            
+            await asyncio.to_thread(_write_json_sync, dummy_json_result, output_file_path)
             logger.info(f"[{session_id}] Simulated analysis saved to file: {output_file_path}")
 
-            # Final DB update: confirm 'completed' and set file path
-            cursor.execute("UPDATE documents SET analysis_status = ?, analysis_json_filepath = ?, analysis_error = ? WHERE document_id = ?",
+            # Final DB update for simulation: confirm 'completed' and set file path
+            cursor = await asyncio.to_thread(db_conn.cursor)
+            await asyncio.to_thread(cursor.execute, "UPDATE documents SET analysis_status = ?, analysis_json_filepath = ?, analysis_error = ? WHERE document_id = ?",
                            ('completed', output_file_path, None, session_id))
-            db_conn.commit()
+            await asyncio.to_thread(db_conn.commit)
             logger.info(f"[{session_id}] Simulated analysis completed and DB info updated.")
 
         else: # --- REAL ANALYSIS LOGIC ---
-            logger.info(f"[{session_id}] Running analysis in REAL MODE.")
-            raw_analyses: Dict[str, Dict[str, Any]] = {}
-            
+            await asyncio.to_thread(cursor.execute, "UPDATE documents SET analysis_status = ? WHERE document_id = ?", ('generating_analysis_report', session_id))
+            await asyncio.to_thread(db_conn.commit) # Commit this status update
+            logger.info(f"[{session_id}] Document status set to 'generating_analysis_report' in DB.")
+
+            # --- Collect all raw analysis coroutines ---
+            analysis_tasks = []
+            analysis_keys = []
+
             for perspective_info in PERSPECTIVES:
                 perspective_group_key = perspective_info["group_name"].replace(" ", "_").lower()
-                raw_analyses[perspective_group_key] = {}
-                logger.info(f"[{session_id}] -> Generating analyses for perspective: '{perspective_info['group_name']}'...")
-
+                
                 for focus_type, focus_description_suffix in ANALYSIS_TYPE_DESCRIPTIONS.items():
                     query_focus = perspective_info['description'] if focus_type == "general" else f"Regarding {perspective_info['group_name']}'s perspective, {focus_description_suffix}"
                     full_query_for_rag_system = ANALYSIS_QUERY_GENERIC.format(focus_description=query_focus)
                     raw_analysis_key_for_rag_system = f"perspective_{perspective_group_key}_{focus_type}"
-                    logger.info(f"[{session_id}]    -> Querying for '{perspective_info['group_name']}' - '{focus_type}' analysis...")
+                    logger.info(f"[{session_id}]    -> Scheduling '{perspective_info['group_name']}' - '{focus_type}' analysis...")
                     
-                    # Pass db_conn to rag_system_instance.answer_question
-                    answer, _, openai_srcs = rag_system_instance.answer_question(
-                        session_id=session_id, # document_id for rag_system
-                        query=full_query_for_rag_system,
-                        focus_area=focus_type,
-                        custom_instructions=None,
-                        db_conn=db_conn
+                    analysis_tasks.append(
+                        rag_system_instance.answer_question(
+                            session_id=session_id, # document_id for rag_system
+                            query=full_query_for_rag_system,
+                            focus_area=focus_type,
+                            custom_instructions=None,
+                            db_conn=db_conn # Pass db_conn
+                        )
                     )
-                    
-                    if "Error:" in answer:
-                        logger.error(f"[{session_id}] Received an error for '{perspective_info['group_name']}' - '{focus_type}': {answer}. Marking as failed.")
-                        raw_analyses[raw_analysis_key_for_rag_system] = {"text": f"ANALYSIS FAILED: {answer}", "openai_sources": openai_srcs}
-                    else:
-                        raw_analyses[raw_analysis_key_for_rag_system] = {"text": answer, "openai_sources": openai_srcs}
-                    
-                    logger.info(f"[{session_id}]    Generated raw analysis for '{perspective_info['group_name']}' - '{focus_type}'. Waiting {DELAY_BETWEEN_REQUESTS_SECONDS}s...")
-                    time.sleep(DELAY_BETWEEN_REQUESTS_SECONDS)
+                    analysis_keys.append(raw_analysis_key_for_rag_system)
+            
+            # --- Run all perspective/type analysis tasks concurrently ---
+            logger.info(f"[{session_id}] -> Running {len(analysis_tasks)} raw analysis tasks concurrently...")
+            results = await asyncio.gather(*analysis_tasks, return_exceptions=True)
 
-            # --- Generate an overall summary analysis ---
+            raw_analyses: Dict[str, Dict[str, Any]] = {}
+            for i, result in enumerate(results):
+                key = analysis_keys[i]
+                if isinstance(result, Exception):
+                    logger.error(f"[{session_id}] Raw analysis for '{key}' failed: {result}", exc_info=True)
+                    raw_analyses[key] = {"text": f"ANALYSIS FAILED: {result}", "openai_sources": []}
+                else:
+                    answer, _, openai_srcs = result
+                    if "Error:" in answer:
+                         logger.error(f"[{session_id}] Received an error for '{key}': {answer}. Marking as failed.")
+                         raw_analyses[key] = {"text": f"ANALYSIS FAILED: {answer}", "openai_sources": openai_srcs}
+                    else:
+                        raw_analyses[key] = {"text": answer, "openai_sources": openai_srcs}
+                
+            logger.info(f"[{session_id}] All raw analysis tasks for perspectives/types completed.")
+
+            # --- Generate an overall summary analysis (sequential, needs all raw_analyses) ---
             overall_summary_query = "Provide an overall summary of the document's equity implications and recommendations, synthesizing findings across all perspectives previously considered."
             logger.info(f"[{session_id}] -> Generating overall summary analysis...")
-            overall_answer, _, overall_openai_srcs = rag_system_instance.answer_question(
+            overall_answer, _, overall_openai_srcs = await rag_system_instance.answer_question(
                 session_id=session_id,
                 query=overall_summary_query,
                 focus_area="general",
-                db_conn=db_conn # PASS db_conn
+                db_conn=db_conn
             )
             raw_analyses["overall_summary"] = {"text": overall_answer, "openai_sources": overall_openai_srcs}
             logger.info(f"[{session_id}] Generated overall summary.")
-            time.sleep(DELAY_BETWEEN_REQUESTS_SECONDS)
 
             # --- Synthesize all raw analyses text into final JSON structure ---
-            final_json_result = format_analyses_into_json(
+            final_json_result = await asyncio.to_thread(format_analyses_into_json,
                 raw_analyses, original_filename, title, file_size_kb, upload_date_utc,
                 openai_interface_instance.client,
                 session_id=session_id,
                 source="user"
             )
+
             if not final_json_result:
                 raise Exception("Failed to synthesize the final JSON structure from raw analyses.")
 
-            with open(output_file_path, 'w', encoding='utf-8') as f:
-                json.dump(final_json_result, f, indent=2, ensure_ascii=False)
+            def _write_json_sync(data, path):
+                with open(path, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, indent=2, ensure_ascii=False)
+            
+            await asyncio.to_thread(_write_json_sync, final_json_result, output_file_path)
             logger.info(f"[{session_id}] Analysis saved to file: {output_file_path}")
 
             # Final DB update: confirm 'completed' and set file path
-            cursor.execute("UPDATE documents SET analysis_status = ?, analysis_json_filepath = ?, analysis_error = ? WHERE document_id = ?",
-                           ('completed', output_file_path, None, session_id)) # <--- ENSURE 'completed' here too
-            db_conn.commit()
-            logger.info(f"[{session_id}] Analysis completed and DB info updated.")
+            logger.info(f"[{session_id}] Attempting final DB update with path: '{output_file_path}'")
+            cursor = await asyncio.to_thread(db_conn.cursor)
+            await asyncio.to_thread(cursor.execute, "UPDATE documents SET analysis_status = ?, analysis_json_filepath = ?, analysis_error = ? WHERE document_id = ?",
+                           ('completed', output_file_path, None, session_id))
+            await asyncio.to_thread(db_conn.commit)
+            logger.info(f"[{session_id}] Analysis completed and DB info updated. Path committed: '{output_file_path}'")
 
     except sqlite3.Error as e:
         logger.error(f"Database error during JSON generation/save for {session_id}: {e}", exc_info=True)
-        if db_conn: db_conn.rollback() # Rollback any partial transaction
+        if db_conn: await asyncio.to_thread(db_conn.rollback)
         # Fallback DB update to 'failed' on DB error
         temp_db_conn = None
         try:
-            temp_db_conn = get_db_connection()
-            temp_cursor = temp_db_conn.cursor()
-            temp_cursor.execute("UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('failed', f"DB Error during analysis: {e}", session_id))
-            temp_db_conn.commit()
+            temp_db_conn = await asyncio.to_thread(get_db_connection)
+            temp_cursor = await asyncio.to_thread(temp_db_conn.cursor)
+            await asyncio.to_thread(temp_cursor.execute, "UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('failed', f"DB Error during analysis: {e}", session_id))
+            await asyncio.to_thread(temp_db_conn.commit)
         except Exception as update_e:
             logger.error(f"Failed to update DB status to 'failed' (secondary attempt) for {session_id}: {update_e}", exc_info=True)
         finally:
-            if temp_db_conn: close_db_connection(temp_db_conn)
+            if temp_db_conn: await asyncio.to_thread(close_db_connection, temp_db_conn)
         
     except Exception as e: # Catch general analysis generation errors
         logger.error(f"Critical error during background REAL analysis for session {session_id}: {e}", exc_info=True)
         # Fallback DB update to 'failed' on general error
         temp_db_conn = None
         try:
-            temp_db_conn = get_db_connection()
-            temp_cursor = temp_db_conn.cursor()
-            temp_cursor.execute("UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('failed', f"Analysis Runtime Error: {e}", session_id))
-            temp_db_conn.commit()
+            temp_db_conn = await asyncio.to_thread(get_db_connection)
+            temp_cursor = await asyncio.to_thread(temp_db_conn.cursor)
+            await asyncio.to_thread(temp_cursor.execute, "UPDATE documents SET analysis_status = ?, analysis_error = ? WHERE document_id = ?", ('failed', f"Analysis Runtime Error: {e}", session_id))
+            await asyncio.to_thread(temp_db_conn.commit)
         except Exception as update_e:
             logger.error(f"Failed to update DB status to 'failed' (secondary attempt) for {session_id}: {update_e}", exc_info=True)
         finally:
-            if temp_db_conn: close_db_connection(temp_db_conn)
+            if temp_db_conn: await asyncio.to_thread(close_db_connection, temp_db_conn)
     finally:
-        if db_conn: # Ensure db_conn is closed if obtained within this function
-            close_db_connection(db_conn)
+        if db_conn:
+            await asyncio.to_thread(close_db_connection, db_conn)
