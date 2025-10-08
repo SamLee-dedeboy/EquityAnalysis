@@ -38,10 +38,10 @@ JSON_SKELETON = """
   },
   "test_fields": {
     "test_pic": "...",
-    "test_subject": "25",
-    "test_title": "40",
-    "test_short_caption": "50",
-    "test_long_caption": "120",
+    "test_subject": "...",
+    "test_title": "...",
+    "test_short_caption": "...",
+    "test_long_caption": "...",
     "test_date": "...", 
     "test_scope": "..."
   },
@@ -53,10 +53,10 @@ JSON_SKELETON = """
         "general_equity_assessment": {
           "title": "General Equity Assessment for Policy Makers",
           "summary": "200",
-          "recognitional_equity": { "title": "Recognitional Equity", "findings": "150" },
-          "procedural_equity": { "title": "Procedural Equity", "findings": "150" },
-          "distributional_equity": { "title": "Distributional Equity", "findings": "150" },
-          "structural_equity": { "title": "Structural Equity", "findings": "150" },
+          "recognitional_equity": { "title": "RECOGNITIONAL EQUITY", "caption": "...", "findings": "..." },
+          "procedural_equity": { "title": "PROCEDURAL EQUITY", "caption": "...", "findings": "..." },
+          "distributional_equity": { "title": "DISTRIBUTIONAL EQUITY", "caption": "...", "findings": "..." },
+          "structural_equity": { "title": "STRUCTURAL EQUITY", "caption": "...", "findings": "..." },
           "sources": []
         },
         "vulnerable_groups_analysis": {
@@ -93,10 +93,10 @@ JSON_SKELETON = """
         "general_equity_assessment": {
           "title": "General Equity Assessment for Residents",
           "summary": "200",
-          "recognitional_equity": { "title": "Recognitional Equity", "findings": "150" },
-          "procedural_equity": { "title": "Procedural Equity", "findings": "150" },
-          "distributional_equity": { "title": "Distributional Equity", "findings": "150" },
-          "structural_equity": { "title": "Structural Equity", "findings": "150" },
+          "recognitional_equity": { "title": "RECOGNITIONAL EQUITY", "caption": "...", "findings": "..." },
+          "procedural_equity": { "title": "PROCEDURAL EQUITY", "caption": "...", "findings": "..." },
+          "distributional_equity": { "title": "DISTRIBUTIONAL EQUITY", "caption": "...", "findings": "..." },
+          "structural_equity": { "title": "STRUCTURAL EQUITY", "caption": "...", "findings": "..." },
           "sources": []
         },
         "vulnerable_groups_analysis": {
@@ -133,10 +133,10 @@ JSON_SKELETON = """
         "general_equity_assessment": {
           "title": "General Equity Assessment for Farmers/Business Owners",
           "summary": "200",
-          "recognitional_equity": { "title": "Recognitional Equity", "findings": "150" },
-          "procedural_equity": { "title": "Procedural Equity", "findings": "150" },
-          "distributional_equity": { "title": "Distributional Equity", "findings": "150" },
-          "structural_equity": { "title": "Structural Equity", "findings": "150" },
+          "recognitional_equity": { "title": "RECOGNITIONAL EQUITY", "caption": "...", "findings": "..." },
+          "procedural_equity": { "title": "PROCEDURAL EQUITY", "caption": "...", "findings": "..." },
+          "distributional_equity": { "title": "DISTRIBUTIONAL EQUITY", "caption": "...", "findings": "..." },
+          "structural_equity": { "title": "STRUCTURAL EQUITY", "caption": "...", "findings": "..." },
           "sources": []
         },
         "vulnerable_groups_analysis": {
@@ -371,8 +371,6 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
         - Procedural
         - Distributional
         - Structural
-        - Treat each `summary` subfield independently. Each one should contain ~200 characters, regardless of other fields. Do not compress or shorten later ones.
-        - Treat each `findings` subfield independently. Each one should contain ~150 characters, regardless of other fields. Do not compress or shorten later ones.
         - For the remaining three analyses, fill in all subfields (`summary`, `identified_groups_and_impacts`, etc.) using the relevant raw analysis text.
 
     4. **Overarching Summary**
@@ -401,7 +399,7 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
 
     9. **Test Fields Completion**
     - Populate the `test_fields` object with careful attention:
-        - You should populate "test_pic" one of the following strings "head-image.png", "head-image-2.png", or "head-image-3.png" depending on the main subject of the document being 
+        - You should populate "test_pic" one of the following strings "head-polmak.png", "head-residents.png", or "head-farmbo.png" depending on the main subject of the document being 
         - You should populate "test_subject" with the main subject of the document, e.g. "Managing Potable Tap Water", "Federal Water Pollution Control", etc.
         - You should populate "test_title" with the actual title of the document e.g. "The Clean Water Act". Or if the title is not available, create a title based on the document's content. 
         - You should populate "test_short_caption" with a short caption for the analysis' findings like "In 50 Years: Progress and Persistent Challenges" or "An Equity-Focused Review of Your Document"

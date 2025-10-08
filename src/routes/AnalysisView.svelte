@@ -156,15 +156,16 @@
       </div>
       <!-- Perspective Tabs -->
       {#if perspectives.length > 1}
-        <div class="perspective-nav-buttons">
+        <div role="tablist" aria-label="Perspective tabs" class="perspective-tabs">
           {#each perspectives as perspective, index}
             <button
-              style="display:inline-flex; align-items:center; justify-content:center; padding:1.5rem 2rem; font-size:1rem; border:2px solid {perspectiveIndex === index ? 'var(--primary-interactive)' : '#e5e7eb'}; border-radius:12px; color:{perspectiveIndex === index ? 'white' : 'var(--primary-text)'}; background:{perspectiveIndex === index ? 'var(--primary-interactive)' : 'white'}; min-height:80px; font-weight:500; transition:all 0.2s ease; white-space:nowrap; cursor:pointer; box-shadow:0 2px 4px rgba(0,0,0,0.05); margin-right:0.75rem;"
-              class:selected={perspectiveIndex === index}
+              type="button"
+              role="tab"
+              class="perspective-tab {perspectiveIndex === index ? 'active' : ''}"
+              aria-selected={perspectiveIndex === index}
               on:click={() => (perspectiveIndex = index)}
-              aria-pressed={perspectiveIndex === index}
             >
-              {perspective.group_name}
+              <span class="perspective-tab-label">{perspective.group_name}</span>
             </button>
           {/each}
         </div>
@@ -262,7 +263,8 @@
           {/if}
         </div>
       {/if}
-
+      <!-- End of Test Content -->
+       
       <!-- (2) Perspective Carousel -->
       {#if perspectives.length > 1}
         <div class="perspective-nav">
@@ -575,6 +577,53 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .perspective-tabs {
+    display: flex;
+    width: 100%;
+    padding: 0.3rem;
+    border-radius: 16px;
+    background: #eef2f7;
+    border: 1px solid #d2d8e1;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+    gap: 0.35rem;
+  }
+  .perspective-tab {
+    flex: 1 1 0;
+    padding: 0.9rem 1rem;
+    font-size: 1.25rem;
+    min-height: 60px;
+    border: 0;
+    border-radius: 12px;
+    margin: 0;
+    background: transparent;
+    color: var(--primary-text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .perspective-tab:hover {
+    background: rgba(13, 58, 98, 0.12);
+  }
+  .perspective-tab:focus-visible {
+    outline: 2px solid var(--primary-interactive);
+    outline-offset: 2px;
+  }
+  .perspective-tab.active {
+    background: var(--primary-interactive, #0d3a62);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(13, 58, 98, 0.25);
+  }
+  .perspective-tab-label {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
 
