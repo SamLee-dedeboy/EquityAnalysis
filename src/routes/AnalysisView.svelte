@@ -171,34 +171,20 @@
         </div>
       {/if}
       <!-- Equity Tabs -->
-      <div aria-hidden="true" style="display:grid; grid-template-columns:1fr; gap:1rem; align-items:stretch; margin-top: 3rem;">
+      <div class="equity-summary">
         {#each equitySections as section}
-          <div class="test-ptabs">
-            <div>
-              <div style="display:flex; gap:1rem; align-items:flex-start; margin-top:0.5rem;">
-                <span class="test-pill" style="background-color: {section.color}">{section.label}</span>
-                <p style = "flex:1; min-width:0;">
-                  {currentAnalysisSection[section.key]?.findings}
-                </p>
-                <!-- <div style="flex:1; min-width:0;">
-                  <strong>Positive Findings</strong>
-                  <p style="margin-top:0.5rem; word-break:break-word;">
-                    {currentAnalysisSection[section.key]?.positive_findings}
-                  </p>
-                </div>
-                <div style="flex:1; min-width:0;">
-                  <strong>Areas of Concern</strong>
-                  <p style="margin-top:0.5rem; word-break:break-word;">
-                    {currentAnalysisSection[section.key]?.concerns}
-                  </p>
-                </div> -->
-              </div>
+          <div class="equity-summary-item">
+            <div class="equity-summary-heading">
+              <span class="equity-summary-chip" style="background-color: {section.color};"></span>
+              <span class="equity-summary-title">{section.label}</span>
             </div>
-
+            <p class="equity-summary-text">
+              {currentAnalysisSection[section.key]?.findings}
+            </p>
           </div>
         {/each}
       </div>
-
+      <!-- Overall Insights: Positive and Negative -->
       <div>
         <div class="section" in:slide aria-labelledby="overall-insights" style="background: white; margin-top: 1.5rem;">
           <h2 id="overall-insights" style="font-size:1.5rem; font-weight:800; margin:0 0 0.75rem 0; color:var(--primary-text);">
@@ -206,7 +192,7 @@
           </h2>
 
           <div class="columns" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:1.5rem; margin-top:1rem;">
-            <div class="box" aria-label="Positive insights" style="background-color: #eee;">
+            <div class="box" aria-label="Positive insights" style="background-color: var(--primary-aview-accent);">
               <strong style="display:block; font-size:1.05rem; margin-bottom:0.5rem;">
                 Positive Insights
               </strong>
@@ -215,7 +201,7 @@
               </p>
             </div>
 
-            <div class="box" aria-label="Negative insights" style="background-color: #eee;">
+            <div class="box" aria-label="Negative insights" style="background-color: var(--primary-aview-accent);">
               <strong style="display:block; font-size:1.05rem; margin-bottom:0.5rem;">
                 Key Equity Gaps
               </strong>
@@ -527,13 +513,7 @@
 
 <style>
   /* --- Test Classes --- */
-  .test-ptabs {
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-    min-height: 80px;
-  }
-    .styled-divider {
+  .styled-divider {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -560,23 +540,44 @@
     text-align: center;
     line-height: 1;
   }
-  .test-pill {
-    display: inline-flex;
+  .equity-summary {
+    margin-top: 3rem;
+    padding: 1.75rem 1.5rem;
+    background: var(--primary-aview-accent);
+    border-radius: 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 8px 20px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .equity-summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .equity-summary-heading {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 180px;       
-    height: 80px;         /* fixed height for uniform size */
-    margin-right: 2rem;
-    padding: 0 0.8rem;
-    font-weight: bold;
-    font-size: 0.95rem;
-    border-radius: 6px;
-    color: #fff;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    gap: 1rem;
+  }
+  .equity-summary-chip {
+    width: 54px;
+    height: 14px;
+    border-radius: 999px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+  .equity-summary-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #101828;
+    letter-spacing: 0.01em;
+  }
+  .equity-summary-text {
+    margin: 0;
+    color: #1f2937;
+    font-size: 0.97rem;
+    line-height: 1.55;
   }
 
   .perspective-tabs {
@@ -584,8 +585,7 @@
     width: 100%;
     padding: 0.3rem;
     border-radius: 16px;
-    background: #eef2f7;
-    border: 1px solid #d2d8e1;
+    background: var(--primary-aview-accent);
     box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
     gap: 0.35rem;
   }
