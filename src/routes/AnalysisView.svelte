@@ -109,7 +109,7 @@
     {:else if ($currentPolicy?.analysis_status === 'completed' || $currentPolicy?.source === 'preprocessed') && currentPerspective}
       <!-- Expected Case (Analysis Completed, Data Available)-->
 
-      <!-- Test Content -->
+      <!-- New Analysis Content -->
       <!-- Header 1 -->
       <div class="overview-header">
         <h2 class="overview-title">
@@ -126,31 +126,29 @@
         </div>
       </div>
       <!-- Header 2 -->
-      <div style="position:relative; width:100%; height:min(48vh, 340px); border-radius:8px; overflow:hidden; margin:0 0 0.75rem 0; box-shadow:0 8px 28px rgba(0,0,0,0.18);">
-        <div
-          aria-hidden="true"
-          style="position:absolute; inset:0; width:100%; height:100%; background-image:url('head-image.png'); background-size:cover; background-position:center; background-repeat:no-repeat; display:block;"
-        >
-          <div style="position:absolute; inset:0; background: rgba(0,0,0,0.45);"></div>
+      <div class="header-container">
+        <div class="header-bg">
+          <div class="header-overlay"></div>
         </div>
-        <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.55) 100%);"></div>
-        <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1rem; text-align:center; color:#fff; font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; text-shadow:0 2px 8px rgba(0,0,0,0.45);">
-          <h1 style="font-size:clamp(1.6rem, 4.2vw, 3rem); line-height:1.1; font-weight:800; margin:0.15rem 0 0;">
+        <div class="header-gradient"></div>
+
+        <div class="header-content">
+          <h1 class="header-title">
             {$currentPolicy?.test_fields?.test_title || 'Placeholder Title'}
           </h1>
-          <div style="font-size:clamp(1rem, 2.2vw, 1.5rem); font-weight:600; opacity:0.95;">
-            {$currentPolicy?.test_fields?.test_short_caption || 'Placeholer Short Caption'}
+          <div class="header-caption">
+            {$currentPolicy?.test_fields?.test_short_caption || 'Placeholder Short Caption'}
           </div>
-          <p style="max-width:900px; margin:0.35rem auto 0.25rem auto; font-size:clamp(0.95rem, 1.7vw, 1.15rem); line-height:1.6; opacity:0.95;">
+          <p class="header-description">
             {$currentPolicy?.test_fields?.test_long_caption || 'Placeholder Long Caption'}
           </p>
-          <div style="margin-top:0.5rem; font-size:clamp(1rem, 1.8vw, 1.25rem); font-weight:700;">
+          <div class="header-date">
             {$currentPolicy?.test_fields?.test_date || '...'}
           </div>
         </div>
       </div>
-      <!-- Summary (Choose if dynamic or not) -->
-      <div style="font-size:1.2rem; line-height:1.5; font-weight:100; color:var(--primary-text); margin:2.5rem 0;">
+      <!-- Summary -->
+      <div class="summary">
         {currentAnalysisSection.summary}
       </div>
       <!-- Perspective Tabs -->
@@ -183,7 +181,7 @@
           </div>
         {/each}
       </div>
-      <!-- Overall Insights: Positive and Negative -->
+      <!-- Overall Insights -->
       <div>
         <div class="section" in:slide aria-labelledby="overall-insights" style="background: white; margin-top: 1.5rem;">
           <h2 id="overall-insights" style="font-size:1.5rem; font-weight:800; margin:0 0 0.75rem 0; color:var(--primary-text);">
@@ -210,9 +208,9 @@
             </div>
           </div>
         </div>
-
+        <!-- Recommendations -->
         <div class="section" in:slide aria-labelledby="recommendations" style="margin-top:1rem; background: white;">
-          <h2 id="recommendations" style="font-size:1.5rem; font-weight:800; margin:0 0 0.75rem 0; color:var(--primary-text);">
+          <h2 style="font-size:1.5rem; font-weight:800; margin:0 0 0.75rem 0; color:var(--primary-text);">
             Recommendations
           </h2>
 
@@ -223,7 +221,6 @@
           </div>
         </div>
       </div>
-
       <!-- Divider -->
       <div class="styled-divider" role="separator" aria-label="Analysis divider">
         <div class="line" aria-hidden="true"></div>
@@ -248,10 +245,11 @@
           {/if}
         </div>
       {/if}
-      <!-- End of Test Content -->
-       
-      <!-- (2) Perspective Carousel -->
-      {#if perspectives.length > 1}
+      <!-- End of New Analysis Content -->
+
+      <!-- Old Analysis Content -->
+      <!-- Perspective Carousel -->
+      <!-- {#if perspectives.length > 1}
         <div class="perspective-nav">
           <button
             aria-label="Previous Perspective"
@@ -277,9 +275,9 @@
         <div class="perspective-label" style="margin:1rem">
           Perspective: {currentPerspective?.group_name}
         </div>
-      {/if}
-      <!-- (3) Analysis Dimension Tabs -->
-      <div class="tab-bar">
+      {/if} -->
+      <!-- Analysis Dimension Tabs -->
+      <!-- <div class="tab-bar">
         {#each tabOptions as t}
           <button
             type="button"
@@ -295,9 +293,9 @@
             {t.label}
           </button>
         {/each}
-      </div>
-      <!-- (4) Analysis Content -->
-      {#if currentAnalysisSection}
+      </div> -->
+      <!-- Equity Findings -->
+      <!-- {#if currentAnalysisSection}
         {#if activeTab === 'general_equity_assessment'}
           <div in:slide style="overflow: hidden;">
             <p class="summary">{currentAnalysisSection.summary}</p>
@@ -355,7 +353,7 @@
               </div>
             {/if}
           </div>
-          <!-- Vulnerable Groups Formatting -->
+
         {:else if activeTab === 'vulnerable_groups_analysis'}
           <div in:slide style="overflow: hidden;">
             <p class="summary">{currentAnalysisSection.summary}</p>
@@ -398,7 +396,7 @@
               </div>
             {/if}
           </div>
-          <!-- Impact Severity Formatting -->
+
         {:else if activeTab === 'severity_impact_analysis'}
           <div in:slide style="overflow: hidden;">
             <p class="summary">{currentAnalysisSection.summary}</p>
@@ -447,7 +445,7 @@
               </div>
             {/if}
           </div>
-          <!-- Mitigation Strategies Formatting -->
+
         {:else if activeTab === 'mitigation_strategies_analysis'}
           <div in:slide style="overflow: hidden;">
             <p class="summary">
@@ -491,13 +489,14 @@
               </div>
             {/if}
           </div>
-        {/if}
-      {:else}
+        {/if} -->
+      <!-- {:else} -->
         <!-- Fallback if analysis data for the specific tab is missing, but policy and primary perspective are there -->
-        <div class="header" style="color: var(--primary-interactive);">
+        <!-- <div class="header" style="color: var(--primary-interactive);">
           No detailed data available for the selected analysis tab.
         </div>
-      {/if}
+      {/if} -->
+      <!-- End of Old Analysis Content -->
     {:else}
       <!--- Edge Case: Current Policy Exists but In Progress, currentPerspective = null -->
       <div class="header" style="color: #6c757d;">
@@ -511,7 +510,8 @@
 </section>
 
 <style>
-  /* --- Overview Header --- */
+  /*--- New AnalysisView --- */
+  /* --- Header 1 --- */
     .overview-header {
     position: relative;
     display: flex;
@@ -553,7 +553,6 @@
     height: 1rem;
     width: auto;
   }
-
   .threedots-button {
     background: #fff;
     font-size: 1rem;
@@ -569,75 +568,91 @@
     justify-content: center;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   }
-  /* --- Test Classes --- */
 
-  .styled-divider {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: 2rem 0;
-    width: 100%;
-    justify-content: center;
+  /* --- Header 2 --- */
+.header-container {
+  position: relative;
+  width: 100%;
+  height: min(48vh, 340px);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 0 0.75rem 0;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+/* Background image + dark overlay */
+.header-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('head-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.header-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+/* Gradient overlay */
+.header-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.35) 35%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+/* Text content */
+.header-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+.header-title {
+  font-size: clamp(1.6rem, 4.2vw, 3rem);
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 0.15rem 0 0;
+}
+.header-caption {
+  font-size: clamp(1rem, 2.2vw, 1.5rem);
+  font-weight: 600;
+  opacity: 0.95;
+}
+.header-description {
+  max-width: 900px;
+  margin: 0.35rem auto 0.25rem auto;
+  font-size: clamp(0.95rem, 1.7vw, 1.15rem);
+  line-height: 1.6;
+  opacity: 0.95;
+}
+.header-date {
+  margin-top: 0.5rem;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-weight: 700;
+}
+
+  /* --- Summary --- */
+  .summary {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-weight: 100;
+    color: var(--primary-text);
+    margin: 2.5rem 0;
   }
 
-  .styled-divider .line {
-    flex: 1 1 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.12), transparent);
-  }
-
-  .styled-divider .badge {
-    background: linear-gradient(135deg, rgba(12,57,90,0.95), rgba(25,118,210,0.95));
-    color: #fff;
-    padding: 0.35rem 0.85rem;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    box-shadow: 0 6px 18px rgba(12,57,90,0.18);
-    white-space: nowrap;
-    text-align: center;
-    line-height: 1;
-  }
-  .equity-summary {
-    margin-top: 3rem;
-    padding: 1.75rem 1.5rem;
-    background: var(--primary-aview-accent);
-    border-radius: 18px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 8px 20px rgba(15, 23, 42, 0.08);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .equity-summary-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-  }
-  .equity-summary-heading {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .equity-summary-chip {
-    width: 54px;
-    height: 14px;
-    border-radius: 999px;
-    flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  }
-  .equity-summary-title {
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: #101828;
-    letter-spacing: 0.01em;
-  }
-  .equity-summary-text {
-    margin: 0;
-    color: #1f2937;
-    font-size: 0.97rem;
-    line-height: 1.55;
-  }
-
+  /* --- Perspective Tabs --- */
   .perspective-tabs {
     display: flex;
     width: 100%;
@@ -684,7 +699,125 @@
     white-space: nowrap;
   }
 
+  /* --- Equity Tabs --- */
+  .equity-summary {
+    margin-top: 3rem;
+    padding: 1.75rem 1.5rem;
+    background: var(--primary-aview-accent);
+    border-radius: 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 8px 20px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .equity-summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .equity-summary-heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .equity-summary-chip {
+    width: 54px;
+    height: 14px;
+    border-radius: 999px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+  .equity-summary-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #101828;
+    letter-spacing: 0.01em;
+  }
+  .equity-summary-text {
+    margin: 0;
+    color: #1f2937;
+    font-size: 0.97rem;
+    line-height: 1.55;
+  }
 
+  /* --- Divider --- */
+  .styled-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    width: 100%;
+    justify-content: center;
+  }
+  .styled-divider .line {
+    flex: 1 1 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.12), transparent);
+  }
+  .styled-divider .badge {
+    background: linear-gradient(135deg, rgba(12,57,90,0.95), rgba(25,118,210,0.95));
+    color: #fff;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 18px rgba(12,57,90,0.18);
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1;
+  }
+
+  /* Sources */
+  .sources {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-interactive);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  .sources strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-interactive);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .sources strong::before {
+    content: '';
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url('/document.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: var(--primary-interactive);
+  }
+  .sources ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .sources li {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    line-height: 1.6;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+  }
+  .sources li:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-interactive);
+  }
+
+  /*--- Old AnalysisView --- */
   /* --- Layout --- */
   .analysis-layout {
     max-width: 1400px;
@@ -693,7 +826,7 @@
     font-family: 'Inter', sans-serif;
   }
 
-  /* --- (1) Header --- */
+  /* --- Header --- */
   .header {
     font-size: 1.7rem;
     font-weight: 700;
@@ -702,7 +835,7 @@
     color: var(--primary-text);
   }
 
-  /* --- (2) Perspective Carousel --- */
+  /* --- Perspective Carousel --- */
   .perspective-nav {
     display: flex;
     align-items: center;
@@ -760,7 +893,7 @@
     display: block;
   }
 
-  /* --- (3) Analysis Dimension Tabs --- */
+  /* --- Dimension Tabs --- */
   .tab-bar {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -809,7 +942,7 @@
     filter: brightness(0) invert(1);
   }
 
-  /* --- (4) Analysis Content --- */
+  /* --- Analysis Content --- */
   /* Grid, Analysis Sections */
   .section-grid {
     display: grid;
@@ -872,55 +1005,6 @@
     color: var(--primary-text);
     margin-top: 1rem;
     font-style: italic;
-  }
-  /* Sources */
-  .sources {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: #f8fafc;
-    border-radius: 12px;
-    border-left: 4px solid var(--primary-interactive);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  }
-  .sources strong {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--primary-interactive);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  .sources strong::before {
-    content: '';
-    width: 1.2rem;
-    height: 1.2rem;
-    background-image: url('/document.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: var(--primary-interactive);
-  }
-  .sources ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .sources li {
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background: white;
-    border-radius: 8px;
-    border: 1px solid #e5e7eb;
-    line-height: 1.6;
-    position: relative;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    transition: all 0.2s ease;
-  }
-  .sources li:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-color: var(--primary-interactive);
   }
 
   /* Spinner */
