@@ -75,18 +75,6 @@
     rel="stylesheet"
   />
   <div class="analysis-layout">
-    <!-- (1) Header with Document Title -->
-    <!-- <div class="header">
-      <img
-        src="document.svg"
-        style="height: 1lh; margin-right: 0.2em; vertical-align: bottom;"
-        alt="Document icon"
-      />
-      {$currentPolicy?.document?.title || 'No Document Selected'}
-    </div> -->
-
-
-     
 
     {#if !$currentPolicy}
       <!-- Initial State: No document selected or uploaded -->
@@ -122,7 +110,22 @@
       <!-- Expected Case (Analysis Completed, Data Available)-->
 
       <!-- Test Content -->
-      <!-- Header -->
+      <!-- Header 1 -->
+      <div class="overview-header">
+        <h2 class="overview-title">
+          {$currentPolicy?.test_fields?.test_subject || 'Overview Description'}
+        </h2>
+        <div class="overview-actions">
+          <button class="share-button">
+            <img src="/share.svg" alt="Share Icon" class="share-button-icon" />
+            Share
+          </button>
+          <button class="threedots-button">
+            <span style="margin-bottom: .3rem;">...</span>
+          </button>
+        </div>
+      </div>
+      <!-- Header 2 -->
       <div style="position:relative; width:100%; height:min(48vh, 340px); border-radius:8px; overflow:hidden; margin:0 0 0.75rem 0; box-shadow:0 8px 28px rgba(0,0,0,0.18);">
         <div
           aria-hidden="true"
@@ -132,10 +135,6 @@
         </div>
         <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.55) 100%);"></div>
         <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem; padding:1rem; text-align:center; color:#fff; font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; text-shadow:0 2px 8px rgba(0,0,0,0.45);">
-          <div
-            style="background:rgba(12,57,90,0.85); color:#eaf5fb; padding:0.5rem 1rem; border-radius:9999px; font-weight:600; letter-spacing:0.2px; box-shadow:0 6px 20px rgba(12,57,90,0.35); backdrop-filter:saturate(140%) blur(2px);">
-            {$currentPolicy?.test_fields?.test_subject || 'Placeholder Subject'}
-          </div>
           <h1 style="font-size:clamp(1.6rem, 4.2vw, 3rem); line-height:1.1; font-weight:800; margin:0.15rem 0 0;">
             {$currentPolicy?.test_fields?.test_title || 'Placeholder Title'}
           </h1>
@@ -512,7 +511,66 @@
 </section>
 
 <style>
+  /* --- Overview Header --- */
+    .overview-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.25rem 2.75rem 1.65rem;
+    border-radius: 16px;
+  }
+  .overview-title {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--primary-interactive);
+    text-align: center;
+  }
+  .overview-actions {
+    position: absolute;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .share-button {
+    background: #fff;
+    color: var(--primary-text);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    font-size: 1rem;
+  }
+  .share-button img.share-button-icon {
+    height: 1rem;
+    width: auto;
+  }
+
+  .threedots-button {
+    background: #fff;
+    font-size: 1rem;
+    color: var(--primary-text);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    padding: 0.45rem 0.6rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    min-width: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
   /* --- Test Classes --- */
+
   .styled-divider {
     display: flex;
     align-items: center;
