@@ -1,10 +1,10 @@
 <script>
   import { onMount } from 'svelte';
+  import { slide } from 'svelte/transition';
   import { server_address } from '../constants.js';
 
   // Importing Local Modules
   import InfoTab from '../lib/InfoTab.svelte';
-  import EquityModals from '../lib/pg-modals/EquityModals.svelte';
   import InfoModal from '../lib/pg-modals/InfoModal.svelte';
   import DocUpModal from '../lib/pg-modals/DocUpModal.svelte';
 
@@ -17,17 +17,159 @@
 
   // --- State Variables ---
   let selectedEquity = null;
-  let showEquity = false; // Equity modal state
 
   let showInfo = false; // Info modal state
   let docUp = false; // Document upload modal state
 
   let policies = [];
 
+  // Curved connections
+  let svgContainer = null;
+  let activeButton = null;
+  let detailsContainer = null;
+
+  // --- Equity Definitions ---
+  const efItems = [
+    {
+      id: 'procedural',
+      label: 'Procedural',
+      def: 'Fair and inclusive processes in policy development, implementation, and enforcement. Ensures all stakeholders have meaningful participation opportunities.',
+      color: 'var(--equity-color-procedural)',
+    },
+    {
+      id: 'structural',
+      label: 'Structural',
+      def: 'Addresses underlying systems and institutions that create inequities. Focuses on reforming organizational structures, legal frameworks, and policies that systematically advantage some groups while disadvantaging others.',
+      color: 'var(--equity-color-structural)',
+    },
+    {
+      id: 'distributional',
+      label: 'Distributional',
+      def: 'Fair allocation of benefits, burdens, and resources. Examines who gets what, when, and how in policy outcomes.',
+      color: 'var(--equity-color-distributional)',
+    },
+    {
+      id: 'recognitional',
+      label: 'Recognitional',
+      def: "Recognition of historical, cultural, and social contexts that shape communities' relationships with water resources and governance.",
+      color: 'var(--equity-color-recognitional)',
+    },
+    {
+      id: 'transformational',
+      label: 'Transformational',
+      def: 'Goes beyond fixing current systems to fundamentally reimagining and restructuring them. Creates entirely new approaches that center equity from the ground up, building regenerative systems that prevent inequities from occurring.',
+      color: 'var(--equity-color-transformational)',
+    },
+  ];
+
   // --- Lifecycle Hook ---
   onMount(async () => {
     policies = await fetchPolicies();
+
+    // Add resize handler to update curves
+    const handleResize = () => {
+      if (selectedEquity) {
+        setTimeout(createCurvedConnections, 50);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   });
+
+  // Function to create curved connections
+  function createCurvedConnections() {
+    if (!selectedEquity || !svgContainer) return;
+
+    // Clear existing paths
+    svgContainer.innerHTML = '';
+
+    // Find the active button
+    activeButton = document.querySelector(
+      `.equity-box.${selectedEquity}.active`
+    );
+    detailsContainer = document.querySelector('.equity-details-container');
+
+    if (!activeButton || !detailsContainer) return;
+
+    const buttonRect = activeButton.getBoundingClientRect();
+    const containerRect = detailsContainer.getBoundingClientRect();
+    const svgRect = svgContainer.getBoundingClientRect();
+
+    // Calculate middle points
+    const buttonCenterX = buttonRect.left + buttonRect.width / 2 - svgRect.left;
+    const buttonBottom = buttonRect.bottom - svgRect.top;
+    const containerCenterX =
+      containerRect.left + containerRect.width / 2 - svgRect.left;
+    const containerTop = containerRect.top - svgRect.top;
+
+    // Create single curved path from button middle to container middle
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+    // Calculate control point for the curve (creates a nice arc)
+    const midY = buttonBottom + (containerTop - buttonBottom) / 2;
+    const controlX = (buttonCenterX + containerCenterX) / 2;
+    const controlY = midY + 30; // Add some curve depth
+
+    const pathD = `M ${buttonCenterX} ${buttonBottom} 
+                   Q ${controlX} ${controlY} 
+                     ${containerCenterX} ${containerTop}`;
+
+    path.setAttribute('d', pathD);
+    path.setAttribute('stroke', getComputedStyle(activeButton).backgroundColor);
+    path.setAttribute('stroke-width', '2');
+    path.setAttribute('stroke-dasharray', '8,4'); // Dashed line
+    path.setAttribute('fill', 'none');
+    path.setAttribute('opacity', '0.7');
+
+    // Calculate the true midpoint of the quadratic Bézier curve (t = 0.5)
+    // Formula: B(t) = (1-t)²P₀ + 2(1-t)tP₁ + t²P₂
+    const t = 0.3;
+    const curveMidX =
+      Math.pow(1 - t, 2) * buttonCenterX +
+      2 * (1 - t) * t * controlX +
+      Math.pow(t, 2) * containerCenterX;
+    const curveMidY =
+      Math.pow(1 - t, 2) * buttonBottom +
+      2 * (1 - t) * t * controlY +
+      Math.pow(t, 2) * containerTop;
+
+    // Create decorative whirl/knot at the actual midpoint
+    const whirl = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'circle'
+    );
+    whirl.setAttribute('cx', curveMidX);
+    whirl.setAttribute('cy', curveMidY);
+    whirl.setAttribute('r', '6');
+    whirl.setAttribute('fill', getComputedStyle(activeButton).backgroundColor);
+    // whirl.setAttribute('stroke', 'white');
+    // whirl.setAttribute('stroke-width', '2');
+    whirl.setAttribute('opacity', '1');
+
+    // Add a smaller inner circle for the knot effect
+    const innerWhirl = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'circle'
+    );
+    innerWhirl.setAttribute('cx', curveMidX);
+    innerWhirl.setAttribute('cy', curveMidY);
+    innerWhirl.setAttribute('r', '3.5');
+    innerWhirl.setAttribute('fill', 'white');
+    innerWhirl.setAttribute('opacity', '1');
+
+    svgContainer.appendChild(path);
+    svgContainer.appendChild(whirl);
+    svgContainer.appendChild(innerWhirl);
+  }
+
+  // Reactive statement to update curves when selection changes
+  $: if (selectedEquity) {
+    setTimeout(createCurvedConnections, 100); // Small delay for DOM updates
+  }
 
   // handleSelect function for updating policy store variable
   async function handleSelect(policy) {
@@ -105,7 +247,7 @@
     providing instant insights with dynamic visualizations
   </p>
   <!-- Caption 2 -->
-  <h3 class="caption-2">
+  <h3 class="caption-2" style="position: relative;">
     <!-- Pre-Analyzed Documents -->
     <!-- <img
       src="landmark.svg"
@@ -117,60 +259,97 @@
     <div class="eqbox-container">
       <button
         type="button"
-        class="equity-box procedural"
+        class="equity-box procedural {selectedEquity === 'procedural'
+          ? 'active'
+          : ''}"
         on:click={() => {
-          selectedEquity = 'procedural';
-          showEquity = true;
+          selectedEquity =
+            selectedEquity === 'procedural' ? null : 'procedural';
         }}
-        aria-label="Open Procedural Equity modal"
+        aria-label="Show Procedural Equity details"
       >
         <span class="equity-name">Procedural Equity</span>
       </button>
       <button
         type="button"
-        class="equity-box structural"
+        class="equity-box structural {selectedEquity === 'structural'
+          ? 'active'
+          : ''}"
         on:click={() => {
-          selectedEquity = 'structural';
-          showEquity = true;
+          selectedEquity =
+            selectedEquity === 'structural' ? null : 'structural';
         }}
-        aria-label="Open Structural Equity modal"
+        aria-label="Show Structural Equity details"
       >
         <span class="equity-name">Structural Equity</span>
       </button>
       <button
         type="button"
-        class="equity-box distributional"
+        class="equity-box distributional {selectedEquity === 'distributional'
+          ? 'active'
+          : ''}"
         on:click={() => {
-          selectedEquity = 'distributional';
-          showEquity = true;
+          selectedEquity =
+            selectedEquity === 'distributional' ? null : 'distributional';
         }}
-        aria-label="Open Distributional Equity modal"
+        aria-label="Show Distributional Equity details"
       >
         <span class="equity-name">Distributional Equity</span>
       </button>
       <button
         type="button"
-        class="equity-box recognitional"
+        class="equity-box recognitional {selectedEquity === 'recognitional'
+          ? 'active'
+          : ''}"
         on:click={() => {
-          selectedEquity = 'recognitional';
-          showEquity = true;
+          selectedEquity =
+            selectedEquity === 'recognitional' ? null : 'recognitional';
         }}
-        aria-label="Open Recognitional Equity modal"
+        aria-label="Show Recognitional Equity details"
       >
         <span class="equity-name">Recognitional Equity</span>
       </button>
       <button
         type="button"
-        class="equity-box transformational"
+        class="equity-box transformational {selectedEquity ===
+        'transformational'
+          ? 'active'
+          : ''}"
         on:click={() => {
-          selectedEquity = 'transformational';
-          showEquity = true;
+          selectedEquity =
+            selectedEquity === 'transformational' ? null : 'transformational';
         }}
-        aria-label="Open Transformational Equity modal"
+        aria-label="Show Transformational Equity details"
       >
         <span class="equity-name">Transformational Equity</span>
       </button>
     </div>
+
+    <!-- SVG for curved connections -->
+    <svg
+      bind:this={svgContainer}
+      class="connection-svg"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5;"
+    ></svg>
+
+    <!-- Equity Details Row -->
+    {#if selectedEquity}
+      {#each efItems as item}
+        {#if item.id === selectedEquity}
+          <div
+            class="equity-details-container"
+            style="--equity-color: {item.color};"
+            in:slide={{ duration: 400, delay: 100 }}
+            out:slide={{ duration: 300 }}
+          >
+            <div class="equity-details-content">
+              <!-- <h3 class="equity-details-title">{item.label} Equity</h3> -->
+              <p class="equity-details-text">{item.def}</p>
+            </div>
+          </div>
+        {/if}
+      {/each}
+    {/if}
   </h3>
 
   <!-- (1) Gantt-like Policy Gallery (Federal, State, Agency, Other) -->
@@ -300,7 +479,7 @@
     </div>
 
     <!-- Add Policy CTA aligned with lanes -->
-    <div>
+    <!-- <div>
       <button
         class="add-policy-card"
         type="button"
@@ -319,7 +498,7 @@
         <span class="add-text">Add New Policy</span>
         <p class="add-desc">Upload a document for equity analysis</p>
       </button>
-    </div>
+    </div> -->
   </div>
 
   <!-- Tool Button -->
@@ -331,18 +510,14 @@
     Equiflow AI
   </button>
   <!-- Info Tab -->
-  <InfoTab />
+  <!-- <InfoTab /> -->
 
   <!-- --- Modals!! --- -->
   <!-- i. CTA Modal, Info/Onboarding -->
   {#if showInfo}
     <InfoModal on:close={() => (showInfo = false)} />
   {/if}
-  <!-- ii. Equity Definition Modals -->
-  {#if showEquity}
-    <EquityModals {selectedEquity} on:close={() => (showEquity = false)} />
-  {/if}
-  <!-- iii. Upload Modal, Document Loading for Tool -->
+  <!-- ii. Upload Modal, Document Loading for Tool -->
   {#if docUp}
     <DocUpModal on:close={() => (docUp = false)} />
   {/if}
@@ -431,6 +606,7 @@
   }
   .equity-box {
     border-radius: 8px;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
     padding: 1rem 1.5rem;
     text-align: center;
     width: 180px;
@@ -439,7 +615,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 0.25rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     transition:
       transform 0.2s ease,
       box-shadow 0.2s ease;
@@ -464,8 +640,15 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
+  .equity-box.active {
+    transform: translateY(-12px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    /* border: 3px solid rgba(255, 255, 255, 0.95); */
+    position: relative;
+    z-index: 10;
+  }
   .equity-name {
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: 600;
     font-size: 0.9rem;
     line-height: 1.2;
@@ -758,5 +941,60 @@
     font-size: 0.9rem;
     color: #6c757d;
     margin: 0;
+  }
+
+  /* --- Equity Details Styling --- */
+  .equity-details-container {
+    background: white;
+    border: 3px solid var(--equity-color);
+    /* border-top: none; */
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    width: 90%;
+    padding: 1.5rem 2rem 2rem 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* .equity-details-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 3px;
+    background: var(--equity-color);
+    border-radius: 0 0 3px 3px;
+  } */
+
+  .equity-details-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .equity-details-text {
+    color: var(--primary-text);
+    font-size: 0.9rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+    font-weight: 400;
+  }
+
+  @media (max-width: 768px) {
+    .equity-details-container {
+      width: 95%;
+      padding: 1rem 1.5rem 1.5rem 1.5rem;
+    }
+
+    .equity-details-text {
+      font-size: 1rem;
+    }
   }
 </style>
