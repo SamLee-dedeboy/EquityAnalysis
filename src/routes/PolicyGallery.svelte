@@ -24,7 +24,6 @@
 
   let policies = [];
 
-
   // --- Lifecycle Hook ---
   onMount(async () => {
     policies = await fetchPolicies();
@@ -41,9 +40,9 @@
   // Filters: Helper functions to check if a policy belongs to a specific tier
   function isFederal(policy) {
     return (
-        policy.document.type === 'federal' ||
-        policy.document.title.toLowerCase().includes('federal') ||
-        policy.document.title.toLowerCase().includes('act')
+      policy.document.type === 'federal' ||
+      policy.document.title.toLowerCase().includes('federal') ||
+      policy.document.title.toLowerCase().includes('act')
     );
   }
 
@@ -62,7 +61,6 @@
       dtype === 'state' ||
       title.includes('state') ||
       title.includes('california')
-
     );
   }
 
@@ -82,7 +80,6 @@
   // function isAgency(policy) {
   //   return (policy.test_fields.test_scope || '').toLowerCase() === 'agency';
   // }
-
 </script>
 
 <section>
@@ -118,19 +115,59 @@
     Understand the Five Equities
     <!-- Document Hierarchy Flow Chart -->
     <div class="eqbox-container">
-      <button type="button" class="equity-box procedural" on:click={() => { selectedEquity = 'procedural'; showEquity = true; }} aria-label="Open Procedural Equity modal">
+      <button
+        type="button"
+        class="equity-box procedural"
+        on:click={() => {
+          selectedEquity = 'procedural';
+          showEquity = true;
+        }}
+        aria-label="Open Procedural Equity modal"
+      >
         <span class="equity-name">Procedural Equity</span>
       </button>
-      <button type="button" class="equity-box structural" on:click={() => { selectedEquity = 'structural'; showEquity = true; }} aria-label="Open Structural Equity modal">
+      <button
+        type="button"
+        class="equity-box structural"
+        on:click={() => {
+          selectedEquity = 'structural';
+          showEquity = true;
+        }}
+        aria-label="Open Structural Equity modal"
+      >
         <span class="equity-name">Structural Equity</span>
       </button>
-      <button type="button" class="equity-box distributional" on:click={() => { selectedEquity = 'distributional'; showEquity = true; }} aria-label="Open Distributional Equity modal">
+      <button
+        type="button"
+        class="equity-box distributional"
+        on:click={() => {
+          selectedEquity = 'distributional';
+          showEquity = true;
+        }}
+        aria-label="Open Distributional Equity modal"
+      >
         <span class="equity-name">Distributional Equity</span>
       </button>
-      <button type="button" class="equity-box recognitional" on:click={() => { selectedEquity = 'recognitional'; showEquity = true; }} aria-label="Open Recognitional Equity modal">
+      <button
+        type="button"
+        class="equity-box recognitional"
+        on:click={() => {
+          selectedEquity = 'recognitional';
+          showEquity = true;
+        }}
+        aria-label="Open Recognitional Equity modal"
+      >
         <span class="equity-name">Recognitional Equity</span>
       </button>
-      <button type="button" class="equity-box transformational" on:click={() => { selectedEquity = 'transformational'; showEquity = true; }} aria-label="Open Transformational Equity modal">
+      <button
+        type="button"
+        class="equity-box transformational"
+        on:click={() => {
+          selectedEquity = 'transformational';
+          showEquity = true;
+        }}
+        aria-label="Open Transformational Equity modal"
+      >
         <span class="equity-name">Transformational Equity</span>
       </button>
     </div>
@@ -138,13 +175,16 @@
 
   <!-- (1) Gantt-like Policy Gallery (Federal, State, Agency, Other) -->
   <div class="gallery">
-
     <!-- Row: Federal -->
     <div class="row federal">
       <div class="row-label federal">
-        <span class="row-icon"><img src="landmark.svg" alt="Federal" /></span>
-        Federal
-        <span class="row-count">{policies.filter(isFederal).length}</span>
+        <div class="row-label-content">
+          <span class="row-icon">
+            <img src="landmark.svg" alt="Federal" />
+          </span>
+          <span> Federal </span>
+          <span class="row-count">{policies.filter(isFederal).length}</span>
+        </div>
       </div>
       <div class="row-track">
         {#each policies.filter(isFederal) as policy}
@@ -169,9 +209,13 @@
     <!-- Row: State -->
     <div class="row state">
       <div class="row-label state">
-        <span class="row-icon"><img src="landmark.svg" alt="State" /></span>
-        State
-        <span class="row-count">{policies.filter(isState).length}</span>
+        <div class="row-label-content">
+          <span class="row-icon">
+            <img src="landmark.svg" alt="State" />
+          </span>
+          <span> State </span>
+          <span class="row-count">{policies.filter(isState).length}</span>
+        </div>
       </div>
       <div class="row-track">
         {#each policies.filter(isState) as policy}
@@ -196,9 +240,13 @@
     <!-- Row: Agency -->
     <div class="row agency">
       <div class="row-label agency">
-        <span class="row-icon"><img src="landmark.svg" alt="Agency"/></span>
-        Agency
-        <span class="row-count">{policies.filter(isAgency).length}</span>
+        <div class="row-label-content">
+          <span class="row-icon">
+            <img src="landmark.svg" alt="Agency" />
+          </span>
+          <span> Agency </span>
+          <span class="row-count">{policies.filter(isAgency).length}</span>
+        </div>
       </div>
       <div class="row-track">
         {#each policies.filter(isAgency) as policy}
@@ -223,9 +271,13 @@
     <!-- Row: Other -->
     <div class="row other">
       <div class="row-label other">
-        <span class="row-icon"><img src="document.svg" alt="Other" /></span>
-        Other
-        <span class="row-count">{policies.filter(isOther).length}</span>
+        <div class="row-label-content">
+          <span class="row-icon">
+            <img src="document.svg" alt="Agency" />
+          </span>
+          <span> Other </span>
+          <span class="row-count">{policies.filter(isOther).length}</span>
+        </div>
       </div>
       <div class="row-track">
         {#each policies.filter(isOther) as policy}
@@ -258,7 +310,11 @@
         style="display: block; margin: 0 auto;"
       >
         <div class="add-icon">
-          <img src="plus.svg" alt="Plus Icon" style="width: 2rem; height: 2rem;" />
+          <img
+            src="plus.svg"
+            alt="Plus Icon"
+            style="width: 2rem; height: 2rem;"
+          />
         </div>
         <span class="add-text">Add New Policy</span>
         <p class="add-desc">Upload a document for equity analysis</p>
@@ -284,7 +340,7 @@
   {/if}
   <!-- ii. Equity Definition Modals -->
   {#if showEquity}
-    <EquityModals selectedEquity={selectedEquity} on:close={() => (showEquity = false)} />
+    <EquityModals {selectedEquity} on:close={() => (showEquity = false)} />
   {/if}
   <!-- iii. Upload Modal, Document Loading for Tool -->
   {#if docUp}
@@ -292,8 +348,7 @@
   {/if}
 </section>
 
-<style>
-
+<style lang="postcss">
   /* --- Captions --- */
   .caption-1 {
     font-family: 'Inter', sans-serif;
@@ -415,7 +470,7 @@
     font-size: 0.9rem;
     line-height: 1.2;
   }
-  
+
   @media (max-width: 768px) {
     .eqbox-container {
       flex-direction: column;
@@ -438,34 +493,50 @@
 
   .row {
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 180px 1fr;
     align-items: stretch;
-    gap: 0.75rem;
+    /* gap: 0.75rem; */
   }
 
   .row-label {
     display: flex;
+    /* align-items: center; */
+    font-weight: 700;
+    /* border: 2px solid currentColor; */
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 0.75rem 0.9rem;
+    /* background: white; */
+    /* max-height: 100px; */
+  }
+  .row-label-content {
+    display: flex;
+    height: fit-content;
     align-items: center;
     gap: 0.5rem;
-    font-weight: 700;
-    border: 2px solid currentColor;
-    border-radius: 10px;
-    padding: 0.75rem 0.9rem;
-    background: white;
-    max-height: 100px;
+    & > .row-icon img {
+      height: 1.2rem;
+    }
+    & > .row-count {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+    & > span {
+      height: fit-content;
+    }
   }
 
-  .row-label .row-icon img {
+  /* .row-label .row-icon img {
     height: 1.2rem;
-  }
+  } */
 
   .row-count {
-    margin-left: auto;
-    font-size: 0.85rem;
-    opacity: 0.8;
-    background: rgba(0, 0, 0, 0.04);
-    padding: 0.15rem 0.5rem;
-    border-radius: 999px;
+    /* margin-left: auto; */
+    /* font-size: 0.85rem; */
+    /* opacity: 0.8; */
+    /* background: rgba(0, 0, 0, 0.04); */
+    /* padding: 0.15rem 0.5rem; */
+    /* border-radius: 999px; */
   }
 
   .row-track {
@@ -474,11 +545,15 @@
     gap: 0.5rem;
     align-items: center;
     padding: 0.5rem;
-    border-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     overflow-x: auto;
     background: var(--track-color);
     min-height: 60px;
     width: 1200px;
+  }
+  .row.other > .row-track {
+    background: var(--policy-other-light);
   }
 
   /* Lane-specific Stylings */
@@ -492,14 +567,30 @@
     padding-left: 3.6rem; /* largest indent for other row */
   }
 
-
-  .row-label.federal { color: var(--policy-federal); background: var(--policy-federal-light); }
-  .row-label.agency { color: var(--policy-agency); background: var(--policy-agency-light); }
-  .row-label.other { color: var(--policy-other); background: var(--policy-other-light); }
-  .row-label.state { color: var(--policy-state); background: var(--policy-state-light); }
+  .row-label.federal {
+    color: var(--policy-federal);
+    /* background: var(--policy-federal-light); */
+    background: var(--track-color);
+  }
+  .row-label.agency {
+    color: var(--policy-agency);
+    /* background: var(--policy-agency-light); */
+    background: var(--track-color);
+  }
+  .row-label.other {
+    color: var(--policy-other);
+    background: var(--policy-other-light);
+  }
+  .row-label.state {
+    color: var(--policy-state);
+    /* background: var(--policy-state-light); */
+    background: var(--track-color);
+  }
 
   @media (max-width: 768px) {
-    .row { grid-template-columns: 160px 1fr; }
+    .row {
+      grid-template-columns: 160px 1fr;
+    }
   }
 
   .empty-section {
@@ -519,7 +610,6 @@
     align-items: center;
     justify-content: center;
   }
-
 
   /* Policy Cards */
 
@@ -584,8 +674,8 @@
     margin-top: auto;
     text-align: center;
     width: fit-content;
-    margin-left: 0.0rem;
-    margin-right: 0.0rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
     box-sizing: border-box;
   }
 
@@ -637,7 +727,6 @@
     transition: all 0.2s ease;
     text-align: center;
     min-width: 300px;
-
   }
 
   .add-policy-card:hover {
