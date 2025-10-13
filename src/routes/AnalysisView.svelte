@@ -271,27 +271,29 @@
       <!-- Equity Tabs -->
       <div class="equity-summary">
         {#if perspectiveCardGroups.length}
-          <div class="equity-columns-grid">
+          <div class="stakeholder-equity">
             {#each perspectiveCardGroups as group}
-              <section class="equity-column">
-                <header class="equity-column-header">
-                  <h3 class="equity-column-title">{group.title}</h3>
-
+              <section class="stakeholder-section">
+                <header class="stakeholder-header">
+                  <h3 class="stakeholder-name">{group.title}</h3>
+                  {#if group.subtitle}
+                    <p class="stakeholder-description">{group.subtitle}</p>
+                  {/if}
                 </header>
-                <div class="equity-card-grid">
+                <div class="stakeholder-card-grid">
                   {#each group.cards as card}
-                    <article class="equity-card">
+                    <article class="stakeholder-card">
                       <span
-                        class="equity-card-accent"
+                        class="stakeholder-card-accent"
                         style="background-color: {card.color};"
                         aria-hidden="true"
                       ></span>
-                      <div class="equity-card-category">{card.labelText}</div>
+                      <div class="stakeholder-card-category">{card.labelText}</div>
                       {#if card.headline}
-                        <h2 class="equity-card-headline">{card.headline}</h2>
+                        <h2 class="stakeholder-card-headline">{card.headline}</h2>
                       {/if}
                       {#if card.description}
-                        <p class="equity-card-description">{card.description}</p>
+                        <p class="stakeholder-card-description">{card.description}</p>
                       {/if}
                     </article>
                   {/each}
@@ -823,93 +825,89 @@
   .equity-summary {
     margin-top: 3rem;
   }
-  .equity-columns-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2rem;
+  .stakeholder-equity {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
   }
-  .equity-column {
+  .stakeholder-section {
+    padding: 2.25rem;
     background: #ffffff;
-    border-radius: 24px;
-    padding: 1.75rem;
-    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
-    border: 1px solid rgba(15, 23, 42, 0.05);
+    border-radius: 26px;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow: 0 24px 52px rgba(15, 23, 42, 0.08);
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
-    min-height: 100%;
+    gap: 1.85rem;
   }
-  .equity-column-header {
+  .stakeholder-header {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem;
   }
-  .equity-column-title {
+  .stakeholder-name {
     margin: 0;
-    font-size: 1.45rem;
+    font-size: 1.6rem;
     font-weight: 800;
     color: #0f172a;
     letter-spacing: -0.01em;
   }
-
-  .equity-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.2rem;
+  .stakeholder-description {
+    margin: 0;
+    color: #4b5563;
+    font-size: 0.96rem;
+    line-height: 1.6;
   }
-  .equity-card {
+  .stakeholder-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1.4rem;
+  }
+  .stakeholder-card {
     position: relative;
-    padding: 1.5rem;
+    padding: 1.6rem;
     background: #f5f7fb;
     border-radius: 20px;
     border: 1px solid rgba(15, 23, 42, 0.08);
     box-shadow: 0 18px 32px rgba(15, 23, 42, 0.09);
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.8rem;
     min-height: 180px;
   }
-  .equity-card-accent {
-    width: 42px;
+  .stakeholder-card-accent {
+    width: 44px;
     height: 6px;
     border-radius: 999px;
     display: inline-block;
   }
-  .equity-card-category {
-    font-size: 0.75rem;
+  .stakeholder-card-category {
+    font-size: 0.76rem;
     font-weight: 700;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: #1f2937;
   }
-  .equity-card-headline {
+  .stakeholder-card-headline {
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-weight: 700;
     line-height: 1.25;
     color: #0f172a;
   }
-  .equity-card-description {
+  .stakeholder-card-description {
     margin: 0;
     color: #475467;
-    font-size: 0.95rem;
+    font-size: 0.96rem;
     line-height: 1.6;
   }
-  @media (max-width: 1500px) {
-    .equity-columns-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
   @media (max-width: 1100px) {
-    .equity-columns-grid {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-    .equity-column {
-      padding: 1.5rem;
+    .stakeholder-section {
+      padding: 1.9rem;
     }
   }
   @media (max-width: 768px) {
-    .equity-card {
+    .stakeholder-card {
       min-height: unset;
     }
   }
