@@ -8,14 +8,19 @@
   --primary-background: #0c8ba71c;
   --primary-text: #3f3f3f;
 
-  --primary-aview-accent: #EDEDED;
+  --primary-aview-accent: #ededed;
 
   /* Equity Colors */
-  --equity-color-procedural: #227c9d;
+  /* --equity-color-procedural: #227c9d;
   --equity-color-structural: #17c3b2;
   --equity-color-distributional: #ffcb77;
   --equity-color-recognitional: #feb3b1;
-  --equity-color-transformational: #fe6d73;
+  --equity-color-transformational: #fe6d73; */
+  --equity-color-procedural: #3a96dd;
+  --equity-color-structural: #9373c0;
+  --equity-color-distributional: #eb6117;
+  --equity-color-recognitional: #fd18a5;
+  --equity-color-transformational: #379da1;
 
   /* Policy Scope Tier Colors — muted blue-gray scale (slightly more grey) */
   --policy-federal: #2f393b;
@@ -27,8 +32,8 @@
   --policy-agency: #95a0a3;
   --policy-agency-light: #f4f6f6;
 
-  --policy-other: #6B4B3A; /* muted brown — warm, restrained */
-  --policy-other-light: #F5ECE6; /* very light warm tint for surfaces */
+  --policy-other: #6b4b3a; /* muted brown — warm, restrained */
+  --policy-other-light: #f5ece6; /* very light warm tint for surfaces */
 
   --track-color: #f6f6f6;
 }
