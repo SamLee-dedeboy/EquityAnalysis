@@ -27,6 +27,8 @@
   let svgContainer = null;
   let activeButton = null;
   let detailsContainer = null;
+  let animationId = null; // Track animation for cleanup
+  let currentlyAnimatingEquity = null; // Track which equity is currently animating
 
   // --- Equity Definitions ---
   const efItems = [
@@ -84,6 +86,12 @@
   function createCurvedConnections() {
     if (!selectedEquity || !svgContainer) return;
 
+    // Cancel any existing animation
+    if (animationId) {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+    }
+
     // Clear existing paths
     svgContainer.innerHTML = '';
 
@@ -121,9 +129,60 @@
     path.setAttribute('d', pathD);
     path.setAttribute('stroke', getComputedStyle(activeButton).backgroundColor);
     path.setAttribute('stroke-width', '2');
-    path.setAttribute('stroke-dasharray', '8,4'); // Dashed line
     path.setAttribute('fill', 'none');
     path.setAttribute('opacity', '0.7');
+
+    // Get path length and set up drawing animation like in test.html
+    const pathLength = path.getTotalLength();
+
+    // Set up the dash so the entire path is hidden at first
+    path.style.strokeDasharray = pathLength;
+    path.style.strokeDashoffset = pathLength;
+
+    // Animate using requestAnimationFrame for smooth drawing
+    const duration = 300; // in ms
+    const startTime = performance.now();
+
+    function animatePath(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1); // clamp 0–1
+
+      // Update dash offset based on progress
+      path.style.strokeDashoffset = pathLength * (1 - progress);
+
+      if (progress >= 1) {
+        // Animation completed, clear the ID and tracking
+        animationId = null;
+        currentlyAnimatingEquity = null;
+        // After animation completes, switch to dashed appearance
+        setTimeout(() => {
+          path.style.strokeDasharray = '8,4';
+          path.style.strokeDashoffset = '0';
+        }, 100);
+      } else {
+        animationId = requestAnimationFrame(animatePath);
+      }
+    }
+
+    // Start animation
+    animationId = requestAnimationFrame(animatePath);
+
+    // Add CSS animations if they don't exist
+    if (!document.querySelector('#path-animation-style')) {
+      const style = document.createElement('style');
+      style.id = 'path-animation-style';
+      style.textContent = `
+        @keyframes fadeInScale {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
 
     // Calculate the true midpoint of the quadratic Bézier curve (t = 0.5)
     // Formula: B(t) = (1-t)²P₀ + 2(1-t)tP₁ + t²P₂
@@ -146,9 +205,9 @@
     whirl.setAttribute('cy', curveMidY);
     whirl.setAttribute('r', '6');
     whirl.setAttribute('fill', getComputedStyle(activeButton).backgroundColor);
-    // whirl.setAttribute('stroke', 'white');
-    // whirl.setAttribute('stroke-width', '2');
-    whirl.setAttribute('opacity', '1');
+    whirl.setAttribute('opacity', '0');
+    whirl.style.animation = 'fadeInScale 0.2s ease-out 0.6s forwards';
+    whirl.style.animationDelay = '0s';
 
     // Add a smaller inner circle for the knot effect
     const innerWhirl = document.createElementNS(
@@ -157,18 +216,41 @@
     );
     innerWhirl.setAttribute('cx', curveMidX);
     innerWhirl.setAttribute('cy', curveMidY);
-    innerWhirl.setAttribute('r', '3.5');
+    innerWhirl.setAttribute('r', '4');
     innerWhirl.setAttribute('fill', 'white');
-    innerWhirl.setAttribute('opacity', '1');
+    innerWhirl.setAttribute('opacity', '0');
+    innerWhirl.style.animation = 'fadeInScale 0.2s ease-out 0.6s forwards';
+    innerWhirl.style.animationDelay = '0s';
 
     svgContainer.appendChild(path);
     svgContainer.appendChild(whirl);
     svgContainer.appendChild(innerWhirl);
   }
 
-  // Reactive statement to update curves when selection changes
-  $: if (selectedEquity) {
-    setTimeout(createCurvedConnections, 100); // Small delay for DOM updates
+  // Handle equity selection changes
+  function handleEquitySelection(equityType) {
+    const previousEquity = selectedEquity;
+
+    // Toggle the selected equity
+    selectedEquity = selectedEquity === equityType ? null : equityType;
+
+    // Cancel any running animation
+    if (animationId) {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+    }
+
+    if (selectedEquity) {
+      // Create new animation for the selected equity
+      currentlyAnimatingEquity = selectedEquity;
+      setTimeout(createCurvedConnections, 100); // Small delay for DOM updates
+    } else {
+      // Clear everything when no equity is selected
+      currentlyAnimatingEquity = null;
+      if (svgContainer) {
+        svgContainer.innerHTML = '';
+      }
+    }
   }
 
   // handleSelect function for updating policy store variable
@@ -262,10 +344,7 @@
         class="equity-box procedural {selectedEquity === 'procedural'
           ? 'active'
           : ''}"
-        on:click={() => {
-          selectedEquity =
-            selectedEquity === 'procedural' ? null : 'procedural';
-        }}
+        on:click={() => handleEquitySelection('procedural')}
         aria-label="Show Procedural Equity details"
       >
         <span class="equity-name">Procedural Equity</span>
@@ -275,10 +354,7 @@
         class="equity-box structural {selectedEquity === 'structural'
           ? 'active'
           : ''}"
-        on:click={() => {
-          selectedEquity =
-            selectedEquity === 'structural' ? null : 'structural';
-        }}
+        on:click={() => handleEquitySelection('structural')}
         aria-label="Show Structural Equity details"
       >
         <span class="equity-name">Structural Equity</span>
@@ -288,10 +364,7 @@
         class="equity-box distributional {selectedEquity === 'distributional'
           ? 'active'
           : ''}"
-        on:click={() => {
-          selectedEquity =
-            selectedEquity === 'distributional' ? null : 'distributional';
-        }}
+        on:click={() => handleEquitySelection('distributional')}
         aria-label="Show Distributional Equity details"
       >
         <span class="equity-name">Distributional Equity</span>
@@ -301,10 +374,7 @@
         class="equity-box recognitional {selectedEquity === 'recognitional'
           ? 'active'
           : ''}"
-        on:click={() => {
-          selectedEquity =
-            selectedEquity === 'recognitional' ? null : 'recognitional';
-        }}
+        on:click={() => handleEquitySelection('recognitional')}
         aria-label="Show Recognitional Equity details"
       >
         <span class="equity-name">Recognitional Equity</span>
@@ -315,10 +385,7 @@
         'transformational'
           ? 'active'
           : ''}"
-        on:click={() => {
-          selectedEquity =
-            selectedEquity === 'transformational' ? null : 'transformational';
-        }}
+        on:click={() => handleEquitySelection('transformational')}
         aria-label="Show Transformational Equity details"
       >
         <span class="equity-name">Transformational Equity</span>
