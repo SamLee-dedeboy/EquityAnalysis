@@ -10,6 +10,7 @@
   // --- State Variables ---
   let activeTab = 'general_equity_assessment';
   let perspectiveIndex = 0;
+  let perspectiveCardGroups = [];
 
   // --- Reactive Statements ---
   $: perspectives = $currentPolicy?.overall_analysis_by_perspective ?? []; // Binds perspectives to the analysis JSON
@@ -61,6 +62,106 @@
       image: 'shield-plus.svg',
     },
   ];
+
+  const toCleanString = (value) =>
+    typeof value === 'string' ? value.trim() : '';
+
+  const firstWords = (text, count = 5) => {
+    if (!text) return '';
+    const words = text.split(/\s+/).filter(Boolean);
+    if (words.length <= count) return text.trim();
+    return words.slice(0, count).join(' ').trim();
+  };
+
+  const firstSentence = (text) => {
+    if (!text) return '';
+    const match = text.match(/[^.!?]+[.!?]?/);
+    return (match ? match[0] : text).trim();
+  };
+
+  const buildCardContent = (raw) => {
+    if (!raw || typeof raw !== 'object') {
+      return { headline: '', description: '' };
+    }
+
+    const captionSource =
+      toCleanString(raw?.caption) || toCleanString(raw?.headline);
+
+    const narrativeSource =
+      toCleanString(raw?.findings) ||
+      toCleanString(raw?.positive_findings) ||
+      toCleanString(raw?.conclusion) ||
+      toCleanString(raw?.summary) ||
+      toCleanString(raw?.concerns);
+
+    const headlineBase =
+      captionSource || (narrativeSource ? firstSentence(narrativeSource) : '');
+    const headline = headlineBase ? firstWords(headlineBase, 5) : '';
+
+    let descriptionSource =
+      toCleanString(raw?.summary) ||
+      (narrativeSource && narrativeSource !== headlineBase
+        ? narrativeSource
+        : '') ||
+      toCleanString(raw?.concerns);
+
+    if (!descriptionSource && narrativeSource) {
+      const leadingSentence = firstSentence(narrativeSource);
+      const remainder = narrativeSource
+        .slice(leadingSentence.length)
+        .trim();
+      descriptionSource = remainder || narrativeSource;
+    }
+
+    let description = descriptionSource ? firstSentence(descriptionSource) : '';
+
+    if (
+      description &&
+      headline &&
+      description.toLowerCase() === headline.toLowerCase()
+    ) {
+      const remainder = narrativeSource
+        ? narrativeSource.replace(firstSentence(narrativeSource), '').trim()
+        : '';
+      description = remainder ? firstSentence(remainder) : '';
+    }
+
+    if (!description) {
+      description =
+        toCleanString(raw?.summary) ||
+        toCleanString(raw?.concerns) ||
+        toCleanString(raw?.conclusion) ||
+        '';
+    }
+
+    return { headline, description };
+  };
+
+  $: perspectiveCardGroups = perspectives.length
+    ? perspectives.map((perspective, idx) => {
+        const analysis = perspective?.analyses?.[activeTab] ?? null;
+        const cards = analysis
+          ? equitySections.map((section) => {
+              const raw = analysis?.[section.key] ?? {};
+              const { headline, description } = buildCardContent(raw);
+              return {
+                key: `${idx}-${section.key}`,
+                color: section.color,
+                labelText: raw?.title || section.label,
+                headline,
+                description,
+              };
+            })
+          : [];
+
+        return {
+          key: perspective?.group_name || `perspective-${idx}`,
+          title: perspective?.group_name || 'Perspective',
+          subtitle: perspective?.group_description || '',
+          cards,
+        };
+      })
+    : [];
 
   // Debugging Logs
   $: console.log('Current Policy Analysis Data:', $currentPolicy);
@@ -152,7 +253,7 @@
         {currentAnalysisSection.summary}
       </div>
       <!-- Perspective Tabs -->
-      {#if perspectives.length > 1}
+      <!-- {#if perspectives.length > 1}
         <div role="tablist" aria-label="Perspective tabs" class="perspective-tabs">
           {#each perspectives as perspective, index}
             <button
@@ -166,20 +267,39 @@
             </button>
           {/each}
         </div>
-      {/if}
+      {/if} -->
       <!-- Equity Tabs -->
       <div class="equity-summary">
-        {#each equitySections as section}
-          <div class="equity-summary-item">
-            <div class="equity-summary-heading">
-              <span class="equity-summary-chip" style="background-color: {section.color};"></span>
-              <span class="equity-summary-title">{section.label}</span>
-            </div>
-            <p class="equity-summary-text">
-              {currentAnalysisSection[section.key]?.findings}
-            </p>
+        {#if perspectiveCardGroups.length}
+          <div class="equity-columns-grid">
+            {#each perspectiveCardGroups as group}
+              <section class="equity-column">
+                <header class="equity-column-header">
+                  <h3 class="equity-column-title">{group.title}</h3>
+
+                </header>
+                <div class="equity-card-grid">
+                  {#each group.cards as card}
+                    <article class="equity-card">
+                      <span
+                        class="equity-card-accent"
+                        style="background-color: {card.color};"
+                        aria-hidden="true"
+                      ></span>
+                      <div class="equity-card-category">{card.labelText}</div>
+                      {#if card.headline}
+                        <h2 class="equity-card-headline">{card.headline}</h2>
+                      {/if}
+                      {#if card.description}
+                        <p class="equity-card-description">{card.description}</p>
+                      {/if}
+                    </article>
+                  {/each}
+                </div>
+              </section>
+            {/each}
           </div>
-        {/each}
+        {/if}
       </div>
       <!-- Overall Insights -->
       <div>
@@ -222,15 +342,15 @@
         </div>
       </div>
       <!-- Divider -->
-      <div class="styled-divider" role="separator" aria-label="Analysis divider">
+      <!-- <div class="styled-divider" role="separator" aria-label="Analysis divider">
         <div class="line" aria-hidden="true"></div>
         <div class="badge">
           {currentPerspective?.group_name ?? 'Perspective'} · AI-Selected Excerpts
         </div>
         <div class="line" aria-hidden="true"></div>
-      </div>
+      </div> -->
       <!-- Sources -->
-      {#if currentAnalysisSection?.sources?.length}
+      <!-- {#if currentAnalysisSection?.sources?.length}
         <div class="sources">
           <strong>Sources:</strong>
           <ul>
@@ -244,7 +364,7 @@
         </div>
           {/if}
         </div>
-      {/if}
+      {/if} -->
       <!-- End of New Analysis Content -->
 
       <!-- Old Analysis Content -->
@@ -570,78 +690,78 @@
   }
 
   /* --- Header 2 --- */
-.header-container {
-  position: relative;
-  width: 100%;
-  height: min(48vh, 340px);
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 0 0 0.75rem 0;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
-}
-/* Background image + dark overlay */
-.header-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url('head-image.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.header-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-}
-/* Gradient overlay */
-.header-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.15) 0%,
-    rgba(0, 0, 0, 0.35) 35%,
-    rgba(0, 0, 0, 0.55) 100%
-  );
-}
-/* Text content */
-.header-content {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  text-align: center;
-  color: #fff;
-  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-}
-.header-title {
-  font-size: clamp(1.6rem, 4.2vw, 3rem);
-  line-height: 1.1;
-  font-weight: 800;
-  margin: 0.15rem 0 0;
-}
-.header-caption {
-  font-size: clamp(1rem, 2.2vw, 1.5rem);
-  font-weight: 600;
-  opacity: 0.95;
-}
-.header-description {
-  max-width: 900px;
-  margin: 0.35rem auto 0.25rem auto;
-  font-size: clamp(0.95rem, 1.7vw, 1.15rem);
-  line-height: 1.6;
-  opacity: 0.95;
-}
-.header-date {
-  margin-top: 0.5rem;
-  font-size: clamp(1rem, 1.8vw, 1.25rem);
-  font-weight: 700;
-}
+  .header-container {
+    position: relative;
+    width: 100%;
+    height: min(48vh, 340px);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 0 0.75rem 0;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  }
+  /* Background image + dark overlay */
+  .header-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('head-image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .header-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+  }
+  /* Gradient overlay */
+  .header-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.35) 35%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+  }
+  /* Text content */
+  .header-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    color: #fff;
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  }
+  .header-title {
+    font-size: clamp(1.6rem, 4.2vw, 3rem);
+    line-height: 1.1;
+    font-weight: 800;
+    margin: 0.15rem 0 0;
+  }
+  .header-caption {
+    font-size: clamp(1rem, 2.2vw, 1.5rem);
+    font-weight: 600;
+    opacity: 0.95;
+  }
+  .header-description {
+    max-width: 900px;
+    margin: 0.35rem auto 0.25rem auto;
+    font-size: clamp(0.95rem, 1.7vw, 1.15rem);
+    line-height: 1.6;
+    opacity: 0.95;
+  }
+  .header-date {
+    margin-top: 0.5rem;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-weight: 700;
+  }
 
   /* --- Summary --- */
   .summary {
@@ -702,42 +822,96 @@
   /* --- Equity Tabs --- */
   .equity-summary {
     margin-top: 3rem;
-    padding: 1.75rem 1.5rem;
-    background: var(--primary-aview-accent);
-    border-radius: 18px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 8px 20px rgba(15, 23, 42, 0.08);
+  }
+  .equity-columns-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+  .equity-column {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 1.75rem;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(15, 23, 42, 0.05);
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.75rem;
+    min-height: 100%;
   }
-  .equity-summary-item {
+  .equity-column-header {
     display: flex;
     flex-direction: column;
-    gap: 0.45rem;
+    gap: 0.5rem;
   }
-  .equity-summary-heading {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .equity-summary-chip {
-    width: 54px;
-    height: 14px;
-    border-radius: 999px;
-    flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  }
-  .equity-summary-title {
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: #101828;
-    letter-spacing: 0.01em;
-  }
-  .equity-summary-text {
+  .equity-column-title {
     margin: 0;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+  }
+
+  .equity-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+  }
+  .equity-card {
+    position: relative;
+    padding: 1.5rem;
+    background: #f5f7fb;
+    border-radius: 20px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 18px 32px rgba(15, 23, 42, 0.09);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 180px;
+  }
+  .equity-card-accent {
+    width: 42px;
+    height: 6px;
+    border-radius: 999px;
+    display: inline-block;
+  }
+  .equity-card-category {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
     color: #1f2937;
-    font-size: 0.97rem;
-    line-height: 1.55;
+  }
+  .equity-card-headline {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #0f172a;
+  }
+  .equity-card-description {
+    margin: 0;
+    color: #475467;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  @media (max-width: 1500px) {
+    .equity-columns-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 1100px) {
+    .equity-columns-grid {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .equity-column {
+      padding: 1.5rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .equity-card {
+      min-height: unset;
+    }
   }
 
   /* --- Divider --- */
