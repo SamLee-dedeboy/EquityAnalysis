@@ -130,6 +130,7 @@
             class="perspective-matrix"
             style={`--column-count:${perspectives.length}; --card-rows:${equitySections.length};`}
           >
+            <div class="matrix-heading matrix-heading--spacer"></div>
             {#each perspectives as perspective, pIndex}
               <div class="matrix-heading">
                 <h3 class="stakeholder-name">
@@ -138,33 +139,31 @@
               </div>
             {/each}
 
-            {#each equitySections as section}
-              {#each perspectives as perspective}
-                {@const axis = perspective.analyses?.[activeTab]?.[section.key]}
-                <article class="stakeholder-card matrix-card">
-                  <div class="stakeholder-card-header">
-                    <span
-                      class="stakeholder-card-accent"
-                      style="background-color: {section.color};"
-                      aria-hidden="true"
-                    ></span>
-                    <div class="stakeholder-card-category">
-                      {section.label}
+            {#each equitySections as section, rowIdx}
+              <div class="matrix-row-block" style={`--row-index:${rowIdx + 1};`}>
+                <div class="matrix-row-label">
+                  <span>{section.label}</span>
+                </div>
+                {#each perspectives as perspective, colIdx}
+                  {@const axis = perspective.analyses?.[activeTab]?.[section.key]}
+                  <article
+                    class="stakeholder-card matrix-card"
+                    data-row-label={section.label}
+                    data-col-index={colIdx}
+                    style={`--axis-color:${section.color};`}
+                  >
+                    <div class="matrix-row-label matrix-row-label--mobile">
+                      <span>{section.label}</span>
                     </div>
-                  </div>
-                  <h2 class="stakeholder-card-headline">
-                    {axis?.caption || axis?.headline || '...'}
-                  </h2>
-                  <div class="stakeholder-card-description">
-                    {axis?.findings ||
-                    axis?.summary ||
-                    axis?.description ||
-                    axis?.conclusion ||
-                    axis?.concerns ||
-                    '...'}
-                  </div>
-                </article>
-              {/each}
+                    <h2 class="stakeholder-card-headline">
+                      {axis?.caption || axis?.headline || '...'}
+                    </h2>
+                    <div class="stakeholder-card-description">
+                      {axis?.findings || axis?.description || axis?.concerns || '...'}
+                    </div>
+                  </article>
+                {/each}
+              </div>
             {/each}
           </div>
         {/if}
@@ -234,7 +233,6 @@
         </div>
       {/if} -->
       <!-- End of New Analysis Content -->
-
     {:else}
       <!--- Edge Case: Current Policy Exists but In Progress, currentPerspective = null -->
       <div class="header" style="color: #6c757d;">
@@ -253,7 +251,6 @@
     padding: 0rem 1rem;
     font-family: 'Inter', sans-serif;
   }
-
   .header {
     font-size: 1.7rem;
     font-weight: 700;
@@ -402,11 +399,40 @@
     --column-count: 1;
     --card-rows: 1;
     display: grid;
-    grid-template-columns: repeat(var(--column-count), minmax(0, 1fr));
+    grid-template-columns: 220px repeat(var(--column-count), minmax(0, 1fr));
     grid-template-rows: auto repeat(var(--card-rows), minmax(0, 1fr));
     column-gap: 1.5rem;
     row-gap: 1.5rem;
     align-items: stretch;
+  }
+  .matrix-row-block {
+    display: contents;
+  }
+  .matrix-row-label {
+    background: rgba(12, 57, 90, 0.08);
+    border-radius: 16px;
+    padding: 1.2rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    min-height: 180px;
+    align-self: stretch;
+    height: 100%;
+  }
+  .matrix-row-label span {
+    max-width: 220px;
+    text-align: center;
+  }
+  .matrix-heading--spacer {
+    background: transparent;
+    border: none;
+    min-height: 78px;
+    display: block;
   }
   .matrix-heading {
     padding: 0.85rem 1rem;
@@ -418,6 +444,8 @@
     justify-content: center;
     text-align: center;
     min-height: 78px;
+    flex-direction: column;
+    gap: 0.45rem;
   }
   .stakeholder-name {
     margin: 0;
@@ -426,30 +454,45 @@
     color: #0f172a;
     letter-spacing: -0.01em;
   }
+
   .stakeholder-card {
     position: relative;
-    padding: 1.6rem;
+    padding: 1.35rem;
     background: #ffffff;
     border-radius: 18px;
     border: 1px solid rgba(15, 23, 42, 0.12);
     box-shadow: 0 18px 32px rgba(15, 23, 42, 0.09);
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
-    min-height: 220px;
+    min-height: 90px;
+    max-height: 180px;
     height: 100%;
   }
   .matrix-card {
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
+  }
+  .matrix-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    border-radius: 18px 18px 0 0;
+    background: var(--axis-color, rgba(12, 57, 90, 0.45));
+  }
+
+  .matrix-card > * {
+    margin-left: 0;
   }
   .stakeholder-card-header {
     display: flex;
     align-items: center;
     gap: 0.6rem;
   }
-
 
   .stakeholder-card { overflow: visible; }
   .stakeholder-card-accent {
@@ -482,8 +525,18 @@
     line-height: 1.6;
     flex: 1;
   }
+  .matrix-row-label--mobile {
+    display: none;
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(15, 23, 42, 0.6);
+  }
   @media (max-width: 1100px) {
     .perspective-matrix {
+      grid-template-columns: 240px repeat(var(--column-count), minmax(0, 1fr));
       column-gap: 1.25rem;
       row-gap: 1.25rem;
     }
@@ -492,12 +545,34 @@
     }
   }
   @media (max-width: 768px) {
+    .matrix-heading--spacer {
+      display: none;
+    }
     .perspective-matrix {
       grid-template-columns: 1fr;
       grid-template-rows: auto repeat(var(--card-rows), minmax(0, auto));
     }
+    .matrix-row-label {
+      display: none;
+    }
+    .matrix-row-label--mobile {
+      display: block;
+    }
+    .matrix-card::before {
+      inset: 0 0 auto 0;
+      width: 100%;
+      height: 4px;
+    }
+    .matrix-card > * {
+      margin-left: 0;
+    }
     .stakeholder-card {
       min-height: unset;
+    }
+    .matrix-card::before {
+      inset: 0 0 auto 0;
+      height: 4px;
+      border-radius: 18px 18px 0 0;
     }
   }
 
