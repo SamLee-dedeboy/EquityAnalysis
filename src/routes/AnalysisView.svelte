@@ -1,9 +1,6 @@
 <script>
   import { slide } from 'svelte/transition';
 
-  // Local Modules
-  import InfoTab from '../lib/InfoTab.svelte';
-
   // Importing Store
   import { currentPolicy } from '../lib/stores/currentPolicy.js';
 
@@ -21,147 +18,25 @@
   const equitySections = [
     {
       key: 'recognitional_equity',
-      label: 'Recognitional',
+      label: 'RECOGNITIONAL EQUITY',
       color: 'var(--equity-color-recognitional)',
     },
     {
       key: 'procedural_equity',
-      label: 'Procedural',
+      label: 'PROCEDURAL EQUITY',
       color: 'var(--equity-color-procedural)',
     },
     {
       key: 'structural_equity',
-      label: 'Structural',
+      label: 'STRUCTURAL EQUITY',
       color: 'var(--equity-color-structural)',
     },
     {
       key: 'distributional_equity',
-      label: 'Distributional',
+      label: 'DISTRIBUTIONAL EQUITY',
       color: 'var(--equity-color-distributional)',
     },
   ];
-  const tabOptions = [
-    {
-      key: 'general_equity_assessment',
-      label: 'Equity Assessment',
-      image: 'chart.svg',
-    },
-    {
-      key: 'vulnerable_groups_analysis',
-      label: 'Vulnerable Groups',
-      image: 'user-group.svg',
-    },
-    {
-      key: 'severity_impact_analysis',
-      label: 'Impact Severity',
-      image: 'shield-x.svg',
-    },
-    {
-      key: 'mitigation_strategies_analysis',
-      label: 'Mitigation Strategies',
-      image: 'shield-plus.svg',
-    },
-  ];
-
-  const toCleanString = (value) =>
-    typeof value === 'string' ? value.trim() : '';
-
-  const firstWords = (text, count = 5) => {
-    if (!text) return '';
-    const words = text.split(/\s+/).filter(Boolean);
-    if (words.length <= count) return text.trim();
-    return words.slice(0, count).join(' ').trim();
-  };
-
-  const firstSentence = (text) => {
-    if (!text) return '';
-    const match = text.match(/[^.!?]+[.!?]?/);
-    return (match ? match[0] : text).trim();
-  };
-
-  const buildCardContent = (raw) => {
-    if (!raw || typeof raw !== 'object') {
-      return { headline: '', description: '' };
-    }
-
-    const captionSource =
-      toCleanString(raw?.caption) || toCleanString(raw?.headline);
-
-    const narrativeSource =
-      toCleanString(raw?.findings) ||
-      toCleanString(raw?.positive_findings) ||
-      toCleanString(raw?.conclusion) ||
-      toCleanString(raw?.summary) ||
-      toCleanString(raw?.concerns);
-
-    const headlineBase =
-      captionSource || (narrativeSource ? firstSentence(narrativeSource) : '');
-    const headline = headlineBase ? firstWords(headlineBase, 5) : '';
-
-    let descriptionSource =
-      toCleanString(raw?.summary) ||
-      (narrativeSource && narrativeSource !== headlineBase
-        ? narrativeSource
-        : '') ||
-      toCleanString(raw?.concerns);
-
-    if (!descriptionSource && narrativeSource) {
-      const leadingSentence = firstSentence(narrativeSource);
-      const remainder = narrativeSource
-        .slice(leadingSentence.length)
-        .trim();
-      descriptionSource = remainder || narrativeSource;
-    }
-
-    let description = descriptionSource ? firstSentence(descriptionSource) : '';
-
-    if (
-      description &&
-      headline &&
-      description.toLowerCase() === headline.toLowerCase()
-    ) {
-      const remainder = narrativeSource
-        ? narrativeSource.replace(firstSentence(narrativeSource), '').trim()
-        : '';
-      description = remainder ? firstSentence(remainder) : '';
-    }
-
-    if (!description) {
-      description =
-        toCleanString(raw?.summary) ||
-        toCleanString(raw?.concerns) ||
-        toCleanString(raw?.conclusion) ||
-        '';
-    }
-
-    return { headline, description };
-  };
-
-  $: perspectiveCardGroups = perspectives.length
-    ? perspectives.map((perspective, idx) => {
-        const analysis = perspective?.analyses?.[activeTab] ?? null;
-        const cards = analysis
-          ? equitySections.map((section) => {
-              const raw = analysis?.[section.key] ?? {};
-              const { headline, description } = buildCardContent(raw);
-              return {
-                key: `${idx}-${section.key}`,
-                color: section.color,
-                labelText: raw?.title || section.label,
-                headline,
-                description,
-              };
-            })
-          : [];
-
-        return {
-          key: perspective?.group_name || `perspective-${idx}`,
-          title: perspective?.group_name || 'Perspective',
-          subtitle: perspective?.group_description || '',
-          cards,
-        };
-      })
-    : [];
 
   // Debugging Logs
   $: console.log('Current Policy Analysis Data:', $currentPolicy);
@@ -248,57 +123,48 @@
           </div>
         </div>
       </div>
-      <!-- Summary -->
-      <div class="summary">
-        {currentAnalysisSection.summary}
-      </div>
-      <!-- Perspective Tabs -->
-      <!-- {#if perspectives.length > 1}
-        <div role="tablist" aria-label="Perspective tabs" class="perspective-tabs">
-          {#each perspectives as perspective, index}
-            <button
-              type="button"
-              role="tab"
-              class="perspective-tab {perspectiveIndex === index ? 'active' : ''}"
-              aria-selected={perspectiveIndex === index}
-              on:click={() => (perspectiveIndex = index)}
-            >
-              <span class="perspective-tab-label">{perspective.group_name}</span>
-            </button>
-          {/each}
-        </div>
-      {/if} -->
       <!-- Equity Tabs -->
       <div class="equity-summary">
-        {#if perspectiveCardGroups.length}
-          <div class="stakeholder-equity">
-            {#each perspectiveCardGroups as group}
-              <section class="stakeholder-section">
-                <header class="stakeholder-header">
-                  <h3 class="stakeholder-name">{group.title}</h3>
-                  {#if group.subtitle}
-                    <p class="stakeholder-description">{group.subtitle}</p>
-                  {/if}
-                </header>
-                <div class="stakeholder-card-grid">
-                  {#each group.cards as card}
-                    <article class="stakeholder-card">
-                      <span
-                        class="stakeholder-card-accent"
-                        style="background-color: {card.color};"
-                        aria-hidden="true"
-                      ></span>
-                      <div class="stakeholder-card-category">{card.labelText}</div>
-                      {#if card.headline}
-                        <h2 class="stakeholder-card-headline">{card.headline}</h2>
-                      {/if}
-                      {#if card.description}
-                        <p class="stakeholder-card-description">{card.description}</p>
-                      {/if}
-                    </article>
-                  {/each}
-                </div>
-              </section>
+        {#if perspectives.length}
+          <div
+            class="perspective-matrix"
+            style={`--column-count:${perspectives.length}; --card-rows:${equitySections.length};`}
+          >
+            {#each perspectives as perspective, pIndex}
+              <div class="matrix-heading">
+                <h3 class="stakeholder-name">
+                  {perspective.group_name || `Perspective ${pIndex + 1}`}
+                </h3>
+              </div>
+            {/each}
+
+            {#each equitySections as section}
+              {#each perspectives as perspective}
+                {@const axis = perspective.analyses?.[activeTab]?.[section.key]}
+                <article class="stakeholder-card matrix-card">
+                  <div class="stakeholder-card-header">
+                    <span
+                      class="stakeholder-card-accent"
+                      style="background-color: {section.color};"
+                      aria-hidden="true"
+                    ></span>
+                    <div class="stakeholder-card-category">
+                      {section.label}
+                    </div>
+                  </div>
+                  <h2 class="stakeholder-card-headline">
+                    {axis?.caption || axis?.headline || '...'}
+                  </h2>
+                  <div class="stakeholder-card-description">
+                    {axis?.findings ||
+                    axis?.summary ||
+                    axis?.description ||
+                    axis?.conclusion ||
+                    axis?.concerns ||
+                    '...'}
+                  </div>
+                </article>
+              {/each}
             {/each}
           </div>
         {/if}
@@ -369,256 +235,6 @@
       {/if} -->
       <!-- End of New Analysis Content -->
 
-      <!-- Old Analysis Content -->
-      <!-- Perspective Carousel -->
-      <!-- {#if perspectives.length > 1}
-        <div class="perspective-nav">
-          <button
-            aria-label="Previous Perspective"
-            on:click={() =>
-              (perspectiveIndex =
-                (perspectiveIndex - 1 + perspectives.length) %
-                perspectives.length)}
-          >
-            <img src="/carousel-left.svg" alt="Previous Perspective" />
-          </button>
-          <span class="perspective-label">
-            Perspective: {currentPerspective?.group_name}
-          </span>
-          <button
-            aria-label="Next Perspective"
-            on:click={() =>
-              (perspectiveIndex = (perspectiveIndex + 1) % perspectives.length)}
-          >
-            <img src="/carousel-right.svg" alt="Next Perspective" />
-          </button>
-        </div>
-      {:else}
-        <div class="perspective-label" style="margin:1rem">
-          Perspective: {currentPerspective?.group_name}
-        </div>
-      {/if} -->
-      <!-- Analysis Dimension Tabs -->
-      <!-- <div class="tab-bar">
-        {#each tabOptions as t}
-          <button
-            type="button"
-            class="tab {activeTab === t.key ? 'active' : ''}"
-            on:click={() => (activeTab = t.key)}
-            aria-pressed={activeTab === t.key}
-          >
-            <img
-              src={'/' + t.image}
-              alt={t.label}
-              style="height: 1.5rem; margin-right: 0.5rem;"
-            />
-            {t.label}
-          </button>
-        {/each}
-      </div> -->
-      <!-- Equity Findings -->
-      <!-- {#if currentAnalysisSection}
-        {#if activeTab === 'general_equity_assessment'}
-          <div in:slide style="overflow: hidden;">
-            <p class="summary">{currentAnalysisSection.summary}</p>
-            <div class="section-grid">
-              {#each equitySections as section}
-                <div class="section">
-                  <div class="title">
-                    <span class="pill" style="background-color: {section.color}"
-                      >{section.label}</span
-                    >
-                  </div>
-
-                  <div class="columns">
-                    <div class="box">
-                      <strong>
-                        <img
-                          src="green-dot.svg"
-                          alt="Positive Findings"
-                          style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
-                        />
-                        Positive Findings
-                      </strong>
-                      <p>
-                        {currentAnalysisSection[section.key]?.positive_findings}
-                      </p>
-                    </div>
-                    <div class="box">
-                      <strong>
-                        <img
-                          src="red-dot.svg"
-                          alt="Areas of Concern"
-                          style="height: 1em; vertical-align: middle; margin-right: 0.5em;"
-                        />
-                        Areas of Concern
-                      </strong>
-                      <p>{currentAnalysisSection[section.key]?.concerns}</p>
-                    </div>
-                  </div>
-
-                  <div class="conclusion">
-                    <strong>Conclusion:</strong>
-                    {currentAnalysisSection[section.key]?.conclusion}
-                  </div>
-                </div>
-              {/each}
-            </div>
-            {#if currentAnalysisSection?.sources?.length}
-              <div class="sources">
-                <strong>Sources:</strong>
-                <ul>
-                  {#each currentAnalysisSection.sources as source}
-                    <li>{@html source.data}</li>
-                  {/each}
-                </ul>
-              </div>
-            {/if}
-          </div>
-
-        {:else if activeTab === 'vulnerable_groups_analysis'}
-          <div in:slide style="overflow: hidden;">
-            <p class="summary">{currentAnalysisSection.summary}</p>
-
-            <div class="section">
-              <div class="title">
-                <span
-                  class="pill"
-                  style="background-color: var(--primary-interactive)"
-                >
-                  Vulnerable Groups Analysis
-                </span>
-              </div>
-
-              <div class="columns">
-                <div class="box">
-                  <strong>Identified Groups</strong>
-                  <p>{currentAnalysisSection.identified_groups_and_impacts}</p>
-                </div>
-              </div>
-
-              <div class="conclusion">
-                <strong>Equity Assessment Summary:</strong>
-                {currentAnalysisSection.equity_assessment_summary}
-              </div>
-
-              <div class="conclusion" style="margin-top: 1rem;">
-                <strong>Conclusion:</strong>
-                {currentAnalysisSection.conclusion}
-              </div>
-            </div>
-            {#if currentAnalysisSection?.sources?.length}
-              <div class="sources">
-                <strong>Sources:</strong>
-                <ul>
-                  {#each currentAnalysisSection.sources as source}
-                    <li>{@html source.data}</li>
-                  {/each}
-                </ul>
-              </div>
-            {/if}
-          </div>
-
-        {:else if activeTab === 'severity_impact_analysis'}
-          <div in:slide style="overflow: hidden;">
-            <p class="summary">{currentAnalysisSection.summary}</p>
-
-            <div class="section">
-              <div class="title">
-                <span
-                  class="pill"
-                  style="background-color: var(--primary-interactive)"
-                >
-                  Severity of Impact Analysis
-                </span>
-              </div>
-
-              <div class="columns">
-                <div class="box">
-                  <strong>High Severity Impacts</strong>
-                  <p>{currentAnalysisSection.high_severity_impacts}</p>
-                </div>
-                <div class="box">
-                  <strong>Moderate Severity Impacts</strong>
-                  <p>{currentAnalysisSection.moderate_severity_impacts}</p>
-                </div>
-              </div>
-
-              <div class="columns" style="margin-top: 1rem;">
-                <div class="box" style="flex: 1 1 100%;">
-                  <strong>Equity Implications of Impacts</strong>
-                  <p>{currentAnalysisSection.equity_implications_of_impacts}</p>
-                </div>
-              </div>
-
-              <div class="conclusion" style="margin-top: 1rem;">
-                <strong>Conclusion:</strong>
-                {currentAnalysisSection.conclusion}
-              </div>
-            </div>
-            {#if currentAnalysisSection?.sources?.length}
-              <div class="sources">
-                <strong>Sources:</strong>
-                <ul>
-                  {#each currentAnalysisSection.sources as source}
-                    <li>{@html source.data}</li>
-                  {/each}
-                </ul>
-              </div>
-            {/if}
-          </div>
-
-        {:else if activeTab === 'mitigation_strategies_analysis'}
-          <div in:slide style="overflow: hidden;">
-            <p class="summary">
-              {currentAnalysisSection.summary}
-            </p>
-
-            <div class="section">
-              <div class="title">
-                <span
-                  class="pill"
-                  style="background-color: var(--primary-interactive)"
-                >
-                  Mitigation Strategies Analysis
-                </span>
-              </div>
-              <div class="columns">
-                <div class="box">
-                  <strong>Identified Strategies</strong>
-                  <p>
-                    {currentAnalysisSection.identified_strategies}
-                  </p>
-                </div>
-              </div>
-              <div class="conclusion">
-                <strong>Equity Assessment Summary:</strong>
-                {currentAnalysisSection.equity_assessment}
-              </div>
-              <div class="conclusion" style="margin-top: 1rem;">
-                <strong>Conclusion:</strong>
-                {currentAnalysisSection.conclusion}
-              </div>
-            </div>
-            {#if currentAnalysisSection?.sources?.length}
-              <div class="sources">
-                <strong>Sources:</strong>
-                <ul>
-                  {#each currentAnalysisSection.sources as source}
-                    <li>{@html source.data}</li>
-                  {/each}
-                </ul>
-              </div>
-            {/if}
-          </div>
-        {/if} -->
-      <!-- {:else} -->
-        <!-- Fallback if analysis data for the specific tab is missing, but policy and primary perspective are there -->
-        <!-- <div class="header" style="color: var(--primary-interactive);">
-          No detailed data available for the selected analysis tab.
-        </div>
-      {/if} -->
-      <!-- End of Old Analysis Content -->
     {:else}
       <!--- Edge Case: Current Policy Exists but In Progress, currentPerspective = null -->
       <div class="header" style="color: #6c757d;">
@@ -627,12 +243,25 @@
     {/if}
   </div>
 
-  <!-- Info Tab -->
-  <InfoTab />
 </section>
 
 <style>
-  /*--- New AnalysisView --- */
+  /* --- Layout --- */
+  .analysis-layout {
+    max-width: 1400px;
+    margin: 0.5rem auto;
+    padding: 0rem 1rem;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .header {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+    color: var(--primary-text);
+  }
+
   /* --- Header 1 --- */
     .overview-header {
     position: relative;
@@ -765,121 +394,72 @@
     font-weight: 700;
   }
 
-  /* --- Summary --- */
-  .summary {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    font-weight: 100;
-    color: var(--primary-text);
-    margin: 2.5rem 0;
-  }
-
-  /* --- Perspective Tabs --- */
-  .perspective-tabs {
-    display: flex;
-    width: 100%;
-    padding: 0.3rem;
-    border-radius: 16px;
-    background: var(--primary-aview-accent);
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
-    gap: 0.35rem;
-  }
-  .perspective-tab {
-    flex: 1 1 0;
-    padding: 0.9rem 1rem;
-    font-size: 1.25rem;
-    min-height: 60px;
-    border: 0;
-    border-radius: 12px;
-    margin: 0;
-    background: transparent;
-    color: var(--primary-text);
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .perspective-tab:hover {
-    background: rgba(13, 58, 98, 0.12);
-  }
-  .perspective-tab:focus-visible {
-    outline: 2px solid var(--primary-interactive);
-    outline-offset: 2px;
-  }
-  .perspective-tab.active {
-    background: var(--primary-interactive, #0d3a62);
-    color: #fff;
-    box-shadow: 0 4px 14px rgba(13, 58, 98, 0.25);
-  }
-  .perspective-tab-label {
-    display: inline-block;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
   /* --- Equity Tabs --- */
   .equity-summary {
     margin-top: 3rem;
   }
-  .stakeholder-equity {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
+  .perspective-matrix {
+    --column-count: 1;
+    --card-rows: 1;
+    display: grid;
+    grid-template-columns: repeat(var(--column-count), minmax(0, 1fr));
+    grid-template-rows: auto repeat(var(--card-rows), minmax(0, 1fr));
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+    align-items: stretch;
   }
-  .stakeholder-section {
-    padding: 2.25rem;
-    background: #ffffff;
-    border-radius: 26px;
-    border: 1px solid rgba(15, 23, 42, 0.06);
-    box-shadow: 0 24px 52px rgba(15, 23, 42, 0.08);
+  .matrix-heading {
+    padding: 0.85rem 1rem;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(12, 57, 90, 0.08), rgba(12, 57, 90, 0.02));
+    border: 1px solid rgba(15, 23, 42, 0.08);
     display: flex;
-    flex-direction: column;
-    gap: 1.85rem;
-  }
-  .stakeholder-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 78px;
   }
   .stakeholder-name {
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: #0f172a;
     letter-spacing: -0.01em;
   }
-  .stakeholder-description {
-    margin: 0;
-    color: #4b5563;
-    font-size: 0.96rem;
-    line-height: 1.6;
-  }
-  .stakeholder-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 1.4rem;
-  }
   .stakeholder-card {
     position: relative;
     padding: 1.6rem;
-    background: #f5f7fb;
-    border-radius: 20px;
-    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
     box-shadow: 0 18px 32px rgba(15, 23, 42, 0.09);
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-    min-height: 180px;
+    gap: 0.9rem;
+    min-height: 220px;
+    height: 100%;
   }
+  .matrix-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .stakeholder-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+
+  .stakeholder-card { overflow: visible; }
   .stakeholder-card-accent {
     width: 44px;
     height: 6px;
     border-radius: 999px;
     display: inline-block;
+    flex: 0 0 auto;
+    margin-right: 0.6rem;
+    z-index: 1;
   }
   .stakeholder-card-category {
     font-size: 0.76rem;
@@ -890,7 +470,7 @@
   }
   .stakeholder-card-headline {
     margin: 0;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     font-weight: 700;
     line-height: 1.25;
     color: #0f172a;
@@ -900,17 +480,29 @@
     color: #475467;
     font-size: 0.96rem;
     line-height: 1.6;
+    flex: 1;
   }
   @media (max-width: 1100px) {
-    .stakeholder-section {
-      padding: 1.9rem;
+    .perspective-matrix {
+      column-gap: 1.25rem;
+      row-gap: 1.25rem;
+    }
+    .stakeholder-card {
+      min-height: 200px;
     }
   }
   @media (max-width: 768px) {
+    .perspective-matrix {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto repeat(var(--card-rows), minmax(0, auto));
+    }
     .stakeholder-card {
       min-height: unset;
     }
   }
+
+  /* --- Overall Insights --- */
+  /* --- Recommendations --- */
 
   /* --- Divider --- */
   .styled-divider {
@@ -990,158 +582,13 @@
   }
 
   /*--- Old AnalysisView --- */
-  /* --- Layout --- */
-  .analysis-layout {
-    max-width: 1400px;
-    margin: 0.5rem auto;
-    padding: 0rem 1rem;
-    font-family: 'Inter', sans-serif;
-  }
-
   /* --- Header --- */
-  .header {
-    font-size: 1.7rem;
-    font-weight: 700;
-    margin: 0;
-    text-align: center;
-    color: var(--primary-text);
-  }
 
-  /* --- Perspective Carousel --- */
-  .perspective-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    margin: 2rem 0;
-    padding: 1.5rem 2rem;
-    background: var(--primary-background);
-    border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  }
-  .perspective-label {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--primary-text);
-    text-align: center;
-    padding: 0 1rem;
-    min-width: 200px;
-    flex-shrink: 0;
-  }
-  .perspective-nav button {
-    background: white;
-    border: 2px solid #e5e7eb;
-    padding: 0.75rem;
-    border-radius: 12px;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    min-width: 44px;
-    min-height: 44px;
-    flex-shrink: 0;
-  }
-  .perspective-nav button:hover {
-    border-color: var(--primary-interactive);
-    background: var(--primary-interactive);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-  .perspective-nav button:hover img {
-    filter: brightness(0) invert(1);
-  }
-  .perspective-nav button:focus {
-    outline: 2px solid var(--primary-interactive);
-    outline-offset: 2px;
-  }
-  .perspective-nav button:active {
-    transform: translateY(0);
-  }
-  .perspective-nav img {
-    height: 20px;
-    width: 20px;
-    transition: filter 0.2s ease;
-    display: block;
-  }
-
-  /* --- Dimension Tabs --- */
-  .tab-bar {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    background: #f8fafc;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  }
-  .tab {
-    padding: 1.5rem 2rem;
-    font-size: 1rem;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    color: var(--primary-text);
-    background: white;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  }
-  .tab:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    border-color: var(--primary-interactive);
-  }
-  .tab > img {
-    filter: brightness(0.4);
-    transition: filter 0.2s ease;
-  }
-  .tab.active {
-    background: var(--primary-interactive);
-    color: white;
-    font-weight: 600;
-    border-color: var(--primary-interactive);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(12, 57, 90, 0.25);
-  }
-  .tab.active > img {
-    filter: brightness(0) invert(1);
-  }
-
-  /* --- Analysis Content --- */
-  /* Grid, Analysis Sections */
-  .section-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    overflow: hidden;
-  }
   .section {
     background-color: #eee;
     padding: 2rem;
     border-radius: 12px;
     margin-bottom: 2rem;
-  }
-  /* Chips for Analysis Sections */
-  .pill {
-    padding: 0.4rem 0.8rem;
-    font-weight: bold;
-    font-size: 0.95rem;
-    border-radius: 6px;
-    color: #fff;
-    margin-bottom: 0.5rem;
-    display: inline-block;
-  }
-  .title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
   }
   .columns {
     flex-direction: column;
@@ -1150,6 +597,7 @@
     gap: 1.5rem;
     margin-top: 1rem;
   }
+
   /* Pos. & Neg. Sections */
   .box {
     flex: 1 1 45%;
@@ -1163,20 +611,6 @@
     display: block;
     margin-bottom: 0.4rem;
     font-size: 0.95rem;
-  }
-  /* Captions and Context */
-  .summary {
-    /* Misnomer. This is the caption text styling */
-    color: var(--primary-text);
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-  .conclusion {
-    /* Conclusion and summmary at bottom of dimensions */
-    color: var(--primary-text);
-    margin-top: 1rem;
-    font-style: italic;
   }
 
   /* Spinner */
