@@ -366,8 +366,8 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
 
     5. **Captions and Findings (critical for UI)**
     - Each of the four equity dimensions (`recognitional_equity`, `procedural_equity`, `distributional_equity`, `structural_equity`) must contain:
-        - `"caption"` → short (2–6 words), title-case phrase summarizing the theme.
-        - Example: “Highlights Diverse Voices”, “Supports Inclusive Decision-Making”.
+        - `"caption"` → short (~2 words), title-case phrase capturing the subject.
+        - Example: "Diverse Voices”,  "Decision-Making”.
         - Avoid punctuation and explanations.
         - `"findings"` → A short sentence elaborating on the caption.
         - Use plain English and indicative phrasing.
