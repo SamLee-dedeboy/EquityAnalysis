@@ -52,7 +52,7 @@ JSON_SKELETON = """
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Policy Makers",
-          "summary": "200",
+          "summary": "...",
           "recognitional_equity": { "title": "RECOGNITIONAL EQUITY", "caption": "...", "findings": "..." },
           "procedural_equity": { "title": "PROCEDURAL EQUITY", "caption": "...", "findings": "..." },
           "distributional_equity": { "title": "DISTRIBUTIONAL EQUITY", "caption": "...", "findings": "..." },
@@ -92,7 +92,7 @@ JSON_SKELETON = """
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Residents",
-          "summary": "200",
+          "summary": "...",
           "recognitional_equity": { "title": "RECOGNITIONAL EQUITY", "caption": "...", "findings": "..." },
           "procedural_equity": { "title": "PROCEDURAL EQUITY", "caption": "...", "findings": "..." },
           "distributional_equity": { "title": "DISTRIBUTIONAL EQUITY", "caption": "...", "findings": "..." },
@@ -132,7 +132,7 @@ JSON_SKELETON = """
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Farmers/Business Owners",
-          "summary": "200",
+          "summary": "...",
           "recognitional_equity": { "title": "RECOGNITIONAL EQUITY", "caption": "...", "findings": "..." },
           "procedural_equity": { "title": "PROCEDURAL EQUITY", "caption": "...", "findings": "..." },
           "distributional_equity": { "title": "DISTRIBUTIONAL EQUITY", "caption": "...", "findings": "..." },
@@ -331,88 +331,72 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
     
     # --- Formatter Prompt (Updated for new JSON structure) ---
     formatter_prompt = textwrap.dedent(f"""
-    ## IDENTITY ##
+    ## ROLE ##
     You are an expert data structurer and equity analyst.
-
-    Your core task is to populate a provided JSON structure based solely on raw, unstructured analysis texts.
-
-    ---
-
-    ## BEHAVIOR ##
-
-    ### A. CONTENT RULES
-
-    1. **Content Sourcing**  
-    - All generated content must be derived **only** from the raw analysis texts provided below.
-    - Do **not** use external knowledge, assumptions, or hallucinate missing context.
-
-    2. **Indicative Tone**  
-    - All summary, narrative, and description fields must use an **indicative, tentative, or suggestive tone**.
-    - Avoid definitive or authoritative claims.
-    - Use phrases like:
-        - “This may indicate...”
-        - “It suggests that...”
-        - “A potential interpretation is...”
-        - “Could be seen as...”
-        - “There is an indication that...”
-        - “The document appears to...”
-        - “Not explicitly indicated by the document.”
-
-    3. **Perspective-Specific Behavior**
-    - In `overall_analysis_by_perspective`, one entry exists per stakeholder group (Policy Makers, Residents, Farmers/Business Owners).
-        - For each `group_name`, **copy the exact `group_description`** from the JSON skeleton default.
-        - Populate all four analyses:
-        - `general_equity_assessment`
-        - `vulnerable_groups_analysis`
-        - `severity_impact_analysis`
-        - `mitigation_strategies_analysis`
-        - For `general_equity_assessment`, break down the corresponding “general” raw analysis into four subfields:
-        - Recognitional
-        - Procedural
-        - Distributional
-        - Structural
-        - For the remaining three analyses, fill in all subfields (`summary`, `identified_groups_and_impacts`, etc.) using the relevant raw analysis text.
-
-    4. **Overarching Summary**
-    - Populate the `overall_summary_and_recommendations` section with any cross-cutting or overarching insights derived from the raw texts.
-    - Maintain the same tentative tone.
+    Your task is to populate a JSON structure based on raw analysis text from policy documents.
 
     ---
 
-    ### B. FORMATTING & STRUCTURE RULES
+    ## INSTRUCTIONS ##
 
-    5. **Placeholder Replacement**
-    - Replace every `"..."` placeholder with fully formed, appropriate content.
-    - Preserve all structural elements of the original JSON schema.
+    1. **Use Only Provided Texts**
+    - Derive all content strictly from the raw analyses below.
+    - Never invent or assume details not mentioned.
 
-    6. **Numeric Placeholders**
-    - Any field containing a number (e.g., `"40"`, `"120"`) should be replaced with text of **approximately that many characters**.
-    - These are soft targets, not strict limits.
+    2. **Tone and Style**
+    - Use an indicative, interpretive tone.
+    - Prefer phrases like “suggests that…”, “indicates that…”, “appears to…”.
+    - Avoid authoritative or definitive statements.
 
-    7. **Schema Adherence**
-    - Do **not** alter the schema structure in any way.
-    - Do **not** include citations, URLs, or references in any content field.
-    - Do **not** modify the `sources` arrays — they will be handled separately by Python.
+    3. **Structure and Field Rules**
+    - Follow the exact JSON schema provided.
+    - Do not alter keys, add fields, or change nesting.
+    - Keep "id", "source", and "document" as `"..."`.
 
-    8. **Top-Level Metadata Fields**
-    - Leave the fields `id`, `source`, and `document` as `"..."`.
+    4. **Perspective Sections**
+    - Under `overall_analysis_by_perspective`, keep one entry per stakeholder group:
+        - Policy Makers
+        - Residents
+        - Farmers/Business Owners
+    - For each, fill the four analyses:
+        - general_equity_assessment
+        - vulnerable_groups_analysis
+        - severity_impact_analysis
+        - mitigation_strategies_analysis
 
-    9. **Test Fields Completion**
+    5. **Captions and Findings (critical for UI)**
+    - Each of the four equity dimensions (`recognitional_equity`, `procedural_equity`, `distributional_equity`, `structural_equity`) must contain:
+        - `"caption"` → short (~2 words), title-case phrase capturing the subject.
+        - Example: "Diverse Voices”,  "Decision-Making”.
+        - Avoid punctuation and explanations.
+        - `"findings"` → A short sentence elaborating on the caption.
+        - Use plain English and indicative phrasing.
+        - Example: “Acknowledges environmental justice and tribal concerns.”
+
+    6. **Other Analyses**
+    - For the remaining analysis types, use concise paragraphs (2–4 sentences max).
+    - Maintain clarity and thematic consistency.
+    - Avoid repetition or filler language.
+
+    7. **Summary Section**
+    - Populate `overall_summary_and_recommendations` with overarching insights and recommendations.
+    - Keep tone interpretive and neutral.
+                                       
+    8. **Test Fields Completion**
     - Populate the `test_fields` object with careful attention:
-        - You should populate "test_pic" one of the following strings "head-polmak.png", "head-residents.png", or "head-farmbo.png" depending on the main subject of the document being 
-        - You should populate "test_subject" with the main subject of the document, e.g. "Managing Potable Tap Water", "Federal Water Pollution Control", etc.
-        - You should populate "test_title" with the actual title of the document e.g. "The Clean Water Act". Or if the title is not available, create a title based on the document's content. 
-        - You should populate "test_short_caption" with a short caption for the analysis' findings like "In 50 Years: Progress and Persistent Challenges" or "An Equity-Focused Review of Your Document"
-        - You should populate "test_long_caption" with a slightly longer caption for the analysiis that provides more context e.g. "An equity analysis of America's landmark environmental legislation and its impact on communities across the nation"
-        - You should populate "test_date" with the date the document was enacted or published, if available e.g. "Enacted: 1972" or "Published: 2020". If not available, leave the field completely blank.
-        - You should populate "test_scope" with either the strings "federal", "state", "agency", or "other" based on the document's scope. 
+    - You should populate "test_pic" one of the following strings "head-polmak.png", "head-residents.png", or "head-farmbo.png" depending on the main subject of the document being 
+    - You should populate "test_subject" with the main subject of the document, e.g. "Managing Potable Tap Water", "Federal Water Pollution Control", etc.
+    - You should populate "test_title" with the actual title of the document e.g. "The Clean Water Act". Or if the title is not available, create a title based on the document's content. 
+    - You should populate "test_short_caption" with a short caption for the analysis' findings like "In 50 Years: Progress and Persistent Challenges" or "An Equity-Focused Review of Your Document"
+    - You should populate "test_long_caption" with a slightly longer caption for the analysiis that provides more context e.g. "An equity analysis of America's landmark environmental legislation and its impact on communities across the nation"
+    - You should populate "test_date" with the date the document was enacted or published, if available e.g. "Enacted: 1972" or "Published: 2020". If not available, leave the field completely blank.
+    - You should populate "test_scope" with either the strings "federal", "state", "agency", or "other" based on the document's scope. 
     ---
 
-    ## INPUTS ##
-    **JSON SKELETON TO POPULATE (Text fields only, leaving 'id', 'source', 'document' as '...'):**  
+    ## JSON SKELETON ##
     {JSON_SKELETON}
 
-    **RAW TEXT ANALYSES TO USE:**  
+    ## RAW ANALYSIS TEXTS ##
     {raw_analyses_text_str}
     """)
 

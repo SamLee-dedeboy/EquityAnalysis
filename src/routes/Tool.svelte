@@ -18,7 +18,7 @@
     fetchPolicyDataById,
   } from '../lib/stores/currentPolicy.js';
 
-  import { uploadTrigger } from '../lib/stores/uploadTrigger.js'; 
+  import { uploadTrigger } from '../lib/stores/uploadTrigger.js';
 
   // --- State Variables ---
   let policies = []; // Dynamically loaded and updated from API
@@ -32,8 +32,8 @@
 
   $: if ($uploadTrigger === true && uploadLabel) {
     console.log('Trigger received — clicking file input');
-    uploadLabel.click();             // Simulate user click
-    uploadTrigger.set(null);        // Reset the trigger
+    uploadLabel.click(); // Simulate user click
+    uploadTrigger.set(null); // Reset the trigger
   }
 
   const ANALYSIS_POLLING_INTERVAL_MS = 5000; // Poll every 5 seconds for analysis status
@@ -574,7 +574,8 @@
         {/if}
       </div>
       <!-- (3) Panel, Chat -->
-      {#if chatPanel}
+      <!-- {#if chatPanel} -->
+      {#if false}
         <div class="chat-container" in:slide={{ axis: 'x' }}>
           <ChatPanel
             {currentSessionId}
@@ -587,14 +588,13 @@
         </div>
       {/if}
       <!-- (3.1) Chat Toggle Button -->
-      <button
+      <!-- <button
         class="chat-toggle-btn"
         on:click={() => (chatPanel = !chatPanel)}
         title={chatPanel ? 'Close Chat' : 'Open Chat'}
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           {#if chatPanel}
-            <!-- Close icon (X) -->
             <path
               d="M18 6L6 18M6 6l12 12"
               stroke="currentColor"
@@ -602,13 +602,12 @@
               stroke-linecap="round"
             />
           {:else}
-            <!-- Chat bubble icon -->
             <path
               d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
             />
           {/if}
         </svg>
-      </button>
+      </button> -->
     </div>
   </div>
 </section>

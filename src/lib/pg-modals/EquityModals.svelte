@@ -1,45 +1,44 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
-    export let selectedEquity;
-    const dispatch = createEventDispatcher();
+  import { createEventDispatcher } from 'svelte';
+  export let selectedEquity;
+  const dispatch = createEventDispatcher();
 
-    function close() {
-        dispatch('close');
-    }
+  function close() {
+    dispatch('close');
+  }
 
-    const efItems = [
-        {
-            id: 'procedural',
-            label: 'Procedural',
-            def: 'Fair and inclusive processes in policy development, implementation, and enforcement. Ensures all stakeholders have meaningful participation opportunities.',
-            color: 'var(--equity-color-procedural)',
-        },
-        {
-            id: 'structural',
-            label: 'Structural',
-            def: 'Addresses underlying systems and institutions that create inequities. Focuses on reforming organizational structures, legal frameworks, and policies that systematically advantage some groups while disadvantaging others.',
-            color: 'var(--equity-color-structural)',
-        },
-        {
-            id: 'distributional',
-            label: 'Distributional',
-            def: 'Fair allocation of benefits, burdens, and resources. Examines who gets what, when, and how in policy outcomes.',
-            color: 'var(--equity-color-distributional)',
-        },
-        {
-            id: 'recognitional',
-            label: 'Recognitional',
-            def: 'Recognition of historical, cultural, and social contexts that shape communities’ relationships with water resources and governance.',
-            color: 'var(--equity-color-recognitional)',
-        },
-        {
-            id: 'transformational',
-            label: 'Transformational',
-            def: 'Goes beyond fixing current systems to fundamentally reimagining and restructuring them. Creates entirely new approaches that center equity from the ground up, building regenerative systems that prevent inequities from occurring.',
-            color: 'var(--equity-color-transformational)',
-        },
-    ];
-
+  const efItems = [
+    {
+      id: 'procedural',
+      label: 'Procedural',
+      def: 'Fair and inclusive processes in policy development, implementation, and enforcement. Ensures all stakeholders have meaningful participation opportunities.',
+      color: 'var(--equity-color-procedural)',
+    },
+    {
+      id: 'structural',
+      label: 'Structural',
+      def: 'Addresses underlying systems and institutions that create inequities. Focuses on reforming organizational structures, legal frameworks, and policies that systematically advantage some groups while disadvantaging others.',
+      color: 'var(--equity-color-structural)',
+    },
+    {
+      id: 'distributional',
+      label: 'Distributional',
+      def: 'Fair allocation of benefits, burdens, and resources. Examines who gets what, when, and how in policy outcomes.',
+      color: 'var(--equity-color-distributional)',
+    },
+    {
+      id: 'recognitional',
+      label: 'Recognitional',
+      def: 'Recognition of historical, cultural, and social contexts that shape communities’ relationships with water resources and governance.',
+      color: 'var(--equity-color-recognitional)',
+    },
+    {
+      id: 'transformational',
+      label: 'Transformational',
+      def: 'Goes beyond fixing current systems to fundamentally reimagining and restructuring them. Creates entirely new approaches that center equity from the ground up, building regenerative systems that prevent inequities from occurring.',
+      color: 'var(--equity-color-transformational)',
+    },
+  ];
 </script>
 
 {#if selectedEquity}
@@ -62,18 +61,17 @@
         <img src="circle-x.svg" alt="Close" />
       </button>
 
-        {#each efItems as item}
+      {#each efItems as item}
         {#if item.id === selectedEquity}
-            <div class="modal-content">
+          <div class="modal-content">
             <h2 style="color: {item.color}; margin-top: 0;">{item.label}</h2>
             <p>{item.def}</p>
-            </div>
+          </div>
         {/if}
-        {/each}
+      {/each}
     </div>
   </div>
 {/if}
-
 
 <style>
   .modal-backdrop {
