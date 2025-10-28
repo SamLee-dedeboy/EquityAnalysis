@@ -2,231 +2,236 @@
   "id": "6bd9d139-c353-4a6d-ad1a-65a671082125",
   "source": "preprocessed",
   "document": {
-    "filename": "health-rivers-and-lakes-draft-program.pdf",
+    "filename": "support-rivers.pdf",
     "title": "Draft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes",
     "size_kb": 1302,
-    "upload_date_utc": "2025-08-20T00:51:52Z"
+    "upload_date_utc": "2025-10-27T23:41:15Z"
+  },
+  "test_fields": {
+    "test_pic": "head-polmak.png",
+    "test_subject": "Water Management Strategies",
+    "test_title": "Draft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes",
+    "test_short_caption": "Equity in Water Management",
+    "test_long_caption": "An in-depth analysis of water management strategies aimed at advancing equity for marginalized communities in California's rivers.",
+    "test_date": "",
+    "test_scope": "state"
   },
   "overall_analysis_by_perspective": [
     {
       "group_name": "Policy Makers",
-      "group_description": "the overall equity implications from the perspective of federal and state policymakers, considering their regulatory responsibilities and influence on equity outcomes. This assessment could indicate how effectively equity measures are embedded in their processes, or if there might be systematic gaps in addressing social or racial disparities.",
+      "group_description": "the overall equity implications from the perspective of federal and state policymakers, considering their regulatory responsibilities and influence on equity outcomes.",
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Policy Makers",
-          "summary": "The analysis suggests that while the draft program has several positive elements regarding equity, there are notable areas where further detail and commitment could enhance its effectiveness in addressing social and racial disparities.",
+          "summary": "The document emphasizes the need for embedding equity considerations in water management strategies, yet reveals systematic gaps.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "The document appears to recognize the importance of diverse stakeholder engagement, particularly regarding the protection of native fish populations and ecological health, indicating an acknowledgment of affected communities.",
-            "concerns": "However, it may not explicitly detail how these diverse voices are included in decision-making processes, suggesting a potential gap in ensuring adequate representation of marginalized groups.",
-            "conclusion": "Overall, this indicates a need for a more comprehensive approach to involving affected communities in decision-making."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Acknowledging Communities",
+            "findings": "The document acknowledges diverse community needs but may rely too heavily on standard procedures."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "The governance structure includes mechanisms for regulatory oversight, which may support procedural equity.",
-            "concerns": "The lack of clarity on stakeholder engagement raises concerns about whether all affected parties have meaningful opportunities to participate.",
-            "conclusion": "There is a need for improved clarity regarding stakeholder participation mechanisms."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Inclusive Governance",
+            "findings": "Governance structures are outlined but may lack robust stakeholder influence."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "The program shows a commitment to distributional equity by addressing water quality objectives crucial for maintaining viable native fish populations.",
-            "concerns": "Yet, it does not detail how benefits will be shared among different communities, particularly disadvantaged ones.",
-            "conclusion": "This suggests potential oversight in ensuring equitable allocation of resources."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Equitable Resource Allocation",
+            "findings": "Prioritization of disadvantaged communities is noted, yet accountability mechanisms are vague."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "There is an acknowledgment of the need for a comprehensive approach to managing water resources.",
-            "concerns": "However, it does not fully confront the systemic issues that contribute to social and racial disparities.",
-            "conclusion": "This indicates a gap in addressing structural equity effectively."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Addressing Systemic Barriers",
+            "findings": "Acknowledges systemic issues but calls for enhanced inter-stakeholder collaboration."
           },
           "sources": [
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Floodplain planning and riparian \nscreening have both been initiated under these funding streams. \n\n70 \n\n\n\n \n \n\n \n \n\n \n   \n\n \n     \n\n  \n \n\n \n   \n\n \n \n\n  \n \n\n  \n\n \n\n   \n  \n\n \n\n \n  \n\n \n\n  \n\n   \n\n   \n    \n      \n\n    \n     \n\n   \n \n\n  \n   \n\n    \n \n\n    \n \n\n    \n   \n\n    \n      \n\n    \n   \n\n  \n\n   \n     \n\nDraft Strategic Plan \n\nReferences: \nBilski, R. (2019). Assessment of the Relative Risk of Surface W...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nWater Purchases Varies based upon \r\nmethod of actions taken \r\nto make water available \r\n(primarily includes \r\nadditional reservoir \r\nreleases, and/...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>2.6 American Flow Measures \n\t2.6.1 Default Plan and Flexibility Bracket \n\t2.6.2 Governance and decision-making for American VA Flow Measures \n\n\t2.7 Mokelumne Flow Measures \n\t2.7.1 Default Plan and Flexibility Bracket \n\t2.7.2 Governance and decision-making for Mokelumne Flow Measures \n\tMokelumne Year Type Determination \n\tFlow Asset Decision-making \n\n\n\t2.8 Tuolumne Flow Measures \n\t2.8.1 Default Plan...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\n4 Healthy Rivers and Landscapes Program Annual and Triennial Reporting \r\n4.1 Annual Reports \r\nConsistent with the Term Sheet, concise Annual Reports will be prepared by the respective \r\nTributary/Delta Governance Entities and compiled by the Systemwide Governance Committee, with \r\ncontributions from the Science Committee, to report on implementation activities that occurred ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>i \n\n\n\n \n\n \n \n\n     \n   \n\n        \n\n      \n   \n\n   \n \n\n  \n           \n\n   \n  \n\n    \n    \n\n   \n \n\n  \n\n    \n  \n\n  \n  \n\n \n\n        \n  \n\n \n\n   \n \n\n   \n\n   \n\n     \n   \n\n  \n\nState Water Board, to provide in part regulatory authority for Flow Measures and Non-flow Measures in \nthe Program. \n\nFinal Action means: final action by the State Water Board to amend the Bay-Delta Plan. \n\nGlobal Agreement means: th...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan for the Proposed Agreements to Support \r\nHealthy Rivers and Landscapes \r\nUpdated: October 2024 \r\nPreface. i \r\nDocument Purpose .i \r\nDefinitions.i \r\n1 Overview. 1 \r\n1.1 Background .1 \r\n1.2 Narrative Objectives .3 \r\n1.3 Proposed Healthy Rivers and Landscapes Program.3 \r\n1.4 Regulatory Oversight .5 \r\n1.5 Program Timeline.5 \r\n2 Flow Measures Description . 7 \r\n2.1 Overview of Flow ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>o Reservoir reoperation: modifying the current/existing operations of upstream reservoirs to \nrelease additional instream flows during the January-June period that would be protected \nfrom other downstream diversions consistent with water right priorities.  \n\no Forgone exports: water that would otherwise be planned and allowed to be exported \n(consistent with other regulatory requirements and agre...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>CDFW and State Water Board will \r\nhave 30 days to agree to the project’s design criteria for accounting purposes. \r\nThe above design criteria review process will also need to consider project constraints from other \r\nregulatory processes (e.g., Flood Board, USACE). Adaptive management will be necessary, and as the \r\nknowledge base evolves, there will be opportunities to incorporate Traditional Eco...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>15 Implementation of the habitat enhancement component of the Yuba River VA proposal would be subject to and \ndependent upon the availability of, and access to, appropriate land, legal constraints and other external factors. \nThe habitat enhancement conceptual design regarding inundation elevations and associated flows are not yet at \nthe stage of final project designs. Although work is in progres...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nfrom Folsom Lake during \r\nSpring \r\nfor groundwater/surface \r\ninteraction) \r\neffect at the time of the \r\noperation) \r\nMokelumne \r\nRiver \r\nSee Sectio...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Early implementation projects \nfor tributary rearing habitats will be expected to provide an explanation that is acceptable to State Water \nBoard and CDFW that the projects provide suitable cover and inundation regimes for the intended \nbenefits. The explanation may include other benefits or constraints (e.g., traditional ecological \nknowledge, health and safety limitations) that informed the proj...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\n2.1.3 Systemwide Planning and Decision Making for Flow Measures \r\nThe Draft Governance Program (Appendix B to the Strategic Plan) describes the Healthy Rivers and \r\nLandscapes Program governance entities that will be engaged in planning and decision making related to \r\nFlow Measures, including a Systemwide Governance Committee and Tributary/Delta Governance Entities. \r\nSome ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>1Assumes adequate funding exists at the time of implementation. \n2More habitat is planned for the program during this timeframe than is required under the VA Agreement. Although \nmore habitat is planned than required under the VAs, by providing a programmatic view of potential feasible \nacreages, it offers flexibility for adaptive management while fully meeting VA habitat acreage requirements. \n3S...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Bay-Delta Plan means: Water Quality Control Plan for the San Francisco Bay/Sacramento/San Joaquin \r\nDelta Estuary (2018, as amended [date of Final Action]). \r\nBay-Delta Watershed means: the area extending nearly 500 miles from the Cascade Range in the north to \r\nthe Tehachapi Mountains in the south, and is bounded by the Sierra Mountain Range to the east and the \r\nCoast Range to the west that drai...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>66 \n\nhttps://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Fyubariver.org%2Four-work%2Flower-yuba-restoration%2Factive-lower-yuba-projects%2Flong-bar-restoration-project%2F&data=05%7C01%7Camanda.ransom%40hdrinc.com%7Ce9d13e75c80446f3921208db15c27ae9%7C3667e201cbdc48b39b425d2d3f16e2a9%7C0%7C0%7C638127697256201229%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWw...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>3.1.4\r\nDraft Strategic Plan \r\n3.1.3 Non-flow Measure Accounting and Assessments \r\nThe Program will result in new Non-flow Measures, including habitat restoration and enhancements, that \r\nare intended to contribute to the achievement of the Narrative Objectives, and which will be \r\nimplemented in specific geographic locations overseen by Tributary/Delta Governance Entities \r\n(Tributary/Delta GEs). ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>1.2 Narrative Objectives \n\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \nobjectives are: (1) the existing narrative objective that provides for water ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nrequests made by the Systemwide Governance Committee and accommodate reasonable requests within \r\nreal-time systematic constraints or emergency conditions that may arise. SCWA will account aggregate \r\nProgram contributions on a water year basis, any portion of the Flow Measure that is not able to be \r\nreleased due to conditions and constraints beyond SCWA control during each...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>2.12 State Water Purchases Flow Measures .......................................................................................46 \n\n3 Non-flow Measures Description............................................................................................................ 48 \n\n3.1 Overview of Non-flow Measures ...........................................................................................</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>7  \r\nDraft Strategic Plan \r\nTable 2: New Contributions to Tributary Flow and Delta Outflows in Thousand Acre Feet by Sacramento River Index1,2,3 (Adapted from Term Sheet, Appendix 1 \r\nand associated amendments) \r\nSource Category Specific Source C (15%)4 D (22%) BN (17%) AN (14%) W (32%) \r\nSan Joaquin River Basin \r\nMinimum Placeholder Contributions \r\n(Stanislaus and Merced)5 11 83 101 85 0 \r\nSan Jo...</blockquote>"
             }
           ]
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Policy Makers",
-          "summary": "The analysis highlights the need for addressing vulnerable groups, with suggestions that low-income and Indigenous communities may face unique challenges related to water management.",
-          "identified_groups_and_impacts": "Identified groups include low-income communities, Indigenous communities, racial and ethnic minorities, and agricultural workers, who may all be affected by water management decisions.",
-          "equity_assessment_summary": "The references to these groups indicate an awareness of their unique challenges, yet details on addressing their needs remain insufficient.",
-          "conclusion": "There is a clear need for more detailed recognition and engagement with these vulnerable groups.",
+          "summary": "The lack of explicit mentions of vulnerable groups may indicate a need to deepen recognition.",
+          "identified_groups_and_impacts": "Communities such as low-income individuals and Indigenous peoples are implied but not specifically named.",
+          "equity_assessment_summary": "The absence of explicitly stated groups could suggest that their unique challenges remain unaddressed.",
+          "conclusion": "Greater specificity in identifying vulnerable groups might enhance policy effectiveness.",
           "sources": [
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>On the Mokelumne River, a critical time-period has been identified in which juvenile salmonid are rearing \nand/or out-migrating (February - July) and agriculture irrigation season (April - August) is on-going, in \nwhich farms with water rights (riparian or appropriative) pull water directly from the river via privately-\nowned pumps. During this time-period, both Fry (Length < 2.36 inches: 60 mm) a...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 1 \r\nTable 5: Default Plan and Flexibility Bracket for Flow Measures in a Dry water year. Bolded numbers represent the Default Plan and numbers in parentheses represent \r\nthe Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in (Appendix 1 of the MOU and all associated \r\namendments). The summary row was calculated b...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>2. Healthy Rivers and Landscapes Program governance entities (Sacramento River Governance and \nSystemwide Governance Committee) would decide on a Spring Action based on the framework in \nthe Strategic Plan. An evaluation of Shasta Cold Water Pool would be completed to ensure any \nspring action would not impact Winter Run salmon cold water temperature requirements that \nalign with the applicable Re...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 4: Default Plan and Flexibility Bracket for Flow Measures in Below Normal water year. Bolded numbers represent the Default Plan and numbers in parentheses \r\nrepresent the Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in Table 1 (Appendix 1 of the MOU and all \r\nassociated amendments). The summary row was calcula...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>The Yuba \nRiver VA proposed habitat enhancement measures are intended to provide physical habitat conditions \nthat would support broad temporal and spatial distributions of juvenile anadromous salmonid rearing, \nand larger individuals in better condition with higher survivorship by providing: (1) physical habitat \nstructure (i.e., complexity, sinuosity, diversity, instream object and over-hanging ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nfishery. Recommendations by the governance group require approval from the State Water Board if they fall \r\noutside of Table 10 and also require approval from the National Marine Fisheries Service or California Department \r\nof Fish and Wildlife. A process will need to be developed which describes this decision-making process for each of \r\nthe three agencies as well as a summ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nfishery. Recommendations by the governance group require approval from the State Water Board if they fall \noutside of Table 10 and also require approval from the National Marine Fisheries Service or California Department \nof Fish and Wildlife. A process will need to be developed which describes this decision-making process for each of \nthe three agencies as well as a summary...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Final habitat acreages for each site are refined during the final design process and are dependent on site￾specific hydraulic conditions and constructability. Spawning/rearing combination sites are concentrated in \r\nthe upper 10 miles of the river (RM 13-23), where hydraulic and substrate conditions are most suitable for \r\nspawning and where ongoing monitoring shows a concentration of spawning act...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>~2,500 acres of tidal wetlands \n\nConstruction, restoration, \nand enhancements: \n\n~43 acres of spawning \nhabitat, \n\n~22 acres of instream  \nrearing habitat,  \n\n~3,935 acres of floodplain \nrearing habitat  \n\nOther habitat enhancements (weir improvements and fish passage projects, fish food production on agricultural land, \npredator control activities, etc.). \n\n6 \n\n\n\n \n\n \n \n\n  \n\n  \n\n    \n\n     \n  \n\n ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nReferences: \r\nBilski, R. (2019). Assessment of the Relative Risk of Surface Water Diversions on Juvenile Salmonids and Lampreys in \r\nthe Lower Mokelumne River (pp. 1-85). East Bay Municipal Utility District (EBMUD), Water and Natural Resources \r\n- Fisheries and Wildlife Division - Lodi Office. Lodi, California.\r\nBovee, K. D., Milhous, R. T., & Turow, J. (1978). Hydraulic sim...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Flow Measures may require actions from the State Water \nBoard to protect flows made available. Flow Measures described as “Water Purchase Program” or other \nwater purchases will be obtained through a free-market program for single-year transfers, subject to \napplicable law (Term Sheet, Section 5.1). Flow contributions from all water sources will not impact water \nsupplies for wildlife refuges nor ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nbeyond habitat restoration projects and include additional measures, such as predation management, \r\nthat are also intended to improve conditions for native fish on the lower Tuolumne River. \r\nThe non-flow measures for the lower Tuolumne River are based on science developed on the lower \r\nTuolumne River over several decades, including the most recent studies completed as par...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>15 Implementation of the habitat enhancement component of the Yuba River VA proposal would be subject to and \ndependent upon the availability of, and access to, appropriate land, legal constraints and other external factors. \nThe habitat enhancement conceptual design regarding inundation elevations and associated flows are not yet at \nthe stage of final project designs. Although work is in progres...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Specifically: \r\n• By March/April, most juveniles will be rearing lower in the Feather River or in the Delta. Targeting \r\nMarch allows juveniles rearing or migrating at any location in the watershed (upper Feather River or \r\nDelta) the opportunity to benefit from increased flows. \r\n• A March/April pulse flow is late enough to benefit nearly all recently emerged juvenile salmonids \r\n(spring-run and ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>16.7% \n(0-75%) \n\n16.7% \n(0-75%) \n\n16.7% \n(0-84%) \n\n16.7% \n(0-74%) \n\n8.3% \n(0-54%) \n\n8.3% \n(0-57%) \n\n0% 0% 0% 0% \n\nCVP/SWP Export \nReduction 0% 0% 0% 0% 0% 33.3% \n\n(20-80%) \n33.3% \n\n(20-80%) \n33.3% \n(0-50%) \n\n0% \n(0-25%) 0% 0% 0% \n\nPWA Water \nPurchase Program 0% 0% 0% 0% 0% 0% \n\n(0-40%) \n50%5  50%5  0% \n\n(0-40%) \n0% 0% 0% \n\nPermanent State \nWater Purchases \n\n0% 0% 0% 0% 0% \n(0-40%) \n\n33.3%6  33.3%6...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nProject Project and Description Life stage Benefits Early Years 1-3 Years 4-6 Years 7-8 Total \r\nNo. location Implementation \r\n(Dec 2018-2024) \r\nRM 5-48 be developed in \r\nconjunction with the \r\nTRPAC (below). \r\nExamples of likely \r\nprojects include \r\nfloodplain lowering, \r\nfloodplain \r\nconnectivity, riparian \r\nplantings, in-channel \r\nplacement of LWD \r\nand improved \r\nsmolt \r\n...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Indicators  of viability include  \npopulation abundance, spatial extent, distribution, structure, genetic and life history  \ndiversity, and productivity.* Flows provided  to meet this objective will be  managed in a  \nmanner to  avoid causing significant adverse impacts to fish and  wildlife beneficial uses  \nat other times  of the year.  \n\n* The actions the State Water Board and other agencies ex...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>1.2 Narrative Objectives \r\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \r\nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \r\nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \r\nobjectives are: (1) the existing narrative objective that provides for wat...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Floodplain planning and riparian \nscreening have both been initiated under these funding streams. \n\n70 \n\n\n\n \n \n\n \n \n\n \n   \n\n \n     \n\n  \n \n\n \n   \n\n \n \n\n  \n \n\n  \n\n \n\n   \n  \n\n \n\n \n  \n\n \n\n  \n\n   \n\n   \n    \n      \n\n    \n     \n\n   \n \n\n  \n   \n\n    \n \n\n    \n \n\n    \n   \n\n    \n      \n\n    \n   \n\n  \n\n   \n     \n\nDraft Strategic Plan \n\nReferences: \nBilski, R. (2019). Assessment of the Relative Risk of Surface W...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>An evaluation of Shasta Cold Water Pool would be completed to ensure any \r\nspring action would not impact Winter Run salmon cold water temperature requirements that \r\nalign with the applicable Record of Decision on the Long-Term Operation of the Central Valley \r\nProject and State Water Project (see discussion below on the ROC-LTO) and State Water Board \r\nwater right requirements. \r\n3. Implementati...</blockquote>"
             }
           ]
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Policy Makers",
-          "summary": "The analysis points out potential positive and negative impacts arising from the proposed measures, with emphasis on both ecological benefits and possible resource allocation conflicts.",
-          "high_severity_impacts": "Negative impacts may disproportionately affect communities that rely on stable water resources, particularly agricultural ones.",
-          "moderate_severity_impacts": "Positive ecological outcomes may support both wildlife and communities in the longer term but could take time to materialize.",
-          "equity_implications_of_impacts": "The distribution of severe impacts appears uneven, with historical disparities potentially exacerbated under the current framework.",
-          "conclusion": "This analysis suggests a need for careful consideration to avoid exacerbating existing inequities.",
+          "summary": "Potential impacts of water management decisions range widely based on context and stakeholder involvement.",
+          "high_severity_impacts": "Negative outcomes could disproportionately affect farmers relying on available water.",
+          "moderate_severity_impacts": "Ecological benefits could enhance community resilience if managed properly.",
+          "equity_implications_of_impacts": "Attention to distributional concerns may need reinforcement to avoid further inequities.",
+          "conclusion": "The balance between ecological goals and agricultural needs necessitates careful management.",
           "sources": [
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes \n\n\n \n\n \n \n\n \n\n \n    \n\n  \n   \n\n   \n\n   \n\n   \n\n    \n\n    \n\n    \n\n     \n\n    \n\n    \n\n    \n\n    \n\n   \n\n    \n\n    \n\n    \n\n   \n\n    \n\n    \n\n    \n\n    \n\n      \n\n    \n\n    \n\n     \n\n    \n\n     \n\n    \n\nDraft Strategic Plan for the Proposed Agreements to Support \nHealthy Rivers and Landscapes \nUpdated: October 2024 \n\nPr...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>These \r\nprojects would also provide additional juvenile rearing space, habitat complexity, and ultimately provide \r\nconditions that would allow for meeting habitat suitability metrics related to juvenile salmon size and \r\nsurvival. \r\nWater Diversion Screening Projects \r\nSurface water diversion structures have been indicated as a significant threat to the salmonid populations \r\nin the California Ce...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Although Lower Putah Creek (including its riparian corridor) is one of the largest remaining tracts of high-\nquality wildlife habitat in Yolo and Solano counties and provides habitat for a unique assemblage of fish \nand wildlife species native to the Central Valley, it is characterized by altered channels and eroding banks, \nhabitat loss and degradation, flood and flood control related impacts, in...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\neffect at the time of the \r\noperation) \r\nFallowing and groundwater \r\nsubstitution verification would \r\npreliminarily follow the Water \r\nTransfers W...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>1.2 Narrative Objectives \n\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \nobjectives are: (1) the existing narrative objective that provides for water ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>3.1.4\r\nDraft Strategic Plan \r\n3.1.3 Non-flow Measure Accounting and Assessments \r\nThe Program will result in new Non-flow Measures, including habitat restoration and enhancements, that \r\nare intended to contribute to the achievement of the Narrative Objectives, and which will be \r\nimplemented in specific geographic locations overseen by Tributary/Delta Governance Entities \r\n(Tributary/Delta GEs). ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nAPPENDIX G \n\nDraft Funding Plan \n\n240 \n\n\n\tDraft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes \n\tPreface \n\tDocument Purpose \n\tDefinitions \n\n\t1 Overview \n\t1.1 Background \n\t1.2 Narrative Objectives \n\t1.3 Proposed Healthy Rivers and Landscapes Program \n\tFlow Measures \n\tNon-flow Measures \n\tGovernance, Science and Adaptive Management \n\tFunding...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>1.2 Narrative Objectives \r\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \r\nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \r\nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \r\nobjectives are: (1) the existing narrative objective that provides for wat...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>(33-66%) \n\n0% \n\n(0-33%) \n\nThe Default Plan for the American Flow Measures is to deploy water in March through May. In critical \nyears, a concentrated pulse is biologically beneficial for juvenile outmigration, focusing on the months of \nMarch and April. For dry years, spreading contributions evenly over the months of March, April, and May \nare the most biologically beneficial. For above normal and...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nWater Purchases Varies based upon \r\nmethod of actions taken \r\nto make water available \r\n(primarily includes \r\nadditional reservoir \r\nreleases, and/...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>The State \nWater Board is authorized to adopt a water quality control plan in accordance with the provisions of \nWater Code sections 13240 through 13244, insofar as they are applicable (Wat. Code, § 13170). The State \nWater Board has adopted a Water Quality Control Plan for the San Francisco Bay/Sacramento-San Joaquin \nDelta Estuary (Bay-Delta Plan). It first adopted the plan in 1978, amending it ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Specifically, \r\nthe Directors presented a “Framework Proposal for Voluntary Agreements to Update and Implement the \r\nBay-Delta Water Quality Control Plan” (Framework Proposal). On December 12, 2018, the State Water \r\nBoard adopted Resolution No. 2018-0059 to update the 2006 Bay-Delta Plan. First, it amended the water \r\nquality objectives for the protection of fish and wildlife beneficial uses in t...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>500 2,500 2,350 - 5,350 \n\n1Assumes adequate funding exists at the time of implementation. \n\n3.10.3 Implementation Details \n\nA variety of federal, State, and local entities are anticipated to implement the habitat measures described \nabove. Funding for these habitat measures is anticipated to come from a variety of sources including \nState, federal, and funding collected from VA implementing entiti...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nby the volumes shown in \r\nthe MOU (top row of \r\ntable in Tuolumne \r\nsection, labeled \r\n“Tuolumne River \r\ndownstream of La \r\nGrange Dam”). \r\nimpleme...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>* Flows provided  to meet this objective shall be  managed in a \nmanner to  avoid causing significant adverse impacts to  fish and  wildlife beneficial uses  \nat other times  of the year.  \n\n* The actions the State Water Board and other agencies expect to take to implement \nthis objective are described in section [insert number] of this Plan’s Program of \nImplementation.” \n\n1.3 Proposed Healthy Ri...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>The reference flows \r\nwill be projected in near real-time and documentation will be provided to State Water Board in a \r\ntimely manner to facilitate review of the reference flow estimates. A Flow Operations Team will also \r\nbe established with State Water Board representation to facilitate review of the reference flows. \r\n• Column 5: a description of the conceptual measurement approaches, includin...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nrequests made by the Systemwide Governance Committee and accommodate reasonable requests within \nreal-time systematic constraints or emergency conditions that may arise. SCWA will account aggregate \nProgram contributions on a water year basis, any portion of the Flow Measure that is not able to be \nreleased due to conditions and constraints beyond SCWA control during each wa...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>One acre of suitable instream rearing habitat will \r\nbe implemented through screening diversions and providing habitat complexity during spawning habitat \r\nrestoration work. \r\nFloodplain Habitat Enhancement Projects \r\n68  \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\nDraft Strategic Plan \r\nNew floodplain habitat enhancement areas would be designed to primarily be inundated at river flows \r\nbetwee...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Preface \n\nDocument Purpose \n\nThis document is the Draft Strategic Plan which, in final form, will be content for Exhibit F to the Global \nAgreement to the Healthy Rivers and Landscapes Program (Program) in the Bay-Delta. The Parties provide \nthis draft to the State Water Board for information, as they prepare their Staff Report to update the Bay-\nDelta Plan and Program of Implementation. This Stra...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nfrom Folsom Lake during \r\nSpring \r\nfor groundwater/surface \r\ninteraction) \r\neffect at the time of the \r\noperation) \r\nMokelumne \r\nRiver \r\nSee Sectio...</blockquote>"
             }
           ]
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Policy Makers",
-          "summary": "The proposed mitigation strategies are aimed at enhancing ecological health while considering varying stakeholder interests.",
-          "identified_strategies": "The document outlines flow management and habitat restoration as key strategies, which could strengthen ecological resilience.",
-          "equity_assessment": "However, the lack of specific engagement strategies for historically marginalized communities suggests a gap in truly equitable implementation.",
-          "conclusion": "Further refinement and clarity of how these strategies can be equitably evaluated and executed is necessary.",
+          "summary": "The strategies reflect a commitment to both ecological enhancement and equity.",
+          "identified_strategies": "Water diversion screenings and habitat restoration projects are key components.",
+          "equity_assessment": "While the strategies recognize diverse needs, their effectiveness in practice is uncertain.",
+          "conclusion": "A need exists for more robust frameworks to ensure the engagement of all stakeholders.",
           "sources": [
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes \n\n\n \n\n \n \n\n \n\n \n    \n\n  \n   \n\n   \n\n   \n\n   \n\n    \n\n    \n\n    \n\n     \n\n    \n\n    \n\n    \n\n    \n\n   \n\n    \n\n    \n\n    \n\n   \n\n    \n\n    \n\n    \n\n    \n\n      \n\n    \n\n    \n\n     \n\n    \n\n     \n\n    \n\nDraft Strategic Plan for the Proposed Agreements to Support \nHealthy Rivers and Landscapes \nUpdated: October 2024 \n\nPr...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 6: Default Plan and Flexibility Bracket for Flow Measures in a Critical water year. Bolded numbers represent the Default Plan and numbers in parentheses \r\nrepresent the Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in Table 1 (Appendix 1 of the MOU and all \r\nassociated amendments). Note that not all water sourc...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nAPPENDIX G \n\nDraft Funding Plan \n\n240 \n\n\n\tDraft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes \n\tPreface \n\tDocument Purpose \n\tDefinitions \n\n\t1 Overview \n\t1.1 Background \n\t1.2 Narrative Objectives \n\t1.3 Proposed Healthy Rivers and Landscapes Program \n\tFlow Measures \n\tNon-flow Measures \n\tGovernance, Science and Adaptive Management \n\tFunding...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>These \r\nprojects would also provide additional juvenile rearing space, habitat complexity, and ultimately provide \r\nconditions that would allow for meeting habitat suitability metrics related to juvenile salmon size and \r\nsurvival. \r\nWater Diversion Screening Projects \r\nSurface water diversion structures have been indicated as a significant threat to the salmonid populations \r\nin the California Ce...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nDry year types would see a shift in focus to maintaining suitable habitat conditions and emigration period \nconditions by increasing flows over several weeks. Specifically: \n\n• In dry years having the flexibility between March, April, and May to distribute water over several \nweeks or months (when flows are predicted to be lowest) to maintain basic habitat conditions \n(reari...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-84%) \r\n16.7% \r\n(0-74%) \r\n8.3% \r\n(0-54%) \r\n8.3% \r\n(0-57%) 0% 0% 0% 0% \r\nCVP/SWP Export Reduction 0% 0% 0% 0% 0% 0% \r\n(0-30%) \r\n50% \r\n(30-70%) \r\n50% \r\n(30-70%) \r\n0% \r\n(0-30%) 0% 0% 0% \r\nPWA Water Purchase \r\nProgram 0% 0% 0% 0% 0% 0% \r\n(0-40%) 50%4 50%4 0% \r\n(0-40%) 0% 0% 0% \r\nPermanent State Water \r\nPurchases 0% 0% 0% 0% 0% \r\n(0-40%) 33.3...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Approximate \n100 acres5  of \n\nfloodplain \nand instream \n\nrearing \nhabitat \n\nRose Bar \nComprehensive \nRestoration \nPlan \n\n- Preliminary concept includes creating \ninstream/rearing, spawning, floodplain, and fish \nfood production habitat functionalities. Project \n\ncontingent upon funding and permitting, \ntimeline for implementation is TBD, but could  \n\noccur with the term of the VA. \n\nApproximate \n5...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nlower Yuba River, and therefore provide greater opportunities for a more diverse portfolio of rearing and \r\noutmigration life history strategies. The anticipated outcomes include increased growth and survivability \r\nof juvenile anadromous salmonids, and subsequent contribution to spawning stock escapement. The Yuba \r\nRiver VA proposed habitat enhancement measures are intende...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>(33-66%) \n\n0% \n\n(0-33%) \n\nThe Default Plan for the American Flow Measures is to deploy water in March through May. In critical \nyears, a concentrated pulse is biologically beneficial for juvenile outmigration, focusing on the months of \nMarch and April. For dry years, spreading contributions evenly over the months of March, April, and May \nare the most biologically beneficial. For above normal and...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>-\r\n-\r\n–\r\n-\r\n–\r\n-\r\n-\r\nDraft Strategic Plan \r\nadditional acres of habitat will be constructed to meet, and potentially exceed, the targets established in \r\nthe MOU. \r\nProgram habitat planned to be implemented or maintained during the VA term includes spawning \r\nhabitat, perennially inundated rearing habitat (side channels), and seasonally inundated rearing habitat \r\n(floodplain grading/planting). \r\n...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nWater Source \n\nImmediate action(s) \ntaken to provide \nadditional instream \nflows \n\nAdditional action(s) taken to \nmake water contributions \navailable \n\nFlow Measures will be \nadditive to… Conceptual Measurement Approaches \n\nfrom Folsom Lake during \nSpring \n\nfor groundwater/surface \ninteraction) \n\neffect at the time of the \noperation) \n\nMokelumne  \nRiver  \n\nSee Section  2.7  ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 37. Gravel augmentation volumes for specific non-flow measure projects. \r\nRiffle location Volume (cu. yds.) Tons \r\nProject 1: Riffle A2 519 700 \r\nProject 2: Riffle A3 3,707 5,000 \r\nProject 6: Riffle A5 9,637 13,000 \r\nProject 7: Riffle A6 14,456 19,500 \r\nProject 8: Basso Pool 27,281 36,800 \r\nTotals 55,600 75,000 \r\nProject 11: Riffle A3/A4[2] TBD TBD \r\nProject 3: Riffle ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>The Parties request that the Program of Implementation in the updated Bay-Delta Plan include the \nHealthy Rivers and Landscapes Program as a pathway to implement the Narrative Salmon Objective and \nproposed Narrative Viability Objective, on a finding that the Healthy Rivers and Landscapes pathway, in \nconjunction with other measures in the Bay-Delta Plan, will provide reasonable protection of the ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nby the volumes shown in \r\nthe MOU (top row of \r\ntable in Tuolumne \r\nsection, labeled \r\n“Tuolumne River \r\ndownstream of La \r\nGrange Dam”). \r\nimpleme...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>* Flows provided  to meet this objective shall be  managed in a \nmanner to  avoid causing significant adverse impacts to  fish and  wildlife beneficial uses  \nat other times  of the year.  \n\n* The actions the State Water Board and other agencies expect to take to implement \nthis objective are described in section [insert number] of this Plan’s Program of \nImplementation.” \n\n1.3 Proposed Healthy Ri...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>1.2 Narrative Objectives \r\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \r\nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \r\nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \r\nobjectives are: (1) the existing narrative objective that provides for wat...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nrequests made by the Systemwide Governance Committee and accommodate reasonable requests within \nreal-time systematic constraints or emergency conditions that may arise. SCWA will account aggregate \nProgram contributions on a water year basis, any portion of the Flow Measure that is not able to be \nreleased due to conditions and constraints beyond SCWA control during each wa...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nbeyond habitat restoration projects and include additional measures, such as predation management, \r\nthat are also intended to improve conditions for native fish on the lower Tuolumne River. \r\nThe non-flow measures for the lower Tuolumne River are based on science developed on the lower \r\nTuolumne River over several decades, including the most recent studies completed as par...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>15 Implementation of the habitat enhancement component of the Yuba River VA proposal would be subject to and \ndependent upon the availability of, and access to, appropriate land, legal constraints and other external factors. \nThe habitat enhancement conceptual design regarding inundation elevations and associated flows are not yet at \nthe stage of final project designs. Although work is in progres...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>3% \r\n(0-100%) \r\n33.3% \r\n(0-100%) \r\n0% 0% 0% 0% \r\nYuba 0% 0% 0% 0% 0% 0% 50% \r\n(33-66%) \r\n50% \r\n(33-66%) \r\n0% \r\n(0-33%) 0% 0% 0% \r\nAmerican 0% 0% 0% 0% 0% 33.3% \r\n(20-40%) \r\n33.3% \r\n(20-40%) \r\n33.3% \r\n(20-40%) 0% 0% 0% 0% \r\nMokelumne1 25% \r\n(10-30%) 0% 0% 0% 0% 15%2 34%2 26%2 0% 0% 0% 0% \r\nTuolumne3 0% 0% 0% 2% 1% 60%4 19%4 16%4 2% \r\n(2-37%) 0% 0% 0% \r\nPutah 0% 16.7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n1...</blockquote>"
             }
           ]
         }
@@ -234,223 +239,219 @@
     },
     {
       "group_name": "Residents",
-      "group_description": "the overall equity implications from the perspective of ordinary residents, especially those in vulnerable communities, regarding their access to clean and affordable water. The assessment might indicate if community voices appear to be sufficiently represented in decisions affecting their health and well-being.",
+      "group_description": "the overall equity implications from the perspective of ordinary residents, especially those in vulnerable communities, regarding their access to clean and affordable water.",
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Residents",
-          "summary": "While the program outlines strategic plans for improving water quality, there may be insufficient recognition of vulnerable communities' specific needs in the decision-making process.",
+          "summary": "The document recognizes the importance of inclusive water management but lacks concrete community engagement strategies.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "The document recognizes the importance of various stakeholders in water management.",
-            "concerns": "However, it lacks explicit details on how different communities' unique identities are acknowledged in decisions.",
-            "conclusion": "This suggests that while there is an intention to include diverse voices, representation may not be sufficiently robust."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Community Acknowledgment",
+            "findings": "The needs of vulnerable communities are indicated, but the means of representation are vague."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "Governance structures for accountability and transparency are proposed.",
-            "concerns": "It remains unclear how these structures will allow for meaningful participation from vulnerable communities.",
-            "conclusion": "Hence, there is a potential gap in ensuring all stakeholders can engage effectively."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Decision Participation",
+            "findings": "Despite allocative efforts, community engagement methods lack clarity and specificity."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "There is an emphasis on equitable distribution, especially regarding habitat conditions.",
-            "concerns": "Yet, the document does not specify metrics on how these measures will impact human populations directly.",
-            "conclusion": "This could indicate a potential imbalance in prioritizing ecological outcomes over human health and well-being."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Ensuring Fair Access",
+            "findings": "Measuring affordability and impact on residents remains underdeveloped."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "The document acknowledges systemic barriers to equitable access.",
-            "concerns": "However, clear actions to address these structural inequities appear to be lacking.",
-            "conclusion": "This indicates a need for more proactive measures to rectify historical injustices."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Long-Term Solutions",
+            "findings": "Acknowledges historical inequities but lacks detailed actionable strategies."
           },
           "sources": [
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>* Flows provided  to meet this objective shall be  managed in a \nmanner to  avoid causing significant adverse impacts to  fish and  wildlife beneficial uses  \nat other times  of the year.  \n\n* The actions the State Water Board and other agencies expect to take to implement \nthis objective are described in section [insert number] of this Plan’s Program of \nImplementation.” \n\n1.3 Proposed Healthy Ri...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nby the volumes shown in \r\nthe MOU (top row of \r\ntable in Tuolumne \r\nsection, labeled \r\n“Tuolumne River \r\ndownstream of La \r\nGrange Dam”). \r\nimpleme...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>1.2 Narrative Objectives \n\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \nobjectives are: (1) the existing narrative objective that provides for water ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 25. Timing of Flow Measures from Permanent State Water Purchases. Bolded numbers represent the \r\nDefault Plan for Flow Measures and numbers in parentheses represent the Flexibility Bracket for any given year. \r\nWater Year Jan Feb Mar Apr May Jun \r\nWet, Above Normal, \r\nBelow Normal, Dry and \r\nCritical \r\n0% 0%1 33.3%2 33.3%2 33.3%2 0%1 \r\n1 The flexibility bracket for the...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes \n\n\n \n\n \n \n\n \n\n \n    \n\n  \n   \n\n   \n\n   \n\n   \n\n    \n\n    \n\n    \n\n     \n\n    \n\n    \n\n    \n\n    \n\n   \n\n    \n\n    \n\n    \n\n   \n\n    \n\n    \n\n    \n\n    \n\n      \n\n    \n\n    \n\n     \n\n    \n\n     \n\n    \n\nDraft Strategic Plan for the Proposed Agreements to Support \nHealthy Rivers and Landscapes \nUpdated: October 2024 \n\nPr...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nfrom Folsom Lake during \r\nSpring \r\nfor groundwater/surface \r\ninteraction) \r\neffect at the time of the \r\noperation) \r\nMokelumne \r\nRiver \r\nSee Sectio...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nDry year types would see a shift in focus to maintaining suitable habitat conditions and emigration period \nconditions by increasing flows over several weeks. Specifically: \n\n• In dry years having the flexibility between March, April, and May to distribute water over several \nweeks or months (when flows are predicted to be lowest) to maintain basic habitat conditions \n(reari...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>The areal extent (or project footprint) of each habit enhancement project is a composite of \r\nthe areal extent of all the habitat types, and potentially includes other habitats and construction areas. \r\nThe preliminarily identified habitat enhancement projects could contribute towards meeting the Yuba \r\nRiver proposed VA habitat acreages during the term of the VA. \r\nAdditional details regarding ea...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nAPPENDIX G \n\nDraft Funding Plan \n\n240 \n\n\n\tDraft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes \n\tPreface \n\tDocument Purpose \n\tDefinitions \n\n\t1 Overview \n\t1.1 Background \n\t1.2 Narrative Objectives \n\t1.3 Proposed Healthy Rivers and Landscapes Program \n\tFlow Measures \n\tNon-flow Measures \n\tGovernance, Science and Adaptive Management \n\tFunding...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>2 Triennial Reports.81 \r\nAppendix A - Memorandum of Understanding (March 29, 2022) and associated amendments \r\nAppendix B - Draft Governance Program \r\nAppendix C - Draft Science Plan \r\nAppendix D - Draft Early Implementation Project List \r\nAppendix E - Draft Flow Accounting Procedures \r\nAppendix F - Draft Non-flow Measure Accounting Procedures \r\nAppendix G - Draft Funding Plan  \r\n \r\n \r\n \r\n \r\n \r\n \r...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>It is anticipated that the American River signatories will continue to rely on the Water Forum’s \nability to deliver habitat projects for the purposes of VA implementation. The Water Forum’s currently \npermitted combination spawning/rearing program sites consist of 10 separate implementation areas \nconcentrated in the upper portion of the river (RM 13-23). These spawning/rearing sites and their \no...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nrequests made by the Systemwide Governance Committee and accommodate reasonable requests within \r\nreal-time systematic constraints or emergency conditions that may arise. SCWA will account aggregate \r\nProgram contributions on a water year basis, any portion of the Flow Measure that is not able to be \r\nreleased due to conditions and constraints beyond SCWA control during each...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Floodplain planning and riparian \nscreening have both been initiated under these funding streams. \n\n70 \n\n\n\n \n \n\n \n \n\n \n   \n\n \n     \n\n  \n \n\n \n   \n\n \n \n\n  \n \n\n  \n\n \n\n   \n  \n\n \n\n \n  \n\n \n\n  \n\n   \n\n   \n    \n      \n\n    \n     \n\n   \n \n\n  \n   \n\n    \n \n\n    \n \n\n    \n   \n\n    \n      \n\n    \n   \n\n  \n\n   \n     \n\nDraft Strategic Plan \n\nReferences: \nBilski, R. (2019). Assessment of the Relative Risk of Surface W...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan for the Proposed Agreements to Support \r\nHealthy Rivers and Landscapes \r\nUpdated: October 2024 \r\nPreface. i \r\nDocument Purpose .i \r\nDefinitions.i \r\n1 Overview. 1 \r\n1.1 Background .1 \r\n1.2 Narrative Objectives .3 \r\n1.3 Proposed Healthy Rivers and Landscapes Program.3 \r\n1.4 Regulatory Oversight .5 \r\n1.5 Program Timeline.5 \r\n2 Flow Measures Description . 7 \r\n2.1 Overview of Flow ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>66 \n\nhttps://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Fyubariver.org%2Four-work%2Flower-yuba-restoration%2Factive-lower-yuba-projects%2Flong-bar-restoration-project%2F&data=05%7C01%7Camanda.ransom%40hdrinc.com%7Ce9d13e75c80446f3921208db15c27ae9%7C3667e201cbdc48b39b425d2d3f16e2a9%7C0%7C0%7C638127697256201229%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWw...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nProject Project and Description Life stage Benefits Early Years 1-3 Years 4-6 Years 7-8 Total \r\nNo. location Implementation \r\n(Dec 2018-2024) \r\naddition of LWD to \r\nthe lower Tuolumne \r\nRiver \r\nin-channel \r\nrearing area \r\nof large \r\nwoody \r\nmaterial \r\nlarge \r\nwoody \r\nmaterial \r\n10 Infiltration \r\nGalleries (IG) \r\nRM 26 \r\nConstruct IG#2 and \r\noperate IG#1 \r\n(existing) and IG#2...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>o Reservoir reoperation: modifying the current/existing operations of upstream reservoirs to \nrelease additional instream flows during the January-June period that would be protected \nfrom other downstream diversions consistent with water right priorities.  \n\no Forgone exports: water that would otherwise be planned and allowed to be exported \n(consistent with other regulatory requirements and agre...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nbeyond habitat restoration projects and include additional measures, such as predation management, \r\nthat are also intended to improve conditions for native fish on the lower Tuolumne River. \r\nThe non-flow measures for the lower Tuolumne River are based on science developed on the lower \r\nTuolumne River over several decades, including the most recent studies completed as par...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>The Parties request that the Program of Implementation in the updated Bay-Delta Plan include the \nHealthy Rivers and Landscapes Program as a pathway to implement the Narrative Salmon Objective and \nproposed Narrative Viability Objective, on a finding that the Healthy Rivers and Landscapes pathway, in \nconjunction with other measures in the Bay-Delta Plan, will provide reasonable protection of the ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Bay-Delta Plan means: Water Quality Control Plan for the San Francisco Bay/Sacramento/San Joaquin \r\nDelta Estuary (2018, as amended [date of Final Action]). \r\nBay-Delta Watershed means: the area extending nearly 500 miles from the Cascade Range in the north to \r\nthe Tehachapi Mountains in the south, and is bounded by the Sierra Mountain Range to the east and the \r\nCoast Range to the west that drai...</blockquote>"
             }
           ]
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Residents",
-          "summary": "The document seems to address vulnerable groups indirectly but lacks explicit recognition of specific communities.",
-          "identified_groups_and_impacts": "Communities likely affected include low-income residents, racial minorities, and those reliant on local water resources for livelihood.",
-          "equity_assessment_summary": "While there is some appreciation of the vulnerable populations, the lack of detailed engagement strategies limits its effectiveness.",
-          "conclusion": "In-depth consideration of how these groups are affected appears necessary.",
+          "summary": "The document implies vulnerable groups but does not explicitly articulate their specific needs.",
+          "identified_groups_and_impacts": "Includes low-income communities, Indigenous peoples, and urban residents, but details are scant.",
+          "equity_assessment_summary": "The absence of explicit definitions for vulnerable groups may obfuscate their issues.",
+          "conclusion": "More direct recognition could enhance the document's responsive effectiveness.",
           "sources": [
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>1.2 Narrative Objectives \n\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \nobjectives are: (1) the existing narrative objective that provides for water ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 4: Default Plan and Flexibility Bracket for Flow Measures in Below Normal water year. Bolded numbers represent the Default Plan and numbers in parentheses \r\nrepresent the Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in Table 1 (Appendix 1 of the MOU and all \r\nassociated amendments). The summary row was calcula...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Additional details regarding each of the projects identified in Section are available and are   3.5.2  \nsummarized below. The early implementation (2018-2024) projects are ongoing efforts to which Yuba \nWater has committed resources and funding for design, permitting, and construction. The longer-term \nimplementation (2024 and beyond) projects are specific examples of potential Yuba River VA proje...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 1 \r\nTable 5: Default Plan and Flexibility Bracket for Flow Measures in a Dry water year. Bolded numbers represent the Default Plan and numbers in parentheses represent \r\nthe Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in (Appendix 1 of the MOU and all associated \r\namendments). The summary row was calculated b...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>The Parties request that the Program of Implementation in the updated Bay-Delta Plan include the \nHealthy Rivers and Landscapes Program as a pathway to implement the Narrative Salmon Objective and \nproposed Narrative Viability Objective, on a finding that the Healthy Rivers and Landscapes pathway, in \nconjunction with other measures in the Bay-Delta Plan, will provide reasonable protection of the ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nProject Project and Description Life stage Benefits Early Years 1-3 Years 4-6 Years 7-8 Total \r\nNo. location Implementation \r\n(Dec 2018-2024) \r\nRM 5-48 be developed in \r\nconjunction with the \r\nTRPAC (below). \r\nExamples of likely \r\nprojects include \r\nfloodplain lowering, \r\nfloodplain \r\nconnectivity, riparian \r\nplantings, in-channel \r\nplacement of LWD \r\nand improved \r\nsmolt \r\n...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Approximate \n100 acres5  of \n\nfloodplain \nand instream \n\nrearing \nhabitat \n\nRose Bar \nComprehensive \nRestoration \nPlan \n\n- Preliminary concept includes creating \ninstream/rearing, spawning, floodplain, and fish \nfood production habitat functionalities. Project \n\ncontingent upon funding and permitting, \ntimeline for implementation is TBD, but could  \n\noccur with the term of the VA. \n\nApproximate \n5...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Specifically: \r\n• By March/April, most juveniles will be rearing lower in the Feather River or in the Delta. Targeting \r\nMarch allows juveniles rearing or migrating at any location in the watershed (upper Feather River or \r\nDelta) the opportunity to benefit from increased flows. \r\n• A March/April pulse flow is late enough to benefit nearly all recently emerged juvenile salmonids \r\n(spring-run and ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Floodplain planning and riparian \nscreening have both been initiated under these funding streams. \n\n70 \n\n\n\n \n \n\n \n \n\n \n   \n\n \n     \n\n  \n \n\n \n   \n\n \n \n\n  \n \n\n  \n\n \n\n   \n  \n\n \n\n \n  \n\n \n\n  \n\n   \n\n   \n    \n      \n\n    \n     \n\n   \n \n\n  \n   \n\n    \n \n\n    \n \n\n    \n   \n\n    \n      \n\n    \n   \n\n  \n\n   \n     \n\nDraft Strategic Plan \n\nReferences: \nBilski, R. (2019). Assessment of the Relative Risk of Surface W...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 6: Default Plan and Flexibility Bracket for Flow Measures in a Critical water year. Bolded numbers represent the Default Plan and numbers in parentheses \r\nrepresent the Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in Table 1 (Appendix 1 of the MOU and all \r\nassociated amendments). Note that not all water sourc...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>The Yuba \nRiver VA proposed habitat enhancement measures are intended to provide physical habitat conditions \nthat would support broad temporal and spatial distributions of juvenile anadromous salmonid rearing, \nand larger individuals in better condition with higher survivorship by providing: (1) physical habitat \nstructure (i.e., complexity, sinuosity, diversity, instream object and over-hanging ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan for the Proposed Agreements to Support \r\nHealthy Rivers and Landscapes \r\nUpdated: October 2024 \r\nPreface. i \r\nDocument Purpose .i \r\nDefinitions.i \r\n1 Overview. 1 \r\n1.1 Background .1 \r\n1.2 Narrative Objectives .3 \r\n1.3 Proposed Healthy Rivers and Landscapes Program.3 \r\n1.4 Regulatory Oversight .5 \r\n1.5 Program Timeline.5 \r\n2 Flow Measures Description . 7 \r\n2.1 Overview of Flow ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>On the Mokelumne River, a critical time-period has been identified in which juvenile salmonid are rearing \nand/or out-migrating (February - July) and agriculture irrigation season (April - August) is on-going, in \nwhich farms with water rights (riparian or appropriative) pull water directly from the river via privately-\nowned pumps. During this time-period, both Fry (Length < 2.36 inches: 60 mm) a...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nby the volumes shown in \r\nthe MOU (top row of \r\ntable in Tuolumne \r\nsection, labeled \r\n“Tuolumne River \r\ndownstream of La \r\nGrange Dam”). \r\nimpleme...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>• By March/April, most juveniles will be rearing lower in the Feather River or in the Delta. Targeting \nMarch allows juveniles rearing or migrating at any location in the watershed (upper Feather River or \nDelta) the opportunity to benefit from increased flows. \n\n• A March/April pulse flow is late enough to benefit nearly all recently emerged juvenile salmonids \n(spring-run and fall-run) while not...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Program Implementation \r\nPermitting Permit has been submitted. Early Implementation \r\nIn-progress/Implementation Project is in-progress or is being \r\nimplemented. \r\nEarly Implementation \r\nConstruction planned Construction is planned but has not started. Early Implementation \r\nConstruction in-progress Construction has started at the site. Early Implementation \r\nConstruction completed Construction h...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>15 Implementation of the habitat enhancement component of the Yuba River VA proposal would be subject to and \ndependent upon the availability of, and access to, appropriate land, legal constraints and other external factors. \nThe habitat enhancement conceptual design regarding inundation elevations and associated flows are not yet at \nthe stage of final project designs. Although work is in progres...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-84%) \r\n16.7% \r\n(0-74%) \r\n8.3% \r\n(0-54%) \r\n8.3% \r\n(0-57%) 0% 0% 0% 0% \r\nCVP/SWP Export \r\nReduction 0% 0% 0% 0% 0% 33.3% \r\n(20-80%) \r\n33.3% \r\n(20-80%) \r\n33.3% \r\n(0-50%) \r\n0% \r\n(0-25%) 0% 0% 0% \r\nPWA Water \r\nPurchase Program 0% 0% 0% 0% 0% 0% \r\n(0-40%) 50%5 50%5 0% \r\n(0-40%) 0% 0% 0% \r\nPermanent State \r\nWater Purchases 0% 0% 0% 0% 0% \r\n(0-...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>* Flows provided  to meet this objective shall be  managed in a \nmanner to  avoid causing significant adverse impacts to  fish and  wildlife beneficial uses  \nat other times  of the year.  \n\n* The actions the State Water Board and other agencies expect to take to implement \nthis objective are described in section [insert number] of this Plan’s Program of \nImplementation.” \n\n1.3 Proposed Healthy Ri...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>3% \r\n(0-100%) \r\n33.3% \r\n(0-100%) \r\n0% 0% 0% 0% \r\nYuba 0% 0% 0% 0% 0% 0% 50% \r\n(33-66%) \r\n50% \r\n(33-66%) \r\n0% \r\n(0-33%) 0% 0% 0% \r\nAmerican 0% 0% 0% 0% 0% 33.3% \r\n(20-40%) \r\n33.3% \r\n(20-40%) \r\n33.3% \r\n(20-40%) 0% 0% 0% 0% \r\nMokelumne1 25% \r\n(10-30%) 0% 0% 0% 0% 15%2 34%2 26%2 0% 0% 0% 0% \r\nTuolumne3 0% 0% 0% 2% 1% 60%4 19%4 16%4 2% \r\n(2-37%) 0% 0% 0% \r\nPutah 0% 16.7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n1...</blockquote>"
             }
           ]
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Residents",
-          "summary": "The proposed activities carry both positive potential impacts for local ecosystems and negative implications regarding resource allocation.",
-          "high_severity_impacts": "Negative outcomes could notably affect disadvantaged communities reliant on stable water supplies.",
-          "moderate_severity_impacts": "Ecosystem improvements could yield long-term benefits, but immediate challenges remain concerning resource distribution.",
-          "equity_implications_of_impacts": "The document does suggest a need for thoughtful consideration to manage impacts on vulnerable populations effectively.",
-          "conclusion": "This indicates that equity considerations are paramount amidst the challenges outlined.",
+          "summary": "Potential adverse outcomes associated with water allocations could disproportionately affect local residents engaged in agriculture.",
+          "high_severity_impacts": "Water restrictive measures may impact livelihoods significantly.",
+          "moderate_severity_impacts": "Ecological service benefits may exist but are contingent on effective policy execution.",
+          "equity_implications_of_impacts": "Acute scrutiny of resource distributions is essential to mitigate adverse consequences.",
+          "conclusion": "The balance of ecological health and community needs remains a critical focal point.",
           "sources": [
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Although Lower Putah Creek (including its riparian corridor) is one of the largest remaining tracts of high-\nquality wildlife habitat in Yolo and Solano counties and provides habitat for a unique assemblage of fish \nand wildlife species native to the Central Valley, it is characterized by altered channels and eroding banks, \nhabitat loss and degradation, flood and flood control related impacts, in...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>These \r\nprojects would also provide additional juvenile rearing space, habitat complexity, and ultimately provide \r\nconditions that would allow for meeting habitat suitability metrics related to juvenile salmon size and \r\nsurvival. \r\nWater Diversion Screening Projects \r\nSurface water diversion structures have been indicated as a significant threat to the salmonid populations \r\nin the California Ce...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>1.2 Narrative Objectives \n\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \nobjectives are: (1) the existing narrative objective that provides for water ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\neffect at the time of the \r\noperation) \r\nFallowing and groundwater \r\nsubstitution verification would \r\npreliminarily follow the Water \r\nTransfers W...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes \n\n\n \n\n \n \n\n \n\n \n    \n\n  \n   \n\n   \n\n   \n\n   \n\n    \n\n    \n\n    \n\n     \n\n    \n\n    \n\n    \n\n    \n\n   \n\n    \n\n    \n\n    \n\n   \n\n    \n\n    \n\n    \n\n    \n\n      \n\n    \n\n    \n\n     \n\n    \n\n     \n\n    \n\nDraft Strategic Plan for the Proposed Agreements to Support \nHealthy Rivers and Landscapes \nUpdated: October 2024 \n\nPr...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nWater Purchases Varies based upon \r\nmethod of actions taken \r\nto make water available \r\n(primarily includes \r\nadditional reservoir \r\nreleases, and/...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nAPPENDIX G \n\nDraft Funding Plan \n\n240 \n\n\n\tDraft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes \n\tPreface \n\tDocument Purpose \n\tDefinitions \n\n\t1 Overview \n\t1.1 Background \n\t1.2 Narrative Objectives \n\t1.3 Proposed Healthy Rivers and Landscapes Program \n\tFlow Measures \n\tNon-flow Measures \n\tGovernance, Science and Adaptive Management \n\tFunding...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>The areal extent (or project footprint) of each habit enhancement project is a composite of \r\nthe areal extent of all the habitat types, and potentially includes other habitats and construction areas. \r\nThe preliminarily identified habitat enhancement projects could contribute towards meeting the Yuba \r\nRiver proposed VA habitat acreages during the term of the VA. \r\nAdditional details regarding ea...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>* Flows provided  to meet this objective shall be  managed in a \nmanner to  avoid causing significant adverse impacts to  fish and  wildlife beneficial uses  \nat other times  of the year.  \n\n* The actions the State Water Board and other agencies expect to take to implement \nthis objective are described in section [insert number] of this Plan’s Program of \nImplementation.” \n\n1.3 Proposed Healthy Ri...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>In \r\naddition, enhancement projects will only be counted for the Bypass floodplain habitat projects included in \r\nNon-Flow Measure Commitments and their acreages will only be counted to the extent that areas of \r\nenhanced habitat meeting the design criteria are additive to the physical conditions and regulatory \r\nrequirements existing in that habitat area as of December 2018. \r\n8 Design criteria f...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>(33-66%) \n\n0% \n\n(0-33%) \n\nThe Default Plan for the American Flow Measures is to deploy water in March through May. In critical \nyears, a concentrated pulse is biologically beneficial for juvenile outmigration, focusing on the months of \nMarch and April. For dry years, spreading contributions evenly over the months of March, April, and May \nare the most biologically beneficial. For above normal and...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>1.2 Narrative Objectives \r\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \r\nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \r\nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \r\nobjectives are: (1) the existing narrative objective that provides for wat...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Preface \n\nDocument Purpose \n\nThis document is the Draft Strategic Plan which, in final form, will be content for Exhibit F to the Global \nAgreement to the Healthy Rivers and Landscapes Program (Program) in the Bay-Delta. The Parties provide \nthis draft to the State Water Board for information, as they prepare their Staff Report to update the Bay-\nDelta Plan and Program of Implementation. This Stra...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nby the volumes shown in \r\nthe MOU (top row of \r\ntable in Tuolumne \r\nsection, labeled \r\n“Tuolumne River \r\ndownstream of La \r\nGrange Dam”). \r\nimpleme...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>The Parties request that the Program of Implementation in the updated Bay-Delta Plan include the \nHealthy Rivers and Landscapes Program as a pathway to implement the Narrative Salmon Objective and \nproposed Narrative Viability Objective, on a finding that the Healthy Rivers and Landscapes pathway, in \nconjunction with other measures in the Bay-Delta Plan, will provide reasonable protection of the ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>One acre of suitable instream rearing habitat will \r\nbe implemented through screening diversions and providing habitat complexity during spawning habitat \r\nrestoration work. \r\nFloodplain Habitat Enhancement Projects \r\n68  \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\nDraft Strategic Plan \r\nNew floodplain habitat enhancement areas would be designed to primarily be inundated at river flows \r\nbetwee...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>EBMUD would operate to provide Flow Measure releases from Camanche Dam, above existing minimum \nrelease flow requirements, of 10 thousand acre-feet (TAF), 20 TAF, and 45 TAF in “Dry,” “Below Normal” \n(BN), and “Normal and Above” (AN) modified Joint Settlement Agreement (JSA) year types, respectively. \nThese Flow Measures will be provided in two ways: (1) reservoir reoperation as needed to ensure a...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>3.1.4\r\nDraft Strategic Plan \r\n3.1.3 Non-flow Measure Accounting and Assessments \r\nThe Program will result in new Non-flow Measures, including habitat restoration and enhancements, that \r\nare intended to contribute to the achievement of the Narrative Objectives, and which will be \r\nimplemented in specific geographic locations overseen by Tributary/Delta Governance Entities \r\n(Tributary/Delta GEs). ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>2.7.3  set forth in Section below.  In years  when there is a year-type mismatch  between the Sacramento  \nValley  Index and the  Mokelumne-specific  year type, the Mokelumne-specific  year type is controlling  for \nMokelumne Flow Measures.  \n\nTable 14: Default Plan for timing of Flow Measures from the Mokelumne water source1. Year types are based on \nMokelumne-specific index. Mokelumne does not h...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>The reference flows \r\nwill be projected in near real-time and documentation will be provided to State Water Board in a \r\ntimely manner to facilitate review of the reference flow estimates. A Flow Operations Team will also \r\nbe established with State Water Board representation to facilitate review of the reference flows. \r\n• Column 5: a description of the conceptual measurement approaches, includin...</blockquote>"
             }
           ]
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Residents",
-          "summary": "Various water management and habitat restoration strategies are suggested to alleviate equity concerns.",
-          "identified_strategies": "These include flexible flow provisioning and habitat rehabilitation focused on ecological health.",
-          "equity_assessment": "Yet, insufficient information on community engagement suggests that equity implications may not be fully addressed.",
-          "conclusion": "Further exploration of community needs and input in strategy development is encouraged.",
+          "summary": "The proposed strategies prioritize ecological sustainability but may overlook input from significantly impacted communities.",
+          "identified_strategies": "Water management practices emphasizing community engagement and ecological integrity.",
+          "equity_assessment": "Potential gaps exist in ensuring equitable outcomes for impacted residents.",
+          "conclusion": "An enhanced focus on community interests is necessary to achieve genuine equity.",
           "sources": [
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>A narrower (more efficient) low flow channel will also serve to increase flow velocities, lower \nwater temperatures, restore competency of the channel to mobilize gravels (for spawning), and restore \ngeomorphic processes that support natural channel and ecosystem dynamics. Implementation of these \nactivities would expand the geographical extent of high-quality habitat for native fish species, incl...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>These \r\nprojects would also provide additional juvenile rearing space, habitat complexity, and ultimately provide \r\nconditions that would allow for meeting habitat suitability metrics related to juvenile salmon size and \r\nsurvival. \r\nWater Diversion Screening Projects \r\nSurface water diversion structures have been indicated as a significant threat to the salmonid populations \r\nin the California Ce...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Reclamation will release the Restoration Flow Schedule at Friant Dam or otherwise make releases from \nFriant Dam to meet the Restoration Administrator’s flow targets at Gravelly Ford, Friant Dam, or other \nspecified locations. It is recognized that fluctuations in Holding Contract demand in Reach 1, and any \nchannel losses for Restoration Flows, may necessitate that Reclamation adjust releases at ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nWater Purchases Varies based upon \r\nmethod of actions taken \r\nto make water available \r\n(primarily includes \r\nadditional reservoir \r\nreleases, and/...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>* Flows provided  to meet this objective shall be  managed in a \nmanner to  avoid causing significant adverse impacts to  fish and  wildlife beneficial uses  \nat other times  of the year.  \n\n* The actions the State Water Board and other agencies expect to take to implement \nthis objective are described in section [insert number] of this Plan’s Program of \nImplementation.” \n\n1.3 Proposed Healthy Ri...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nrequests made by the Systemwide Governance Committee and accommodate reasonable requests within \r\nreal-time systematic constraints or emergency conditions that may arise. SCWA will account aggregate \r\nProgram contributions on a water year basis, any portion of the Flow Measure that is not able to be \r\nreleased due to conditions and constraints beyond SCWA control during each...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>2. Healthy Rivers and Landscapes Program governance entities (Sacramento River Governance and \nSystemwide Governance Committee) would decide on a Spring Action based on the framework in \nthe Strategic Plan. An evaluation of Shasta Cold Water Pool would be completed to ensure any \nspring action would not impact Winter Run salmon cold water temperature requirements that \nalign with the applicable Re...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>5\r\nProportionate amount of instream and floodplain habitats that will be created under this habitat enhancement \r\nproject will be determined through further design development. \r\n3.5.3 Implementation Details \r\nConsistent with the March 2022 MOU, Yuba Water would contribute $10 million14 together with \r\nadditional state funds as needed to meet the 50 acres of instream and 100 acres of floodplain ju...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nfishery. Recommendations by the governance group require approval from the State Water Board if they fall \noutside of Table 10 and also require approval from the National Marine Fisheries Service or California Department \nof Fish and Wildlife. A process will need to be developed which describes this decision-making process for each of \nthe three agencies as well as a summary...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Final habitat acreages for each site are refined during the final design process and are dependent on site￾specific hydraulic conditions and constructability. Spawning/rearing combination sites are concentrated in \r\nthe upper 10 miles of the river (RM 13-23), where hydraulic and substrate conditions are most suitable for \r\nspawning and where ongoing monitoring shows a concentration of spawning act...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>15 Implementation of the habitat enhancement component of the Yuba River VA proposal would be subject to and \ndependent upon the availability of, and access to, appropriate land, legal constraints and other external factors. \nThe habitat enhancement conceptual design regarding inundation elevations and associated flows are not yet at \nthe stage of final project designs. Although work is in progres...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>One acre of suitable instream rearing habitat will \r\nbe implemented through screening diversions and providing habitat complexity during spawning habitat \r\nrestoration work. \r\nFloodplain Habitat Enhancement Projects \r\n68  \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\nDraft Strategic Plan \r\nNew floodplain habitat enhancement areas would be designed to primarily be inundated at river flows \r\nbetwee...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>(33-66%) \n\n0% \n\n(0-33%) \n\nThe Default Plan for the American Flow Measures is to deploy water in March through May. In critical \nyears, a concentrated pulse is biologically beneficial for juvenile outmigration, focusing on the months of \nMarch and April. For dry years, spreading contributions evenly over the months of March, April, and May \nare the most biologically beneficial. For above normal and...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>1, 2024, projects that have been completed since December 2018 or that are in more advanced \r\nstages of the project lifecycle (i.e., permitting, in-progress/implementation, or construction, see Table 28) \r\nwill be considered as part of Early Implementation10. Assuming that design criteria in this document are \r\nadopted by the State Water Board, then early implementation spawning, instream rearing,...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nNew floodplain habitat enhancement areas would be designed to primarily be inundated at river flows \nbetween 900 cubic feet per second (cfs) and 1,500 cfs, and portions of the habitat enhancement areas \nwould provide suitable juvenile rearing habitat at flows as low as 700 cfs, and as high as 5,000 cfs. Under \nthe current flow regime, the recurrence interval for inundation o...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 1 \r\nTable 5: Default Plan and Flexibility Bracket for Flow Measures in a Dry water year. Bolded numbers represent the Default Plan and numbers in parentheses represent \r\nthe Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in (Appendix 1 of the MOU and all associated \r\namendments). The summary row was calculated b...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\n2.3.3 Reinitiation of Consultation on Long Term Operations on the Central Valley Project (ROC-LTO) \n\nThe Shasta Management Plan proposes to integrate Sacramento Basin flow and non-flow measures that \nare part of HRL to update and implement the Bay-Delta Water Quality Control Plan. These measures are \nfurther described in Section 3.7.5 of the ROC-LTO Biological Assessment. Th...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\n3.4 Feather \r\n3.4.1 Non-flow Measure Descriptions \r\nNon-flow measures in the Feather River include restoring salmonid spawning habitat and creating \r\nadditional side-channels and access to floodplain habitat to improve rearing conditions for juvenile \r\nsalmonids. There are also measures to improve fish passage and reduce the impacts of predators. \r\nCollectively, these measur...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>The Parties request that the Program of Implementation in the updated Bay-Delta Plan include the \nHealthy Rivers and Landscapes Program as a pathway to implement the Narrative Salmon Objective and \nproposed Narrative Viability Objective, on a finding that the Healthy Rivers and Landscapes pathway, in \nconjunction with other measures in the Bay-Delta Plan, will provide reasonable protection of the ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nfrom Folsom Lake during \r\nSpring \r\nfor groundwater/surface \r\ninteraction) \r\neffect at the time of the \r\noperation) \r\nMokelumne \r\nRiver \r\nSee Sectio...</blockquote>"
             }
           ]
         }
@@ -458,223 +459,219 @@
     },
     {
       "group_name": "Farmers/Business Owners",
-      "group_description": "the overall equity implications from the perspective of farmers and business owners, particularly small operators, considering their roles as regulated entities and community members. The assessment could indicate if compliance costs or infrastructure funding might impose disproportionate economic hardship.",
+      "group_description": "the overall equity implications from the perspective of farmers and business owners, particularly small operators, considering their roles as regulated entities and community members.",
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Farmers/Business Owners",
-          "summary": "The program appears to recognize farmers' roles within water management but lacks clarity on how their unique experiences will be integrated.",
+          "summary": "The document outlines agricultural needs but largely frames farmers as mere constituents within water management discussions.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "Involvement of farmers in decision-making processes indicates some recognition of their contributions.",
-            "concerns": "However, there seems to be limited acknowledgment of the specific socio-economic contexts impacting small operators.",
-            "conclusion": "Overall, this suggests a need for enhancing the recognition of their unique challenges."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Farmers' Role",
+            "findings": "While recognized, details on their specific needs in the decision-making process are limited."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "The governance framework may provide opportunities for small operators to participate.",
-            "concerns": "Yet, the document lacks clear mechanisms for effective participation for less-resourced operators.",
-            "conclusion": "This suggests possible barriers to meaningful engagement."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Engagement Opportunities",
+            "findings": "Engagement structures are in place but may not adequately empower smaller operators."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "Funding for habitat restoration might enhance agricultural sustainability.",
-            "concerns": "However, compliance costs and resource allocation could disproportionately burden smaller businesses.",
-            "conclusion": "This raises concerns about fair resource distribution."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Equitable Distribution",
+            "findings": "Compliance costs and resource allocations suggest uneven burdens between operators."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "The plan's collaborative governance may promote equality.",
-            "concerns": "Nonetheless, systemic barriers remain unaddressed, potentially disadvantaging smaller farmers.",
-            "conclusion": "This indicates a need for actions targeting these structural inequities."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Addressing Barriers",
+            "findings": "The document may not sufficiently tackle structural issues that could hinder small farmers."
           },
           "sources": [
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>50% \n(0-50%) \n\n50% \n(0-50%) \n\n0% \n(0-25%) \n\n0% \n(0-25%) \n\n0% \n(0-25%) \n\n0% \n(0-25%) \n\nFeather 0% 0% 0% 0% 0% 33.3% \n(0-100%) \n\n33.3% \n(0-100%) \n\n33.3% \n(0-100%) \n\n0% 0% 0% 0% \n\nYuba 0% 0% 0% 0% 0% 0% 50% \n(33-66%) \n\n50% \n(33-66%) \n\n0% \n(0-33%) \n\n0% 0% 0% \n\nAmerican 0% 0% 0% 0% 0% 33.3% \n(20-40%) \n\n33.3% \n(20-40%) \n\n33.3% \n(20-40%) \n\n0% 0% 0% 0% \n\nMokelumne1  25% \n(10-30%) \n\n0% 0% 0% 0% 15%2  34%2 ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nProject Project and Description Life stage Benefits Early Years 1-3 Years 4-6 Years 7-8 Total \r\nNo. location Implementation \r\n(Dec 2018-2024) \r\nRM 5-48 be developed in \r\nconjunction with the \r\nTRPAC (below). \r\nExamples of likely \r\nprojects include \r\nfloodplain lowering, \r\nfloodplain \r\nconnectivity, riparian \r\nplantings, in-channel \r\nplacement of LWD \r\nand improved \r\nsmolt \r\n...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>0% 0% 0% \n\nFeather 0% 0% 0% 0% 0% 50% \n(0-100%) \n\n25% \n(0-100%) \n\n25% \n(0-100%) 0% 0% 0% 0% \n\nYuba (YWA) 0% 0% 0% 0% 0% 0% 50% \n(33-66%) \n\n50% \n(33-66%) \n\n0% \n(0-33%) \n\n0% 0% 0% \n\nAmerican 0% 0% 0% 0% 0% 50% \n(33-66%) \n\n50% \n(33-66%) \n\n0% \n(0-33%) 0% 0% 0% 0% \n\nMokelumne 1  13% \n(10-30%) \n\n0% 0% 0% 0% 8%2  43%2  36%2  0% 0% 0% 0% \n\nTuolumne 0% 0% 0% 0% 0% 63%3  18%3  19%3  0% \n(0-40%) \n\n0% 0% 0% \n...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 1 \r\nTable 5: Default Plan and Flexibility Bracket for Flow Measures in a Dry water year. Bolded numbers represent the Default Plan and numbers in parentheses represent \r\nthe Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in (Appendix 1 of the MOU and all associated \r\namendments). The summary row was calculated b...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nAPPENDIX G \n\nDraft Funding Plan \n\n240 \n\n\n\tDraft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes \n\tPreface \n\tDocument Purpose \n\tDefinitions \n\n\t1 Overview \n\t1.1 Background \n\t1.2 Narrative Objectives \n\t1.3 Proposed Healthy Rivers and Landscapes Program \n\tFlow Measures \n\tNon-flow Measures \n\tGovernance, Science and Adaptive Management \n\tFunding...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\n4 Healthy Rivers and Landscapes Program Annual and Triennial Reporting \r\n4.1 Annual Reports \r\nConsistent with the Term Sheet, concise Annual Reports will be prepared by the respective \r\nTributary/Delta Governance Entities and compiled by the Systemwide Governance Committee, with \r\ncontributions from the Science Committee, to report on implementation activities that occurred ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Floodplain planning and riparian \nscreening have both been initiated under these funding streams. \n\n70 \n\n\n\n \n \n\n \n \n\n \n   \n\n \n     \n\n  \n \n\n \n   \n\n \n \n\n  \n \n\n  \n\n \n\n   \n  \n\n \n\n \n  \n\n \n\n  \n\n   \n\n   \n    \n      \n\n    \n     \n\n   \n \n\n  \n   \n\n    \n \n\n    \n \n\n    \n   \n\n    \n      \n\n    \n   \n\n  \n\n   \n     \n\nDraft Strategic Plan \n\nReferences: \nBilski, R. (2019). Assessment of the Relative Risk of Surface W...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 4: Default Plan and Flexibility Bracket for Flow Measures in Below Normal water year. Bolded numbers represent the Default Plan and numbers in parentheses \r\nrepresent the Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in Table 1 (Appendix 1 of the MOU and all \r\nassociated amendments). The summary row was calcula...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>i \n\n\n\n \n\n \n \n\n     \n   \n\n        \n\n      \n   \n\n   \n \n\n  \n           \n\n   \n  \n\n    \n    \n\n   \n \n\n  \n\n    \n  \n\n  \n  \n\n \n\n        \n  \n\n \n\n   \n \n\n   \n\n   \n\n     \n   \n\n  \n\nState Water Board, to provide in part regulatory authority for Flow Measures and Non-flow Measures in \nthe Program. \n\nFinal Action means: final action by the State Water Board to amend the Bay-Delta Plan. \n\nGlobal Agreement means: th...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>1.2 Narrative Objectives \r\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \r\nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \r\nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \r\nobjectives are: (1) the existing narrative objective that provides for wat...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Early implementation projects \nfor tributary rearing habitats will be expected to provide an explanation that is acceptable to State Water \nBoard and CDFW that the projects provide suitable cover and inundation regimes for the intended \nbenefits. The explanation may include other benefits or constraints (e.g., traditional ecological \nknowledge, health and safety limitations) that informed the proj...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Indicators of viability include \r\npopulation abundance, spatial extent, distribution, structure, genetic and life history \r\ndiversity, and productivity.* Flows provided to meet this objective will be managed in a \r\nmanner to avoid causing significant adverse impacts to fish and wildlife beneficial uses \r\nat other times of the year. \r\n* The actions the State Water Board and other agencies expect to...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>1Assumes adequate funding exists at the time of implementation. \n2More habitat is planned for the program during this timeframe than is required under the VA Agreement. Although \nmore habitat is planned than required under the VAs, by providing a programmatic view of potential feasible \nacreages, it offers flexibility for adaptive management while fully meeting VA habitat acreage requirements. \n3S...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\ncurrently at the conceptual design level and do not yet have regulatory coverage but would be \r\nconstructed through localized grading and the addition of willow/riparian plantings and/or large woody \r\nmaterial, and 3) maintenance of early implementation program sites using gravel from designated borrow \r\nsites (for spawning habitat) and targeted grading (for rearing habitat)...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>4 Includes implementation of current programmatically permitted rearing and spawning combination habitat sites \nand implementation of new rearing-only sites that have not yet been permitted and for which designs are currently \nat the conceptual level. \n\n3.2.3 Implementation Details \n\nLead implementation of Non-flow Measures will continue to be Reclamation, DWR, and working with \nWater Districts an...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>In addition to riparian plantings adjacent to re-graded areas, other \r\nhabitat features will include enhanced floodplain areas (17.9 acres), perennial backwater channels (5.4 \r\nacres), riparian terraces (2.9 acres), side channels (4 acres), secondary and low flow channels (2.4 acres), \r\nand terraces (6.4 acres), among others (USFWS and Yuba County 2021). Construction began in 2020 and \r\nwas comple...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nfishery. Recommendations by the governance group require approval from the State Water Board if they fall \noutside of Table 10 and also require approval from the National Marine Fisheries Service or California Department \nof Fish and Wildlife. A process will need to be developed which describes this decision-making process for each of \nthe three agencies as well as a summary...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Program Implementation \r\nPermitting Permit has been submitted. Early Implementation \r\nIn-progress/Implementation Project is in-progress or is being \r\nimplemented. \r\nEarly Implementation \r\nConstruction planned Construction is planned but has not started. Early Implementation \r\nConstruction in-progress Construction has started at the site. Early Implementation \r\nConstruction completed Construction h...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Triennial synthesis reports, as described in Term Sheet Section 9.4.B and Section  4  of this Plan, will \nprovide an opportunity to assess tributary-scale changes in acreage conforming to the Non-flow Measure \naccounting process within each geographic area (consistent with the analyses and scientific principles in \n\n53 \n\n\n\n \n \n\n \n \n\n    \n     \n\n     \n    \n\n    \n    \n\n   \n   \n\n  \n\n       \n  \n\n   \n ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Final Action means: final action by the State Water Board to amend the Bay-Delta Plan. \r\nGlobal Agreement means: the Global Agreement establishing the overall structure for the Program, and \r\nspecifically providing the systemwide terms for the Science, Funding, and Governance Programs. \r\nGovernance Entities means: all institutional arrangements identified for the implementation of the \r\nHealthy Ri...</blockquote>"
             }
           ]
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Farmers/Business Owners",
-          "summary": "The document implies the existence of vulnerable groups but lacks explicit identification.",
-          "identified_groups_and_impacts": "Small-scale farmers, Indigenous communities, and low-income residents could be considered part of vulnerable groups within this framework.",
-          "equity_assessment_summary": "The lack of a detailed strategy for engagement suggests missed opportunities in addressing their needs.",
-          "conclusion": "Further clarification of how these groups are affected is necessary.",
+          "summary": "The document emphasizes farmers' perspectives but lacks sufficient attention to other vulnerable stakeholders.",
+          "identified_groups_and_impacts": "Includes small farmers, Indigenous groups, and low-income residents with lesser focus on the latter.",
+          "equity_assessment_summary": "Recognition of diverse farmer perspectives needs to be balanced with other vulnerable narratives.",
+          "conclusion": "Addressing holistic needs of all vulnerable groups would strengthen the proposals.",
           "sources": [
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Additional details regarding each of the projects identified in Section are available and are   3.5.2  \nsummarized below. The early implementation (2018-2024) projects are ongoing efforts to which Yuba \nWater has committed resources and funding for design, permitting, and construction. The longer-term \nimplementation (2024 and beyond) projects are specific examples of potential Yuba River VA proje...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 1 \r\nTable 5: Default Plan and Flexibility Bracket for Flow Measures in a Dry water year. Bolded numbers represent the Default Plan and numbers in parentheses represent \r\nthe Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in (Appendix 1 of the MOU and all associated \r\namendments). The summary row was calculated b...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Approximate \n100 acres5  of \n\nfloodplain \nand instream \n\nrearing \nhabitat \n\nRose Bar \nComprehensive \nRestoration \nPlan \n\n- Preliminary concept includes creating \ninstream/rearing, spawning, floodplain, and fish \nfood production habitat functionalities. Project \n\ncontingent upon funding and permitting, \ntimeline for implementation is TBD, but could  \n\noccur with the term of the VA. \n\nApproximate \n5...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 4: Default Plan and Flexibility Bracket for Flow Measures in Below Normal water year. Bolded numbers represent the Default Plan and numbers in parentheses \r\nrepresent the Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in Table 1 (Appendix 1 of the MOU and all \r\nassociated amendments). The summary row was calcula...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Indicators  of viability include  \npopulation abundance, spatial extent, distribution, structure, genetic and life history  \ndiversity, and productivity.* Flows provided  to meet this objective will be  managed in a  \nmanner to  avoid causing significant adverse impacts to fish and  wildlife beneficial uses  \nat other times  of the year.  \n\n* The actions the State Water Board and other agencies ex...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nProject Project and Description Life stage Benefits Early Years 1-3 Years 4-6 Years 7-8 Total \r\nNo. location Implementation \r\n(Dec 2018-2024) \r\nRM 5-48 be developed in \r\nconjunction with the \r\nTRPAC (below). \r\nExamples of likely \r\nprojects include \r\nfloodplain lowering, \r\nfloodplain \r\nconnectivity, riparian \r\nplantings, in-channel \r\nplacement of LWD \r\nand improved \r\nsmolt \r\n...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Floodplain planning and riparian \nscreening have both been initiated under these funding streams. \n\n70 \n\n\n\n \n \n\n \n \n\n \n   \n\n \n     \n\n  \n \n\n \n   \n\n \n \n\n  \n \n\n  \n\n \n\n   \n  \n\n \n\n \n  \n\n \n\n  \n\n   \n\n   \n    \n      \n\n    \n     \n\n   \n \n\n  \n   \n\n    \n \n\n    \n \n\n    \n   \n\n    \n      \n\n    \n   \n\n  \n\n   \n     \n\nDraft Strategic Plan \n\nReferences: \nBilski, R. (2019). Assessment of the Relative Risk of Surface W...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 6: Default Plan and Flexibility Bracket for Flow Measures in a Critical water year. Bolded numbers represent the Default Plan and numbers in parentheses \r\nrepresent the Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in Table 1 (Appendix 1 of the MOU and all \r\nassociated amendments). Note that not all water sourc...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>The Yuba \nRiver VA proposed habitat enhancement measures are intended to provide physical habitat conditions \nthat would support broad temporal and spatial distributions of juvenile anadromous salmonid rearing, \nand larger individuals in better condition with higher survivorship by providing: (1) physical habitat \nstructure (i.e., complexity, sinuosity, diversity, instream object and over-hanging ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Specifically: \r\n• By March/April, most juveniles will be rearing lower in the Feather River or in the Delta. Targeting \r\nMarch allows juveniles rearing or migrating at any location in the watershed (upper Feather River or \r\nDelta) the opportunity to benefit from increased flows. \r\n• A March/April pulse flow is late enough to benefit nearly all recently emerged juvenile salmonids \r\n(spring-run and ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>On the Mokelumne River, a critical time-period has been identified in which juvenile salmonid are rearing \nand/or out-migrating (February - July) and agriculture irrigation season (April - August) is on-going, in \nwhich farms with water rights (riparian or appropriative) pull water directly from the river via privately-\nowned pumps. During this time-period, both Fry (Length < 2.36 inches: 60 mm) a...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\nWater Purchases Varies based upon \r\nmethod of actions taken \r\nto make water available \r\n(primarily includes \r\nadditional reservoir \r\nreleases, and/...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>• By March/April, most juveniles will be rearing lower in the Feather River or in the Delta. Targeting \nMarch allows juveniles rearing or migrating at any location in the watershed (upper Feather River or \nDelta) the opportunity to benefit from increased flows. \n\n• A March/April pulse flow is late enough to benefit nearly all recently emerged juvenile salmonids \n(spring-run and fall-run) while not...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\n2 Flow Measures Description \r\nThis section provides details on the proposed Flow Measures for the Program including water quantities \r\nby water source and water year type (Section 2.1.1), a default plan and flexibility bracket for the \r\nseasonal timing of Flow Measures (Section 2.1.2), the flexibility of Flow Measures for systemwide \r\ncoordination (Section 2.1.3), a narrativ...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>1Assumes adequate funding exists at the time of implementation. \n2More habitat is planned for the program during this timeframe than is required under the VA Agreement. Although \nmore habitat is planned than required under the VAs, by providing a programmatic view of potential feasible \nacreages, it offers flexibility for adaptive management while fully meeting VA habitat acreage requirements. \n3S...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>3% \r\n(0-100%) \r\n33.3% \r\n(0-100%) \r\n0% 0% 0% 0% \r\nYuba 0% 0% 0% 0% 0% 0% 50% \r\n(33-66%) \r\n50% \r\n(33-66%) \r\n0% \r\n(0-33%) 0% 0% 0% \r\nAmerican 0% 0% 0% 0% 0% 33.3% \r\n(20-40%) \r\n33.3% \r\n(20-40%) \r\n33.3% \r\n(20-40%) 0% 0% 0% 0% \r\nMokelumne1 25% \r\n(10-30%) 0% 0% 0% 0% 15%2 34%2 26%2 0% 0% 0% 0% \r\nTuolumne3 0% 0% 0% 2% 1% 60%4 19%4 16%4 2% \r\n(2-37%) 0% 0% 0% \r\nPutah 0% 16.7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n1...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nDry year types would see a shift in focus to maintaining suitable habitat conditions and emigration period \nconditions by increasing flows over several weeks. Specifically: \n\n• In dry years having the flexibility between March, April, and May to distribute water over several \nweeks or months (when flows are predicted to be lowest) to maintain basic habitat conditions \n(reari...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-84%) \r\n16.7% \r\n(0-74%) \r\n8.3% \r\n(0-54%) \r\n8.3% \r\n(0-57%) 0% 0% 0% 0% \r\nCVP/SWP Export \r\nReduction 0% 0% 0% 0% 0% 33.3% \r\n(20-80%) \r\n33.3% \r\n(20-80%) \r\n33.3% \r\n(0-50%) \r\n0% \r\n(0-25%) 0% 0% 0% \r\nPWA Water \r\nPurchase Program 0% 0% 0% 0% 0% 0% \r\n(0-40%) 50%5 50%5 0% \r\n(0-40%) 0% 0% 0% \r\nPermanent State \r\nWater Purchases 0% 0% 0% 0% 0% \r\n(0-...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>4 Includes implementation of current programmatically permitted rearing and spawning combination habitat sites \nand implementation of new rearing-only sites that have not yet been permitted and for which designs are currently \nat the conceptual level. \n\n3.2.3 Implementation Details \n\nLead implementation of Non-flow Measures will continue to be Reclamation, DWR, and working with \nWater Districts an...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>An evaluation of Shasta Cold Water Pool would be completed to ensure any \r\nspring action would not impact Winter Run salmon cold water temperature requirements that \r\nalign with the applicable Record of Decision on the Long-Term Operation of the Central Valley \r\nProject and State Water Project (see discussion below on the ROC-LTO) and State Water Board \r\nwater right requirements. \r\n3. Implementati...</blockquote>"
             }
           ]
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Farmers/Business Owners",
-          "summary": "The potential impacts of water management proposals pose significant implications for farmers and business owners.",
-          "high_severity_impacts": "Negative impacts may disproportionately affect low-income farmers who depend on consistent water access.",
-          "moderate_severity_impacts": "Positive effects from enhanced ecosystems may benefit some, but the burden on resource allocation could be severe.",
-          "equity_implications_of_impacts": "This highlights a need for careful consideration of equity within impact assessments.",
-          "conclusion": "Overall, attention to equitable distribution of impacts is crucial.",
+          "summary": "Potential negative impacts may disproportionately burden smaller farmers reliant on consistent water access.",
+          "high_severity_impacts": "Reduced water availability could significantly jeopardize small farming operations.",
+          "moderate_severity_impacts": "Positive ecological changes could create new economic opportunities but require careful management.",
+          "equity_implications_of_impacts": "Inconsistency in impacts across different farming demographics warrants careful evaluation.",
+          "conclusion": "Balancing environmental objectives with farmers' economic realities is essential for equity.",
           "sources": [
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes \n\n\n \n\n \n \n\n \n\n \n    \n\n  \n   \n\n   \n\n   \n\n   \n\n    \n\n    \n\n    \n\n     \n\n    \n\n    \n\n    \n\n    \n\n   \n\n    \n\n    \n\n    \n\n   \n\n    \n\n    \n\n    \n\n    \n\n      \n\n    \n\n    \n\n     \n\n    \n\n     \n\n    \n\nDraft Strategic Plan for the Proposed Agreements to Support \nHealthy Rivers and Landscapes \nUpdated: October 2024 \n\nPr...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\no Fallowing: land is left unplanted (idled) that would have otherwise been planted, which avoids \r\nthe need for irrigation from either groundwater or diversions from surface water. Surface \r\nwater that would have typically been used to irrigate fallowed fields is released from \r\nupstream reservoirs to be protected as additional instream flows. \r\no Groundwater substitution: f...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Although Lower Putah Creek (including its riparian corridor) is one of the largest remaining tracts of high-\nquality wildlife habitat in Yolo and Solano counties and provides habitat for a unique assemblage of fish \nand wildlife species native to the Central Valley, it is characterized by altered channels and eroding banks, \nhabitat loss and degradation, flood and flood control related impacts, in...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nlower Yuba River, and therefore provide greater opportunities for a more diverse portfolio of rearing and \r\noutmigration life history strategies. The anticipated outcomes include increased growth and survivability \r\nof juvenile anadromous salmonids, and subsequent contribution to spawning stock escapement. The Yuba \r\nRiver VA proposed habitat enhancement measures are intende...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nAPPENDIX G \n\nDraft Funding Plan \n\n240 \n\n\n\tDraft Strategic Plan for the Proposed Agreements to Support Healthy Rivers and Landscapes \n\tPreface \n\tDocument Purpose \n\tDefinitions \n\n\t1 Overview \n\t1.1 Background \n\t1.2 Narrative Objectives \n\t1.3 Proposed Healthy Rivers and Landscapes Program \n\tFlow Measures \n\tNon-flow Measures \n\tGovernance, Science and Adaptive Management \n\tFunding...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Although Lower Putah Creek (including its riparian corridor) is one of the largest remaining tracts of high￾quality wildlife habitat in Yolo and Solano counties and provides habitat for a unique assemblage of fish \r\nand wildlife species native to the Central Valley, it is characterized by altered channels and eroding banks, \r\nhabitat loss and degradation, flood and flood control related impacts, i...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nDry year types would see a shift in focus to maintaining suitable habitat conditions and emigration period \nconditions by increasing flows over several weeks. Specifically: \n\n• In dry years having the flexibility between March, April, and May to distribute water over several \nweeks or months (when flows are predicted to be lowest) to maintain basic habitat conditions \n(reari...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Indicators of viability include \r\npopulation abundance, spatial extent, distribution, structure, genetic and life history \r\ndiversity, and productivity.* Flows provided to meet this objective will be managed in a \r\nmanner to avoid causing significant adverse impacts to fish and wildlife beneficial uses \r\nat other times of the year. \r\n* The actions the State Water Board and other agencies expect to...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>* Flows provided  to meet this objective shall be  managed in a \nmanner to  avoid causing significant adverse impacts to  fish and  wildlife beneficial uses  \nat other times  of the year.  \n\n* The actions the State Water Board and other agencies expect to take to implement \nthis objective are described in section [insert number] of this Plan’s Program of \nImplementation.” \n\n1.3 Proposed Healthy Ri...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>1.2 Narrative Objectives \r\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \r\nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \r\nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \r\nobjectives are: (1) the existing narrative objective that provides for wat...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>(33-66%) \n\n0% \n\n(0-33%) \n\nThe Default Plan for the American Flow Measures is to deploy water in March through May. In critical \nyears, a concentrated pulse is biologically beneficial for juvenile outmigration, focusing on the months of \nMarch and April. For dry years, spreading contributions evenly over the months of March, April, and May \nare the most biologically beneficial. For above normal and...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>The reference flows \r\nwill be projected in near real-time and documentation will be provided to State Water Board in a \r\ntimely manner to facilitate review of the reference flow estimates. A Flow Operations Team will also \r\nbe established with State Water Board representation to facilitate review of the reference flows. \r\n• Column 5: a description of the conceptual measurement approaches, includin...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Preface \n\nDocument Purpose \n\nThis document is the Draft Strategic Plan which, in final form, will be content for Exhibit F to the Global \nAgreement to the Healthy Rivers and Landscapes Program (Program) in the Bay-Delta. The Parties provide \nthis draft to the State Water Board for information, as they prepare their Staff Report to update the Bay-\nDelta Plan and Program of Implementation. This Stra...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>1, 2024, projects that have been completed since December 2018 or that are in more advanced \r\nstages of the project lifecycle (i.e., permitting, in-progress/implementation, or construction, see Table 28) \r\nwill be considered as part of Early Implementation10. Assuming that design criteria in this document are \r\nadopted by the State Water Board, then early implementation spawning, instream rearing,...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>The Parties request that the Program of Implementation in the updated Bay-Delta Plan include the \nHealthy Rivers and Landscapes Program as a pathway to implement the Narrative Salmon Objective and \nproposed Narrative Viability Objective, on a finding that the Healthy Rivers and Landscapes pathway, in \nconjunction with other measures in the Bay-Delta Plan, will provide reasonable protection of the ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Voluntary agreements are the path forward.” On March 1, 2019, the Directors of \r\nCDFW and CDWR entered into a “Planning Agreement Proposing Project Description and Procedures for \r\nthe Finalization of the Voluntary Agreements to Update and Implement the Bay-Delta Water Quality \r\nControl Plan” (Planning Agreement). Over the course of 2019, the State, Reclamation, water agencies, \r\nand NGOs met to d...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nFunding \n\nOver $2.9 billion of funding commitments have been identified to support the Program. Funding to support \nthe Program will be generated from multiple sources over the term of the agreement, including from DWR, \nReclamation and other federal agencies, public water agencies, bond and other state funding, and other \nsources. Funding will support the acquisition of wat...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>The areal extent (or project footprint) of each habit enhancement project is a composite of \r\nthe areal extent of all the habitat types, and potentially includes other habitats and construction areas. \r\nThe preliminarily identified habitat enhancement projects could contribute towards meeting the Yuba \r\nRiver proposed VA habitat acreages during the term of the VA. \r\nAdditional details regarding ea...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Triennial synthesis reports, as described in Term Sheet Section 9.4.B and Section  4  of this Plan, will \nprovide an opportunity to assess tributary-scale changes in acreage conforming to the Non-flow Measure \naccounting process within each geographic area (consistent with the analyses and scientific principles in \n\n53 \n\n\n\n \n \n\n \n \n\n    \n     \n\n     \n    \n\n    \n    \n\n   \n   \n\n  \n\n       \n  \n\n   \n ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan for the Proposed Agreements to Support \r\nHealthy Rivers and Landscapes \r\nUpdated: October 2024 \r\nPreface. i \r\nDocument Purpose .i \r\nDefinitions.i \r\n1 Overview. 1 \r\n1.1 Background .1 \r\n1.2 Narrative Objectives .3 \r\n1.3 Proposed Healthy Rivers and Landscapes Program.3 \r\n1.4 Regulatory Oversight .5 \r\n1.5 Program Timeline.5 \r\n2 Flow Measures Description . 7 \r\n2.1 Overview of Flow ...</blockquote>"
             }
           ]
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Farmers/Business Owners",
-          "summary": "The strategies outlined aim to balance ecological and agricultural interests.",
-          "identified_strategies": "Flexibility in flow management and habitat restoration serve dual purposes that may benefit both sectors.",
-          "equity_assessment": "However, details on how these strategies will support vulnerable farmers remain unclear.",
-          "conclusion": "Strengthening the focus on equitable engagement and resource distribution is encouraged.",
+          "summary": "Strategies reflect some understanding of farmers' needs but may not adequately address the breadth of issues.",
+          "identified_strategies": "Focus on modifying water management practices and enhancing ecosystems.",
+          "equity_assessment": "Exploring inclusive decision-making processes may lead to more equitable outcomes.",
+          "conclusion": "More comprehensive strategies tackling systemic barriers would enhance effectiveness.",
           "sources": [
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>1.2 Narrative Objectives \n\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \nobjectives are: (1) the existing narrative objective that provides for water ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>These \r\nprojects would also provide additional juvenile rearing space, habitat complexity, and ultimately provide \r\nconditions that would allow for meeting habitat suitability metrics related to juvenile salmon size and \r\nsurvival. \r\nWater Diversion Screening Projects \r\nSurface water diversion structures have been indicated as a significant threat to the salmonid populations \r\nin the California Ce...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>4 Includes implementation of current programmatically permitted rearing and spawning combination habitat sites \nand implementation of new rearing-only sites that have not yet been permitted and for which designs are currently \nat the conceptual level. \n\n3.2.3 Implementation Details \n\nLead implementation of Non-flow Measures will continue to be Reclamation, DWR, and working with \nWater Districts an...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\ncurrently at the conceptual design level and do not yet have regulatory coverage but would be \r\nconstructed through localized grading and the addition of willow/riparian plantings and/or large woody \r\nmaterial, and 3) maintenance of early implementation program sites using gravel from designated borrow \r\nsites (for spawning habitat) and targeted grading (for rearing habitat)...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>1.00 acres 1.00 \nacres  \n\n- - -\n\n3 Riffles 3A and  \n3B RM 49.2 to  \n49.6  \n\nAdd appropriately \nsized gravel; restore \nbanks to appropriate  \nfloodplain elevation  \nand function; remove  \ninvasive hardwood  \n\nSpawning  \nincubation and \njuvenile rearing  \n\nImproved egg-\nto-emergence \nsurvival and \nexpanded \nfloodplain  \nrearing habitat  \n\n0.50 acres 0.50 \nacres  \n\n- - -\n\n4 Gravel  \nCleaning RM  \n45-...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Program Implementation \r\nPermitting Permit has been submitted. Early Implementation \r\nIn-progress/Implementation Project is in-progress or is being \r\nimplemented. \r\nEarly Implementation \r\nConstruction planned Construction is planned but has not started. Early Implementation \r\nConstruction in-progress Construction has started at the site. Early Implementation \r\nConstruction completed Construction h...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>3.3 Sutter Bypass, Yolo Bypass, Butte Sink, and Colusa Basin \n\n3.3.1 Non-flow Measure Descriptions \n\nConsistent with the Sutter Bypass, Butte Sink and Colusa Basin section in the MOU Advancing a Term \nSheet for VAs (March 2022), the Sutter Bypass, Butte Sink, and Colusa Basin non-flow (habitat) action is \nfor the restoration of 20,000 acres of floodplain habitat and 20,000 of fish food production ...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nbeyond habitat restoration projects and include additional measures, such as predation management, \r\nthat are also intended to improve conditions for native fish on the lower Tuolumne River. \r\nThe non-flow measures for the lower Tuolumne River are based on science developed on the lower \r\nTuolumne River over several decades, including the most recent studies completed as par...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Floodplain planning and riparian \nscreening have both been initiated under these funding streams. \n\n70 \n\n\n\n \n \n\n \n \n\n \n   \n\n \n     \n\n  \n \n\n \n   \n\n \n \n\n  \n \n\n  \n\n \n\n   \n  \n\n \n\n \n  \n\n \n\n  \n\n   \n\n   \n    \n      \n\n    \n     \n\n   \n \n\n  \n   \n\n    \n \n\n    \n \n\n    \n   \n\n    \n      \n\n    \n   \n\n  \n\n   \n     \n\nDraft Strategic Plan \n\nReferences: \nBilski, R. (2019). Assessment of the Relative Risk of Surface W...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nlower Yuba River, and therefore provide greater opportunities for a more diverse portfolio of rearing and \r\noutmigration life history strategies. The anticipated outcomes include increased growth and survivability \r\nof juvenile anadromous salmonids, and subsequent contribution to spawning stock escapement. The Yuba \r\nRiver VA proposed habitat enhancement measures are intende...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Approximate \n100 acres5  of \n\nfloodplain \nand instream \n\nrearing \nhabitat \n\nRose Bar \nComprehensive \nRestoration \nPlan \n\n- Preliminary concept includes creating \ninstream/rearing, spawning, floodplain, and fish \nfood production habitat functionalities. Project \n\ncontingent upon funding and permitting, \ntimeline for implementation is TBD, but could  \n\noccur with the term of the VA. \n\nApproximate \n5...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>The areal extent (or project footprint) of each habit enhancement project is a composite of \r\nthe areal extent of all the habitat types, and potentially includes other habitats and construction areas. \r\nThe preliminarily identified habitat enhancement projects could contribute towards meeting the Yuba \r\nRiver proposed VA habitat acreages during the term of the VA. \r\nAdditional details regarding ea...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>* Flows provided  to meet this objective shall be  managed in a \nmanner to  avoid causing significant adverse impacts to  fish and  wildlife beneficial uses  \nat other times  of the year.  \n\n* The actions the State Water Board and other agencies expect to take to implement \nthis objective are described in section [insert number] of this Plan’s Program of \nImplementation.” \n\n1.3 Proposed Healthy Ri...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-84%) \r\n16.7% \r\n(0-74%) \r\n8.3% \r\n(0-54%) \r\n8.3% \r\n(0-57%) 0% 0% 0% 0% \r\nCVP/SWP Export Reduction 0% 0% 0% 0% 0% 0% \r\n(0-30%) \r\n50% \r\n(30-70%) \r\n50% \r\n(30-70%) \r\n0% \r\n(0-30%) 0% 0% 0% \r\nPWA Water Purchase \r\nProgram 0% 0% 0% 0% 0% 0% \r\n(0-40%) 50%4 50%4 0% \r\n(0-40%) 0% 0% 0% \r\nPermanent State Water \r\nPurchases 0% 0% 0% 0% 0% \r\n(0-40%) 33.3...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>3 Floodplain habitat will be generated via Tisdale Weir and other modifications. Subject to analysis showing that \n\n48 \n\n\n\n \n \n\n \n \n\n  \n  \n\n \n  \n  \n  \n\n  \n\n       \n    \n\n        \n    \n\n   \n  \n\n  \n        \n\n      \n \n\n      \n    \n\n  \n   \n\n  \n    \n\n \n \n\nDraft Strategic Plan \n\nacreage meets suitability criteria. \n4 Subject to analysis of effectiveness. Water will be pumped onto rice fields, held for a...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-84%) \r\n16.7% \r\n(0-74%) \r\n8.3% \r\n(0-54%) \r\n8.3% \r\n(0-57%) 0% 0% 0% 0% \r\nCVP/SWP Export \r\nReduction 0% 0% 0% 0% 0% 33.3% \r\n(20-80%) \r\n33.3% \r\n(20-80%) \r\n33.3% \r\n(0-50%) \r\n0% \r\n(0-25%) 0% 0% 0% \r\nPWA Water \r\nPurchase Program 0% 0% 0% 0% 0% 0% \r\n(0-40%) 50%5 50%5 0% \r\n(0-40%) 0% 0% 0% \r\nPermanent State \r\nWater Purchases 0% 0% 0% 0% 0% \r\n(0-...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Draft Strategic Plan \n\nDry year types would see a shift in focus to maintaining suitable habitat conditions and emigration period \nconditions by increasing flows over several weeks. Specifically: \n\n• In dry years having the flexibility between March, April, and May to distribute water over several \nweeks or months (when flows are predicted to be lowest) to maintain basic habitat conditions \n(reari...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>This enhanced floodplain habitat will provide rearing \r\nhabitat and food production for resident and migratory fish species. Spreading out and slowing down \r\nwater moving across this landscape is a nature-based, natural infrastructure solution that mimics natural \r\nfloodplain processes and provides multiple benefits year-round by allowing farmers to cultivate rice and \r\nother crops for humans duri...</blockquote>"
             },
             {
               "type": "openai",
-              "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>A narrower (more efficient) low flow channel will also serve to increase flow velocities, lower \nwater temperatures, restore competency of the channel to mobilize gravels (for spawning), and restore \ngeomorphic processes that support natural channel and ecosystem dynamics. Implementation of these \nactivities would expand the geographical extent of high-quality habitat for native fish species, incl...</blockquote>"
+              "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>5 (instream), 113.5 (spawning) \r\nSacramento Basin – Sutter Bypass, Butte \r\nSink, and Colusa Basin \r\n20,000 (floodplain)3\r\n, 20,000 (fish food production)4 \r\nInitial Targets per funding and permitting \r\nSacramento Basin – Feather 15 (spawning), 5.25 (instream), \r\n1,655 (floodplain)5 \r\nSacramento Basin – Yuba6 50 (instream), 100 (floodplain) \r\nSacramento Basin – American 25 (spawning), 75 (rearing) ...</blockquote>"
             }
           ]
         }
@@ -683,49 +680,89 @@
   ],
   "overall_summary_and_recommendations": {
     "title": "Overall Summary & Recommendations",
-    "key_equity_gaps": "There seems to be a lack of explicit acknowledgment of the unique challenges faced by marginalized groups, particularly in relation to participation in decision-making processes and benefit allocation.",
-    "key_equity_strengths": "The document highlights the importance of diverse stakeholder engagement and aims for a comprehensive approach to water management that acknowledges both ecological and community needs.",
-    "recommendations": "Enhancing the clarity on how diverse voices will be engaged in the decision-making process, as well as ensuring equitable distribution of resources among all affected communities, could strengthen the document's efficacy in promoting equity.",
+    "key_equity_gaps": "Key gaps involve the need for explicit strategies addressing the unique needs of vulnerable communities and ensuring equitable engagement across all stakeholder groups.",
+    "key_equity_strengths": "Strengths include recognition of historical inequities, a focus on environmental stewardship, and a commitment to engaging diverse stakeholders.",
+    "recommendations": "It is suggested to develop clearer engagement strategies, improve transparency in resource allocation, and ensure feedback mechanisms empower all marginalized voices effectively.",
     "sources": [
       {
         "type": "openai",
-        "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>0% \n(0-50%) \n\n50% \n(0-50%) \n\n50% \n(0-50%) \n\n0% \n(0-25%) \n\n0% \n(0-25%) \n\n0% \n(0-25%) \n\n0% \n(0-25%) \n\nFeather 0% 0% 0% 0% 0% 25% \n(0-100%) \n\n50% \n(0-100%) \n\n25% \n(0-100%) 0% 0% 0% 0% \n\nYuba (YWA) 0% 0% 0% 0% 0% 0% 50% \n(33-66%) \n\n50% \n(33-66%) \n\n0% \n(0-33%) \n\n0% 0% 0% \n\nAmerican 0% 0% 0% 0% 0% 50% \n(33-66%) \n\n50% \n(33-66%) \n\n0% \n(0-33%) 0% 0% 0% 0% \n\nMokelumne1  26% \n(10-30%) \n\n0% 0% 0% 0% 17%2  32%...</blockquote>"
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 6: Default Plan and Flexibility Bracket for Flow Measures in a Critical water year. Bolded numbers represent the Default Plan and numbers in parentheses \r\nrepresent the Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in Table 1 (Appendix 1 of the MOU and all \r\nassociated amendments). Note that not all water sourc...</blockquote>"
       },
       {
         "type": "openai",
-        "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Floodplain planning and riparian \nscreening have both been initiated under these funding streams. \n\n70 \n\n\n\n \n \n\n \n \n\n \n   \n\n \n     \n\n  \n \n\n \n   \n\n \n \n\n  \n \n\n  \n\n \n\n   \n  \n\n \n\n \n  \n\n \n\n  \n\n   \n\n   \n    \n      \n\n    \n     \n\n   \n \n\n  \n   \n\n    \n \n\n    \n \n\n    \n   \n\n    \n      \n\n    \n   \n\n  \n\n   \n     \n\nDraft Strategic Plan \n\nReferences: \nBilski, R. (2019). Assessment of the Relative Risk of Surface W...</blockquote>"
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-84%) \r\n16.7% \r\n(0-74%) \r\n8.3% \r\n(0-54%) \r\n8.3% \r\n(0-57%) 0% 0% 0% 0% \r\nCVP/SWP Export Reduction 0% 0% 0% 0% 0% 0% \r\n(0-30%) \r\n50% \r\n(30-70%) \r\n50% \r\n(30-70%) \r\n0% \r\n(0-30%) 0% 0% 0% \r\nPWA Water Purchase \r\nProgram 0% 0% 0% 0% 0% 0% \r\n(0-40%) 50%4 50%4 0% \r\n(0-40%) 0% 0% 0% \r\nPermanent State Water \r\nPurchases 0% 0% 0% 0% 0% \r\n(0-40%) 33.3...</blockquote>"
       },
       {
         "type": "openai",
-        "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>50% \n(0-50%) \n\n50% \n(0-50%) \n\n0% \n(0-25%) \n\n0% \n(0-25%) \n\n0% \n(0-25%) \n\n0% \n(0-25%) \n\nFeather 0% 0% 0% 0% 0% 33.3% \n(0-100%) \n\n33.3% \n(0-100%) \n\n33.3% \n(0-100%) \n\n0% 0% 0% 0% \n\nYuba 0% 0% 0% 0% 0% 0% 50% \n(33-66%) \n\n50% \n(33-66%) \n\n0% \n(0-33%) \n\n0% 0% 0% \n\nAmerican 0% 0% 0% 0% 0% 33.3% \n(20-40%) \n\n33.3% \n(20-40%) \n\n33.3% \n(20-40%) \n\n0% 0% 0% 0% \n\nMokelumne1  25% \n(10-30%) \n\n0% 0% 0% 0% 15%2  34%2 ...</blockquote>"
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Specifically, \r\nthe Directors presented a “Framework Proposal for Voluntary Agreements to Update and Implement the \r\nBay-Delta Water Quality Control Plan” (Framework Proposal). On December 12, 2018, the State Water \r\nBoard adopted Resolution No. 2018-0059 to update the 2006 Bay-Delta Plan. First, it amended the water \r\nquality objectives for the protection of fish and wildlife beneficial uses in t...</blockquote>"
       },
       {
         "type": "openai",
-        "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>3 Non-flow Measures Description \n\nThis section provides details on the proposed Non-flow Measures for the Healthy Rivers and Landscapes \nProgram (“Program”) including the minimum additive contributions to habitat enhancement or \nrestoration and other Non-flow Measures by geographic area (Section ), an outline of the expected \nimplementation timing of Non-flow Measures (Section ), an approach for h...</blockquote>"
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Bay-Delta Plan means: Water Quality Control Plan for the San Francisco Bay/Sacramento/San Joaquin \r\nDelta Estuary (2018, as amended [date of Final Action]). \r\nBay-Delta Watershed means: the area extending nearly 500 miles from the Cascade Range in the north to \r\nthe Tehachapi Mountains in the south, and is bounded by the Sierra Mountain Range to the east and the \r\nCoast Range to the west that drai...</blockquote>"
       },
       {
         "type": "openai",
-        "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>0% 0% 0% \n\nFeather 0% 0% 0% 0% 0% 50% \n(0-100%) \n\n25% \n(0-100%) \n\n25% \n(0-100%) 0% 0% 0% 0% \n\nYuba (YWA) 0% 0% 0% 0% 0% 0% 50% \n(33-66%) \n\n50% \n(33-66%) \n\n0% \n(0-33%) \n\n0% 0% 0% \n\nAmerican 0% 0% 0% 0% 0% 50% \n(33-66%) \n\n50% \n(33-66%) \n\n0% \n(0-33%) 0% 0% 0% 0% \n\nMokelumne 1  13% \n(10-30%) \n\n0% 0% 0% 0% 8%2  43%2  36%2  0% 0% 0% 0% \n\nTuolumne 0% 0% 0% 0% 0% 63%3  18%3  19%3  0% \n(0-40%) \n\n0% 0% 0% \n...</blockquote>"
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>3% \r\n(0-100%) \r\n33.3% \r\n(0-100%) \r\n0% 0% 0% 0% \r\nYuba 0% 0% 0% 0% 0% 0% 50% \r\n(33-66%) \r\n50% \r\n(33-66%) \r\n0% \r\n(0-33%) 0% 0% 0% \r\nAmerican 0% 0% 0% 0% 0% 33.3% \r\n(20-40%) \r\n33.3% \r\n(20-40%) \r\n33.3% \r\n(20-40%) 0% 0% 0% 0% \r\nMokelumne1 25% \r\n(10-30%) 0% 0% 0% 0% 15%2 34%2 26%2 0% 0% 0% 0% \r\nTuolumne3 0% 0% 0% 2% 1% 60%4 19%4 16%4 2% \r\n(2-37%) 0% 0% 0% \r\nPutah 0% 16.7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n1...</blockquote>"
       },
       {
         "type": "openai",
-        "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>15 Implementation of the habitat enhancement component of the Yuba River VA proposal would be subject to and \ndependent upon the availability of, and access to, appropriate land, legal constraints and other external factors. \nThe habitat enhancement conceptual design regarding inundation elevations and associated flows are not yet at \nthe stage of final project designs. Although work is in progres...</blockquote>"
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan for the Proposed Agreements to Support \r\nHealthy Rivers and Landscapes \r\nUpdated: October 2024 \r\nPreface. i \r\nDocument Purpose .i \r\nDefinitions.i \r\n1 Overview. 1 \r\n1.1 Background .1 \r\n1.2 Narrative Objectives .3 \r\n1.3 Proposed Healthy Rivers and Landscapes Program.3 \r\n1.4 Regulatory Oversight .5 \r\n1.5 Program Timeline.5 \r\n2 Flow Measures Description . 7 \r\n2.1 Overview of Flow ...</blockquote>"
       },
       {
         "type": "openai",
-        "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>13 \n\n\n\n \n\n \n \n\n    \n   \n\n  \n\n              \n\n       \n \n\n \n \n\n \n     \n\n  \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n       \n \n\n \n \n\n \n \n\n    \n\n        \n \n\n \n \n\n \n    \n\n       \n \n\n \n \n\n \n     \n\n \n         \n\n      \n    \n\n   \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n \n\n \n     \n\n       \n \n\n \n \n\n \n \n\n \n    \n\n \n       \n\n \n \n\n    \n\n \n \n\n     \n \n\n \n    \n\n              \n\n    \n    \n\n  \n  \n   \n    \n  \n\nDraft ...</blockquote>"
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-84%) \r\n16.7% \r\n(0-74%) \r\n8.3% \r\n(0-54%) \r\n8.3% \r\n(0-57%) 0% 0% 0% 0% \r\nCVP/SWP Export \r\nReduction 0% 0% 0% 0% 0% 33.3% \r\n(20-80%) \r\n33.3% \r\n(20-80%) \r\n33.3% \r\n(0-50%) \r\n0% \r\n(0-25%) 0% 0% 0% \r\nPWA Water \r\nPurchase Program 0% 0% 0% 0% 0% 0% \r\n(0-40%) 50%5 50%5 0% \r\n(0-40%) 0% 0% 0% \r\nPermanent State \r\nWater Purchases 0% 0% 0% 0% 0% \r\n(0-...</blockquote>"
       },
       {
         "type": "openai",
-        "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>1Assumes adequate funding exists at the time of implementation. \n2More habitat is planned for the program during this timeframe than is required under the VA Agreement. Although \nmore habitat is planned than required under the VAs, by providing a programmatic view of potential feasible \nacreages, it offers flexibility for adaptive management while fully meeting VA habitat acreage requirements. \n3S...</blockquote>"
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>2.9 \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\n \r\nDraft Strategic Plan \r\nWater Source \r\nCan the Systemwide Governance Committee make recommendations or decisions \r\nwith respect to the Flow Measures for this water source? \r\nsubject to real-time conditions, and within the operational and systematic \r\nlimitations discussed in Section that are beyond the Agency’s control. \r\nCVP/SWP \r\nExport \r\nReduction \r\nYes ...</blockquote>"
       },
       {
         "type": "openai",
-        "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>Although Lower Putah Creek (including its riparian corridor) is one of the largest remaining tracts of high-\nquality wildlife habitat in Yolo and Solano counties and provides habitat for a unique assemblage of fish \nand wildlife species native to the Central Valley, it is characterized by altered channels and eroding banks, \nhabitat loss and degradation, flood and flood control related impacts, in...</blockquote>"
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\n2.1.3 Systemwide Planning and Decision Making for Flow Measures \r\nThe Draft Governance Program (Appendix B to the Strategic Plan) describes the Healthy Rivers and \r\nLandscapes Program governance entities that will be engaged in planning and decision making related to \r\nFlow Measures, including a Systemwide Governance Committee and Tributary/Delta Governance Entities. \r\nSome ...</blockquote>"
       },
       {
         "type": "openai",
-        "data": "Source from 6bd9d139-c353-4a6d-ad1a-65a671082125_health-rivers-and-lakes-draft-program.pdf:\n<blockquote>1.2 Narrative Objectives \n\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \nobjectives are: (1) the existing narrative objective that provides for water ...</blockquote>"
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Specifically: \r\n• By March/April, most juveniles will be rearing lower in the Feather River or in the Delta. Targeting \r\nMarch allows juveniles rearing or migrating at any location in the watershed (upper Feather River or \r\nDelta) the opportunity to benefit from increased flows. \r\n• A March/April pulse flow is late enough to benefit nearly all recently emerged juvenile salmonids \r\n(spring-run and ...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 1 \r\nTable 5: Default Plan and Flexibility Bracket for Flow Measures in a Dry water year. Bolded numbers represent the Default Plan and numbers in parentheses represent \r\nthe Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in (Appendix 1 of the MOU and all associated \r\namendments). The summary row was calculated b...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Final habitat acreages for each site are refined during the final design process and are dependent on site￾specific hydraulic conditions and constructability. Spawning/rearing combination sites are concentrated in \r\nthe upper 10 miles of the river (RM 13-23), where hydraulic and substrate conditions are most suitable for \r\nspawning and where ongoing monitoring shows a concentration of spawning act...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 4: Default Plan and Flexibility Bracket for Flow Measures in Below Normal water year. Bolded numbers represent the Default Plan and numbers in parentheses \r\nrepresent the Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in Table 1 (Appendix 1 of the MOU and all \r\nassociated amendments). The summary row was calcula...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nacreage meets suitability criteria. \r\n4 Subject to analysis of effectiveness. Water will be pumped onto rice fields, held for a period of time to allow fish \r\nfood production (e.g., zooplankton), and then discharged to the river for the benefit of native fishes downstream. \r\n5 This consists of added instream habitat complexity and side-channel improvements. 6 This constructe...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nWater Source \r\nImmediate action(s) \r\ntaken to provide \r\nadditional instream \r\nflows \r\nAdditional action(s) taken to \r\nmake water contributions \r\navailable \r\nFlow Measures will be \r\nadditive to… Conceptual Measurement Approaches \r\neffect at the time of the \r\noperation) \r\nFallowing and groundwater \r\nsubstitution verification would \r\npreliminarily follow the Water \r\nTransfers W...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>7  \r\nDraft Strategic Plan \r\nTable 2: New Contributions to Tributary Flow and Delta Outflows in Thousand Acre Feet by Sacramento River Index1,2,3 (Adapted from Term Sheet, Appendix 1 \r\nand associated amendments) \r\nSource Category Specific Source C (15%)4 D (22%) BN (17%) AN (14%) W (32%) \r\nSan Joaquin River Basin \r\nMinimum Placeholder Contributions \r\n(Stanislaus and Merced)5 11 83 101 85 0 \r\nSan Jo...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nTable 6: Default Plan and Flexibility Bracket for Flow Measures in a Critical water year. Bolded numbers represent the Default Plan and numbers in parentheses \r\nrepresent the Flexibility Bracket for any given year. Values are a proportion of the total flow contribution as stated in Table 1 (Appendix 1 of the MOU and all \r\nassociated amendments). Note that not all water sourc...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-75%) \r\n16.7% \r\n(0-84%) \r\n16.7% \r\n(0-74%) \r\n8.3% \r\n(0-54%) \r\n8.3% \r\n(0-57%) 0% 0% 0% 0% \r\nCVP/SWP Export Reduction 0% 0% 0% 0% 0% 0% \r\n(0-30%) \r\n50% \r\n(30-70%) \r\n50% \r\n(30-70%) \r\n0% \r\n(0-30%) 0% 0% 0% \r\nPWA Water Purchase \r\nProgram 0% 0% 0% 0% 0% 0% \r\n(0-40%) 50%4 50%4 0% \r\n(0-40%) 0% 0% 0% \r\nPermanent State Water \r\nPurchases 0% 0% 0% 0% 0% \r\n(0-40%) 33.3...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>Draft Strategic Plan \r\nProject Project and Description Life stage Benefits Early Years 1-3 Years 4-6 Years 7-8 Total \r\nNo. location Implementation \r\n(Dec 2018-2024) \r\nRM 5-48 be developed in \r\nconjunction with the \r\nTRPAC (below). \r\nExamples of likely \r\nprojects include \r\nfloodplain lowering, \r\nfloodplain \r\nconnectivity, riparian \r\nplantings, in-channel \r\nplacement of LWD \r\nand improved \r\nsmolt \r\n...</blockquote>"
+      },
+      {
+        "type": "openai",
+        "data": "Source from 8a4fdb59-e14c-4698-bb5d-18be78ffbccd_support-rivers.pdf:\n<blockquote>1.2 Narrative Objectives \r\nThe Parties are committed to providing Flow and Non-flow Measures in the Healthy Rivers and \r\nLandscapes Program, that together with other measures in the Bay-Delta Plan, are necessary to \r\nimplement water quality objectives in the Bay-Delta Plan related to the protection of native fishes. These \r\nobjectives are: (1) the existing narrative objective that provides for wat...</blockquote>"
       }
     ]
   },

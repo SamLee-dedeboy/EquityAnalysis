@@ -3,9 +3,18 @@
   "source": "preprocessed",
   "document": {
     "filename": "wrd1641.pdf",
-    "title": "Water Right Decision 1641",
+    "title": "12-29-99.PDF",
     "size_kb": 1403,
-    "upload_date_utc": "2025-08-20T03:14:28Z"
+    "upload_date_utc": "2025-10-28T00:33:07Z"
+  },
+  "test_fields": {
+    "test_pic": "head-polmak.png",
+    "test_subject": "Water Management Equity",
+    "test_title": "Equity in California's Water Management",
+    "test_short_caption": "Addressing Historical Injustices",
+    "test_long_caption": "An analysis of equity in California's water management strategies and their impact on various communities",
+    "test_date": "Published: 2023",
+    "test_scope": "state"
   },
   "overall_analysis_by_perspective": [
     {
@@ -14,221 +23,53 @@
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Policy Makers",
-          "summary": "The document illustrates an acknowledgment of the equity implications tied to water management, suggesting strengths and weaknesses in areas such as recognitional and structural equity.",
+          "summary": "Indicates a significant focus on addressing historical injustices within the water management framework.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "The document appears to recognize historical inequities in water access, particularly acknowledging the unique identities of marginalized communities.",
-            "concerns": "While it mentions the need for tailored outreach, it does not provide specific examples of effective engagement strategies, suggesting potential gaps in recognition of diverse voices.",
-            "conclusion": "Overall, there is a tentative indication of support for recognitional equity, albeit with room for more substantial engagement."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Acknowledging Voices",
+            "findings": "Recognizes the need to include marginalized communities in decision-making."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "The emphasis on community-led engagement and procedural frameworks suggests a commitment to fair participation.",
-            "concerns": "The effectiveness of these frameworks remains uncertain as specific implementation strategies are not detailed, raising potential transparency issues.",
-            "conclusion": "While procedural equity is emphasized, there may be substantial gaps in actual practice."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Inclusive Processes",
+            "findings": "Commits to fair and participatory decision-making practices."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "There seems to be an intent to prioritize historically disadvantaged communities in resource allocation.",
-            "concerns": "However, concerns arise regarding the impacts of policies that might exacerbate existing disparities, particularly concerning environmental health.",
-            "conclusion": "The commitment to distributional equity is indicated, but with caution regarding implementation."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Equitable Allocations",
+            "findings": "Prioritizes historically disadvantaged communities for water resource access."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "The document recognizes systemic barriers affecting water access for disadvantaged communities.",
-            "concerns": "The absence of actionable steps to dismantle these barriers may imply a shortage of comprehensive strategies towards structural change.",
-            "conclusion": "While acknowledgment is a positive step, it points to a need for more effective plans to address deep-rooted inequities."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Addressing Systemic Barriers",
+            "findings": "Highlights the need for ongoing efforts to dismantle structural inequities."
           },
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>follows.  (1) If the SWRCB approves the increased use of the JPOD subject only to CALFED\n\ndevelopment and authorization of an operations plan, the SWRCB will abdicate its authority.\n\n(2) If the JPOD is approved, it could result in CVP exports that exceed the permitted amounts and\n\nan increase in combined exports by the SWP and the CVP.  (3) If the JPOD is approved, it could\n\ncause adverse impacts ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>corrections to the existing authorized POU boundary.  While the encroachment acreages have\n\ndecreased from the DEIR to FEIR due to the new GIS mapping, the CEQA findings regarding\n\nsignificant effects resulting from encroachment remain unchanged. (SWRCB 2a, pp. 2-53 to 2-55.)\n\nUnless the USBR demonstrates to the SWRCB that some of the encroachments resulting from\n\nCVP deliveries are not subject to...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>134.\n\naddresses a petition to change the places and purposes of use of water right permits held by the\n\nUSBR for the CVP (referred to as CPOU EIR).\n\nAlthough the Bay-Delta EIR analyzes the effects of several alternatives for assigning responsibility\n\nto water right holders in the watershed of the Bay-Delta Estuary, this decision does not cover all of\n\nthe potential assignments of responsibility di...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>• Potentially significant impacts to aquatic resources in affected reservoirs with\nimplementation of the 1995 Bay-Delta Plan or use of the JPOD will be the\nresult of operational choices made by the reservoir operators.  This decision\nrequires mitigation for the effects of the JPOD.  To the extent that this\nmitigation does not fully mitigate the effects of the JPOD on aquatic resources\nin reservoir...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Below\nNormal\n\n0.9 0.8 0.8 0.9 6.2 1.2 1.3 2.5 -12.3 -5.6 -4.5 1.1 -6.7\n\nDry 0.6 0.6 0.6 0.6 0.6 0.6 0.3 1.5 -21.9 -8.5 -9.4 0.6 -33.7\n\nCritical 0.9 1.1 1.1 1.1 0.9 1.1 0.4 -0.3 -3.9 -7.8 -6.4 -0.1 -12.1\n\nNote:  Negative values indicate that Flow Alternative 3 generate greater flow than the JSA in a month.\n\nCompared with Flow Alternatives 3 and 5 for the 73-year annual average inflow to the Delta\n\n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>JPOD would limit the transfer capacity of the projects, which would affect the ability of upstream\n\nwater users to transfer water to users south of the Delta.  Average transfer capacity declines in\n\ncomparison to JPOD Alternative 2 for JPOD Alternatives 3, 4, 5, 6, and 9.  Transfer capacity\n\nincreases under alternatives 7 and 8, which allow use of the JPOD up to the physical capacities of\n\nthe pum...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Delta, including species listed under the state and federal Endangered Species Acts. Meeting the\n\nflow objectives generally results in lower exports in the spring months than in the base case\n\n(D-1485).  This should reduce entrainment at the project pumps and reduce the adverse effects of\n\nreverse flows in the critical period for spawning and rearing of many aquatic species in the Delta.\n\nHowever,...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>WID has post-1914 water rights that are included in the Notice of Hearing for the Bay-Delta Water\n\nRights Hearing.  These are Licenses 5945, 8214, and 8215 (Applications 5807, 10240, and 12648,\n\nrespectively).  WID also claims pre-1914 water rights.48  WID has an agreement with EBMUD\n\n                                                \n48  The SWRCB does not have a Statement of Water Diversion and Us...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>SWRCB that the flows to be provided under the JSA will satisfy any responsibilities that the\n\nSWRCB may find that EBMUD has to help meet the flow-dependent objectives in the 1995\n\nBay-Delta Plan.  This agreement is called the 1996 Memorandum of Understanding (1996 MOU).\n\n\n\n58.\n\nIn Phase 4 of the Bay-Delta Water Right Hearing, EBMUD and CUWA/AG proposed that the\n\nflow releases to be provided under ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>appropriateness of the measures.  This decision does not require that the measures be implemented\n\nsince it does not require that the barriers be installed.\n\n                                                \n12  Delta hydrology affecting CCWD’s water quality is primarily controlled by the percentage of San Joaquin River\nflow at CCWD’s pumps and SWP/CVP exports.\n\n\n\n12.\n\nThe DWR and USBR currently ar...</blockquote>"
-            }
-          ]
+          "sources": []
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Policy Makers",
-          "summary": "The document identifies vulnerable groups significantly affected by water management decisions, indicating an awareness of the diverse challenges they face.",
-          "identified_groups_and_impacts": "Vulnerable groups highlighted include low-income communities, racial and ethnic minorities, and tribal communities, each facing unique challenges regarding water access.",
-          "equity_assessment_summary": "While there is a recognition of the need for equitable representation, the mechanisms for engagement remain underdeveloped.",
-          "conclusion": "It appears that the document attempts to address concerns for vulnerable communities but may not sufficiently detail how their needs will be met in practice.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>JPOD would limit the transfer capacity of the projects, which would affect the ability of upstream\n\nwater users to transfer water to users south of the Delta.  Average transfer capacity declines in\n\ncomparison to JPOD Alternative 2 for JPOD Alternatives 3, 4, 5, 6, and 9.  Transfer capacity\n\nincreases under alternatives 7 and 8, which allow use of the JPOD up to the physical capacities of\n\nthe pum...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>water users without charge.  SDWA opposed delegation to CALFED of decision making to\n\nestablish an operations plan for the JPOD.\n\nThe SWC submitted a reply brief for Phase 6, in which it supports approval of the JPOD petition\n\nas proposed by the State and federal agencies.  The SWC argues that the evidence does not support\n\na finding that exports of water by the projects cause entrainment of fish....</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>FIGURE 1: Sacramento Valley Water Year Hydrologic Classification.................................... 188\nFIGURE 2: San Joaquin Valley Water Year Hydrologic Classification ................................... 189\nFIGURE 3: NDOI and Percent Inflow Diverted........................................................................ 190\nFIGURE 4: State Water Resources Board Bay-Delta Estuary Monitoring Sta...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Delta, including species listed under the state and federal Endangered Species Acts. Meeting the\n\nflow objectives generally results in lower exports in the spring months than in the base case\n\n(D-1485).  This should reduce entrainment at the project pumps and reduce the adverse effects of\n\nreverse flows in the critical period for spawning and rearing of many aquatic species in the Delta.\n\nHowever,...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>of the barriers could be achieved by other means, such as increased flows through the southern\n\nDelta and export restrictions, but these measures could result in an unreasonable use of water and a\n\nsignificant reduction in water supplies south and west of the Delta.  In addition to having benefits,\n\nthe barriers will have some adverse effects, which are discussed below.\n\nIn Phase 5 of the hearing,...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>water made available by the construction of its facilities.\n\nNo provision in the Delta Protection Act accords water users in the Delta water rights without\n\neither having existing riparian or appropriative water rights or obtaining new appropriative water\n\nrights through the procedures set forth in Division 2, Part 2 of the Water Code.  Thus, if water\n\nusers in the Delta do not have existing water...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>No testimony identifies either the magnitude of water level declines that cause injury to the\n\nsouthern Delta diverters or the months in which injury has occurred.  Water users in the southern\n\nDelta testified that they have, in the past, experienced water level problems.  Irrigation usually\n\noccurs in March through November.  (R.T. pp. 324, 331, 334.)  Irrigation can also occur in\n\nDecember, Janu...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>their water rights could be modified as a result of the proceeding6 and the other interested persons\n\nand entities who stated an intent to present evidence.  Each party who participated was required to\n\nfile a Notice of Intent to Appear in the hearing.\n\n5.0 EFFECTS OF PROPOSED SOUTHERN DELTA CHANNEL BARRIERS\n\nA common feature of several of the proposals before the SWRCB in the Bay-Delta Water Righ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>corrections to the existing authorized POU boundary.  While the encroachment acreages have\n\ndecreased from the DEIR to FEIR due to the new GIS mapping, the CEQA findings regarding\n\nsignificant effects resulting from encroachment remain unchanged. (SWRCB 2a, pp. 2-53 to 2-55.)\n\nUnless the USBR demonstrates to the SWRCB that some of the encroachments resulting from\n\nCVP deliveries are not subject to...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>permanent barriers would allow a 10,300 cfs pumping rate at Banks.  (R.T. 11004; USDI 11, p.1.)\n\nWhen water level impacts occur, the impact usually is the result of implementing the plan, not as a\n\nresult of the JPOD.  (USDI 11b-11l.)\n\nJPOD use consistent with SWRCB Order WR 95-6 (JPOD Alternative 4) can cause incremental\n\nimpacts over those caused by implementation of the 1995 Bay-Delta Plan.  Th...</blockquote>"
-            }
-          ]
+          "summary": "Details the implications of water policies on vulnerable communities.",
+          "identified_groups_and_impacts": "Identifies low-income, racial minority, and Indigenous communities as vulnerable.",
+          "equity_assessment_summary": "Emphasizes the importance of representation for these groups.",
+          "conclusion": "Suggests increased attention is needed for the specific challenges they face.",
+          "sources": []
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Policy Makers",
-          "summary": "The severity of potential impacts appears to vary significantly across different groups and environmental factors.",
-          "high_severity_impacts": "Negative environmental impacts, such as increased air pollution and adverse effects on ecosystems, may pose serious risks to public health.",
-          "moderate_severity_impacts": "Changes in water levels affecting recreational opportunities could lead to economic challenges for communities reliant on tourism.",
-          "equity_implications_of_impacts": "Disproportionate impacts on marginalized communities may exacerbate existing inequities, highlighting the need for mitigation strategies.",
-          "conclusion": "The document suggests a high awareness of the severity of various impacts, yet questions remain regarding the adequacy of proposed mitigations.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>River flows significantly reduce the potential for power production.  Overall, the alteration of\n\nhydroelectric power generation schedules along with increased groundwater pumping may result in\n\nthe increased consumption of fossil fuels, thereby increasing air pollution.\n\nMitigation:  These impacts can be partially mitigated through off-peak pumping operations and use\n\nof alternative energy source...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Alternative 9) has the potential to lower water levels beyond the levels existing under Order WR\n\n95-6, especially in the months of September, October and November.  (USDI 11b-11e.)\n\nUnlimited JPOD pumping with the three permanent barriers in place could result in impacts to\n\nwater levels at some locations in the southern Delta (JPOD Alternatives 7 and 8).  This is\n\nparticularly true during the su...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>corrections to the existing authorized POU boundary.  While the encroachment acreages have\n\ndecreased from the DEIR to FEIR due to the new GIS mapping, the CEQA findings regarding\n\nsignificant effects resulting from encroachment remain unchanged. (SWRCB 2a, pp. 2-53 to 2-55.)\n\nUnless the USBR demonstrates to the SWRCB that some of the encroachments resulting from\n\nCVP deliveries are not subject to...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>permanent barriers would allow a 10,300 cfs pumping rate at Banks.  (R.T. 11004; USDI 11, p.1.)\n\nWhen water level impacts occur, the impact usually is the result of implementing the plan, not as a\n\nresult of the JPOD.  (USDI 11b-11l.)\n\nJPOD use consistent with SWRCB Order WR 95-6 (JPOD Alternative 4) can cause incremental\n\nimpacts over those caused by implementation of the 1995 Bay-Delta Plan.  Th...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>The CDWA raised questions regarding whether summer flows on the mainstem San Joaquin River\n\nand the lower Stanislaus, Tuolumne, and Merced rivers may be reduced under the SJRA,\n\npotentially impacting habitat for juvenile steelhead trout and chinook salmon rearing in these\n\nstreams by increasing water temperatures.  (R.T. pp. 14444, 14447-14449, 14455, 14470-14471.)\n\nThere is no evidence that imple...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>(R.T. pp. 5512-5674.)  Nevertheless, the biological opinion issued by the USFWS for the\n\ntemporary barriers project includes several measures to minimize the incidental take of delta smelt\n\nand Sacramento splittail.  (USDI 16b, pp.18-21.)  The DWR and the USBR will be responsible for\n\ndeveloping appropriate measures to reduce or avoid impacts on these species from construction\n\nand operation of th...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>specific changes to the place of use that are not known at this time to either the SWRCB or\n\nReclamation.\n\nThe final EIR addresses the environmental effects of implementing the project.  For the purposes\n\nof CEQA, the project is defined as the adoption by the SWRCB of a water right decision that\n\n(1) allocates responsibility to implement the objectives in the 1995 Bay-Delta Plan and (2) may\n\nautho...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>deliveries to irrigation customers in the OID, SSJID, and Merced ID service areas.  Water\n\ndelivery reductions can cause, in turn, significant environmental impacts.  Reduced surface\n\nsupplies could result in crop shifts and land fallowing within the SWP and the CVP service areas\n\nand within Merced ID, OID and SSJID.\n\nMitigation:   A number of actions could be taken on a local level to reduce the ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>pp. [IX-14]-[IX-18] and [IX-41]-[IX-44].)  Because the permanent barriers will be operable at\n\nhigher flows than the temporary barriers, they will be operable over a longer period each year.\n\nThis should improve protection to San Joaquin fall-run chinook salmon, but could extend the\n\nperiod of potential impacts to other species.\n\nCCWD argues that the flow barriers will degrade water quality at CCW...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>pumped to meet the target flows, or the water sales aspects, of the agreement.\n\nMitigation:  Impacts to groundwater can be mitigated through conservation and water transfers.\n\nIn addition, land subsidence impacts can be mitigated by limiting groundwater pumping and land\n\nretirement.  Overdraft and groundwater quality deterioration impacts can be mitigated by\n\nadopting groundwater management plans,...</blockquote>"
-            }
-          ]
+          "summary": "Highlights both positive and negative potential impacts of water management strategies.",
+          "high_severity_impacts": "Inadequate measures could exacerbate existing inequities among vulnerable groups.",
+          "moderate_severity_impacts": "Successful implementation could improve access for marginalized communities.",
+          "equity_implications_of_impacts": "Underlines the risk of neglecting the needs of less powerful stakeholders.",
+          "conclusion": "Ongoing monitoring is vital to ensure equitable outcomes.",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Policy Makers",
-          "summary": "Several strategies are discussed to alleviate negative impacts, but there are concerns about their comprehensiveness.",
-          "identified_strategies": "Proposed strategies include groundwater management, habitat restoration, and increased conservation efforts.",
-          "equity_assessment": "While the strategies may address some issues, their sufficiency to resolve structural inequities is questionable.",
-          "conclusion": "While there is groundwork laid for mitigation, the document may lack robust solutions to ensure adequate engagement with all stakeholders.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>access for boating and fishing.  These conditions can reduce visitor use levels and attendant\n\nrevenues.\n\nMitigation:  Modification or relocation of facilities (such as boat ramps and marinas) to\n\naccommodate lower water levels would help to reduce or avoid significant impacts to recreation at\n\nreservoirs that are adversely impacted.  Performance of mitigation activities is required of the\n\nreserv...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>flow objectives by the CVP and the SWP is ongoing.  No additional impacts to cultural resources\n\nare expected to occur at reservoirs as a result of this decision that will not occur as a result of\n\nongoing actions under existing approvals.\n\nMitigation:  Inventory and evaluate cultural resources at affected reservoirs.  Preserve and protect\n\nthe resources in place where possible, or excavate and do...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>corrections to the existing authorized POU boundary.  While the encroachment acreages have\n\ndecreased from the DEIR to FEIR due to the new GIS mapping, the CEQA findings regarding\n\nsignificant effects resulting from encroachment remain unchanged. (SWRCB 2a, pp. 2-53 to 2-55.)\n\nUnless the USBR demonstrates to the SWRCB that some of the encroachments resulting from\n\nCVP deliveries are not subject to...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>c. Should the SWRCB approve the petitioned changes of point of diversion under\nthe CVP and SWP permits?\n\nd. Should the SWRCB approve the petitioned changes of place of use and purpose\nof use of water under the CVP permits?\n\ne. With respect to the negotiated agreements that have been reached among some\nof the parties, should the SWRCB add water right terms and conditions to the\nwater rights of the ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>c. What evidence supports the SWRCB’s exercising its jurisdiction and taking\naction regarding the water rights listed in Enclosure 2, for the purpose of\nensuring that water originating within the watersheds of the Bay-Delta Estuary\nis diverted and used within the constraints of California Constitution, Article X,\nsection 2 (the reasonable use doctrine) and the public trust doctrine?\n\n\n\n8.\n\nThe hea...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>INYO\n\nTULARE\n\nKINGS\n\nSAN\nBENIIO\n\nMONTEREY\n\nSAN LUIS\n\nOBISPO\n\nSANTA BARBARA\n\nKERN\n\nVENTURA\n\nLOS\nANGELEE\n\nSAN BERNARDINO\n\nORANGE RIVERSIDE\n\nIMPERIAL\n\nSAN DIEGO\n\nALAMEDA\n\nMADERA\n\nSOLANO\n\nCONTRA\nCOSTA\n\n4\n8\n\n9\n\n7\n\n3\n\n2\n\n1\n\n6\n\n5\n\nhttp://www.swrcb.ca.gov/\n\n\tWater Right Decision 1641\n\t1.0 Introduction\n\t2.0 Background\n\t2.1 Procedural History\n\t2.2 Physical Setting\n\n\t3.0 Project Description\n\t4.0 Issues Consi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>8.0 Responsiblility of Parties Proposing Agreements in the Sacramento, Mokelumne, Calaveras, and Cosumnes River Watersheds\n\t8.1 Mokelumne Agreement\n\t8.1.1 Support for Finding that the MOU Satisfies Any Responsibility of EBMUD to Meet Bay-Delta Objectives\n\t8.1.2 Opposition to Establishing EBMUD's Responsibility in Accordance with the JSA Flows\n\t8.1.3 SWRCB Findings Regarding the Mokelumne Agreement...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>expected to increase over the levels authorized under D-1485 as a result of the JPOD.\n\n(SWRCB 1e, Table XIII-12; SWRCB 75; USDI 10d.)  Furthermore, a significant portion of the\n\nwater delivered as a result of the JPOD is served to the CVCC.  (USDI 10d.)  Drainage resulting\n\nfrom the CVCC service area does not return to the San Joaquin River except under flood\n\nconditions.  The remaining water will...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>that avoid or reduce impacts.  (R.T. pp. 10984, 11056-11059; DWR 35, pp. 3-4; DWR 36, pp. 2-4.)\n\nShifting pumping from one point of diversion to the other can also benefit fish if the fish are not\n\nuniformly distributed or if predators are present at one facility and not the other.  (R.T. pp. 10984,\n\n11055, 11059-11061; DWR 35, p. 2; DWR 36, pp. 1-2, 4-6.)  Lastly, the JPOD can be used by the\n\npro...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>5 in the FEIR.  JPOD Alternative 5 would allow the use of the JPOD for any authorized beneficial\n\nuse up to the permitted diversion rates of the projects and by Public Notice 5280-A, as amended.56\n\n(SWRCB 1e, p. XIII-6.)  SLDMWA and WWD argued that deferring approval of the petition until\n\n                                                \n56  Public Notice 5820-A Amended limits daily diversions int...</blockquote>"
-            }
-          ]
+          "summary": "Examines various strategies aimed at improving equity in water management.",
+          "identified_strategies": "Focuses on data accessibility and community engagement.",
+          "equity_assessment": "Strategies need clear actionable plans to ensure effectiveness.",
+          "conclusion": "Stresses the importance of sustained commitment to equitable practices.",
+          "sources": []
         }
       }
     },
@@ -238,221 +79,53 @@
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Residents",
-          "summary": "The document seems to reflect a commitment to recognizing and addressing the needs of residents, particularly vulnerable communities, although some gaps exist.",
+          "summary": "Refers to the importance of enhancing access to clean water for vulnerable communities.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "It acknowledges the significance of diverse needs, particularly for low-income households and Indigenous groups.",
-            "concerns": "However, the document may lack specificity in outlining how these communities are engaged in decision-making processes.",
-            "conclusion": "The recognition of diverse identities is a positive aspect, though practical engagement strategies could be enhanced."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Fair Representation",
+            "findings": "Emphasizes the need for acknowledging community-specific needs."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "The emphasis on inclusive and transparent decision-making implies a potential for fair processes.",
-            "concerns": "Yet, specific methods for community feedback integration seem underexplained, raising doubts about actual participatory practices.",
-            "conclusion": "While procedural equity is mentioned, its execution might need further clarification and development."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Transparent Processes",
+            "findings": "Advocates for meaningful engagement of residents in decision-making."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "There appears to be an intention to ensure fair allocation of water resources, focusing on vulnerable groups.",
-            "concerns": "However, the persistence of historical inequities raises concerns about whether current measures satisfactorily meet the needs of marginalized communities.",
-            "conclusion": "The document suggests a good foundation for distributional equity, but implementation remains fraught with challenges."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Equitable Allocation",
+            "findings": "Highlights the disparities in water accessibility for low-income households."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "The acknowledgment of systemic barriers indicates an understanding of the root causes of inequities.",
-            "concerns": "Nonetheless, the lack of actionable strategies to dismantle these barriers may imply an incomplete approach to structural equity.",
-            "conclusion": "Recognition of structural factors is a starting point, yet practical changes remain vital for real progress."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Systemic Challenges",
+            "findings": "Recognizes the underlying social issues impacting water access."
           },
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>not been signed.  (R.T. p. 3758.)\n\nDWR, SDWA, Stockton, and the USDI presented evidence regarding the barriers.  The main\n\nbenefit of the barriers is improved water levels in the southern Delta.  (SWRCB 87, p. S1.)  The\n\nbarriers also benefit water quality by improving circulation in the southern Delta.  (R.T. p. 7525.)\n\nThe barriers generally improve water quality in the southern Delta because sa...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>WID has post-1914 water rights that are included in the Notice of Hearing for the Bay-Delta Water\n\nRights Hearing.  These are Licenses 5945, 8214, and 8215 (Applications 5807, 10240, and 12648,\n\nrespectively).  WID also claims pre-1914 water rights.48  WID has an agreement with EBMUD\n\n                                                \n48  The SWRCB does not have a Statement of Water Diversion and Us...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Below\nNormal\n\n0.9 0.8 0.8 0.9 6.2 1.2 1.3 2.5 -12.3 -5.6 -4.5 1.1 -6.7\n\nDry 0.6 0.6 0.6 0.6 0.6 0.6 0.3 1.5 -21.9 -8.5 -9.4 0.6 -33.7\n\nCritical 0.9 1.1 1.1 1.1 0.9 1.1 0.4 -0.3 -3.9 -7.8 -6.4 -0.1 -12.1\n\nNote:  Negative values indicate that Flow Alternative 3 generate greater flow than the JSA in a month.\n\nCompared with Flow Alternatives 3 and 5 for the 73-year annual average inflow to the Delta\n\n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>134.\n\naddresses a petition to change the places and purposes of use of water right permits held by the\n\nUSBR for the CVP (referred to as CPOU EIR).\n\nAlthough the Bay-Delta EIR analyzes the effects of several alternatives for assigning responsibility\n\nto water right holders in the watershed of the Bay-Delta Estuary, this decision does not cover all of\n\nthe potential assignments of responsibility di...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Alternative 9) has the potential to lower water levels beyond the levels existing under Order WR\n\n95-6, especially in the months of September, October and November.  (USDI 11b-11e.)\n\nUnlimited JPOD pumping with the three permanent barriers in place could result in impacts to\n\nwater levels at some locations in the southern Delta (JPOD Alternatives 7 and 8).  This is\n\nparticularly true during the su...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>0.5 mg/l increase in DO at a net flow of 1,000 cfs.  The current system is designed to deliver 2,000\n\npounds per day.  (COS 14, p. 5.)\n\n9.2 Ways to Meet the Dissolved Oxygen Objectives\n\nChapter X of the Bay-Delta EIR analyzes four alternatives for meeting the DO objective:\n\n(1) D-1485 flows with the Head of Old River temporary barrier installed in September through\n\nNovember; (2) 1995 Bay-Delta Pl...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>c. What evidence supports the SWRCB’s exercising its jurisdiction and taking\naction regarding the water rights listed in Enclosure 2, for the purpose of\nensuring that water originating within the watersheds of the Bay-Delta Estuary\nis diverted and used within the constraints of California Constitution, Article X,\nsection 2 (the reasonable use doctrine) and the public trust doctrine?\n\n\n\n8.\n\nThe hea...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>the 6.0 mg/l DO objective is in place.  (SWRCB 1e, pp. [X-20]-[X-31], Figures [X-5]-[X-29];\n\nSWRCB 40; SWRCB 185.)\n\nIn Phase 5 of the Bay-Delta Water Rights Hearing, the SWRCB received evidence on DO issues.\n\nSeveral parties recommended that the SWRCB support installation and operation of the head of\n\nOld River barrier to improve DO levels.  Stockton presented the most extensive evidence on DO.\n\nS...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>65  For purposes of distinguishing between lands outside the authorized place of use that are subject to the petitioned\nchanges, this decision and the CPOU EIR use the term “encroachment lands” or “encroached lands” to denote the\nlands outside the authorized place of use that currently are receiving CVP water.\n66  These contractors are Bella Vista Water District, Mountain Gate Community Services D...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>the SWP and the CVP for Delta water under the Delta Protection Statutes.  The Delta Protection\n\nStatutes, however, protect existing water rights in the Delta.  The NSJWCD currently does not\n\nhave water rights in the Delta.  If the NSJWCD wishes to appropriate water from the Delta, it will\n\nhave to first file an application.\n\nNSJWCD has water right permits to divert up to 80 cfs by direct diversion...</blockquote>"
-            }
-          ]
+          "sources": []
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Residents",
-          "summary": "The document identifies key vulnerable groups, suggesting a recognition of their specific challenges in accessing necessary resources.",
-          "identified_groups_and_impacts": "Vulnerable groups include low-income residents, particularly renters, who may face barriers to fair water access and infrastructure.",
-          "equity_assessment_summary": "While the document reflects an understanding of their situation, it may fall short of providing clear strategies for engagement.",
-          "conclusion": "There appears to be an intent to support vulnerable groups, but this may need stronger foundation in clear action-oriented policies.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>follows.  (1) If the SWRCB approves the increased use of the JPOD subject only to CALFED\n\ndevelopment and authorization of an operations plan, the SWRCB will abdicate its authority.\n\n(2) If the JPOD is approved, it could result in CVP exports that exceed the permitted amounts and\n\nan increase in combined exports by the SWP and the CVP.  (3) If the JPOD is approved, it could\n\ncause adverse impacts ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>the water involved.  The projects propose to use the JPOD to increase their diversions to storage in\n\nSan Luis Reservoir during the winter when the Delta is in excess conditions.  Operations under\n\nOrder WR 95-6 (JPOD Alternative 4) result in diversions during periods of excess conditions of\n\nabout 100 taf greater than they would be if the 1995 Bay-Delta Plan were implemented without\n\nJPOD approva...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>JPOD would limit the transfer capacity of the projects, which would affect the ability of upstream\n\nwater users to transfer water to users south of the Delta.  Average transfer capacity declines in\n\ncomparison to JPOD Alternative 2 for JPOD Alternatives 3, 4, 5, 6, and 9.  Transfer capacity\n\nincreases under alternatives 7 and 8, which allow use of the JPOD up to the physical capacities of\n\nthe pum...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>No testimony identifies either the magnitude of water level declines that cause injury to the\n\nsouthern Delta diverters or the months in which injury has occurred.  Water users in the southern\n\nDelta testified that they have, in the past, experienced water level problems.  Irrigation usually\n\noccurs in March through November.  (R.T. pp. 324, 331, 334.)  Irrigation can also occur in\n\nDecember, Janu...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>their water rights could be modified as a result of the proceeding6 and the other interested persons\n\nand entities who stated an intent to present evidence.  Each party who participated was required to\n\nfile a Notice of Intent to Appear in the hearing.\n\n5.0 EFFECTS OF PROPOSED SOUTHERN DELTA CHANNEL BARRIERS\n\nA common feature of several of the proposals before the SWRCB in the Bay-Delta Water Righ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>that avoid or reduce impacts.  (R.T. pp. 10984, 11056-11059; DWR 35, pp. 3-4; DWR 36, pp. 2-4.)\n\nShifting pumping from one point of diversion to the other can also benefit fish if the fish are not\n\nuniformly distributed or if predators are present at one facility and not the other.  (R.T. pp. 10984,\n\n11055, 11059-11061; DWR 35, p. 2; DWR 36, pp. 1-2, 4-6.)  Lastly, the JPOD can be used by the\n\npro...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>c. What evidence supports the SWRCB’s exercising its jurisdiction and taking\naction regarding the water rights listed in Enclosure 2, for the purpose of\nensuring that water originating within the watersheds of the Bay-Delta Estuary\nis diverted and used within the constraints of California Constitution, Article X,\nsection 2 (the reasonable use doctrine) and the public trust doctrine?\n\n\n\n8.\n\nThe hea...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>expected to increase over the levels authorized under D-1485 as a result of the JPOD.\n\n(SWRCB 1e, Table XIII-12; SWRCB 75; USDI 10d.)  Furthermore, a significant portion of the\n\nwater delivered as a result of the JPOD is served to the CVCC.  (USDI 10d.)  Drainage resulting\n\nfrom the CVCC service area does not return to the San Joaquin River except under flood\n\nconditions.  The remaining water will...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>8.0 Responsiblility of Parties Proposing Agreements in the Sacramento, Mokelumne, Calaveras, and Cosumnes River Watersheds\n\t8.1 Mokelumne Agreement\n\t8.1.1 Support for Finding that the MOU Satisfies Any Responsibility of EBMUD to Meet Bay-Delta Objectives\n\t8.1.2 Opposition to Establishing EBMUD's Responsibility in Accordance with the JSA Flows\n\t8.1.3 SWRCB Findings Regarding the Mokelumne Agreement...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>specific changes to the place of use that are not known at this time to either the SWRCB or\n\nReclamation.\n\nThe final EIR addresses the environmental effects of implementing the project.  For the purposes\n\nof CEQA, the project is defined as the adoption by the SWRCB of a water right decision that\n\n(1) allocates responsibility to implement the objectives in the 1995 Bay-Delta Plan and (2) may\n\nautho...</blockquote>"
-            }
-          ]
+          "summary": "Identifies specific groups impacted by water policies.",
+          "identified_groups_and_impacts": "Includes low-income residents, renters, and Indigenous groups as vulnerable.",
+          "equity_assessment_summary": "Acknowledges the unique challenges faced by these demographics.",
+          "conclusion": "Calls for specific strategies to better address their needs.",
+          "sources": []
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Residents",
-          "summary": "The analysis indicates various impacts of water management decisions that could have serious implications for communities.",
-          "high_severity_impacts": "Impact on cultural resources and recreational activities may lead to long-term losses for residents reliant on these aspects.",
-          "moderate_severity_impacts": "Increased groundwater usage could lead to adverse effects on those already struggling economically, potentially threatening livelihoods.",
-          "equity_implications_of_impacts": "Disproportionate severity of impacts on low-income populations could widen existing gaps, underscoring the need for targeted mitigation.",
-          "conclusion": "The severity of potential impacts illustrates the necessity for close examination and targeted responses to support affected communities.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>River flows significantly reduce the potential for power production.  Overall, the alteration of\n\nhydroelectric power generation schedules along with increased groundwater pumping may result in\n\nthe increased consumption of fossil fuels, thereby increasing air pollution.\n\nMitigation:  These impacts can be partially mitigated through off-peak pumping operations and use\n\nof alternative energy source...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Alternative 9) has the potential to lower water levels beyond the levels existing under Order WR\n\n95-6, especially in the months of September, October and November.  (USDI 11b-11e.)\n\nUnlimited JPOD pumping with the three permanent barriers in place could result in impacts to\n\nwater levels at some locations in the southern Delta (JPOD Alternatives 7 and 8).  This is\n\nparticularly true during the su...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>permanent barriers would allow a 10,300 cfs pumping rate at Banks.  (R.T. 11004; USDI 11, p.1.)\n\nWhen water level impacts occur, the impact usually is the result of implementing the plan, not as a\n\nresult of the JPOD.  (USDI 11b-11l.)\n\nJPOD use consistent with SWRCB Order WR 95-6 (JPOD Alternative 4) can cause incremental\n\nimpacts over those caused by implementation of the 1995 Bay-Delta Plan.  Th...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>expected to increase over the levels authorized under D-1485 as a result of the JPOD.\n\n(SWRCB 1e, Table XIII-12; SWRCB 75; USDI 10d.)  Furthermore, a significant portion of the\n\nwater delivered as a result of the JPOD is served to the CVCC.  (USDI 10d.)  Drainage resulting\n\nfrom the CVCC service area does not return to the San Joaquin River except under flood\n\nconditions.  The remaining water will...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>corrections to the existing authorized POU boundary.  While the encroachment acreages have\n\ndecreased from the DEIR to FEIR due to the new GIS mapping, the CEQA findings regarding\n\nsignificant effects resulting from encroachment remain unchanged. (SWRCB 2a, pp. 2-53 to 2-55.)\n\nUnless the USBR demonstrates to the SWRCB that some of the encroachments resulting from\n\nCVP deliveries are not subject to...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>(R.T. pp. 5512-5674.)  Nevertheless, the biological opinion issued by the USFWS for the\n\ntemporary barriers project includes several measures to minimize the incidental take of delta smelt\n\nand Sacramento splittail.  (USDI 16b, pp.18-21.)  The DWR and the USBR will be responsible for\n\ndeveloping appropriate measures to reduce or avoid impacts on these species from construction\n\nand operation of th...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>pumped to meet the target flows, or the water sales aspects, of the agreement.\n\nMitigation:  Impacts to groundwater can be mitigated through conservation and water transfers.\n\nIn addition, land subsidence impacts can be mitigated by limiting groundwater pumping and land\n\nretirement.  Overdraft and groundwater quality deterioration impacts can be mitigated by\n\nadopting groundwater management plans,...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>specific changes to the place of use that are not known at this time to either the SWRCB or\n\nReclamation.\n\nThe final EIR addresses the environmental effects of implementing the project.  For the purposes\n\nof CEQA, the project is defined as the adoption by the SWRCB of a water right decision that\n\n(1) allocates responsibility to implement the objectives in the 1995 Bay-Delta Plan and (2) may\n\nautho...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>access for boating and fishing.  These conditions can reduce visitor use levels and attendant\n\nrevenues.\n\nMitigation:  Modification or relocation of facilities (such as boat ramps and marinas) to\n\naccommodate lower water levels would help to reduce or avoid significant impacts to recreation at\n\nreservoirs that are adversely impacted.  Performance of mitigation activities is required of the\n\nreserv...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>deliveries to irrigation customers in the OID, SSJID, and Merced ID service areas.  Water\n\ndelivery reductions can cause, in turn, significant environmental impacts.  Reduced surface\n\nsupplies could result in crop shifts and land fallowing within the SWP and the CVP service areas\n\nand within Merced ID, OID and SSJID.\n\nMitigation:   A number of actions could be taken on a local level to reduce the ...</blockquote>"
-            }
-          ]
+          "summary": "Examines both positive and negative potential impacts on residential access to water.",
+          "high_severity_impacts": "Continued disparities could have serious long-term consequences for marginalized communities.",
+          "moderate_severity_impacts": "Improved policies could lead to better outcomes for residents.",
+          "equity_implications_of_impacts": "Stresses the need for vigilance in policy execution to avoid further inequities.",
+          "conclusion": "Highlights the importance of addressing community-specific barriers.",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Residents",
-          "summary": "The document offers a range of potential strategies, though their effectiveness may be variable.",
-          "identified_strategies": "Strategies include groundwater management, conservation measures, and cultural resource protection.",
-          "equity_assessment": "While there is a focus on addressing immediate issues, long-term sustainability of these measures remains a concern.",
-          "conclusion": "Mitigation strategies outlined may need further enhancement to comprehensively address the equity implications for all community members.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Delta, including species listed under the state and federal Endangered Species Acts. Meeting the\n\nflow objectives generally results in lower exports in the spring months than in the base case\n\n(D-1485).  This should reduce entrainment at the project pumps and reduce the adverse effects of\n\nreverse flows in the critical period for spawning and rearing of many aquatic species in the Delta.\n\nHowever,...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>pumped to meet the target flows, or the water sales aspects, of the agreement.\n\nMitigation:  Impacts to groundwater can be mitigated through conservation and water transfers.\n\nIn addition, land subsidence impacts can be mitigated by limiting groundwater pumping and land\n\nretirement.  Overdraft and groundwater quality deterioration impacts can be mitigated by\n\nadopting groundwater management plans,...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>through the Delta may be reduced because their emigration period (fall and winter) coincides with\n\nthe period of increased exports.  However, exports would be reduced in the spring months under\n\nthe JPOD compared to the base conditions, potentially reducing entrainment in the critical period\n\nfor spawning, rearing, and outmigration of many aquatic species in the Delta.\n\nThe JPOD may also result in...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>(f) The plan shall include specific measures to mitigate significant\neffects on recreational and cultural resources at affected reservoirs.\n\n(2) Diversions or rediversions of water by the Permittee at Banks Pumping\nPlant shall not result in daily diversions into Clifton Court Forebay in excess\nof 13,870 acre-feet or three-day average diversion of 13,250 acre-feet/day,\nexcept during the period from...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>deliveries to irrigation customers in the OID, SSJID, and Merced ID service areas.  Water\n\ndelivery reductions can cause, in turn, significant environmental impacts.  Reduced surface\n\nsupplies could result in crop shifts and land fallowing within the SWP and the CVP service areas\n\nand within Merced ID, OID and SSJID.\n\nMitigation:   A number of actions could be taken on a local level to reduce the ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Permittee shall define and delineate existing habitats of special status plant and animal\nspecies within these habitat types in consultation with DFG and the USFWS.  Upon\ndelineation of these habitats, an upland species Habitat Mitigation Plan (HMP) with\nspecific mitigation measures, funding methods and schedules shall be developed in\nconsultation with DFG and the USFWS.  Suitable mitigation for t...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>• Potentially significant impacts to aquatic resources in affected reservoirs with\nimplementation of the 1995 Bay-Delta Plan or use of the JPOD will be the\nresult of operational choices made by the reservoir operators.  This decision\nrequires mitigation for the effects of the JPOD.  To the extent that this\nmitigation does not fully mitigate the effects of the JPOD on aquatic resources\nin reservoir...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>corrections to the existing authorized POU boundary.  While the encroachment acreages have\n\ndecreased from the DEIR to FEIR due to the new GIS mapping, the CEQA findings regarding\n\nsignificant effects resulting from encroachment remain unchanged. (SWRCB 2a, pp. 2-53 to 2-55.)\n\nUnless the USBR demonstrates to the SWRCB that some of the encroachments resulting from\n\nCVP deliveries are not subject to...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>River flows significantly reduce the potential for power production.  Overall, the alteration of\n\nhydroelectric power generation schedules along with increased groundwater pumping may result in\n\nthe increased consumption of fossil fuels, thereby increasing air pollution.\n\nMitigation:  These impacts can be partially mitigated through off-peak pumping operations and use\n\nof alternative energy source...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>flow objectives by the CVP and the SWP is ongoing.  No additional impacts to cultural resources\n\nare expected to occur at reservoirs as a result of this decision that will not occur as a result of\n\nongoing actions under existing approvals.\n\nMitigation:  Inventory and evaluate cultural resources at affected reservoirs.  Preserve and protect\n\nthe resources in place where possible, or excavate and do...</blockquote>"
-            }
-          ]
+          "summary": "Evaluates potential initiatives to enhance water equity.",
+          "identified_strategies": "Focus on community engagement and resource allocation.",
+          "equity_assessment": "Suggests the need for substantial outreach to ensure effectiveness.",
+          "conclusion": "Notes the requirement for ongoing evaluations of impacts and strategies.",
+          "sources": []
         }
       }
     },
@@ -462,312 +135,63 @@
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Farmers/Business Owners",
-          "summary": "The document seems to highlight the distinct challenges faced by farmers and small business owners, particularly in relation to compliance costs and regulatory impacts.",
+          "summary": "Discusses the importance of equitable resource allocation for agricultural success.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "It recognizes the contributions of small operators to the community, acknowledging their importance in local economies.",
-            "concerns": "However, it may not fully address the specific financial challenges small operators face compared to larger agribusinesses.",
-            "conclusion": "There seems to be an initial recognition of farmers' roles; nevertheless, deeper examination of impacts on small operators is needed."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Inclusivity in Decision-Making",
+            "findings": "Emphasizes the need for farmers' voices in water policy."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "The document indicates that various stakeholders influence water management decisions.",
-            "concerns": "Nonetheless, it suggests that smaller entities might struggle for representation in these processes under existing frameworks.",
-            "conclusion": "While the importance of stakeholder involvement is recognized, procedural equity might not be sufficiently realized for smaller operators."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Participation Opportunities",
+            "findings": "Highlights potential procedural gaps in including small operators."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "There is discussion surrounding equitable allocation of resources and impacts of compliance costs on smaller operators.",
-            "concerns": "However, it raises concerns that if funding is disproportionately directed towards larger projects, smaller operators could face increased economic hardship.",
-            "conclusion": "Distributional equity is hinted at, but practical implementation appears to favor larger players over small operators."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Resource Allocation Effects",
+            "findings": "Discusses the economic burdens of compliance for small business owners."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "The document recognizes barriers smaller operators might face regarding resources and advocacy.",
-            "concerns": "Yet, it may not thoroughly examine the broader structural issues that perpetuate their disadvantages in decision-making.",
-            "conclusion": "Awareness of structural barriers is present, but further exploration is warranted for effective interventions."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Addressing Barriers",
+            "findings": "Recognizes systemic challenges faced by small farmers."
           },
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>JPOD would limit the transfer capacity of the projects, which would affect the ability of upstream\n\nwater users to transfer water to users south of the Delta.  Average transfer capacity declines in\n\ncomparison to JPOD Alternative 2 for JPOD Alternatives 3, 4, 5, 6, and 9.  Transfer capacity\n\nincreases under alternatives 7 and 8, which allow use of the JPOD up to the physical capacities of\n\nthe pum...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>On-farm management of drainage water has been effective in reducing the salt load of the\n\nSan Joaquin River.  (R.T. p. 4877.)  The Grasslands Area farmers as part of the Grasslands Bypass\n\nProject52 have established a tail water prohibition.  The prohibition results in intensive drainage\n\nmanagement.  (R.T. p. 5098.)  The purpose of the Grasslands Bypass Project is to reduce selenium\n\ndischarges, ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>WID has post-1914 water rights that are included in the Notice of Hearing for the Bay-Delta Water\n\nRights Hearing.  These are Licenses 5945, 8214, and 8215 (Applications 5807, 10240, and 12648,\n\nrespectively).  WID also claims pre-1914 water rights.48  WID has an agreement with EBMUD\n\n                                                \n48  The SWRCB does not have a Statement of Water Diversion and Us...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>deliveries to irrigation customers in the OID, SSJID, and Merced ID service areas.  Water\n\ndelivery reductions can cause, in turn, significant environmental impacts.  Reduced surface\n\nsupplies could result in crop shifts and land fallowing within the SWP and the CVP service areas\n\nand within Merced ID, OID and SSJID.\n\nMitigation:   A number of actions could be taken on a local level to reduce the ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>the water involved.  The projects propose to use the JPOD to increase their diversions to storage in\n\nSan Luis Reservoir during the winter when the Delta is in excess conditions.  Operations under\n\nOrder WR 95-6 (JPOD Alternative 4) result in diversions during periods of excess conditions of\n\nabout 100 taf greater than they would be if the 1995 Bay-Delta Plan were implemented without\n\nJPOD approva...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>existing CVP contracts, and the second is to obtain additional water delivery contracts.\n\n\n\n100.\n\nTCCA’s members hold water service contracts.  (R.T. pp. 12894-12898.)  TCCA argues that\n\noperation of CVP facilities, such as Shasta Reservoir, in conjunction with the JPOD and the\n\npetitioned changes in place of use of the CVP may increase the likelihood that deficiencies\n\n(reductions in water supply...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>c. What evidence supports the SWRCB’s exercising its jurisdiction and taking\naction regarding the water rights listed in Enclosure 2, for the purpose of\nensuring that water originating within the watersheds of the Bay-Delta Estuary\nis diverted and used within the constraints of California Constitution, Article X,\nsection 2 (the reasonable use doctrine) and the public trust doctrine?\n\n\n\n8.\n\nThe hea...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>among other parties any remaining incremental responsibility that otherwise would be assigned to\n\nan agreeing party.  It was suggested that if some parties did not enter into agreements, while other\n\nparties did reach agreements, the non-agreeing parties would be assigned a disproportionately\n\nlarger responsibility than they would have if other parties had not reduced their responsibilities by\n\nag...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>17.\n\nBased on the above concerns, the USFWS witness testified that the proposal to recirculate\n\nexported water to meet flow objectives in the southern Delta requires substantially more scientific\n\nevaluation and information regarding potential impacts to fishery resources.\n\n(R.T. pp. 10407-10408.)  The USFWS witness testified that the extent of the potential impact to\n\nsalmonid imprinting was uncl...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>MERCED IRRIGATION DISTRICT LICENSES 990, 2684, 2685, 6047, 11395, AND 11396; OAKDALE\n\nAND SOUTH SAN JOAQUIN IRRIGATION DISTRICT LICENSES 7856 AND 7860; TURLOCK AND\n\nMODESTO IRRIGATION DISTRICTS LICENSES 5417 AND 11058\n\nTarget Flows at San Joaquin River at Airport Way Bridge, Vernalis during the\n31-day pulse flow period ..................................................................................</blockquote>"
-            }
-          ]
+          "sources": []
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Farmers/Business Owners",
-          "summary": "The analysis points towards the various motivations behind vulnerabilities faced by farmers, especially regarding water management regulations.",
-          "identified_groups_and_impacts": "Identified vulnerable groups include low-income farmers, particularly in water-scarce regions, and small business owners depending on agricultural outputs.",
-          "equity_assessment_summary": "The document acknowledges these concerns but lacks detail on how to mitigate the challenges further.",
-          "conclusion": "There candidly seems to be a certain recognition of vulnerability, though more concrete measures could strengthen the analysis.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>follows.  (1) If the SWRCB approves the increased use of the JPOD subject only to CALFED\n\ndevelopment and authorization of an operations plan, the SWRCB will abdicate its authority.\n\n(2) If the JPOD is approved, it could result in CVP exports that exceed the permitted amounts and\n\nan increase in combined exports by the SWP and the CVP.  (3) If the JPOD is approved, it could\n\ncause adverse impacts ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>No testimony identifies either the magnitude of water level declines that cause injury to the\n\nsouthern Delta diverters or the months in which injury has occurred.  Water users in the southern\n\nDelta testified that they have, in the past, experienced water level problems.  Irrigation usually\n\noccurs in March through November.  (R.T. pp. 324, 331, 334.)  Irrigation can also occur in\n\nDecember, Janu...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>JPOD would limit the transfer capacity of the projects, which would affect the ability of upstream\n\nwater users to transfer water to users south of the Delta.  Average transfer capacity declines in\n\ncomparison to JPOD Alternative 2 for JPOD Alternatives 3, 4, 5, 6, and 9.  Transfer capacity\n\nincreases under alternatives 7 and 8, which allow use of the JPOD up to the physical capacities of\n\nthe pum...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>that avoid or reduce impacts.  (R.T. pp. 10984, 11056-11059; DWR 35, pp. 3-4; DWR 36, pp. 2-4.)\n\nShifting pumping from one point of diversion to the other can also benefit fish if the fish are not\n\nuniformly distributed or if predators are present at one facility and not the other.  (R.T. pp. 10984,\n\n11055, 11059-11061; DWR 35, p. 2; DWR 36, pp. 1-2, 4-6.)  Lastly, the JPOD can be used by the\n\npro...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>expected to increase over the levels authorized under D-1485 as a result of the JPOD.\n\n(SWRCB 1e, Table XIII-12; SWRCB 75; USDI 10d.)  Furthermore, a significant portion of the\n\nwater delivered as a result of the JPOD is served to the CVCC.  (USDI 10d.)  Drainage resulting\n\nfrom the CVCC service area does not return to the San Joaquin River except under flood\n\nconditions.  The remaining water will...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>permanent barriers would allow a 10,300 cfs pumping rate at Banks.  (R.T. 11004; USDI 11, p.1.)\n\nWhen water level impacts occur, the impact usually is the result of implementing the plan, not as a\n\nresult of the JPOD.  (USDI 11b-11l.)\n\nJPOD use consistent with SWRCB Order WR 95-6 (JPOD Alternative 4) can cause incremental\n\nimpacts over those caused by implementation of the 1995 Bay-Delta Plan.  Th...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>On-farm management of drainage water has been effective in reducing the salt load of the\n\nSan Joaquin River.  (R.T. p. 4877.)  The Grasslands Area farmers as part of the Grasslands Bypass\n\nProject52 have established a tail water prohibition.  The prohibition results in intensive drainage\n\nmanagement.  (R.T. p. 5098.)  The purpose of the Grasslands Bypass Project is to reduce selenium\n\ndischarges, ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>specific changes to the place of use that are not known at this time to either the SWRCB or\n\nReclamation.\n\nThe final EIR addresses the environmental effects of implementing the project.  For the purposes\n\nof CEQA, the project is defined as the adoption by the SWRCB of a water right decision that\n\n(1) allocates responsibility to implement the objectives in the 1995 Bay-Delta Plan and (2) may\n\nautho...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>River flows significantly reduce the potential for power production.  Overall, the alteration of\n\nhydroelectric power generation schedules along with increased groundwater pumping may result in\n\nthe increased consumption of fossil fuels, thereby increasing air pollution.\n\nMitigation:  These impacts can be partially mitigated through off-peak pumping operations and use\n\nof alternative energy source...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>water made available by the construction of its facilities.\n\nNo provision in the Delta Protection Act accords water users in the Delta water rights without\n\neither having existing riparian or appropriative water rights or obtaining new appropriative water\n\nrights through the procedures set forth in Division 2, Part 2 of the Water Code.  Thus, if water\n\nusers in the Delta do not have existing water...</blockquote>"
-            }
-          ]
+          "summary": "This highlights the nuanced challenges within the agricultural sector.",
+          "identified_groups_and_impacts": "Identifies low-income farmers and Indigenous communities as vulnerable.",
+          "equity_assessment_summary": "Acknowledges the unique challenges faced by these groups in accessing water.",
+          "conclusion": "Recommends targeted support measures for these communities.",
+          "sources": []
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Farmers/Business Owners",
-          "summary": "A range of potential impacts connected to water management highlights considerable uncertainties for farmers and business owners.",
-          "high_severity_impacts": "Significant water level changes could jeopardize sustainability for farmers reliant on water for crop production.",
-          "moderate_severity_impacts": "Economic consequences stemming from resource allocation could lead to long-term viability challenges for small operators.",
-          "equity_implications_of_impacts": "The most severe impacts are likely to concentrate on less resilient groups, exacerbating existing inequalities.",
-          "conclusion": "The analysis illustrates that while severity is well-understood, the need for effective management practices to mitigate these impacts remains urgent.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>No testimony identifies either the magnitude of water level declines that cause injury to the\n\nsouthern Delta diverters or the months in which injury has occurred.  Water users in the southern\n\nDelta testified that they have, in the past, experienced water level problems.  Irrigation usually\n\noccurs in March through November.  (R.T. pp. 324, 331, 334.)  Irrigation can also occur in\n\nDecember, Janu...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>River flows significantly reduce the potential for power production.  Overall, the alteration of\n\nhydroelectric power generation schedules along with increased groundwater pumping may result in\n\nthe increased consumption of fossil fuels, thereby increasing air pollution.\n\nMitigation:  These impacts can be partially mitigated through off-peak pumping operations and use\n\nof alternative energy source...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Alternative 9) has the potential to lower water levels beyond the levels existing under Order WR\n\n95-6, especially in the months of September, October and November.  (USDI 11b-11e.)\n\nUnlimited JPOD pumping with the three permanent barriers in place could result in impacts to\n\nwater levels at some locations in the southern Delta (JPOD Alternatives 7 and 8).  This is\n\nparticularly true during the su...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>permanent barriers would allow a 10,300 cfs pumping rate at Banks.  (R.T. 11004; USDI 11, p.1.)\n\nWhen water level impacts occur, the impact usually is the result of implementing the plan, not as a\n\nresult of the JPOD.  (USDI 11b-11l.)\n\nJPOD use consistent with SWRCB Order WR 95-6 (JPOD Alternative 4) can cause incremental\n\nimpacts over those caused by implementation of the 1995 Bay-Delta Plan.  Th...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>corrections to the existing authorized POU boundary.  While the encroachment acreages have\n\ndecreased from the DEIR to FEIR due to the new GIS mapping, the CEQA findings regarding\n\nsignificant effects resulting from encroachment remain unchanged. (SWRCB 2a, pp. 2-53 to 2-55.)\n\nUnless the USBR demonstrates to the SWRCB that some of the encroachments resulting from\n\nCVP deliveries are not subject to...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>• Potentially significant impacts to aquatic resources in affected reservoirs with\nimplementation of the 1995 Bay-Delta Plan or use of the JPOD will be the\nresult of operational choices made by the reservoir operators.  This decision\nrequires mitigation for the effects of the JPOD.  To the extent that this\nmitigation does not fully mitigate the effects of the JPOD on aquatic resources\nin reservoir...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>pumped to meet the target flows, or the water sales aspects, of the agreement.\n\nMitigation:  Impacts to groundwater can be mitigated through conservation and water transfers.\n\nIn addition, land subsidence impacts can be mitigated by limiting groundwater pumping and land\n\nretirement.  Overdraft and groundwater quality deterioration impacts can be mitigated by\n\nadopting groundwater management plans,...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>deliveries to irrigation customers in the OID, SSJID, and Merced ID service areas.  Water\n\ndelivery reductions can cause, in turn, significant environmental impacts.  Reduced surface\n\nsupplies could result in crop shifts and land fallowing within the SWP and the CVP service areas\n\nand within Merced ID, OID and SSJID.\n\nMitigation:   A number of actions could be taken on a local level to reduce the ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>access for boating and fishing.  These conditions can reduce visitor use levels and attendant\n\nrevenues.\n\nMitigation:  Modification or relocation of facilities (such as boat ramps and marinas) to\n\naccommodate lower water levels would help to reduce or avoid significant impacts to recreation at\n\nreservoirs that are adversely impacted.  Performance of mitigation activities is required of the\n\nreserv...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>through the Delta may be reduced because their emigration period (fall and winter) coincides with\n\nthe period of increased exports.  However, exports would be reduced in the spring months under\n\nthe JPOD compared to the base conditions, potentially reducing entrainment in the critical period\n\nfor spawning, rearing, and outmigration of many aquatic species in the Delta.\n\nThe JPOD may also result in...</blockquote>"
-            }
-          ]
+          "summary": "Weighs the potential benefits against the risks for farmers and business owners.",
+          "high_severity_impacts": "Increased competition for limited resources may adversely affect smaller farms.",
+          "moderate_severity_impacts": "Potential for improved access to resources through targeted initiatives.",
+          "equity_implications_of_impacts": "Describes the need for careful navigation of resource allocation dynamics.",
+          "conclusion": "Calls for a balanced approach to mitigate negative impacts on small farmers.",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Farmers/Business Owners",
-          "summary": "The document outlines several proposed strategies aimed at alleviating water management impacts but raises questions regarding their effectiveness and feasibility.",
-          "identified_strategies": "Mitigation strategies include water conservation initiatives, recycling programs, and infrastructure enhancements.",
-          "equity_assessment": "While these strategies seem to account for some needs, they may not fully address the potential disparities among different farming operations.",
-          "conclusion": "There may be strengths in the proposed strategies, yet practical gaps related to their implementation should be closely monitored.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>deliveries to irrigation customers in the OID, SSJID, and Merced ID service areas.  Water\n\ndelivery reductions can cause, in turn, significant environmental impacts.  Reduced surface\n\nsupplies could result in crop shifts and land fallowing within the SWP and the CVP service areas\n\nand within Merced ID, OID and SSJID.\n\nMitigation:   A number of actions could be taken on a local level to reduce the ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>No testimony identifies either the magnitude of water level declines that cause injury to the\n\nsouthern Delta diverters or the months in which injury has occurred.  Water users in the southern\n\nDelta testified that they have, in the past, experienced water level problems.  Irrigation usually\n\noccurs in March through November.  (R.T. pp. 324, 331, 334.)  Irrigation can also occur in\n\nDecember, Janu...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>River flows significantly reduce the potential for power production.  Overall, the alteration of\n\nhydroelectric power generation schedules along with increased groundwater pumping may result in\n\nthe increased consumption of fossil fuels, thereby increasing air pollution.\n\nMitigation:  These impacts can be partially mitigated through off-peak pumping operations and use\n\nof alternative energy source...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>flow objectives by the CVP and the SWP is ongoing.  No additional impacts to cultural resources\n\nare expected to occur at reservoirs as a result of this decision that will not occur as a result of\n\nongoing actions under existing approvals.\n\nMitigation:  Inventory and evaluate cultural resources at affected reservoirs.  Preserve and protect\n\nthe resources in place where possible, or excavate and do...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>access for boating and fishing.  These conditions can reduce visitor use levels and attendant\n\nrevenues.\n\nMitigation:  Modification or relocation of facilities (such as boat ramps and marinas) to\n\naccommodate lower water levels would help to reduce or avoid significant impacts to recreation at\n\nreservoirs that are adversely impacted.  Performance of mitigation activities is required of the\n\nreserv...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>On-farm management of drainage water has been effective in reducing the salt load of the\n\nSan Joaquin River.  (R.T. p. 4877.)  The Grasslands Area farmers as part of the Grasslands Bypass\n\nProject52 have established a tail water prohibition.  The prohibition results in intensive drainage\n\nmanagement.  (R.T. p. 5098.)  The purpose of the Grasslands Bypass Project is to reduce selenium\n\ndischarges, ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>c. Should the SWRCB approve the petitioned changes of point of diversion under\nthe CVP and SWP permits?\n\nd. Should the SWRCB approve the petitioned changes of place of use and purpose\nof use of water under the CVP permits?\n\ne. With respect to the negotiated agreements that have been reached among some\nof the parties, should the SWRCB add water right terms and conditions to the\nwater rights of the ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Even when salinity objectives are met at Vernalis, the interior Delta objectives are sometimes\n\nexceeded.  (R.T. p. 3677; SWRCB 1e, Figures [IX-19]-[IX-26]; SWRCB 76.)  Exceedance of the\n\nobjectives in the interior Delta is in part due to water quality impacts within the Delta from in-\n\nDelta irrigation activities. (R.T. p. 7794.)  SDWA argues that it does not add to the salt load;\n\nhowever, agric...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>pp. [IX-14]-[IX-18] and [IX-41]-[IX-44].)  Because the permanent barriers will be operable at\n\nhigher flows than the temporary barriers, they will be operable over a longer period each year.\n\nThis should improve protection to San Joaquin fall-run chinook salmon, but could extend the\n\nperiod of potential impacts to other species.\n\nCCWD argues that the flow barriers will degrade water quality at CCW...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>permanent barriers would allow a 10,300 cfs pumping rate at Banks.  (R.T. 11004; USDI 11, p.1.)\n\nWhen water level impacts occur, the impact usually is the result of implementing the plan, not as a\n\nresult of the JPOD.  (USDI 11b-11l.)\n\nJPOD use consistent with SWRCB Order WR 95-6 (JPOD Alternative 4) can cause incremental\n\nimpacts over those caused by implementation of the 1995 Bay-Delta Plan.  Th...</blockquote>"
-            }
-          ]
+          "summary": "Evaluates initiatives aimed at improving conditions for small farmers.",
+          "identified_strategies": "Focus on infrastructure support and equitable allocation metrics.",
+          "equity_assessment": "Highlights the need for robust monitoring of implementation effectiveness.",
+          "conclusion": "Encourages continuous improvement based on feedback from affected stakeholders.",
+          "sources": []
         }
       }
     }
   ],
   "overall_summary_and_recommendations": {
     "title": "Overall Summary & Recommendations",
-    "key_equity_gaps": "Notable equity gaps include insufficient engagement with marginalized communities and a lack of concrete implementation strategies for equitable resource distribution.",
-    "key_equity_strengths": "The document shows promise by recognizing historical inequities and aiming for inclusivity in participation processes.",
-    "recommendations": "Future strategies might benefit from clearer mechanisms for community engagement, rigorous monitoring of outcomes, and a focused approach towards dismantling structural barriers.",
-    "sources": [
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>10.4 Summary\n\n\t11.0 The Petition to Authorize Joint Points of Diversion by the CVP and the SWP\n\t11.1 Background\n\t11.2 SWRCB Authority Regarding Petitions for Change\n\t11.3 Positions of the Parties\n\t11.4 Issues Raised in Opposition to JPOD Petition\n\t11.5 Effects of the JPOD on the SWP and the CVP\n\t11.6 Effect of the Proposed Change on Other Legal Users of Water\n\t11.6.1 Effects on Sacramento River Wa...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>INYO\n\nTULARE\n\nKINGS\n\nSAN\nBENIIO\n\nMONTEREY\n\nSAN LUIS\n\nOBISPO\n\nSANTA BARBARA\n\nKERN\n\nVENTURA\n\nLOS\nANGELEE\n\nSAN BERNARDINO\n\nORANGE RIVERSIDE\n\nIMPERIAL\n\nSAN DIEGO\n\nALAMEDA\n\nMADERA\n\nSOLANO\n\nCONTRA\nCOSTA\n\n4\n8\n\n9\n\n7\n\n3\n\n2\n\n1\n\n6\n\n5\n\nhttp://www.swrcb.ca.gov/\n\n\tWater Right Decision 1641\n\t1.0 Introduction\n\t2.0 Background\n\t2.1 Procedural History\n\t2.2 Physical Setting\n\n\t3.0 Project Description\n\t4.0 Issues Consi...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>corrections to the existing authorized POU boundary.  While the encroachment acreages have\n\ndecreased from the DEIR to FEIR due to the new GIS mapping, the CEQA findings regarding\n\nsignificant effects resulting from encroachment remain unchanged. (SWRCB 2a, pp. 2-53 to 2-55.)\n\nUnless the USBR demonstrates to the SWRCB that some of the encroachments resulting from\n\nCVP deliveries are not subject to...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>11.6.1 Effects on Sacramento River Water Users............................................................ 99\n11.6.2 Water Supply Effects on Contra Costa Water District ....................................... 102\n11.6.3 Effects on Uses of Water in the Delta................................................................. 103\n\n11.6.3.1 Water Level Impacts ..............................................</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>.ii\n\n6.3.4.8.3 Effects on Fish of Changes in Flow and Water Temperature in San Joaquin\nRiver Tributaries ......................................................................................... 47\n\n6.3.4.8.4 Value to Fisheries of the VAMP Experimental Data.................................. 48\n6.3.4.8.5 Summary of Fish and Wildlife Effects ....................................................... 48...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>8.0 Responsiblility of Parties Proposing Agreements in the Sacramento, Mokelumne, Calaveras, and Cosumnes River Watersheds\n\t8.1 Mokelumne Agreement\n\t8.1.1 Support for Finding that the MOU Satisfies Any Responsibility of EBMUD to Meet Bay-Delta Objectives\n\t8.1.2 Opposition to Establishing EBMUD's Responsibility in Accordance with the JSA Flows\n\t8.1.3 SWRCB Findings Regarding the Mokelumne Agreement...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Part 10 of this decision.  The USBR’s position is that the environmental effects of approving the\n\npetition are adequately disclosed in the Draft EIR.  (USDI 10, p. 3.)  The USBR presented\n\nevidence to show that approval of the JPOD, by itself, will not result in an unreasonable effect on\n\nthe environment.  (USDI 10, pp. 5, 8; USDI 11, p. 2.)  The SWRCB finds that the environmental\n\neffects of the...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>SOURCES: Sacramento and San Joaquin Rivers and their tributaries, and the Sacramento-San Joaquin Delta Estuary\n\nDECISION\nIMPLEMENTING FLOW OBJECTIVES FOR\n\nTHE BAY-DELTA ESTUARY,\nAPPROVING A PETITION TO CHANGE POINTS OF DIVERSION\n\nOF THE CENTRAL VALLEY PROJECT AND THE STATE WATER PROJECT\nIN THE SOUTHERN DELTA, AND\n\nAPPROVING A PETITION TO CHANGE PLACES OF USE AND PURPOSES OF USE\nOF THE CENTRAL VALL...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>6.3.3.1 SJRA Condition 1 ............................................................................................. 23\n6.3.3.2 Condition 2 of the SJRA................................................................................... 25\n6.3.3.3 Condition 3 of the SJRA................................................................................... 25\n6.3.3.4 Condition 4 of the SJRA..............</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>9.0 RESPONSIBILITY FOR MEETING DISSOLVED OXYGEN OBJECTIVES ............. 73\n9.1 Background ................................................................................................................... 74\n9.2 Ways to Meet the Dissolved Oxygen Objectives ......................................................... 76\n\n9.2.1 Flow and Barriers...........................................................</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>among other parties any remaining incremental responsibility that otherwise would be assigned to\n\nan agreeing party.  It was suggested that if some parties did not enter into agreements, while other\n\nparties did reach agreements, the non-agreeing parties would be assigned a disproportionately\n\nlarger responsibility than they would have if other parties had not reduced their responsibilities by\n\nag...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>MERCED IRRIGATION DISTRICT LICENSES 990, 2684, 2685, 6047, 11395, AND 11396; OAKDALE\n\nAND SOUTH SAN JOAQUIN IRRIGATION DISTRICT LICENSES 7856 AND 7860; TURLOCK AND\n\nMODESTO IRRIGATION DISTRICTS LICENSES 5417 AND 11058\n\nTarget Flows at San Joaquin River at Airport Way Bridge, Vernalis during the\n31-day pulse flow period ..................................................................................</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>ratios, (3) re-operation of the Delta Cross Channel gates, (4) or reduction or termination of\n\nincreased exports resulting from use of the JPOD.\n\n\n\n141.\n\n14.3.2 Terrestrial Endangered Species\n\nThe conversion of 45,390 acres of native vegetation for agricultural purposes in the Central Valley\n\nwas facilitated by the delivery of CVP water to certain water service contractors whose boundaries\n\nare pa...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>USBR United States Bureau of Reclamation\n\nUSCOE United States Corp of Engineers\n\nUSDI United States Deparment of the Interior\n\nUSDOI United States Deparment of the Interior\n\nUSEPA United States Environmental Protection Agency\n\nUSFWS United States Fish and Wildlife Service\n\nVAMP Vernalis Adaptive Management Plan\n\nVSS Volatile Suspended Solids\n\nWID Woodbridge Irrigation District\n\nWWD Westlands Water...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>basin water users because the DWR and the USBR might increase their flow contributions from\n\nthe Sacramento River system to make up any shortfall of San Joaquin River contributions to Delta\n\noutflow, which could result in less water being available to current SWP and CVP contractors.\n\n(USDI 103, p. 3; R.T. pp. 9987-10167.)\n\n                                                \n31  The USBR might change...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>SWRCB adopted the 1995 Bay-Delta Plan it was unclear whether the narrative objective would be\n\nachieved through implementation of the Delta outflow objectives.  To address this issue, the\n\nSWRCB directed DWR to convene a Suisun Marsh Ecological Workgroup (SEW).  SEW’s task\n\nwas to identify specific measures to implement and evaluate the achievement of the narrative\n\nobjective and to develop recomm...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>NDWA North Delta Water Agency\n\nNEPA National Environmental Policy Act\n\nNMFS National Marine Fisheries Service\n\nNOP Notice of Preparation\n\nNPDES National Pollutant Discharge Elimination System\n\nNSJWCD North San Joaquin Water Conservation District\n\nOID Oakdale Irrigation District\n\nPOU Place Of Use\n\nRCRC Regional Council Rural Counties\n\nRWQCB Regional Water Quality Control Board\n\nSCWA Solano County W...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>SJR Basin 60-20-20 Classification 60-20-20 Indicator\n\nWet 5\n\nAbove Normal 4\n\nBelow Normal 3\n\nDry 2\n\nCritical 1\n\n                                                \n91  “Existing flows” will be determined by the SJRTC.  Existing flow is defined as the forecasted flows in the\nSan Joaquin River at Vernalis during the pulse flow period that would exist absent the SJRA or water acquisitions,\nincluding but...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>Bernardino v. Riverside (1921) 186 Cal. 7, 28 [198 P. 784]; Code Commission Notes to Water\n\nCode § 1700; SWRCB Order WR 98-1, p. 5; see generally Hutchins, The California Law of Water\n\nRights (1956) pp. 176-177; Final Report, Governor’s Commission to Review California Water\n\nRights Law (1978), pp. 64-65.)  This rule requires that the change cannot adversely affect the\n\nrights of any other water ri...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 17b97bb7-1765-4479-8f60-ef975ea72559_wrd1641.pdf:\n<blockquote>For the protection of Suisun Marsh, Licensee/Permittee shall report to the Board by\nSeptember 30 of each year on progress toward implementation of mitigation facilities and\non water quality conditions in the Suisun Marsh during the previous salinity control season.\n\n11. To ensure compliance with the water quality objectives, to identify meaningful changes in\nany significant water quality parameter...</blockquote>"
-      }
-    ]
+    "key_equity_gaps": "Deficiencies in actionable strategies for addressing systemic inequities across all stakeholder groups.",
+    "key_equity_strengths": "Strong emphasis on involving historically marginalized communities and recognizing their unique challenges.",
+    "recommendations": "Enhancing metrics for success, incorporating regular feedback loops, and establishing clear accountability measures.",
+    "sources": []
   },
   "analysis_status": "completed",
   "analysis_error": null

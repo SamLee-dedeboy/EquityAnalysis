@@ -1,11 +1,20 @@
 {
   "id": "d9404d47-282b-4fb4-afa5-955d6a3e698a",
-  "source": "preprocessed",
+  "source": "user",
   "document": {
-    "filename": "clean-water-act-1972.pdf",
+    "filename": "cwa-1972.pdf",
     "title": "FEDERAL WATER POLLUTION CONTROL ACT",
     "size_kb": 1251,
-    "upload_date_utc": "2025-08-15T03:33:05Z"
+    "upload_date_utc": "2025-10-28T00:23:32Z"
+  },
+  "test_fields": {
+    "test_pic": "head-polmak.png",
+    "test_subject": "Water Management Equity",
+    "test_title": "The Clean Water Act",
+    "test_short_caption": "Equity in Water Management",
+    "test_long_caption": "An equity analysis of the Clean Water Act and its implications for various stakeholder groups",
+    "test_date": "Enacted: 1972",
+    "test_scope": "federal"
   },
   "overall_analysis_by_perspective": [
     {
@@ -14,221 +23,53 @@
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Policy Makers",
-          "summary": "The Clean Water Act of 1972 may demonstrate a framework that emphasizes the recognition of diverse voices in water governance, while also presenting significant gaps in the recognition and prioritization of marginalized communities.",
+          "summary": "The document suggests an intention to acknowledge and address historical inequities. However, clarifying how these commitments are operationalized remains essential.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "The Act includes mandates for states to develop monitoring and notification programs that involve public notice and opportunities for comment, suggesting an acknowledgment of community engagement.",
-            "concerns": "The document does not appear to specifically recognize how different communities, particularly marginalized ones, are included in decision-making processes, indicating potential gaps in valuing all voices equally.",
-            "conclusion": "It seems that while the Act initiates inclusivity, the lack of culturally relevant communication may hinder fully achieving recognitional equity."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Community Acknowledgment",
+            "findings": "The state agencies recognize historical inequities but may not effectively integrate diverse voices into decision-making."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "The requirement for public participation in monitoring and notification processes may suggest a commitment to fair and inclusive decision-making.",
-            "concerns": "The effectiveness of these processes can vary by state due to differing local governance structures, potentially leading to unequal opportunities for participation.",
-            "conclusion": "This indicates a need for a more uniform approach to ensure meaningful engagement across all jurisdictions."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Inclusive Processes",
+            "findings": "While there are calls for community engagement, specific mechanisms for meaningful participation appear limited."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "The Act allows for lower charges for low-income residential users and requires states to manage equitable distribution of resources.",
-            "concerns": "However, the lack of detailed metrics on how benefits and burdens are distributed suggests a need for more robust assessment mechanisms.",
-            "conclusion": "This points to a potential oversight in addressing historical injustices faced by marginalized groups."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Fair Resource Allocation",
+            "findings": "The intent to prioritize historically disadvantaged communities exists, but the details on implementation may need strengthening."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "The Act does create guidelines for monitoring that may lead to improved water quality in some respects.",
-            "concerns": "Yet, it does not explicitly tackle systemic barriers that contribute to inequities, which implies that underlying issues may remain unaddressed.",
-            "conclusion": "This calls for an ongoing commitment to evaluate and adapt policies to enhance structural equity effectively."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Systemic Challenges",
+            "findings": "Acknowledgment of systemic inequities is present, yet effective strategies to dismantle them seem underdeveloped."
           },
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>In \nany case where an applicant which, as of the date of enactment of \nthis sentence, uses a system of dedication ad valorem taxes and the \nAdministrator determines that the applicant has a system of \ncharges which results in the distribution of operation and mainte­\nnance costs for treatment works within the applicant’s jurisdiction, \nto each user class, in proportion to the contribution to the t...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(5) measures for prompt communication of the occurrence, \nnature, location, pollutants involved, and extent of any exceed­\ning of, or likelihood of exceeding, applicable water quality \nstandards for pathogens and pathogen indicators to— \n\n(A) the Administrator, in such form as the Adminis­\ntrator determines to be appropriate; and \n\n(B) a designated official of a local government having \njurisdicti...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(D) for all toxic pollutants listed under paragraph (1) of \nsubsection (a) of section 307 of this Act which are not referred \nto in subparagraph (C) of this paragraph compliance with efflu­\nent limitation in accordance with subparagraph (A) of this \nparagraph as expeditiously as practicable, but in no case later \nthan three years after the date such limitations are promul­\ngated under section 304(...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) a long-term program of trend assessment moni­\ntoring measuring variations in pollutant concentrations, \nmarine ecology, and other physical or biological environ­\nmental paramenters which may affect estuarine zones, to \nprovide the Administrator the capacity to determine the \npotential and actual effects of alternative management \nstrategies and measures; \n\n(B) a program of ecosystem assessment...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) the facility is fundamentally different with respect \nto the factors (other than cost) specified in section 304(b) \nor 304(g) and considered by the Administrator in estab­\nlishing such national effluent limitation guidelines or cat­\negorical pretreatment standards; \n\n(B) the application— \n(i) is based solely on information and supporting \n\ndata submitted to the Administrator during the rule \nm...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(2)(A) identify, in terms of amounts of constituents and \nchemical, physical, and biological characteristics of pollutants, \nthe degree of effluent reduction attainable through the applica­\ntion of the best control measures and practices achievable in­\ncluding treatment techniques, process and procedure innova­\ntions, operating methods, and other alternatives for classes \nand categories of point s...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) specify factors to be taken into account in determining \nthe best conventional pollutant control technology measures \nand practices to comply with section 301(b)(2)(E) of this Act to \nbe applicable to any point source (other than publicly owned \ntreatment works) within such categories or classes. Factors re­\nlating to the assessment of best conventional pollutant control \ntechnology (including...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) NON-FEDERAL SHARE.—The non-Federal share of \nthe costs of developing and implementing a monitoring and \nnotification program may be— \n\n(i) in an amount not to exceed 50 percent, as de­\ntermined by the Administrator in consultation with \nState, tribal, and local government representatives; \nand \n\n(ii) provided in cash or in kind. \n(c) CONTENT OF STATE AND LOCAL GOVERNMENT PROGRAMS.— \n\nAs a cond...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) For any agency designated after 1975 under subsection (a) \nof this section and for all portions of a State for which the State \nis required to act as the planning agency in accordance with sub­\nsection (a)(6), the initial plan prepared in accordance with such \nprocess shall be certified by the Governor and submitted to the Ad­\nministrator not later than three years after the receipt of the ini...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>except that any \npriority list developed pursuant to section 303(e)(3)(H) may be \nmodified by such State in accordance with regulations promul­\ngated by the Administrator to give higher priority for grants \nfor the Federal share of the cost of preparing construction \ndrawings and specifications for any treatment works utilizing \nprocesses and techniques meeting the guidelines promulgated \nunder se...</blockquote>"
-            }
-          ]
+          "sources": []
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Policy Makers",
-          "summary": "The Clean Water Act indirectly addresses the needs of vulnerable groups, but it lacks explicit identification of specific communities and their challenges.",
-          "identified_groups_and_impacts": "It may be inferred that low-income communities, racial minorities, and those with limited resources are among the groups affected by water quality issues.",
-          "equity_assessment_summary": "The provisions for public participation imply recognition of diverse voices, yet specific measures to enhance the participation of vulnerable groups remain unclear.",
-          "conclusion": "Future policies could benefit from more explicit strategies aimed at integrating the needs and rights of these groups into decision-making processes.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(3) it is the national policy that the discharge of toxic pol­\nlutants in toxic amounts be prohibited; \n\n(4) it is the national policy that Federal financial assist­\nance be provided to construct publicly owned waste treatment \nworks; \n\n(5) it is the national policy that areawide treatment man­\nagement planning processes be developed and implemented to \nassure adequate control of sources of pollut...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>but not limited to, plankton, fish, shellfish, \nwildlife, plant life, shorelines, beaches, esthetics, and recreation \nwhich may be expected from the presence of pollutants in any body \nof water, including ground water; (B) on the concentration and dis­\npersal of pollutants, or their byproducts, through biological, phys­\nical, and chemical processes; and (C) on the effects of pollutants on \nbiologi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>not identified under paragraph (1)(A) and (1)(B) of this subsection \nand estimate for such waters the total maximum daily load with \nseasonal variations and margins of safety, for those pollutants \nwhich the Administrator identifies under section 304(a)(2) as suit­\nable for such calculation and for thermal discharges, at a level that \nwould assure protection and propagation of a balanced indigenou...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(c) MEMBERS OF CONFERENCE.—The members of a manage­\nment conference convened under this section shall include, at a \nminimum, the Administrator and representatives of— \n\n(1) each State and foreign nation located in whole or in \npart in the estuarine zone of the estuary for which the con­\nference is convened; \n\n(2) international, interstate, or regional agencies or enti­\nties having jurisdiction ov...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>Q:\\COMP\\WATER2\\CLEANWAT.003\n \n\nSec. 301 FEDERAL WATER POLLUTION CONTROL ACT 98 \n\n403 exceed by an unreasonable amount the benefits to be ob­\ntained, including the objectives of this Act; \n\n(C) the applicant has established a system for monitoring \nthe impact of such discharges on a representative sample of \naquatic biota; \n\n(D) such modified requirements will not result in any addi­\ntional require...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) the facility is fundamentally different with respect \nto the factors (other than cost) specified in section 304(b) \nor 304(g) and considered by the Administrator in estab­\nlishing such national effluent limitation guidelines or cat­\negorical pretreatment standards; \n\n(B) the application— \n(i) is based solely on information and supporting \n\ndata submitted to the Administrator during the rule \nm...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(33 U.S.C. 1295) \n\nDETERMINATION OF PRIORITY \n\nSEC. 216. Notwithstanding any other provision of this Act, the \ndetermination of the priority to be given each category of projects \nfor construction of publicly owned treatment works within each \nState shall be made solely by that State, except that if the Admin­\nistrator, after a public hearing, determines that a specific project \nwill not result in...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>POLLUTION CONTROL IN GREAT LAKES \n\nSEC. 108. (a) The Administrator, in cooperation with other Fed­\neral departments, agencies, and instrumentalities is authorized to \nenter into agreements with any State, political subdivision, inter­\nstate agency, or other public agency, or combination thereof, to \ncarry out one or more projects to demonstrate new methods and \ntechniques and to develop preliminar...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>COMPREHENSIVE PROGRAMS FOR WATER POLLUTION CONTROL \n\nSEC. 102. (a) The Administrator shall, after careful investiga­\ntion, and in cooperation with other Federal agencies, State water \npollution control agencies, interstate agencies, and the municipali­\nties and industries involved, prepare or develop comprehensive pro­\ngrams for preventing, reducing, or eliminating the pollution of the \nnavigable ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>COST-EFFECTIVENESS GUIDELINES \n\nSEC. 217. Any guidelines for cost-effectiveness analysis pub­\nlished by the Administrator under this title shall provide for the \nidentification and selection of cost effective alternatives to comply \nwith the objective and goals of this Act and sections 201(b), 201(d), \n201(g)(2)(A), and 301(b)(2)(B) of this Act. \n(33 U.S.C. 1297) \n\nCOST EFFECTIVENESS \n\nSEC. 218. (...</blockquote>"
-            }
-          ]
+          "summary": "The document identifies various vulnerable groups, suggesting they face distinct challenges related to water access and governance.",
+          "identified_groups_and_impacts": "Low-income households, racial and ethnic minorities, and rural communities are highlighted as vulnerable groups that might lack adequate access to clean water.",
+          "equity_assessment_summary": "While recognition of these groups exists, the operationalization of effective measures to include them remains limited.",
+          "conclusion": "Greater emphasis may be needed to ensure their voices are actively integrated into policy discussions.",
+          "sources": []
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Policy Makers",
-          "summary": "The implications of the Clean Water Act highlight both improvements in public health through enhanced water quality and the potential economic burdens on low-income communities.",
-          "high_severity_impacts": "The cost implications of upgrading treatment facilities could disproportionately impact low-income residents through increased utility rates.",
-          "moderate_severity_impacts": "While improvements may benefit many, the ongoing costs may lead to significant long-term socio-economic challenges for disadvantaged groups.",
-          "equity_implications_of_impacts": "The Act acknowledges potential negative impacts, suggesting that careful consideration is necessary to mitigate burdens on economically distressed communities.",
-          "conclusion": "There is a suggestion that while aiming to improve water quality, the Act could inadvertently lead to exacerbated inequities without supportive measures.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) a description of the water quality of all navigable wa­\nters in such State during the preceding year, with appropriate \nsupplemental descriptions as shall be required to take into ac­\ncount seasonal, tidal, and other variations, correlated with the \nquality of water required by the objective of this Act (as identi­\nfied by the Administrator pursuant to criteria published under \nsection 304(a) ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>pretreatment standard, or standard of performance which is less \nstringent than the effluent limitation, or other limitation, effluent \nstandard prohibition, pretreatment standard, or standard of per­\nformance under this Act; or (2) be construed as impairing or in any \nmanner affecting any right or jurisdiction of the States with re­\nspect to the waters (including boundary waters) of such States. ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(1) ALTERNATIVE WATER SOURCE PROJECT.—The term ‘‘al­\nternative water source project’’ means a project designed to \n\nNovember 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.002\n \n\nSec. 221 FEDERAL WATER POLLUTION CONTROL ACT 86 \n\nprovide municipal, industrial, and agricultural water supplies \nin an environmentally sustainable manner by conserving, man­\naging, reclaiming, or reusing water or wastewater or by ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>public review and comment on the plan prior to final publica­\ntion. \n\n(33 U.S.C. 1314) \n\nWATER QUALITY INVENTORY \n\nSEC. 305. (a) The Administrator, in cooperation with the States \nand with the assistance of appropriate Federal agencies, shall pre­\npare a report to be submitted to the Congress on or before \nJanuary 1, 1974, which shall— \n\n(1) describe the specific quality, during 1973, with appro­\n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.003\n \n\nSec. 309 FEDERAL WATER POLLUTION CONTROL ACT 130 \n\nthe nature, circumstances, extent and gravity of the violation, \nor violations, and, with respect to the violator, ability to pay, \nany prior history of such violations, the degree of culpability, \neconomic benefit or savings (if any) resulting from the viola­\ntion, and such other matters as jus...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) For any agency designated after 1975 under subsection (a) \nof this section and for all portions of a State for which the State \nis required to act as the planning agency in accordance with sub­\nsection (a)(6), the initial plan prepared in accordance with such \nprocess shall be certified by the Governor and submitted to the Ad­\nministrator not later than three years after the receipt of the ini...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\n13 FEDERAL WATER POLLUTION CONTROL ACT Sec. 104 \n\nage and other liquid wastes combined with the treatment and dis­\nposal of solid wastes. \n\n(3) The Administrator shall establish, either within the Envi­\nronmental Protection Agency, or through contract with an appro­\npriate public or private non-profit organization, a national clearing­\nhouse whi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\nSec. 118 FEDERAL WATER POLLUTION CONTROL ACT 32 \n\nproved organization and definition of mission on the part of the \nAgency, funding of State grants for pollution control in the \nGreat Lakes area, and improved accountability for implemen­\ntation of such agreement. \n\n(3) DEFINITIONS.—For purposes of this section, the term— \n(A) ‘‘Agency’’ means th...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) PROHIBITION ON REGULATION BY STATES OR POLIT­\nICAL SUBDIVISIONS OF STATES.—Beginning on the effective \ndate of— \n\n(i) a determination under paragraph (2) that it is \nnot reasonable and practicable to require use of a ma­\nrine pollution control device regarding a particular dis­\ncharge incidental to the normal operation of a vessel \nof the Armed Forces; or \n\n(ii) regulations promulgated by the ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(II) regulations promulgated by the Secretary \nof Defense under paragraph (4); \n\nif a State determines that the protection and enhance­\nment of the quality of some or all of the waters within \nthe State require greater environmental protection, \nthe State may prohibit 1 or more discharges incidental \nto the normal operation of a vessel, whether treated or \nnot treated, into the waters. No prohibit...</blockquote>"
-            }
-          ]
+          "summary": "The potential impacts on marginalized communities highlighted both positive and negative outcomes.",
+          "high_severity_impacts": "Increased compliance costs and misallocated resources may lead to exacerbated disparities.",
+          "moderate_severity_impacts": "Enhanced water quality may benefit many, but its effects depend on effective implementation.",
+          "equity_implications_of_impacts": "Resource allocation disparities might negatively impact those least able to adapt.",
+          "conclusion": "It may be essential to consider the breadth of impacts when assessing new regulations.",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Policy Makers",
-          "summary": "The Clean Water Act outlines various strategies for improving water quality, yet their effectiveness in promoting equity requires further scrutiny.",
-          "identified_strategies": "The Act emphasizes interagency coordination, technical assistance, and public participation as key strategies.",
-          "equity_assessment": "While the strategies show promise for addressing pollution, potential disparities in resource allocation and participation persist.",
-          "conclusion": "Careful attention is suggested to ensure that these strategies equitably address the needs of all communities, particularly the most vulnerable.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(iv) coordinating the actions of the Environmental \nProtection Agency with the actions of the appropriate \nofficials of other Federal agencies and State and local \nauthorities in developing strategies to— \n\n(I) improve the water quality and living re­\nsources in the Chesapeake Bay ecosystem; and \n\n(II) obtain the support of the appropriate offi­\ncials of the agencies and authorities in achieving \n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) the water quality requirements necessary to re­\nstore living resources in the Chesapeake Bay ecosystem; \n\n(C) the Chesapeake Bay Basinwide Toxins Reduction \nand Prevention Strategy goal of reducing or eliminating \nthe input of chemical contaminants from all controllable \nsources to levels that result in no toxic or bioaccumulative \nimpact on the living resources of the Chesapeake Bay eco­\nsyst...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(2) The Administrator is authorized to transfer to the Secretary \nof Agriculture, the Secretary of the Army, and the Secretary of the \nInterior and the heads of such other departments, agencies, and in­\nstrumentalities of the United States as the Administrator deter­\nmines, any funds appropriated under paragraph (3) of this sub­\nsection to supplement funds otherwise appropriated to programs \nautho...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\n13 FEDERAL WATER POLLUTION CONTROL ACT Sec. 104 \n\nage and other liquid wastes combined with the treatment and dis­\nposal of solid wastes. \n\n(3) The Administrator shall establish, either within the Envi­\nronmental Protection Agency, or through contract with an appro­\npriate public or private non-profit organization, a national clearing­\nhouse whi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) monitoring requirements; \n(B) reporting requirements (including procedures to make \n\ninformation available to the public); \n(C) enforcement provisions; and \n(D) funding, personnel qualifications, and manpower re­\n\nquirements (including a requirement that no board or body \nwhich approves permit applications or portions thereof shall \ninclude, as a member, any person who receives, or has during ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>public review and comment on the plan prior to final publica­\ntion. \n\n(33 U.S.C. 1314) \n\nWATER QUALITY INVENTORY \n\nSEC. 305. (a) The Administrator, in cooperation with the States \nand with the assistance of appropriate Federal agencies, shall pre­\npare a report to be submitted to the Congress on or before \nJanuary 1, 1974, which shall— \n\n(1) describe the specific quality, during 1973, with appro­\n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) For any agency designated after 1975 under subsection (a) \nof this section and for all portions of a State for which the State \nis required to act as the planning agency in accordance with sub­\nsection (a)(6), the initial plan prepared in accordance with such \nprocess shall be certified by the Governor and submitted to the Ad­\nministrator not later than three years after the receipt of the ini...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(1) Practicable means of treating municipal sewage, and \nother waterborne wastes to implement the requirements of sec­\ntion 201 of this Act; \n\n(2) Improved methods and procedures to identify and \nmeasure the effects of pollutants, including those pollutants \ncreated by new technological developments; and \n\n(3) Methods and procedures for evaluating the effects on \nwater quality of augmented streamf...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\n37 FEDERAL WATER POLLUTION CONTROL ACT Sec. 118 \n\n(ii) include a report of current programs adminis­\ntered by other Federal agencies which make available \nresources to the Great Lakes water quality manage­\nment efforts. \n\n(11) CONFINED DISPOSAL FACILITIES.—(A) The Adminis­\ntrator, in consultation with the Assistant Secretary of the \nArmy for Civ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) a list of all navigable waters in such State for \nwhich the State does not expect the applicable standard \nunder section 303 of this Act will be achieved after the re­\nquirements of sections 301(b), 306, and 307(b) are met, due \nentirely or substantially to discharges from point sources \nof any toxic pollutants listed pursuant to section 307(a); \n\n(C) for each segment of the navigable waters i...</blockquote>"
-            }
-          ]
+          "summary": "The suggested strategies require a nuanced understanding of their effectiveness in promoting equity.",
+          "identified_strategies": "Potential strategies could include targeted funding and community involvement, but explicit details are lacking.",
+          "equity_assessment": "The strategies show promise, but their success hinges on clear frameworks for engagement and implementation.",
+          "conclusion": "Additional clarity and detail on the operationalization of these strategies could improve outcomes.",
+          "sources": []
         }
       }
     },
@@ -238,221 +79,53 @@
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Residents",
-          "summary": "The Clean Water Act may reflect a commitment to equitable water access, but significant gaps in recognizing the needs of vulnerable communities may limit its effectiveness.",
+          "summary": "The document stresses the significance of acknowledging community voices, yet lacks details on active engagement of residents.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "The Act emphasizes public involvement, indicating some recognition of clean water access as a rights issue for all communities.",
-            "concerns": "However, there is a lack of explicit acknowledgment of the unique realities faced by marginalized communities, suggesting a need for deeper recognition.",
-            "conclusion": "The absence of specific integration of these communities into decision-making processes implies potential oversights in recognizing their distinct rights."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Community Needs",
+            "findings": "Historical injustices are acknowledged, but the ongoing representation of community voices in governance is unclear."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "The requirement for states to submit water quality reports can empower communities to advocate for their interests.",
-            "concerns": "Yet, the communication and accessibility of these processes may hinder actual participation from those most affected, which raises concerns about procedural fairness.",
-            "conclusion": "This indicates a potential need for improved outreach and education efforts to foster meaningful engagement."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Engagement Opportunities",
+            "findings": "While transparency and inclusivity are emphasized, practical avenues for citizens' input appear insufficient."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "The Act may support equitable resource distribution through its requirements for states to report on the quality of navigable waters.",
-            "concerns": "Yet the document does not clarify how benefits and burdens are distributed, possibly overlooking the needs of the most vulnerable groups.",
-            "conclusion": "This lack of clear metrics for resource allocation may suggest an opportunity for better targeting of assistance."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Equitable Access",
+            "findings": "Metrics indicating equitable access exist, but their application and effectiveness remain vaguely defined."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "The Act outlines responsibilities of agencies, which may help address some structural inequities in water management.",
-            "concerns": "However, the document does not sufficiently confront the historical injustices faced by marginalized groups, suggesting a lack of structural reforms.",
-            "conclusion": "This could imply that the Act's impact on structural equity may be limited without further focus on systemic barriers."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Barriers to Access",
+            "findings": "The document recognizes systemic barriers but does not fully address how structural changes will be implemented."
           },
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>public review and comment on the plan prior to final publica­\ntion. \n\n(33 U.S.C. 1314) \n\nWATER QUALITY INVENTORY \n\nSEC. 305. (a) The Administrator, in cooperation with the States \nand with the assistance of appropriate Federal agencies, shall pre­\npare a report to be submitted to the Congress on or before \nJanuary 1, 1974, which shall— \n\n(1) describe the specific quality, during 1973, with appro­\n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) a long-term program of trend assessment moni­\ntoring measuring variations in pollutant concentrations, \nmarine ecology, and other physical or biological environ­\nmental paramenters which may affect estuarine zones, to \nprovide the Administrator the capacity to determine the \npotential and actual effects of alternative management \nstrategies and measures; \n\n(B) a program of ecosystem assessment...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>after the last day of the 2-year period referred to in paragraph \n(1), the Administrator shall approve or disapprove the control \nstrategies submitted under paragraph (1) by any State. \n\n(3) ADMINISTRATOR’S ACTION.—If a State fails to submit \ncontrol strategies in accordance with paragraph (1) or the Ad­\nministrator does not approve the control strategies submitted \nby such State in accordance wit...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>In \nany case where an applicant which, as of the date of enactment of \nthis sentence, uses a system of dedication ad valorem taxes and the \nAdministrator determines that the applicant has a system of \ncharges which results in the distribution of operation and mainte­\nnance costs for treatment works within the applicant’s jurisdiction, \nto each user class, in proportion to the contribution to the t...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) in each fiscal year thereafter only if 90 days before \nthe first day of such fiscal year, \n\nthe State provides notice of its intent to make such deposit. \n(3) EXCEPTION.—Sums reserved under section 205(j) of this \n\nAct shall not be available for obligation under this subsection. \n(33 U.S.C. 1285) \n\nREIMBURSEMENT AND ADVANCED CONSTRUCTION \n\nSEC. 206. (a) Any publicly owned treatment works in a ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>but not limited to, plankton, fish, shellfish, \nwildlife, plant life, shorelines, beaches, esthetics, and recreation \nwhich may be expected from the presence of pollutants in any body \nof water, including ground water; (B) on the concentration and dis­\npersal of pollutants, or their byproducts, through biological, phys­\nical, and chemical processes; and (C) on the effects of pollutants on \nbiologi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\n13 FEDERAL WATER POLLUTION CONTROL ACT Sec. 104 \n\nage and other liquid wastes combined with the treatment and dis­\nposal of solid wastes. \n\n(3) The Administrator shall establish, either within the Envi­\nronmental Protection Agency, or through contract with an appro­\npriate public or private non-profit organization, a national clearing­\nhouse whi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(5) measures for prompt communication of the occurrence, \nnature, location, pollutants involved, and extent of any exceed­\ning of, or likelihood of exceeding, applicable water quality \nstandards for pathogens and pathogen indicators to— \n\n(A) the Administrator, in such form as the Adminis­\ntrator determines to be appropriate; and \n\n(B) a designated official of a local government having \njurisdicti...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) For any agency designated after 1975 under subsection (a) \nof this section and for all portions of a State for which the State \nis required to act as the planning agency in accordance with sub­\nsection (a)(6), the initial plan prepared in accordance with such \nprocess shall be certified by the Governor and submitted to the Ad­\nministrator not later than three years after the receipt of the ini...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) shall coordinate actions of the Environmental Pro­\ntection Agency under subparagraph (A) with the actions of \nother appropriate Federal agencies. \n\n(b) MEMBERSHIP.—The Members of the Management Con­\nference shall be comprised of— \n\n(1) the Governors of the States of Vermont and New York; \n(2) each interested Federal agency, not to exceed a total of \n\nfive members; \n(3) the Vermont and New York...</blockquote>"
-            }
-          ]
+          "sources": []
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Residents",
-          "summary": "Analysis suggests that while the Clean Water Act recognizes some vulnerable groups, more explicit strategies are needed to address and support their unique challenges.",
-          "identified_groups_and_impacts": "Low-income communities and Indigenous populations may be recognized, but their specific circumstances are not thoroughly detailed.",
-          "equity_assessment_summary": "The benefits of certain provisions may not reach these groups unless affirmative steps are taken to include them.",
-          "conclusion": "More concrete commitments to engage and empower these vulnerable populations in water management are advised.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(1) the Indian tribe has a governing body carrying out sub­\nstantial governmental duties and powers; \n\n(2) the functions to be exercised by the Indian tribe pertain \nto the management and protection of water resources which \nare held by an Indian tribe, held by the United States in trust \nfor Indians, held by a member of an Indian tribe if such prop­\nerty interest is subject to a trust restriction...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\n19 FEDERAL WATER POLLUTION CONTROL ACT Sec. 108 \n\ning and economic feasibility and practicality of using sewage sludge \nmaterials and other municipal wastes to diminish or prevent pollu­\ntion affecting water quality from acid, sedimentation, or other pol­\nlutants and in such projects to restore affected lands to usefulness \nfor forestry, agricul...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) shall compile and maintain a comprehensive com­\nputer list of spill removal resources, personnel, and equip­\nment that is available worldwide and within the areas des­\nignated by the President pursuant to paragraph (4), and of \ninformation regarding previous spills, including data from \nuniversities, research institutions, State governments, and \nother nations, as appropriate, which shall be d...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(ii) additional prepositioned equipment; and \n(iii) a district response advisory staff. \n\n(C) Coast Guard district response groups— \nNovember 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.003\n \n\n151 FEDERAL WATER POLLUTION CONTROL ACT Sec. 311 \n\n(i) shall provide technical assistance, equipment, and \nother resources when required by a Federal On-Scene Co­\nordinator; \n\n(ii) shall maintain all Coast Guard re...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) specify factors to be taken into account in determining \nthe best conventional pollutant control technology measures \nand practices to comply with section 301(b)(2)(E) of this Act to \nbe applicable to any point source (other than publicly owned \ntreatment works) within such categories or classes. Factors re­\nlating to the assessment of best conventional pollutant control \ntechnology (including...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(e) ASSISTANCE TO DISTRESSED COMMUNITIES.— \n(1) ELIGIBLE COMMUNITIES.—For the purposes of this sub­\n\nsection, a distressed community is any community that meets \naffordability criteria established by the State in which the com­\nmunity is located, if such criteria are developed after public re­\nview and comment. \n\nNovember 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\n43 FEDERAL WATER POLLUTION CONTR...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(c) RESERVATION OF FUNDS.—The Administrator shall reserve \neach fiscal year beginning after September 30, 1986, before allot­\nments to the States under section 205(e), one-half of one percent \nof the sums appropriated under section 207. Sums reserved under \nthis subsection shall be available only for grants for the develoment \nof waste treatment management plans and for the construction of \n\nNovem...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) shall coordinate actions of the Environmental Pro­\ntection Agency under subparagraph (A) with the actions of \nother appropriate Federal agencies. \n\n(b) MEMBERSHIP.—The Members of the Management Con­\nference shall be comprised of— \n\n(1) the Governors of the States of Vermont and New York; \n(2) each interested Federal agency, not to exceed a total of \n\nfive members; \n(3) the Vermont and New York...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(2) LIMITATIONS.—The Administrator or the State may \nonly issue a permit pursuant to paragraph (1) if the applicant \ndemonstrates to the satisfaction of the Administrator or the \nState, as the case may be, that the coal remining operation will \n\nNovember 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.003\n \n\n101 FEDERAL WATER POLLUTION CONTROL ACT Sec. 302 \n\nresult in the potential for improved water quality...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(1) Such State (or interstate agency) filed with the Admin­\nistrator within one hundred and twenty days after the date of \nenactment of this section: \n\n(A) a summary report of the current status of the \nState pollution control program, including the criteria used \nby the State in determining priority of treatment works; \nand \n\n(B) such additional information, data, and reports as \nthe Administrato...</blockquote>"
-            }
-          ]
+          "summary": "The analysis highlights various vulnerable groups requiring focused attention in discussions around water governance.",
+          "identified_groups_and_impacts": "Low-income households, racial minorities, and Indigenous communities are noted as particularly vulnerable.",
+          "equity_assessment_summary": "While issues facing these groups are identified, effective engagement strategies to address their needs are not explicitly detailed.",
+          "conclusion": "Stronger frameworks for engaging vulnerable groups may enhance equity outcomes.",
+          "sources": []
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Residents",
-          "summary": "The Clean Water Act presents both potential public health benefits and risks of exacerbating inequities, particularly for economically disadvantaged communities.",
-          "high_severity_impacts": "The increasing costs associated with compliance could disproportionately impact low-income households.",
-          "moderate_severity_impacts": "Improved water quality may enhance health outcomes, yet the economic burdens may create long-lasting challenges.",
-          "equity_implications_of_impacts": "Impacts could be seen as both a risk and an opportunity, with the need for careful management to avoid worsening existing inequalities.",
-          "conclusion": "Strategic implementation focusing on vulnerable populations might help mitigate negative impacts and promote equity.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) a long-term program of trend assessment moni­\ntoring measuring variations in pollutant concentrations, \nmarine ecology, and other physical or biological environ­\nmental paramenters which may affect estuarine zones, to \nprovide the Administrator the capacity to determine the \npotential and actual effects of alternative management \nstrategies and measures; \n\n(B) a program of ecosystem assessment...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>but not limited to, plankton, fish, shellfish, \nwildlife, plant life, shorelines, beaches, esthetics, and recreation \nwhich may be expected from the presence of pollutants in any body \nof water, including ground water; (B) on the concentration and dis­\npersal of pollutants, or their byproducts, through biological, phys­\nical, and chemical processes; and (C) on the effects of pollutants on \nbiologi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) a description of the water quality of all navigable wa­\nters in such State during the preceding year, with appropriate \nsupplemental descriptions as shall be required to take into ac­\ncount seasonal, tidal, and other variations, correlated with the \nquality of water required by the objective of this Act (as identi­\nfied by the Administrator pursuant to criteria published under \nsection 304(a) ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>In any case in \nwhich an applicant proposes to provide reserve capacity great­\ner than that eligible for Federal financial assistance under this \ntitle, the incremental costs of the additional reserve capacity \nshall be paid by the applicant; \n\n(6) that no specification for bids in connection with such \nworks shall be written in such a manner as to contain propri­\netary, exclusionary, or discrimin...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>public review and comment on the plan prior to final publica­\ntion. \n\n(33 U.S.C. 1314) \n\nWATER QUALITY INVENTORY \n\nSEC. 305. (a) The Administrator, in cooperation with the States \nand with the assistance of appropriate Federal agencies, shall pre­\npare a report to be submitted to the Congress on or before \nJanuary 1, 1974, which shall— \n\n(1) describe the specific quality, during 1973, with appro­\n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) For any agency designated after 1975 under subsection (a) \nof this section and for all portions of a State for which the State \nis required to act as the planning agency in accordance with sub­\nsection (a)(6), the initial plan prepared in accordance with such \nprocess shall be certified by the Governor and submitted to the Ad­\nministrator not later than three years after the receipt of the ini...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>State has adopted a revised or new water quality standard which \nthe Administrator determines to be in accordance with this Act. \n\n(d)(1)(A) Each State shall identify those waters within its \nboundaries for which the effluent limitations required by section \n301(b)(1)(A) and section 301(b)(1)(B) are not stringent enough to \nimplement any water quality standard applicable to such waters. \nThe State...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\n13 FEDERAL WATER POLLUTION CONTROL ACT Sec. 104 \n\nage and other liquid wastes combined with the treatment and dis­\nposal of solid wastes. \n\n(3) The Administrator shall establish, either within the Envi­\nronmental Protection Agency, or through contract with an appro­\npriate public or private non-profit organization, a national clearing­\nhouse whi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) PROHIBITION ON REGULATION BY STATES OR POLIT­\nICAL SUBDIVISIONS OF STATES.—Beginning on the effective \ndate of— \n\n(i) a determination under paragraph (2) that it is \nnot reasonable and practicable to require use of a ma­\nrine pollution control device regarding a particular dis­\ncharge incidental to the normal operation of a vessel \nof the Armed Forces; or \n\n(ii) regulations promulgated by the ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\nSec. 118 FEDERAL WATER POLLUTION CONTROL ACT 32 \n\nproved organization and definition of mission on the part of the \nAgency, funding of State grants for pollution control in the \nGreat Lakes area, and improved accountability for implemen­\ntation of such agreement. \n\n(3) DEFINITIONS.—For purposes of this section, the term— \n(A) ‘‘Agency’’ means th...</blockquote>"
-            }
-          ]
+          "summary": "The document suggests significant potential impacts yet underscores prevalent challenges for vulnerable communities.",
+          "high_severity_impacts": "Diminished access to essential services may occur, especially with increasing compliance costs.",
+          "moderate_severity_impacts": "Improvements in water quality might be overshadowed by the financial burdens placed on already at-risk communities.",
+          "equity_implications_of_impacts": "Disproportionate negative effects could deepen existing disparities within communities.",
+          "conclusion": "Attention to equity implications is critical when assessing regulatory impacts.",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Residents",
-          "summary": "The mitigation strategies associated with the Clean Water Act highlight the need for more comprehensive support for local communities.",
-          "identified_strategies": "The Act includes community engagement and educational provisions, yet they may lack the depth necessary to effectively reach all community members.",
-          "equity_assessment": "While the intent is there, the practical effectiveness of these strategies in achieving equitable outcomes may require more focused efforts.",
-          "conclusion": "Enhancing outreach and funding directed at vulnerable communities could potentially lead to better equity outcomes.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>public review and comment on the plan prior to final publica­\ntion. \n\n(33 U.S.C. 1314) \n\nWATER QUALITY INVENTORY \n\nSEC. 305. (a) The Administrator, in cooperation with the States \nand with the assistance of appropriate Federal agencies, shall pre­\npare a report to be submitted to the Congress on or before \nJanuary 1, 1974, which shall— \n\n(1) describe the specific quality, during 1973, with appro­\n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) the water quality requirements necessary to re­\nstore living resources in the Chesapeake Bay ecosystem; \n\n(C) the Chesapeake Bay Basinwide Toxins Reduction \nand Prevention Strategy goal of reducing or eliminating \nthe input of chemical contaminants from all controllable \nsources to levels that result in no toxic or bioaccumulative \nimpact on the living resources of the Chesapeake Bay eco­\nsyst...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) For any agency designated after 1975 under subsection (a) \nof this section and for all portions of a State for which the State \nis required to act as the planning agency in accordance with sub­\nsection (a)(6), the initial plan prepared in accordance with such \nprocess shall be certified by the Governor and submitted to the Ad­\nministrator not later than three years after the receipt of the ini...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(4) If a Governor does not act, either by designating or de­\ntermining not to make a designation under paragraph (2) of \nthis subsection, within the time required by such paragraph, or \nif, in the case of an interstate area, the Governors of the States \ninvolved do not designate a planning organization within the \ntime required by paragraph (3) of this subsection, the chief \nelected officials of l...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(1) Practicable means of treating municipal sewage, and \nother waterborne wastes to implement the requirements of sec­\ntion 201 of this Act; \n\n(2) Improved methods and procedures to identify and \nmeasure the effects of pollutants, including those pollutants \ncreated by new technological developments; and \n\n(3) Methods and procedures for evaluating the effects on \nwater quality of augmented streamf...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>29 FEDERAL WATER POLLUTION CONTROL ACT Sec. 117 \n\n(ii) the estimated cost of the actions proposed to \nbe taken during the fiscal year. \n\n(3) APPROVAL.—If the Administrator finds that the pro­\nposal is consistent with the Chesapeake Bay Agreement and \nthe national goals established under section 101(a), the Admin­\nistrator may approve the proposal for an award. \n\n(4) FEDERAL SHARE.—The Federal shar...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(2) The Administrator is authorized to transfer to the Secretary \nof Agriculture, the Secretary of the Army, and the Secretary of the \nInterior and the heads of such other departments, agencies, and in­\nstrumentalities of the United States as the Administrator deter­\nmines, any funds appropriated under paragraph (3) of this sub­\nsection to supplement funds otherwise appropriated to programs \nautho...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\n13 FEDERAL WATER POLLUTION CONTROL ACT Sec. 104 \n\nage and other liquid wastes combined with the treatment and dis­\nposal of solid wastes. \n\n(3) The Administrator shall establish, either within the Envi­\nronmental Protection Agency, or through contract with an appro­\npriate public or private non-profit organization, a national clearing­\nhouse whi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\n37 FEDERAL WATER POLLUTION CONTROL ACT Sec. 118 \n\n(ii) include a report of current programs adminis­\ntered by other Federal agencies which make available \nresources to the Great Lakes water quality manage­\nment efforts. \n\n(11) CONFINED DISPOSAL FACILITIES.—(A) The Adminis­\ntrator, in consultation with the Assistant Secretary of the \nArmy for Civ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) a list of all navigable waters in such State for \nwhich the State does not expect the applicable standard \nunder section 303 of this Act will be achieved after the re­\nquirements of sections 301(b), 306, and 307(b) are met, due \nentirely or substantially to discharges from point sources \nof any toxic pollutants listed pursuant to section 307(a); \n\n(C) for each segment of the navigable waters i...</blockquote>"
-            }
-          ]
+          "summary": "Addressing the effectiveness of suggested strategies could enhance equity outcomes for residents.",
+          "identified_strategies": "Potential community engagement processes may exist but lack explicit proposals for resident participation.",
+          "equity_assessment": "Strategies could assist in promoting equitable access but must be effectively executed to yield benefits.",
+          "conclusion": "More explicit frameworks and commitments to engagement are needed to ensure meaningful participation.",
+          "sources": []
         }
       }
     },
@@ -462,272 +135,63 @@
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Farmers/Business Owners",
-          "summary": "The Clean Water Act recognizes the diverse roles of farmers and small business owners while also highlighting significant equity concerns related to compliance costs and regulatory burdens.",
+          "summary": "The document implies various challenges and opportunities for farmers and business owners.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "It acknowledges the importance of technical assistance and cost-sharing provisions, which may help alleviate some challenges faced by these stakeholders.",
-            "concerns": "However, there seems to be a lack of recognition of the varying capacities of small operators compared to larger entities, indicating a risk of inequitable outcomes.",
-            "conclusion": "This suggests that while the Act aims to be inclusive, the needs of smaller operators may not be adequately prioritized."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Engagement and Representation",
+            "findings": "Small operators may not be fully recognized within water governance frameworks."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "The inclusion of public review processes reflects an inclusive approach, potentially allowing farmers to influence decisions that concern their operations.",
-            "concerns": "Yet, the effectiveness of these mechanisms might not ensure equal representation for smaller operators, raising concerns about meaningful participation.",
-            "conclusion": "The processes might benefit from adjustments to enhance the accessibility for smaller stakeholders."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Decision-Making Opportunities",
+            "findings": "Opportunities for small farmers to engage in decision-making processes may be limited."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "The Act's provisions for technical assistance could suggest an effort to support equitable benefits across the farming community.",
-            "concerns": "Yet, compliance costs associated with the Act might impose a heavier burden on smaller operators compared to larger agribusinesses, pointing to potential inequities.",
-            "conclusion": "The need for a more nuanced approach towards cost-sharing and support for smaller operations may be indicated."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Resource Balancing",
+            "findings": "Allocation mechanisms may favor larger entities, potentially disadvantaging smaller operations."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "The Act proposes user charge systems aimed at addressing disparities, which may provide some improvement in structural equity.",
-            "concerns": "However, it appears not to tackle systemic barriers that may continue to disadvantage small operators, suggesting a continued need for reform.",
-            "conclusion": "Systemic issues tied to resource access and compliance must be more directly addressed to achieve true structural equity."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Systemic Support",
+            "findings": "Addressing structural barriers that affect small farmers is essential for equitable outcomes."
           },
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>except that where the United States can show that \nsuch discharge was the result of willful negligence or willful mis­\nconduct within the privity and knowledge of the owner, such owner \nor operator shall be liable to the United States Government for the \nfull amount of such costs. Such costs shall constitute a maritime \nlien on such vessel which may be recovered in an action in rem in \nthe distric...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.005\n \n\nSec. 510 FEDERAL WATER POLLUTION CONTROL ACT 222 \n\ndetermination pursuant to section 306(b)(1)(C), (C) in promulgating \nany effluent standard, prohibition, or pretreatment standard under \nsection 307, (D) in making any determination as to a State permit \nprogram submitted under section 402(b), (E) in approving or pro­\nmulgating any effluent limi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(iv) not to adopt any practice specified by the Secretary on \nthe advice of the Administrator in the contract as a practice \nwhich would tend to defeat the purposes of the contract; \n\n(v) to such additional provisions as the Secretary deter­\nmines are desirable and includes in the contract to effectuate \nthe purposes of the program or to facilitate the practical ad­\nministration of the program. \n(...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>In any case where an owner \nor operator of a vessel, of an onshore facility, or of an offshore facil­\nity, from which oil or a hazardous substance is discharged in viola­\ntion of subsection (b)(3) of this section, proves that such discharge \nof oil or hazardous substance was caused solely by an act or omis­\nsion of a third party, or was caused solely by such an act or omis­\nsion in combination wit...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) the facility is fundamentally different with respect \nto the factors (other than cost) specified in section 304(b) \nor 304(g) and considered by the Administrator in estab­\nlishing such national effluent limitation guidelines or cat­\negorical pretreatment standards; \n\n(B) the application— \n(i) is based solely on information and supporting \n\ndata submitted to the Administrator during the rule \nm...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>public review and comment on the plan prior to final publica­\ntion. \n\n(33 U.S.C. 1314) \n\nWATER QUALITY INVENTORY \n\nSEC. 305. (a) The Administrator, in cooperation with the States \nand with the assistance of appropriate Federal agencies, shall pre­\npare a report to be submitted to the Congress on or before \nJanuary 1, 1974, which shall— \n\n(1) describe the specific quality, during 1973, with appro­\n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>In \nany case where an applicant which, as of the date of enactment of \nthis sentence, uses a system of dedication ad valorem taxes and the \nAdministrator determines that the applicant has a system of \ncharges which results in the distribution of operation and mainte­\nnance costs for treatment works within the applicant’s jurisdiction, \nto each user class, in proportion to the contribution to the t...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(D) FINALITY OF ORDER.—An order assessing a class II \n\ncivil penalty under this paragraph shall become final 30 \ndays after its issuance unless a petition for judicial review \nis filed under subparagraph (G) or a hearing is requested \nunder subparagraph (C)(iii). If such a hearing is denied, \nsuch order shall become final 30 days after such denial. \n\n(E) EFFECT OF ORDER.—Action taken by the Admini...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(D) for all toxic pollutants listed under paragraph (1) of \nsubsection (a) of section 307 of this Act which are not referred \nto in subparagraph (C) of this paragraph compliance with efflu­\nent limitation in accordance with subparagraph (A) of this \nparagraph as expeditiously as practicable, but in no case later \nthan three years after the date such limitations are promul­\ngated under section 304(...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>of not \nless than five years nor more than ten years with owners and oper­\nators having control of rural land for the purpose of installing and \nmaintaining measures incorporating best management practices to \ncontrol nonpoint source pollution for improved water quality in \nthose States or areas for which the Administrator has approved a \nplan under subsection (b) of this section where the practic...</blockquote>"
-            }
-          ]
+          "sources": []
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Farmers/Business Owners",
-          "summary": "The Clean Water Act implicitly recognizes various vulnerable groups but lacks detailed provisions to address their specific needs and challenges.",
-          "identified_groups_and_impacts": "Low-income farmers, small entrepreneurs, and businesses reliant on water are identified as groups that might face heightened risks due to compliance costs.",
-          "equity_assessment_summary": "While there appears to be some acknowledgment of the financial strains on these groups, more explicit guidelines tailored to their circumstances seem necessary.",
-          "conclusion": "Future iterations of water policies could be enhanced by integrating concrete strategies that directly support vulnerable stakeholders.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>pretreatment standard, or standard of performance which is less \nstringent than the effluent limitation, or other limitation, effluent \nstandard prohibition, pretreatment standard, or standard of per­\nformance under this Act; or (2) be construed as impairing or in any \nmanner affecting any right or jurisdiction of the States with re­\nspect to the waters (including boundary waters) of such States. ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>Such a public hear­\ning shall provide an opportunity for oral and written presentations, \nsuch cross-examination as the Administrator determines is appro­\npriate on disputed issues of material fact, and the transcription of \na verbatim record which shall be available to the public. After con­\nsideration of such comments and any information and material pre­\nsented at any public hearing held on suc...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(c)(1) Sums authorized to be appropriated pursuant to section \n207 for the fiscal years during the period beginning October 1, \n1977, and ending September 30, 1981, shall be allotted for each \nsuch year by the Administrator not later than the tenth day which \nbegins after the date of enactment of the Clean Water Act of 1977. \nNot-withstanding any other provision of law, sums authorized for \nthe fi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>subsection shall affect the application of the Surface Mining \nControl and Reclamation Act of 1977 to any coal remining op­\neration, including the application of such Act to suspended sol­\nids. \n\n(33 U.S.C. 1311) \n\nWATER QUALITY RELATED EFFLUENT LIMITATIONS \n\nSEC. 302. (a) Whenever, in the judgment of the Administrator \nor as identified under section 304(l), discharges of pollutants from \na point ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(33 U.S.C. 1319) \n\nINTERNATIONAL POLLUTION ABATEMENT \n\nSEC. 310. (a) Whenever the Administrator, upon receipts of re­\nports, surveys, or studies from any duly constituted international \nagency, has reason to believe that pollution is occurring which en­\ndangers the health or welfare of persons in a foreign country, and \nthe Secretary of State requests him to abate such pollution, he \n\nNovember 27,...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(e) ASSISTANCE TO DISTRESSED COMMUNITIES.— \n(1) ELIGIBLE COMMUNITIES.—For the purposes of this sub­\n\nsection, a distressed community is any community that meets \naffordability criteria established by the State in which the com­\nmunity is located, if such criteria are developed after public re­\nview and comment. \n\nNovember 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\n43 FEDERAL WATER POLLUTION CONTR...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>but not limited to, plankton, fish, shellfish, \nwildlife, plant life, shorelines, beaches, esthetics, and recreation \nwhich may be expected from the presence of pollutants in any body \nof water, including ground water; (B) on the concentration and dis­\npersal of pollutants, or their byproducts, through biological, phys­\nical, and chemical processes; and (C) on the effects of pollutants on \nbiologi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.002\n \n\n51 FEDERAL WATER POLLUTION CONTROL ACT Sec. 202 \n\ncentage of total project costs which the Administrator determines \nis the general experience for such projects. \n\n(2)(A) Each State shall use a portion of the funds allotted to \nsuch State each fiscal year, but not to exceed 10 per centum of such \nfunds, to advance to potential grant applicants u...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(2)(A) identify, in terms of amounts of constituents and \nchemical, physical, and biological characteristics of pollutants, \nthe degree of effluent reduction attainable through the applica­\ntion of the best control measures and practices achievable in­\ncluding treatment techniques, process and procedure innova­\ntions, operating methods, and other alternatives for classes \nand categories of point s...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(C) total maximum daily load for pollutants in accordance \nwith subsection (d) of this section; \n\n(D) procedures for revision; \n(E) adequate authority for intergovernmental cooperation; \n(F) adequate implementation, including schedules of com­\n\npliance, for revised or new water quality standards, under sub­\nsection (c) of this section; \n\n(G) controls over the disposition of all residual waste from...</blockquote>"
-            }
-          ]
+          "summary": "The document touches on potentially vulnerable groups affected by water policies.",
+          "identified_groups_and_impacts": "Low-income farmers and rural communities face distinctive challenges regarding compliance with new regulations.",
+          "equity_assessment_summary": "Specific mention of these groups is limited, suggesting the need for greater recognition in policy discussions.",
+          "conclusion": "Enhanced focus on the needs of vulnerable groups could improve equity outcomes.",
+          "sources": []
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Farmers/Business Owners",
-          "summary": "Analysis reveals a complex landscape where the Clean Water Act may lead to both positive environmental changes and significant economic burdens on small operators.",
-          "high_severity_impacts": "The regulatory demands could disproportionately impact smaller farmers, potentially threatening their operational viability.",
-          "moderate_severity_impacts": "While improved water quality can benefit agricultural practices, the associated costs of compliance may be a long-term risk.",
-          "equity_implications_of_impacts": "The balance between positive and negative impacts appears critical, suggesting careful implementation is necessary to prevent exacerbating existing inequities.",
-          "conclusion": "Addressing the financial implications for smaller farmers through outreach and subsidy programs might mitigate adverse effects.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\nSec. 118 FEDERAL WATER POLLUTION CONTROL ACT 32 \n\nproved organization and definition of mission on the part of the \nAgency, funding of State grants for pollution control in the \nGreat Lakes area, and improved accountability for implemen­\ntation of such agreement. \n\n(3) DEFINITIONS.—For purposes of this section, the term— \n(A) ‘‘Agency’’ means th...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) For any agency designated after 1975 under subsection (a) \nof this section and for all portions of a State for which the State \nis required to act as the planning agency in accordance with sub­\nsection (a)(6), the initial plan prepared in accordance with such \nprocess shall be certified by the Governor and submitted to the Ad­\nministrator not later than three years after the receipt of the ini...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>public review and comment on the plan prior to final publica­\ntion. \n\n(33 U.S.C. 1314) \n\nWATER QUALITY INVENTORY \n\nSEC. 305. (a) The Administrator, in cooperation with the States \nand with the assistance of appropriate Federal agencies, shall pre­\npare a report to be submitted to the Congress on or before \nJanuary 1, 1974, which shall— \n\n(1) describe the specific quality, during 1973, with appro­\n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(2)(A) identify, in terms of amounts of constituents and \nchemical, physical, and biological characteristics of pollutants, \nthe degree of effluent reduction attainable through the applica­\ntion of the best control measures and practices achievable in­\ncluding treatment techniques, process and procedure innova­\ntions, operating methods, and other alternatives for classes \nand categories of point s...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(iv) not to adopt any practice specified by the Secretary on \nthe advice of the Administrator in the contract as a practice \nwhich would tend to defeat the purposes of the contract; \n\n(v) to such additional provisions as the Secretary deter­\nmines are desirable and includes in the contract to effectuate \nthe purposes of the program or to facilitate the practical ad­\nministration of the program. \n(...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>of not \nless than five years nor more than ten years with owners and oper­\nators having control of rural land for the purpose of installing and \nmaintaining measures incorporating best management practices to \ncontrol nonpoint source pollution for improved water quality in \nthose States or areas for which the Administrator has approved a \nplan under subsection (b) of this section where the practic...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) ADDITIONAL PROVISIONS.—For the purpose of sub­\nparagraph (A) of this paragraph— \n\n(i) in determining whether a defendant who is an \nindividual knew that his conduct placed another per­\nson in imminent danger of death or serious bodily \ninjury— \n\n(I) the person is responsible only for actual \nawareness or actual belief that he possessed; and \n\n(II) knowledge possessed by a person other \nthan th...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>State has adopted a revised or new water quality standard which \nthe Administrator determines to be in accordance with this Act. \n\n(d)(1)(A) Each State shall identify those waters within its \nboundaries for which the effluent limitations required by section \n301(b)(1)(A) and section 301(b)(1)(B) are not stringent enough to \nimplement any water quality standard applicable to such waters. \nThe State...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) for the purpose of maintenance, including emergency \nreconstruction of recently damaged parts, of currently service­\nable structures such as dikes, dams, levees, groins, riprap, \nbreakwaters, causeways, and bridge abutments or approaches, \nand transportation structures; \n\n(C) for the purpose of construction or maintenance of farm \nor stock ponds or irrigation ditches, or the maintenance of \ndr...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(3) If the Administrator, within sixty days after the date of \nsubmission of the revised or new standard, determines that such \nstandard meets the requirements of this Act, such standard shall \nthereafter be the water quality standard for the applicable waters \nof that State. If the Administrator determines that any such re­\nvised or new standard is not consistent with the applicable require­\nment...</blockquote>"
-            }
-          ]
+          "summary": "The document outlines various impacts of water management regulations.",
+          "high_severity_impacts": "Smaller operations may experience greater financial burdens under compliance requirements.",
+          "moderate_severity_impacts": "Positive environmental sustainability goals may come at a significant operating cost for certain farmers.",
+          "equity_implications_of_impacts": "Disproportionate impacts on smaller farmers heighten concerns about equity in resource allocation.",
+          "conclusion": "Assessing impacts through an equity lens may elucidate disparities among farmers.",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Farmers/Business Owners",
-          "summary": "The strategies outlined in the Clean Water Act hold the potential to alleviate some burdens, yet may require further development to ensure equity.",
-          "identified_strategies": "Strategies focused on best management practices, public consultation, and technical assistance are identified, yet might not be entirely sufficient for smaller operators.",
-          "equity_assessment": "The inherent strengths of these strategies may not fully equalize the playing field if disparities in implementation persist.",
-          "conclusion": "Ultimately, a more tailored approach in strategy deployment could enhance equity outcomes for small farmers and businesses.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) specify factors to be taken into account in determining \nthe best conventional pollutant control technology measures \nand practices to comply with section 301(b)(2)(E) of this Act to \nbe applicable to any point source (other than publicly owned \ntreatment works) within such categories or classes. Factors re­\nlating to the assessment of best conventional pollutant control \ntechnology (including...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(2)(A) identify, in terms of amounts of constituents and \nchemical, physical, and biological characteristics of pollutants, \nthe degree of effluent reduction attainable through the applica­\ntion of the best control measures and practices achievable in­\ncluding treatment techniques, process and procedure innova­\ntions, operating methods, and other alternatives for classes \nand categories of point s...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(iv) coordinating the actions of the Environmental \nProtection Agency with the actions of the appropriate \nofficials of other Federal agencies and State and local \nauthorities in developing strategies to— \n\n(I) improve the water quality and living re­\nsources in the Chesapeake Bay ecosystem; and \n\n(II) obtain the support of the appropriate offi­\ncials of the agencies and authorities in achieving \n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(A) a long-term program of trend assessment moni­\ntoring measuring variations in pollutant concentrations, \nmarine ecology, and other physical or biological environ­\nmental paramenters which may affect estuarine zones, to \nprovide the Administrator the capacity to determine the \npotential and actual effects of alternative management \nstrategies and measures; \n\n(B) a program of ecosystem assessment...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(g)(1) For the purpose of providing an adequate supply of \ntrained personnel to operate and maintain existing and future \ntreatment works and related activities, and for the purpose of en­\nhancing substantially the proficiency of those engaged in such ac­\ntivities, the Administrator shall finance pilot programs, in coopera­\ntion with State and interstate agencies, municipalities, educational \ninst...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>except that where the United States can show that \nsuch discharge was the result of willful negligence or willful mis­\nconduct within the privity and knowledge of the owner, such owner \nor operator shall be liable to the United States Government for the \nfull amount of such costs. Such costs shall constitute a maritime \nlien on such vessel which may be recovered in an action in rem in \nthe distric...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) a list of all navigable waters in such State for \nwhich the State does not expect the applicable standard \nunder section 303 of this Act will be achieved after the re­\nquirements of sections 301(b), 306, and 307(b) are met, due \nentirely or substantially to discharges from point sources \nof any toxic pollutants listed pursuant to section 307(a); \n\n(C) for each segment of the navigable waters i...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(3) FEDERAL SHARE; MAXIMUM AMOUNT.—The Federal \nshare of the cost of assisting a State in carrying out ground­\nwater protection activities in any fiscal year under this sub­\nsection shall be 50 percent of the costs incurred by the State \n\nNovember 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.003\n \n\nSec. 320 FEDERAL WATER POLLUTION CONTROL ACT 180 \n\nin carrying out such activities, except that the maximum ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>POLLUTION CONTROL IN GREAT LAKES \n\nSEC. 108. (a) The Administrator, in cooperation with other Fed­\neral departments, agencies, and instrumentalities is authorized to \nenter into agreements with any State, political subdivision, inter­\nstate agency, or other public agency, or combination thereof, to \ncarry out one or more projects to demonstrate new methods and \ntechniques and to develop preliminar...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(2) LIMITATIONS.—The Administrator or the State may \nonly issue a permit pursuant to paragraph (1) if the applicant \ndemonstrates to the satisfaction of the Administrator or the \nState, as the case may be, that the coal remining operation will \n\nNovember 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.003\n \n\n101 FEDERAL WATER POLLUTION CONTROL ACT Sec. 302 \n\nresult in the potential for improved water quality...</blockquote>"
-            }
-          ]
+          "summary": "Identifying viable strategies to support farmers in water management is essential.",
+          "identified_strategies": "While there may be proposals for funding and support, concrete strategies are not explicitly articulated.",
+          "equity_assessment": "Inclusivity in strategies could enhance support for small farmers if clearly defined.",
+          "conclusion": "Development of robust support mechanisms for small business owners may enhance equity in water management.",
+          "sources": []
         }
       }
     }
   ],
   "overall_summary_and_recommendations": {
     "title": "Overall Summary & Recommendations",
-    "key_equity_gaps": "Despite the Clean Water Act's intentions, significant equity gaps persist in the recognition, participation, and support for marginalized communities.",
-    "key_equity_strengths": "There appears to be an acknowledgment of the need for public participation and technical assistance, which could empower communities.",
-    "recommendations": "Enhancements in outreach efforts, identification of vulnerable groups, and the implementation of specific strategies to ensure inclusive participation and equitable resource distribution may benefit all communities.",
-    "sources": [
-      {
-        "type": "openai",
-        "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) An identification of programs (including, as appro­\npriate, nonregulatory or regulatory programs for enforce­\nment, technical assistance, financial assistance, education, \ntraining, technology transfer, and demonstration projects) \nto achieve implementation of the best management prac­\ntices by the categories, subcategories, and particular \nnonpoint sources designated under subparagraph (A). \n...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(iv) coordinating the actions of the Environmental \nProtection Agency with the actions of the appropriate \nofficials of other Federal agencies and State and local \nauthorities in developing strategies to— \n\n(I) improve the water quality and living re­\nsources in the Chesapeake Bay ecosystem; and \n\n(II) obtain the support of the appropriate offi­\ncials of the agencies and authorities in achieving \n...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(ii) adequate oil and hazardous substance pollu­\ntion control equipment and material; and \n\n(iii) a detailed oil and hazardous substance pollu­\ntion and prevention plan, including measures to pro­\ntect fisheries and wildlife. \n(D) A system of surveillance and notice designed to \n\nsafeguard against as well as ensure earliest possible notice \nof discharges of oil and hazardous substances and immi­\nn...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(2)(A) identify, in terms of amounts of constituents and \nchemical, physical, and biological characteristics of pollutants, \nthe degree of effluent reduction attainable through the applica­\ntion of the best control measures and practices achievable in­\ncluding treatment techniques, process and procedure innova­\ntions, operating methods, and other alternatives for classes \nand categories of point s...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>November 27, 2002 \n\n\n\nQ:\\COMP\\WATER2\\CLEANWAT.001\n \n\nSec. 118 FEDERAL WATER POLLUTION CONTROL ACT 32 \n\nproved organization and definition of mission on the part of the \nAgency, funding of State grants for pollution control in the \nGreat Lakes area, and improved accountability for implemen­\ntation of such agreement. \n\n(3) DEFINITIONS.—For purposes of this section, the term— \n(A) ‘‘Agency’’ means th...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>graph (1) shall be provided on the condition that non-Federal \nsources provide the remainder of eligible project costs, as deter­\nmined by the Administrator. \n\n(4) ADMINISTRATIVE COSTS.—Administrative costs shall not \nexceed 10 percent of the annual grant award. \n(e) IMPLEMENTATION AND MONITORING GRANTS.— \n\n(1) IN GENERAL.—If a signatory jurisdiction has approved \nand committed to implement all or...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>resources, including grasses, benthos, phytoplankton, \nzooplankton, fish, and shellfish; \n\n(B) establish to the extent practicable the rates of re­\ncovery of the living resources in response to improved \nwater quality condition; \n\n(C) evaluate and assess interactions of species, with \nparticular attention to the impact of changes within and \namong trophic levels; and \n\n(D) recommend management act...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(B) CONSIDERATIONS.—In promulgating standards \nunder this paragraph, the Administrator and the Secretary \nof Defense shall take into consideration the matters set \nforth in paragraph (2)(B). \n\n(C) CLASSES, TYPES, AND SIZES OF VESSELS.—The \nstandards promulgated under this paragraph may— \n\n(i) distinguish among classes, types, and sizes of \nvessels; \n\n(ii) distinguish between new and existing vesse...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(l) COLLECTION OF INFORMATION.—The Administrator shall col­\nlect and make available, through publications and other appro­\npriate means, information pertaining to management practices and \nimplementation methods, including, but not limited to, (1) informa­\ntion concerning the costs and relative efficiencies of best manage­\nment practices for reducing nonpoint source pollution; and (2) \navailable d...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from d9404d47-282b-4fb4-afa5-955d6a3e698a_clean-water-act-1972.pdf:\n<blockquote>(7) 5-YEAR STUDY AND DEMONSTRATION PROJECTS.—(A) The \nProgram Office shall carry out a five-year study and dem­\nonstration projects relating to the control and removal of toxic \npollutants in the Great Lakes, with emphasis on the removal \nof toxic pollutants from bottom sediments. In selecting loca­\ntions for conducting demonstration projects under this para­\ngraph, priority consideration shall be...</blockquote>"
-      }
-    ]
+    "key_equity_gaps": "While historical injustices are acknowledged, clear actionable commitments to ensure equitable outcomes need to be elaborated.",
+    "key_equity_strengths": "The commitment to recognizing diverse community needs and prioritizing historically disadvantaged groups indicates a positive step toward addressing inequities.",
+    "recommendations": "It is recommended to refine strategies for engaging various stakeholders inclusively and create clearer frameworks for implementing equitable resource distribution.",
+    "sources": []
   },
   "analysis_status": "completed",
   "analysis_error": null
