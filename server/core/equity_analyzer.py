@@ -352,6 +352,7 @@ def format_analyses_into_json(raw_analyses: Dict[str, Dict[str, Any]], filename:
     - Follow the exact JSON schema provided.
     - Do not alter keys, add fields, or change nesting.
     - Keep "id", "source", and "document" as `"..."`.
+    - **DO NOT ADD ANY SOURCE INFORMATION OR CITATIONS TO THE TEXT FIELDS OR THE 'sources' ARRAYS.** The 'sources' arrays in the JSON skeleton will be populated separately by Python.
 
     4. **Perspective Sections**
     - Under `overall_analysis_by_perspective`, keep one entry per stakeholder group:
