@@ -2,10 +2,19 @@
   "id": "2592b37d-5361-4945-b1c4-7018748448e4",
   "source": "preprocessed",
   "document": {
-    "filename": "sustainable-groundwater-managment-act.pdf",
-    "title": "Sustainable Groundwater Managment Act",
+    "filename": "sgma.pdf",
+    "title": "sgma.pdf",
     "size_kb": 541,
-    "upload_date_utc": "2025-08-20T02:17:07Z"
+    "upload_date_utc": "2025-10-27T23:59:05Z"
+  },
+  "test_fields": {
+    "test_pic": "head-polmak.png",
+    "test_subject": "Water Resource Management",
+    "test_title": "Sustainable Groundwater Management Act",
+    "test_short_caption": "Equity in Water Management",
+    "test_long_caption": "An equity analysis of California's Sustainable Groundwater Management Act focusing on diverse community impacts and historical injustices",
+    "test_date": "",
+    "test_scope": "state"
   },
   "overall_analysis_by_perspective": [
     {
@@ -14,221 +23,53 @@
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Policy Makers",
-          "summary": "The Sustainable Groundwater Management Act (SGMA) contains elements aimed at promoting equity but may have areas needing further detail and concrete actions to optimize its effectiveness.",
+          "summary": "The document outlines the need for inclusive water governance, recognizing historical injustices but lacking detailed execution examples.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "The document appears to recognize the interests of various stakeholders, including disadvantaged communities and Indigenous groups, which could suggest a commitment to inclusivity.",
-            "concerns": "However, it lacks specific mechanisms to ensure these groups are genuinely heard in decision-making processes.",
-            "conclusion": "This might indicate a gap in fully achieving recognitional equity."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Diverse Acknowledgment",
+            "findings": "Suggests awareness of historical injustices affecting marginalized communities."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "The Act mandates public notification and participation, which may suggest an intention to foster inclusive decision-making.",
-            "concerns": "Yet, the absence of detailed strategies for addressing barriers to participation raises concerns about the effectiveness of these measures.",
-            "conclusion": "This might imply systematic gaps in ensuring effective inclusion."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Access and Inclusivity",
+            "findings": "Indicates frameworks for fair decision-making processes, yet lacks implementation details."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "The emphasis on prioritizing historically disadvantaged communities could indicate a commitment to equitable distributions.",
-            "concerns": "However, the lack of specific metrics or guidelines for assessing distributional impacts might limit the effectiveness of these intentions.",
-            "conclusion": "This suggests challenges in translating the aims of distributional equity into actionable outcomes."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Equitable Allocation",
+            "findings": "Commits to prioritizing disadvantaged communities, but execution metrics lack clarity."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "The Act acknowledges systemic barriers affecting disadvantaged communities, which might suggest a commitment to addressing these issues.",
-            "concerns": "Yet, there appears to be a lack of detailed strategies for dismantling such barriers.",
-            "conclusion": "This could indicate the need for more comprehensive actions to achieve structural equity."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Addressing Barriers",
+            "findings": "Acknowledges systemic barriers but provides few actionable strategies for change."
           },
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>CHAPTER  5. Powers and Authorities .............................................................................................. 26 \n\n10725. Authority Pursuant to This Part Supplementary to Existing Powers .............................. 26 \n\n10725.2. Authority of Groundwater Sustainability Agency; Notice ........................................... 26 \n\n10725.4. Investigations .......................</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(K) North Fork Kings Groundwater Sustainability Agency. \n\n(JL) Ojai Groundwater Management Agency. \n\n(KM) Orange County Water District. \n\n(LN) Pajaro Valley Water Management Agency. \n\n(O) San Joaquin River Exchange Contractors Groundwater Sustainability Agency. \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 23 \nAs Effective January 1, 2019 \n\n(MP) Santa Clara...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10728.2. Periodic Review and Assessment ................................................................................. 34 \n\n10728.4. Adoption or Amendment of Plan Following Public Hearing ........................................ 34 \n\n10728.6. CEQA Not Applicable to Plan Preparation and Adoption ............................................ 35 \n\nCHAPTER  7. Technical Assistance .....................</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Sustainable Groundwater Management Act, and related provisions (as chaptered) Page 32 \nAs Effective January 1, 2019 \n\n(4) The plan may, but is not required to, address undesirable results that occurred before, and have \nnot been corrected by, January 1, 2015. Notwithstanding paragraphs (1) to (3), inclusive, a \ngroundwater sustainability agency has discretion as to whether to set measurable object...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Sustainable Groundwater Management Act, and related provisions (as chaptered) Page 18 \nAs Effective January 1, 2019 \n\n(m) “In-lieu use” means the use of surface water by persons that could otherwise extract groundwater \nin order to leave groundwater in the basin. \n\n(n) “Local agency” means a local public agency that has water supply, water management, or land use \nresponsibilities within a groundw...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Nothing in this part modifies rights or priorities to use or store groundwater \nconsistent with Section 2 of Article X of the California Constitution, except that in basins designated \nmedium- or high-priority basins by the department, no extraction of groundwater between January 1, \n2015, and the date of adoption of a groundwater sustainability plan pursuant to this part, or the \napproval by the ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>CHAPTER  4. Establishing Groundwater Sustainability Agencies 22\n\t10723. Election of Groundwater Sustainability Agency; Statutorily Designated Agencies and Opt Out Provision 22\n\t10723.2. Consideration of All Interests of All Beneficial Uses and Users of Groundwater 23\n\t10723.4. Maintenance of Interested Persons List 24\n\t10723.6. Collective Action to Serve as Groundwater Sustainability Agency; Parti...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>can be relied on as part of the interim plan, either throughout the basin or in an area within the basin, \nthe board may rely on, or incorporate elements of, that adjudication into the interim plan adopted by \nthe board. \n\n(f) In carrying out activities that may affect the probationary basin, state entities shall comply with an \ninterim plan adopted by the board pursuant to this section unless oth...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(3) A groundwater sustainability agency with statutory authority to manage groundwater pursuant \nto Part 2.74 (commencing with Section 10720).  \n\n(c) A local agency that is managing all or part of a groundwater basin or subbasin pursuant to Part 2.75 \n(commencing with Section 10750) and that was monitoring groundwater elevations in all or a part of a \ngroundwater basin or subbasin on or before Jan...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>* * * \n\n\n\tUncodified Findings 1\n\tGovernment Code 2\n\t65350.5. Review and Consideration of Groundwater Requirements 2\n\t65352. Referral of Proposed General Plan Updates to Other Agencies 3\n\t65352.5. Requirement to Provide Water-Related Documents to General Plan Agency 4\n\n\tWater Code 6\n\tDivision 1. General State Powers Over Water 6\n\t113. State Policy of Sustainable, Local Groundwater Management 6\n\t348...</blockquote>"
-            }
-          ]
+          "sources": []
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Policy Makers",
-          "summary": "The Act appears to consider several vulnerable groups, recognizing their unique needs in groundwater management.",
-          "identified_groups_and_impacts": "Vulnerable groups include disadvantaged communities, California Native American tribes, and low-income households that may lack access to reliable water sources.",
-          "equity_assessment_summary": "The Act recognizes these groups but may not fully delve into their specific challenges.",
-          "conclusion": "This suggests a need for further elaboration on the barriers faced by these communities.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10728.4. ADOPTION OR AMENDMENT OF PLAN FOLLOWING PUBLIC HEARING \nA groundwater sustainability agency may adopt or amend a groundwater sustainability plan after a \npublic hearing, held at least 90 days after providing notice to a city or county within the area of the \nproposed plan or amendment. The groundwater sustainability agency shall review and consider \n\n\n\nSustainable Groundwater Management A...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(K) North Fork Kings Groundwater Sustainability Agency. \n\n(JL) Ojai Groundwater Management Agency. \n\n(KM) Orange County Water District. \n\n(LN) Pajaro Valley Water Management Agency. \n\n(O) San Joaquin River Exchange Contractors Groundwater Sustainability Agency. \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 23 \nAs Effective January 1, 2019 \n\n(MP) Santa Clara...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(c) (1) The determination may exclude a class or category of extractions from the requirement for \nreporting pursuant to Part 5.2 (commencing with Section 5200) of Division 2 if those extractions are \nsubject to a local plan or program that adequately manages groundwater within the portion of the \nbasin to which that plan or program applies, or if those extractions are likely to have a minimal \nim...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(c) Upon receipt of a groundwater sustainability plan, the department shall post the plan on the \ndepartment’s Internet Web site and provide 60 days for persons to submit comments to the department \nabout the plan. \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 42 \nAs Effective January 1, 2019 \n\n(d) The department shall evaluate the groundwater sustainabilit...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(b) This section does not apply to a low- or very low priority basin as categorized for the purposes of Part \n2.74 (commencing with Section 10720). \n\n(c) This section does not apply to a plan submitted as an alternative pursuant to Section 10733.6, unless \nthe department has not determined that the alternative satisfies the objectives of Part 2.74 \n(commencing with Section 10720) on or before Janu...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>* * * \n\n\n\tUncodified Findings 1\n\tGovernment Code 2\n\t65350.5. Review and Consideration of Groundwater Requirements 2\n\t65352. Referral of Proposed General Plan Updates to Other Agencies 3\n\t65352.5. Requirement to Provide Water-Related Documents to General Plan Agency 4\n\n\tWater Code 6\n\tDivision 1. General State Powers Over Water 6\n\t113. State Policy of Sustainable, Local Groundwater Management 6\n\t348...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>The groundwater sustainability agency may \nappoint and consult with an advisory committee consisting of interested parties for the purposes of \ndeveloping and implementing a groundwater sustainability plan. The groundwater sustainability agency \nshall encourage the active involvement of diverse social, cultural, and economic elements of the \npopulation within the groundwater basin prior to and dur...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(d) AThe decision of a local agency or combination of local agencies that elects to be thebecome a \ngroundwater sustainability agency shall submit a notice of intent to the department, which shall be \nposted pursuant to Section 10733.3. The notice of intent shall include a description of the proposed \nboundaries of the basin or portion of the basin that the local agency or combination of local age...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10720.1. LEGISLATIVE INTENT \nIn enacting this part, it is the intent of the Legislature to do all of the following: \n\n(a) To provide for the sustainable management of groundwater basins. \n\n(b) To enhance local management of groundwater consistent with rights to use or store groundwater \nand Section 2 of Article X of the California Constitution. It is the intent of the Legislature to preserve the \n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(b) “”Person” means any person, firm, association, organization, partnership, business, trust, \ncorporation, limited liability company, or public agency, including any city, county, city and county, \ndistrict, joint powers authority, state, or any agency or department of those entities. “Person” includes, \nto the extent authorized by federal or tribal law and subject to the limitations described i...</blockquote>"
-            }
-          ]
+          "summary": "Highlights the challenges faced by vulnerable groups, indicating recognition but insufficient actionable solutions.",
+          "identified_groups_and_impacts": "Low-income communities, racial and ethnic minorities, and Indigenous tribes are emphasized as particularly vulnerable.",
+          "equity_assessment_summary": "Indicates an awareness of their challenges but lacks depth in addressing specific needs.",
+          "conclusion": "Stresses the need for more robust strategies to mitigate impacts on vulnerable groups.",
+          "sources": []
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Policy Makers",
-          "summary": "The legislation outlines critical impacts and concerns related to groundwater management.",
-          "high_severity_impacts": "Potentially severe impacts include groundwater depletion and degradation of water quality, particularly affecting vulnerable communities.",
-          "moderate_severity_impacts": "Increased costs for water management could pose economic challenges for low-income residents.",
-          "equity_implications_of_impacts": "The impacts might disproportionately affect disadvantaged communities, indicating the need for targeted interventions.",
-          "conclusion": "This may imply a need for attentive monitoring of impacts to protect vulnerable populations.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(2)  The basin is subject to paragraph (1) of subdivision (a) of Section 10720.7, and after January 31, \n2020, none of the following have occurred: \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 44 \nAs Effective January 1, 2019 \n\n(A)  A groundwater sustainability agency has adopted a groundwater sustainability plan for the \nentire basin. \n\n(B)  A collection ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(d) Penalties imposed pursuant to this section are in addition to any civil penalty or criminal fine under \nany other law. \n\n10732.2. STATE ENTITY COOPERATION \nIf a groundwater sustainability agency finds that a state entity is not working cooperatively regarding \nimplementation of a groundwater sustainability plan, the groundwater sustainability agency may file \nnotice with the board regarding it...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(b) The department may provide technical assistance to any groundwater sustainability agency in \nresponse to that agency’s request for assistance in the development and implementation of a \ngroundwater sustainability plan. The department shall use its best efforts to provide the requested \nassistance. \n\n(c) The department shall prepare and publish a report by December 31, 2016, on its Internet Web...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(e) Before adopting and finalizing the regulations pursuant to this section, the department shall \nconduct three public meetings to consider public comments. The department shall publish the draft \nregulations on its Internet Web site at least 30 days before the public meetings. One meeting shall be \nconducted at a location in northern California, one meeting shall be conducted at a location in th...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(3) A groundwater sustainability agency with statutory authority to manage groundwater pursuant \nto Part 2.74 (commencing with Section 10720).  \n\n(c) A local agency that is managing all or part of a groundwater basin or subbasin pursuant to Part 2.75 \n(commencing with Section 10750) and that was monitoring groundwater elevations in all or a part of a \ngroundwater basin or subbasin on or before Jan...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(f) A county that is not managing all or a part of a groundwater basin or subbasin pursuant to a legally \nenforceable groundwater management plan with provisions that are substantively similar to those \ndescribed in Part 2.75 (commencing with Section 10750). \n\n(g) A voluntary cooperative groundwater monitoring association formed pursuant to Section 10935. \n\n* * * \n\n10933. GROUNDWATER ELEVATION MON...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(2) Groundwater provides a significant portion of California’s water supply. Groundwater accounts \nfor more than one-third of the water used by Californians in an average year and more than one-half \nof the water used by Californians in a drought year when other sources are unavailable. \n\n(3) Excessive groundwater extraction can cause overdraft, failed wells, deteriorated water quality, \nenvironme...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(j) Efforts to develop relationships with state and federal regulatory agencies. \n\n(k) Processes to review land use plans and efforts to coordinate with land use planning agencies to \nassess activities that potentially create risks to groundwater quality or quantity. \n\n(l) Impacts on groundwater dependent ecosystems. \n\n10727.6. REQUIREMENTS FOR COORDINATED PLANS, WHEN MULTIPLE PLANS COVER A BASIN ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(C) The department has approved an alternative pursuant to Section 10733.6. \n\n(5) The basin is subject to paragraph (2) of subdivision (a) of Section 10720.7, and either of the \nfollowing have occurred: \n\n(A) After January 31, 2022, both of the following have occurred: \n\n(i) The department, in consultation with the board, determines that a groundwater \nsustainability plan is inadequate or that the...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(1) The current version of its urban water management plan, adopted pursuant to Part 2.6 \n(commencing with Section 10610) of Division 6 of the Water Code. \n\n(2) The current version of its capital improvement program or plan, as reported pursuant to Section \n31144.73 of the Water Code. \n\n(3) A description of the source or sources of the total water supply currently available to the water \nsupplier ...</blockquote>"
-            }
-          ]
+          "summary": "Examines the potential severe impacts of policies on marginalized communities, focusing on the risk of exacerbated inequities.",
+          "high_severity_impacts": "Stricter regulations may disproportionately burden small farmers and disadvantaged areas.",
+          "moderate_severity_impacts": "Possible negative effects could emerge from increased compliance costs across various community sectors.",
+          "equity_implications_of_impacts": "Indicates significant risks for marginalized stakeholders without tailored support systems.",
+          "conclusion": "Recommends ongoing monitoring and adaptation to minimize adverse effects.",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Policy Makers",
-          "summary": "The Act outlines several strategies aimed at effectively addressing equity concerns in groundwater management.",
-          "identified_strategies": "Strategies include public notification, representation in advisory committees, and data transparency regarding groundwater extraction.",
-          "equity_assessment": "While these strategies seem to recognize the unique needs of various stakeholders, their effectiveness may depend on local commitment to implementation.",
-          "conclusion": "Addressing systemic issues remains a concern and requires ongoing evaluation.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(j) Efforts to develop relationships with state and federal regulatory agencies. \n\n(k) Processes to review land use plans and efforts to coordinate with land use planning agencies to \nassess activities that potentially create risks to groundwater quality or quantity. \n\n(l) Impacts on groundwater dependent ecosystems. \n\n10727.6. REQUIREMENTS FOR COORDINATED PLANS, WHEN MULTIPLE PLANS COVER A BASIN ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>* * * \n\n\n\tUncodified Findings 1\n\tGovernment Code 2\n\t65350.5. Review and Consideration of Groundwater Requirements 2\n\t65352. Referral of Proposed General Plan Updates to Other Agencies 3\n\t65352.5. Requirement to Provide Water-Related Documents to General Plan Agency 4\n\n\tWater Code 6\n\tDivision 1. General State Powers Over Water 6\n\t113. State Policy of Sustainable, Local Groundwater Management 6\n\t348...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(1) The current version of its urban water management plan, adopted pursuant to Part 2.6 \n(commencing with Section 10610) of Division 6 of the Water Code. \n\n(2) The current version of its capital improvement program or plan, as reported pursuant to Section \n31144.73 of the Water Code. \n\n(3) A description of the source or sources of the total water supply currently available to the water \nsupplier ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(2)  The basin is subject to paragraph (1) of subdivision (a) of Section 10720.7, and after January 31, \n2020, none of the following have occurred: \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 44 \nAs Effective January 1, 2019 \n\n(A)  A groundwater sustainability agency has adopted a groundwater sustainability plan for the \nentire basin. \n\n(B)  A collection ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(2) Groundwater provides a significant portion of California’s water supply. Groundwater accounts \nfor more than one-third of the water used by Californians in an average year and more than one-half \nof the water used by Californians in a drought year when other sources are unavailable. \n\n(3) Excessive groundwater extraction can cause overdraft, failed wells, deteriorated water quality, \nenvironme...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10720.1. LEGISLATIVE INTENT \nIn enacting this part, it is the intent of the Legislature to do all of the following: \n\n(a) To provide for the sustainable management of groundwater basins. \n\n(b) To enhance local management of groundwater consistent with rights to use or store groundwater \nand Section 2 of Article X of the California Constitution. It is the intent of the Legislature to preserve the \n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(d) AThe decision of a local agency or combination of local agencies that elects to be thebecome a \ngroundwater sustainability agency shall submit a notice of intent to the department, which shall be \nposted pursuant to Section 10733.3. The notice of intent shall include a description of the proposed \nboundaries of the basin or portion of the basin that the local agency or combination of local age...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>The department shall adopt the regulations, including any amendments thereto, authorized by \nthis section as emergency regulations in accordance with the Administrative Procedure Act (Chapter 3.5 \n(commencing with Section 11340) of Part 1 of Division 3 of Title 2 of the Government Code). The \nadoption of these regulations is an emergency and shall be considered by the Office of Administrative \nLaw...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(d) Penalties imposed pursuant to this section are in addition to any civil penalty or criminal fine under \nany other law. \n\n10732.2. STATE ENTITY COOPERATION \nIf a groundwater sustainability agency finds that a state entity is not working cooperatively regarding \nimplementation of a groundwater sustainability plan, the groundwater sustainability agency may file \nnotice with the board regarding it...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Sustainable Groundwater Management Act, and related provisions (as chaptered) Page i \nAs Effective January 1, 2019 \n\nSustainable Groundwater Management Act \n[And Related Statutory Provisions from  \n\nSB1168 (Pavley), AB1739 (Dickinson), and SB1319 (Pavley) \nas Chaptered] \n\n \n\n \n \n\nTable of Contents \nUncodified Findings....................................................................................</blockquote>"
-            }
-          ]
+          "summary": "Discusses inferred strategies aimed at enhancing equity but lacks specificity and actionable detail.",
+          "identified_strategies": "Inclusive community engagement and prioritization of resource allocation for historically disadvantaged groups are noted.",
+          "equity_assessment": "Indicates an understanding of fairness yet questions remain on effectiveness and execution.",
+          "conclusion": "Calls for clearer implementation plans to ensure strategies are not merely theoretical.",
+          "sources": []
         }
       }
     },
@@ -238,221 +79,53 @@
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Residents",
-          "summary": "The SGMA may provide a foundational framework to promote equity, but gaps in representation and implementation could affect vulnerable populations.",
+          "summary": "Overall, the document identifies critical principles targeting equitable water distribution but needs clarification on implementation.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "The Act seemingly recognizes disadvantaged communities by including them in decision-making requirements.",
-            "concerns": "However, the effectiveness of this recognition might depend on how well these communities are actually represented.",
-            "conclusion": "This suggests a need for stronger mechanisms to ensure their influences are felt in policy."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Historical Awareness",
+            "findings": "Acknowledges historic injustices but lacks depth in community recognition."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "Public participation requirements may imply an intent to foster inclusivity.",
-            "concerns": "The document does not clarify how outreach to vulnerable populations will occur, raising questions about real effective engagement.",
-            "conclusion": "This may indicate a risk of missing voices in the decision-making process."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Community Participation",
+            "findings": "Encourages participatory processes but lacks specific engagement mechanisms."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "There appears to be an emphasis on fair access to groundwater resources for disadvantaged groups.",
-            "concerns": "However, without specific metrics for assessing how these resources are allocated, equitable outcomes may be elusive.",
-            "conclusion": "This raises concerns about potential disparities in resource access."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Fair Resource Allocation",
+            "findings": "Commits to equitable distribution; however, details on actual implementation are vague."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "Acknowledgment of historical injustices in groundwater use may indicate awareness of structural barriers.",
-            "concerns": "Yet, there lacks sufficient detail on how these will be directly addressed.",
-            "conclusion": "This suggests the need for more comprehensive strategies for true structural equity."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Systemic Barriers",
+            "findings": "Recognizes systemic issues but lacks comprehensive strategies for dismantling these barriers."
           },
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10728.2. Periodic Review and Assessment ................................................................................. 34 \n\n10728.4. Adoption or Amendment of Plan Following Public Hearing ........................................ 34 \n\n10728.6. CEQA Not Applicable to Plan Preparation and Adoption ............................................ 35 \n\nCHAPTER  7. Technical Assistance .....................</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Sustainable Groundwater Management Act, and related provisions (as chaptered) Page 32 \nAs Effective January 1, 2019 \n\n(4) The plan may, but is not required to, address undesirable results that occurred before, and have \nnot been corrected by, January 1, 2015. Notwithstanding paragraphs (1) to (3), inclusive, a \ngroundwater sustainability agency has discretion as to whether to set measurable object...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>CHAPTER  5. Powers and Authorities .............................................................................................. 26 \n\n10725. Authority Pursuant to This Part Supplementary to Existing Powers .............................. 26 \n\n10725.2. Authority of Groundwater Sustainability Agency; Notice ........................................... 26 \n\n10725.4. Investigations .......................</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Nothing in this part modifies rights or priorities to use or store groundwater \nconsistent with Section 2 of Article X of the California Constitution, except that in basins designated \nmedium- or high-priority basins by the department, no extraction of groundwater between January 1, \n2015, and the date of adoption of a groundwater sustainability plan pursuant to this part, or the \napproval by the ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(K) North Fork Kings Groundwater Sustainability Agency. \n\n(JL) Ojai Groundwater Management Agency. \n\n(KM) Orange County Water District. \n\n(LN) Pajaro Valley Water Management Agency. \n\n(O) San Joaquin River Exchange Contractors Groundwater Sustainability Agency. \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 23 \nAs Effective January 1, 2019 \n\n(MP) Santa Clara...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>5201. Definitions ........................................................................................................................... 9 \n\n5202. Applicability of Extraction Reporting Requirements ........................................................ 10 \n\n5203. Extraction Reporting Requirements.................................................................................. 11 \n\n5204. Fa...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(3) A groundwater sustainability agency with statutory authority to manage groundwater pursuant \nto Part 2.74 (commencing with Section 10720).  \n\n(c) A local agency that is managing all or part of a groundwater basin or subbasin pursuant to Part 2.75 \n(commencing with Section 10750) and that was monitoring groundwater elevations in all or a part of a \ngroundwater basin or subbasin on or before Jan...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>CHAPTER  4. Establishing Groundwater Sustainability Agencies 22\n\t10723. Election of Groundwater Sustainability Agency; Statutorily Designated Agencies and Opt Out Provision 22\n\t10723.2. Consideration of All Interests of All Beneficial Uses and Users of Groundwater 23\n\t10723.4. Maintenance of Interested Persons List 24\n\t10723.6. Collective Action to Serve as Groundwater Sustainability Agency; Parti...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(c) “Bulletin 118” means the department’s report entitled “California’s Groundwater: Bulletin 118” \nupdated in 2003, as it may be subsequently updated or revised in accordance with Section 12924. \n\n(d) “Coordination agreement” means a legal agreement adopted between two or more groundwater \nsustainability agencies that provides the basis for coordinating multiple agencies or groundwater \nsustainab...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(c) The federal government or any federally recognized Indian tribe, appreciating the shared interest in \nassuring the sustainability of groundwater resources, may voluntarily agree to participate in the \npreparation or administration of a groundwater sustainability plan or groundwater management plan \nunder this part through a joint powers authority or other agreement with local agencies in the b...</blockquote>"
-            }
-          ]
+          "sources": []
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Residents",
-          "summary": "The SGMA recognizes various vulnerable groups but may need to explore their challenges more thoroughly.",
-          "identified_groups_and_impacts": "Disadvantaged communities, low-income households, and Native American tribes are identified, highlighting their unique vulnerabilities.",
-          "equity_assessment_summary": "The Act aims to promote equitable water management but lacks clarity on prioritizing the needs of these groups.",
-          "conclusion": "Overall, further details are suggested for truly equitable representation in groundwater management.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(3) A groundwater sustainability agency with statutory authority to manage groundwater pursuant \nto Part 2.74 (commencing with Section 10720).  \n\n(c) A local agency that is managing all or part of a groundwater basin or subbasin pursuant to Part 2.75 \n(commencing with Section 10750) and that was monitoring groundwater elevations in all or a part of a \ngroundwater basin or subbasin on or before Jan...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Sustainable Groundwater Management Act, and related provisions (as chaptered) Page 32 \nAs Effective January 1, 2019 \n\n(4) The plan may, but is not required to, address undesirable results that occurred before, and have \nnot been corrected by, January 1, 2015. Notwithstanding paragraphs (1) to (3), inclusive, a \ngroundwater sustainability agency has discretion as to whether to set measurable object...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(1) The current version of its urban water management plan, adopted pursuant to Part 2.6 \n(commencing with Section 10610) of Division 6 of the Water Code. \n\n(2) The current version of its capital improvement program or plan, as reported pursuant to Section \n31144.73 of the Water Code. \n\n(3) A description of the source or sources of the total water supply currently available to the water \nsupplier ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(c) (1) The determination may exclude a class or category of extractions from the requirement for \nreporting pursuant to Part 5.2 (commencing with Section 5200) of Division 2 if those extractions are \nsubject to a local plan or program that adequately manages groundwater within the portion of the \nbasin to which that plan or program applies, or if those extractions are likely to have a minimal \nim...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(1) The prohibition set forth in Section 1052 against the unauthorized diversion or use of water \nsubject to this division. \n\n(2) Any term or condition of a permit, license, certification, or registration issued under this division. \n\n(3) Any decision or order of the board issued under this part, Section 275, Chapter 11 (commencing \nwith Section 10735) of Part 2.74 of Division 6, or Article 7 (com...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(d) AThe decision of a local agency or combination of local agencies that elects to be thebecome a \ngroundwater sustainability agency shall submit a notice of intent to the department, which shall be \nposted pursuant to Section 10733.3. The notice of intent shall include a description of the proposed \nboundaries of the basin or portion of the basin that the local agency or combination of local age...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(e) The board shall exclude from probationary status any portion of a basin for which a groundwater \nsustainability agency demonstrates compliance with the sustainability goal. \n\n10735.4. OPPORTUNITY FOR REMEDY OF ABSENCE OF LOCAL GOVERNANCE BEFORE STATE WATER BOARD PREPARES \nINTERIM PLAN \n(a) If the board designates a basin as a probationary basin pursuant to paragraph (1), (2), or (24) of \nsubdi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(vw) “Sustainable yield” means the maximum quantity of water, calculated over a base period \nrepresentative of long-term conditions in the basin and including any temporary surplus, that can be \nwithdrawn annually from a groundwater supply without causing an undesirable result. \n\n(wx) “Undesirable result” means one or more of the following effects caused by groundwater conditions \noccurring throug...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(c) The federal government or any federally recognized Indian tribe, appreciating the shared interest in \nassuring the sustainability of groundwater resources, may voluntarily agree to participate in the \npreparation or administration of a groundwater sustainability plan or groundwater management plan \nunder this part through a joint powers authority or other agreement with local agencies in the b...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10728.4. ADOPTION OR AMENDMENT OF PLAN FOLLOWING PUBLIC HEARING \nA groundwater sustainability agency may adopt or amend a groundwater sustainability plan after a \npublic hearing, held at least 90 days after providing notice to a city or county within the area of the \nproposed plan or amendment. The groundwater sustainability agency shall review and consider \n\n\n\nSustainable Groundwater Management A...</blockquote>"
-            }
-          ]
+          "summary": "Highlights major challenges faced by vulnerable groups but lacks comprehensive solutions.",
+          "identified_groups_and_impacts": "Identifies low-income renters and marginalized communities struggling with water access.",
+          "equity_assessment_summary": "Acknowledges the need for equitable solutions yet lacks specific actionable recommendations.",
+          "conclusion": "Emphasizes the importance of tailored strategies for vulnerable populations.",
+          "sources": []
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Residents",
-          "summary": "The Act outlines potential severe impacts on vulnerable communities regarding water quality and availability.",
-          "high_severity_impacts": "Significant health and economic effects could arise from water quality degradation and groundwater depletion.",
-          "moderate_severity_impacts": "Economic burdens from increased management costs could exacerbate existing inequalities.",
-          "equity_implications_of_impacts": "The potential negative impacts may disproportionately affect low-income and marginalized communities.",
-          "conclusion": "This suggests a need for proactive measures to protect these populations.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(vw) “Sustainable yield” means the maximum quantity of water, calculated over a base period \nrepresentative of long-term conditions in the basin and including any temporary surplus, that can be \nwithdrawn annually from a groundwater supply without causing an undesirable result. \n\n(wx) “Undesirable result” means one or more of the following effects caused by groundwater conditions \noccurring throug...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(C) The department has approved an alternative pursuant to Section 10733.6. \n\n(5) The basin is subject to paragraph (2) of subdivision (a) of Section 10720.7, and either of the \nfollowing have occurred: \n\n(A) After January 31, 2022, both of the following have occurred: \n\n(i) The department, in consultation with the board, determines that a groundwater \nsustainability plan is inadequate or that the...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(f) A county that is not managing all or a part of a groundwater basin or subbasin pursuant to a legally \nenforceable groundwater management plan with provisions that are substantively similar to those \ndescribed in Part 2.75 (commencing with Section 10750). \n\n(g) A voluntary cooperative groundwater monitoring association formed pursuant to Section 10935. \n\n* * * \n\n10933. GROUNDWATER ELEVATION MON...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(j) Efforts to develop relationships with state and federal regulatory agencies. \n\n(k) Processes to review land use plans and efforts to coordinate with land use planning agencies to \nassess activities that potentially create risks to groundwater quality or quantity. \n\n(l) Impacts on groundwater dependent ecosystems. \n\n10727.6. REQUIREMENTS FOR COORDINATED PLANS, WHEN MULTIPLE PLANS COVER A BASIN ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(3) A groundwater sustainability agency with statutory authority to manage groundwater pursuant \nto Part 2.74 (commencing with Section 10720).  \n\n(c) A local agency that is managing all or part of a groundwater basin or subbasin pursuant to Part 2.75 \n(commencing with Section 10750) and that was monitoring groundwater elevations in all or a part of a \ngroundwater basin or subbasin on or before Jan...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(2) Groundwater provides a significant portion of California’s water supply. Groundwater accounts \nfor more than one-third of the water used by Californians in an average year and more than one-half \nof the water used by Californians in a drought year when other sources are unavailable. \n\n(3) Excessive groundwater extraction can cause overdraft, failed wells, deteriorated water quality, \nenvironme...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(2)  The basin is subject to paragraph (1) of subdivision (a) of Section 10720.7, and after January 31, \n2020, none of the following have occurred: \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 44 \nAs Effective January 1, 2019 \n\n(A)  A groundwater sustainability agency has adopted a groundwater sustainability plan for the \nentire basin. \n\n(B)  A collection ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(1) The current version of its urban water management plan, adopted pursuant to Part 2.6 \n(commencing with Section 10610) of Division 6 of the Water Code. \n\n(2) The current version of its capital improvement program or plan, as reported pursuant to Section \n31144.73 of the Water Code. \n\n(3) A description of the source or sources of the total water supply currently available to the water \nsupplier ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(4) An areawide planning agency whose operations may be significantly affected by the proposed \naction, as determined by the planning agency. \n\n(5) A federal agency, if its operations or lands within its jurisdiction may be significantly affected by \nthe proposed action, as determined by the planning agency. \n\n(6) (A) The branches of the United States Armed Forces that have provided the Office of ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(8) Any other information determined to be relevant by the department, including adverse impacts \non local habitat and local streamflows. \n\n(c) If the department determines that all or part of a basin or subbasin is not being monitored pursuant \nto this part, the department shall do all of the following: \n\n(1) Attempt to contact all well owners within the area not being monitored. \n\n(2) Determine ...</blockquote>"
-            }
-          ]
+          "summary": "Explores the complexity and severity of potential impacts of water management policies on residents.",
+          "high_severity_impacts": "Potential for exacerbating existing inequities among marginalized communities.",
+          "moderate_severity_impacts": "Impacts related to underfunding of water resources in disadvantaged areas.",
+          "equity_implications_of_impacts": "Severity suggests a need for focused interventions to support vulnerable populations.",
+          "conclusion": "Urgent need for measures to mitigate impacts on at-risk communities.",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Residents",
-          "summary": "The SGMA proposes various strategies that could support equitable groundwater management.",
-          "identified_strategies": "Strategies include public participation processes and advisory committees aimed at promoting diversity.",
-          "equity_assessment": "While the strategies may recognize diverse needs, effective implementation remains a concern.",
-          "conclusion": "Ongoing evaluation and commitment to resource accessibility could enhance equity in outcomes.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(j) Efforts to develop relationships with state and federal regulatory agencies. \n\n(k) Processes to review land use plans and efforts to coordinate with land use planning agencies to \nassess activities that potentially create risks to groundwater quality or quantity. \n\n(l) Impacts on groundwater dependent ecosystems. \n\n10727.6. REQUIREMENTS FOR COORDINATED PLANS, WHEN MULTIPLE PLANS COVER A BASIN ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>* * * \n\n\n\tUncodified Findings 1\n\tGovernment Code 2\n\t65350.5. Review and Consideration of Groundwater Requirements 2\n\t65352. Referral of Proposed General Plan Updates to Other Agencies 3\n\t65352.5. Requirement to Provide Water-Related Documents to General Plan Agency 4\n\n\tWater Code 6\n\tDivision 1. General State Powers Over Water 6\n\t113. State Policy of Sustainable, Local Groundwater Management 6\n\t348...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(e) The board shall exclude from probationary status any portion of a basin for which a groundwater \nsustainability agency demonstrates compliance with the sustainability goal. \n\n10735.4. OPPORTUNITY FOR REMEDY OF ABSENCE OF LOCAL GOVERNANCE BEFORE STATE WATER BOARD PREPARES \nINTERIM PLAN \n(a) If the board designates a basin as a probationary basin pursuant to paragraph (1), (2), or (24) of \nsubdi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(1) The current version of its urban water management plan, adopted pursuant to Part 2.6 \n(commencing with Section 10610) of Division 6 of the Water Code. \n\n(2) The current version of its capital improvement program or plan, as reported pursuant to Section \n31144.73 of the Water Code. \n\n(3) A description of the source or sources of the total water supply currently available to the water \nsupplier ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(2)  The basin is subject to paragraph (1) of subdivision (a) of Section 10720.7, and after January 31, \n2020, none of the following have occurred: \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 44 \nAs Effective January 1, 2019 \n\n(A)  A groundwater sustainability agency has adopted a groundwater sustainability plan for the \nentire basin. \n\n(B)  A collection ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(vw) “Sustainable yield” means the maximum quantity of water, calculated over a base period \nrepresentative of long-term conditions in the basin and including any temporary surplus, that can be \nwithdrawn annually from a groundwater supply without causing an undesirable result. \n\n(wx) “Undesirable result” means one or more of the following effects caused by groundwater conditions \noccurring throug...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(2) Groundwater provides a significant portion of California’s water supply. Groundwater accounts \nfor more than one-third of the water used by Californians in an average year and more than one-half \nof the water used by Californians in a drought year when other sources are unavailable. \n\n(3) Excessive groundwater extraction can cause overdraft, failed wells, deteriorated water quality, \nenvironme...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>The department shall adopt the regulations, including any amendments thereto, authorized by \nthis section as emergency regulations in accordance with the Administrative Procedure Act (Chapter 3.5 \n(commencing with Section 11340) of Part 1 of Division 3 of Title 2 of the Government Code). The \nadoption of these regulations is an emergency and shall be considered by the Office of Administrative \nLaw...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(d) AThe decision of a local agency or combination of local agencies that elects to be thebecome a \ngroundwater sustainability agency shall submit a notice of intent to the department, which shall be \nposted pursuant to Section 10733.3. The notice of intent shall include a description of the proposed \nboundaries of the basin or portion of the basin that the local agency or combination of local age...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(d) Penalties imposed pursuant to this section are in addition to any civil penalty or criminal fine under \nany other law. \n\n10732.2. STATE ENTITY COOPERATION \nIf a groundwater sustainability agency finds that a state entity is not working cooperatively regarding \nimplementation of a groundwater sustainability plan, the groundwater sustainability agency may file \nnotice with the board regarding it...</blockquote>"
-            }
-          ]
+          "summary": "Suggests strategies for equity but lacks actionable steps toward implementation.",
+          "identified_strategies": "Emphasizes community engagement, accessibility to data, and infrastructure funding.",
+          "equity_assessment": "Calls for thorough evaluation of impacts on vulnerable communities.",
+          "conclusion": "Recommendations include increasing community input in policy-making.",
+          "sources": []
         }
       }
     },
@@ -462,312 +135,63 @@
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Farmers/Business Owners",
-          "summary": "The SGMA acknowledges diverse stakeholder interests but may not fully address the unique challenges faced by smaller operators.",
+          "summary": "Evaluates the impact of SGMA on small farmers, focusing on compliance costs and operational challenges.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "The Act recognizes the diverse needs of agricultural users and disadvantaged communities.",
-            "concerns": "However, smaller operators may not be prioritized adequately, suggesting a gap in recognitional equity.",
-            "conclusion": "This may indicate the need for enhanced focus on smaller farmers’ voices."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Acknowledging Needs",
+            "findings": "Indicates a lack of tailored recognition for smaller operations within the policy framework."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "Mandated public participation could indicate a commitment to fair processes.",
-            "concerns": "Yet varying levels of technical expertise among stakeholders might limit smaller farm engagement, which raises equity concerns.",
-            "conclusion": "This suggests potential risks underrepresenting smaller farmers in discussions."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Engagement Opportunities",
+            "findings": "Highlights procedural elements but questions accessibility for small operators."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "The Act appears committed to equitable resource distribution, particularly for marginalized communities.",
-            "concerns": "Nevertheless, compliance costs may disproportionately impact small farmers, potentially exacerbating existing inequities.",
-            "conclusion": "This indicates a need for financial assistance strategies for smaller operators."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Equity in Funding",
+            "findings": "Potential for funding disparities that disadvantage small farmers."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "Provisions for technical assistance may support small operators in compliance.",
-            "concerns": "However, the Act may not sufficiently tackle systemic issues that could hinder small farmer success.",
-            "conclusion": "This suggests that addressing historical inequities is crucial to achieving true structural equity."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Systemic Challenges",
+            "findings": "Underscores systemic barriers affecting smaller agricultural enterprises."
           },
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Sustainable Groundwater Management Act, and related provisions (as chaptered) Page 32 \nAs Effective January 1, 2019 \n\n(4) The plan may, but is not required to, address undesirable results that occurred before, and have \nnot been corrected by, January 1, 2015. Notwithstanding paragraphs (1) to (3), inclusive, a \ngroundwater sustainability agency has discretion as to whether to set measurable object...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(3) A groundwater sustainability agency with statutory authority to manage groundwater pursuant \nto Part 2.74 (commencing with Section 10720).  \n\n(c) A local agency that is managing all or part of a groundwater basin or subbasin pursuant to Part 2.75 \n(commencing with Section 10750) and that was monitoring groundwater elevations in all or a part of a \ngroundwater basin or subbasin on or before Jan...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(K) North Fork Kings Groundwater Sustainability Agency. \n\n(JL) Ojai Groundwater Management Agency. \n\n(KM) Orange County Water District. \n\n(LN) Pajaro Valley Water Management Agency. \n\n(O) San Joaquin River Exchange Contractors Groundwater Sustainability Agency. \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 23 \nAs Effective January 1, 2019 \n\n(MP) Santa Clara...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(b) This section does not apply to a low- or very low priority basin as categorized for the purposes of Part \n2.74 (commencing with Section 10720). \n\n(c) This section does not apply to a plan submitted as an alternative pursuant to Section 10733.6, unless \nthe department has not determined that the alternative satisfies the objectives of Part 2.74 \n(commencing with Section 10720) on or before Janu...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(j) Efforts to develop relationships with state and federal regulatory agencies. \n\n(k) Processes to review land use plans and efforts to coordinate with land use planning agencies to \nassess activities that potentially create risks to groundwater quality or quantity. \n\n(l) Impacts on groundwater dependent ecosystems. \n\n10727.6. REQUIREMENTS FOR COORDINATED PLANS, WHEN MULTIPLE PLANS COVER A BASIN ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10720.8. Inapplicability of Part to Adjudicated Basins; Reporting Requirements for Entity \nAdministering Adjudication ........................................................................................................ 14 \n\n10720.9. Requirement of State Agencies to Consider this Part and Plans Developed Under this \nPart .............................................................................</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>CHAPTER  4. Establishing Groundwater Sustainability Agencies 22\n\t10723. Election of Groundwater Sustainability Agency; Statutorily Designated Agencies and Opt Out Provision 22\n\t10723.2. Consideration of All Interests of All Beneficial Uses and Users of Groundwater 23\n\t10723.4. Maintenance of Interested Persons List 24\n\t10723.6. Collective Action to Serve as Groundwater Sustainability Agency; Parti...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>The groundwater sustainability agency may \nappoint and consult with an advisory committee consisting of interested parties for the purposes of \ndeveloping and implementing a groundwater sustainability plan. The groundwater sustainability agency \nshall encourage the active involvement of diverse social, cultural, and economic elements of the \npopulation within the groundwater basin prior to and dur...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(3) A copy of any new bylaws, ordinances, or new authorities adopted by the local agency. \n\n(4) A list of interested parties developed pursuant to Section 10723.2 and an explanation of how \ntheir interests will be considered in the development and operation of the groundwater \nsustainability agency and the development and implementation of the agency’s sustainability plan. \n\n(b) The department sha...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10728.4. ADOPTION OR AMENDMENT OF PLAN FOLLOWING PUBLIC HEARING \nA groundwater sustainability agency may adopt or amend a groundwater sustainability plan after a \npublic hearing, held at least 90 days after providing notice to a city or county within the area of the \nproposed plan or amendment. The groundwater sustainability agency shall review and consider \n\n\n\nSustainable Groundwater Management A...</blockquote>"
-            }
-          ]
+          "sources": []
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Farmers/Business Owners",
-          "summary": "The SGMA identifies key vulnerable groups including low-income households and Native American tribes, but further exploration of their needs may be required.",
-          "identified_groups_and_impacts": "The Act highlights disadvantaged communities and the economic constraints they face.",
-          "equity_assessment_summary": "Given their recognition, however, there might be minimal elaboration on the specific barriers confronting these groups.",
-          "conclusion": "This suggests a need for a more in-depth consideration of the vulnerabilities experienced by these groups.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(K) North Fork Kings Groundwater Sustainability Agency. \n\n(JL) Ojai Groundwater Management Agency. \n\n(KM) Orange County Water District. \n\n(LN) Pajaro Valley Water Management Agency. \n\n(O) San Joaquin River Exchange Contractors Groundwater Sustainability Agency. \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 23 \nAs Effective January 1, 2019 \n\n(MP) Santa Clara...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(c) (1) The determination may exclude a class or category of extractions from the requirement for \nreporting pursuant to Part 5.2 (commencing with Section 5200) of Division 2 if those extractions are \nsubject to a local plan or program that adequately manages groundwater within the portion of the \nbasin to which that plan or program applies, or if those extractions are likely to have a minimal \nim...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(1) The prohibition set forth in Section 1052 against the unauthorized diversion or use of water \nsubject to this division. \n\n(2) Any term or condition of a permit, license, certification, or registration issued under this division. \n\n(3) Any decision or order of the board issued under this part, Section 275, Chapter 11 (commencing \nwith Section 10735) of Part 2.74 of Division 6, or Article 7 (com...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(d) AThe decision of a local agency or combination of local agencies that elects to be thebecome a \ngroundwater sustainability agency shall submit a notice of intent to the department, which shall be \nposted pursuant to Section 10733.3. The notice of intent shall include a description of the proposed \nboundaries of the basin or portion of the basin that the local agency or combination of local age...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(b) “”Person” means any person, firm, association, organization, partnership, business, trust, \ncorporation, limited liability company, or public agency, including any city, county, city and county, \ndistrict, joint powers authority, state, or any agency or department of those entities. “Person” includes, \nto the extent authorized by federal or tribal law and subject to the limitations described i...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(c) The federal government or any federally recognized Indian tribe, appreciating the shared interest in \nassuring the sustainability of groundwater resources, may voluntarily agree to participate in the \npreparation or administration of a groundwater sustainability plan or groundwater management plan \nunder this part through a joint powers authority or other agreement with local agencies in the b...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10720.1. LEGISLATIVE INTENT \nIn enacting this part, it is the intent of the Legislature to do all of the following: \n\n(a) To provide for the sustainable management of groundwater basins. \n\n(b) To enhance local management of groundwater consistent with rights to use or store groundwater \nand Section 2 of Article X of the California Constitution. It is the intent of the Legislature to preserve the \n...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(f) A county that is not managing all or a part of a groundwater basin or subbasin pursuant to a legally \nenforceable groundwater management plan with provisions that are substantively similar to those \ndescribed in Part 2.75 (commencing with Section 10750). \n\n(g) A voluntary cooperative groundwater monitoring association formed pursuant to Section 10935. \n\n* * * \n\n10933. GROUNDWATER ELEVATION MON...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(4) An areawide planning agency whose operations may be significantly affected by the proposed \naction, as determined by the planning agency. \n\n(5) A federal agency, if its operations or lands within its jurisdiction may be significantly affected by \nthe proposed action, as determined by the planning agency. \n\n(6) (A) The branches of the United States Armed Forces that have provided the Office of ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10728.4. ADOPTION OR AMENDMENT OF PLAN FOLLOWING PUBLIC HEARING \nA groundwater sustainability agency may adopt or amend a groundwater sustainability plan after a \npublic hearing, held at least 90 days after providing notice to a city or county within the area of the \nproposed plan or amendment. The groundwater sustainability agency shall review and consider \n\n\n\nSustainable Groundwater Management A...</blockquote>"
-            }
-          ]
+          "summary": "Discusses the intersection of agricultural practices and vulnerabilities faced by farmers.",
+          "identified_groups_and_impacts": "Identifies low-income farmers and Indigenous rights holders as particularly vulnerable.",
+          "equity_assessment_summary": "Emphasizes the need for strategies that elevate the concerns of these groups.",
+          "conclusion": "Calls for a recognition of unique agricultural challenges within broader water management discussions.",
+          "sources": []
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Farmers/Business Owners",
-          "summary": "The SGMA outlines both positive and negative consequences for farmers and business owners.",
-          "high_severity_impacts": "Regulatory burdens and water use restrictions may disproportionately harm smaller agricultural operations.",
-          "moderate_severity_impacts": "The potential economic burden of compliance may also increase financial strain on these operators.",
-          "equity_implications_of_impacts": "The distribution of impacts suggests that smaller agribusinesses could face significant challenges.",
-          "conclusion": "This indicates a potential need for mitigating measures to safeguard the interests of smaller farmers.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(K) North Fork Kings Groundwater Sustainability Agency. \n\n(JL) Ojai Groundwater Management Agency. \n\n(KM) Orange County Water District. \n\n(LN) Pajaro Valley Water Management Agency. \n\n(O) San Joaquin River Exchange Contractors Groundwater Sustainability Agency. \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 23 \nAs Effective January 1, 2019 \n\n(MP) Santa Clara...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(3) A groundwater sustainability agency with statutory authority to manage groundwater pursuant \nto Part 2.74 (commencing with Section 10720).  \n\n(c) A local agency that is managing all or part of a groundwater basin or subbasin pursuant to Part 2.75 \n(commencing with Section 10750) and that was monitoring groundwater elevations in all or a part of a \ngroundwater basin or subbasin on or before Jan...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(vw) “Sustainable yield” means the maximum quantity of water, calculated over a base period \nrepresentative of long-term conditions in the basin and including any temporary surplus, that can be \nwithdrawn annually from a groundwater supply without causing an undesirable result. \n\n(wx) “Undesirable result” means one or more of the following effects caused by groundwater conditions \noccurring throug...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(2)  The basin is subject to paragraph (1) of subdivision (a) of Section 10720.7, and after January 31, \n2020, none of the following have occurred: \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 44 \nAs Effective January 1, 2019 \n\n(A)  A groundwater sustainability agency has adopted a groundwater sustainability plan for the \nentire basin. \n\n(B)  A collection ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(f) A county that is not managing all or a part of a groundwater basin or subbasin pursuant to a legally \nenforceable groundwater management plan with provisions that are substantively similar to those \ndescribed in Part 2.75 (commencing with Section 10750). \n\n(g) A voluntary cooperative groundwater monitoring association formed pursuant to Section 10935. \n\n* * * \n\n10933. GROUNDWATER ELEVATION MON...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(2) Groundwater provides a significant portion of California’s water supply. Groundwater accounts \nfor more than one-third of the water used by Californians in an average year and more than one-half \nof the water used by Californians in a drought year when other sources are unavailable. \n\n(3) Excessive groundwater extraction can cause overdraft, failed wells, deteriorated water quality, \nenvironme...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(C) The department has approved an alternative pursuant to Section 10733.6. \n\n(5) The basin is subject to paragraph (2) of subdivision (a) of Section 10720.7, and either of the \nfollowing have occurred: \n\n(A) After January 31, 2022, both of the following have occurred: \n\n(i) The department, in consultation with the board, determines that a groundwater \nsustainability plan is inadequate or that the...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(4) An areawide planning agency whose operations may be significantly affected by the proposed \naction, as determined by the planning agency. \n\n(5) A federal agency, if its operations or lands within its jurisdiction may be significantly affected by \nthe proposed action, as determined by the planning agency. \n\n(6) (A) The branches of the United States Armed Forces that have provided the Office of ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>The department shall adopt the regulations, including any amendments thereto, authorized by \nthis section as emergency regulations in accordance with the Administrative Procedure Act (Chapter 3.5 \n(commencing with Section 11340) of Part 1 of Division 3 of Title 2 of the Government Code). The \nadoption of these regulations is an emergency and shall be considered by the Office of Administrative \nLaw...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(8) Any other information determined to be relevant by the department, including adverse impacts \non local habitat and local streamflows. \n\n(c) If the department determines that all or part of a basin or subbasin is not being monitored pursuant \nto this part, the department shall do all of the following: \n\n(1) Attempt to contact all well owners within the area not being monitored. \n\n(2) Determine ...</blockquote>"
-            }
-          ]
+          "summary": "Looks at potential severe impacts on farmers as a result of new water policies.",
+          "high_severity_impacts": "High risks associated with increased compliance costs and resource restrictions.",
+          "moderate_severity_impacts": "Financial instability for small-scale operations potentially exacerbated.",
+          "equity_implications_of_impacts": "Severe impacts risk widening economic disparities within the agricultural sector.",
+          "conclusion": "Highlights urgent attention to mitigate impacts for small farmers.",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Farmers/Business Owners",
-          "summary": "The SGMA provides several approaches aimed at promoting equitable management of groundwater among diverse agricultural users.",
-          "identified_strategies": "Strategies for establishing public participation and designing groundwater sustainability plans are outlined.",
-          "equity_assessment": "The approaches aim to address unique challenges but may require stronger commitments to effectiveness.",
-          "conclusion": "Enhancing engagement mechanisms could bolster equity in groundwater management outcomes.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Sustainable Groundwater Management Act, and related provisions (as chaptered) Page 32 \nAs Effective January 1, 2019 \n\n(4) The plan may, but is not required to, address undesirable results that occurred before, and have \nnot been corrected by, January 1, 2015. Notwithstanding paragraphs (1) to (3), inclusive, a \ngroundwater sustainability agency has discretion as to whether to set measurable object...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(4) A map that details the area of the basin and the boundaries of the groundwater sustainability \nagencies that overlie the basin that have or are developing groundwater sustainability plans. \n\n(5) A map identifying existing and potential recharge areas for the basin. The map or maps shall \nidentify the existing recharge areas that substantially contribute to the replenishment of the \ngroundwater...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(2) Groundwater provides a significant portion of California’s water supply. Groundwater accounts \nfor more than one-third of the water used by Californians in an average year and more than one-half \nof the water used by Californians in a drought year when other sources are unavailable. \n\n(3) Excessive groundwater extraction can cause overdraft, failed wells, deteriorated water quality, \nenvironme...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(j) Efforts to develop relationships with state and federal regulatory agencies. \n\n(k) Processes to review land use plans and efforts to coordinate with land use planning agencies to \nassess activities that potentially create risks to groundwater quality or quantity. \n\n(l) Impacts on groundwater dependent ecosystems. \n\n10727.6. REQUIREMENTS FOR COORDINATED PLANS, WHEN MULTIPLE PLANS COVER A BASIN ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10728.2. Periodic Review and Assessment ................................................................................. 34 \n\n10728.4. Adoption or Amendment of Plan Following Public Hearing ........................................ 34 \n\n10728.6. CEQA Not Applicable to Plan Preparation and Adoption ............................................ 35 \n\nCHAPTER  7. Technical Assistance .....................</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(e) The board shall exclude from probationary status any portion of a basin for which a groundwater \nsustainability agency demonstrates compliance with the sustainability goal. \n\n10735.4. OPPORTUNITY FOR REMEDY OF ABSENCE OF LOCAL GOVERNANCE BEFORE STATE WATER BOARD PREPARES \nINTERIM PLAN \n(a) If the board designates a basin as a probationary basin pursuant to paragraph (1), (2), or (24) of \nsubdi...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>* * * \n\n\n\tUncodified Findings 1\n\tGovernment Code 2\n\t65350.5. Review and Consideration of Groundwater Requirements 2\n\t65352. Referral of Proposed General Plan Updates to Other Agencies 3\n\t65352.5. Requirement to Provide Water-Related Documents to General Plan Agency 4\n\n\tWater Code 6\n\tDivision 1. General State Powers Over Water 6\n\t113. State Policy of Sustainable, Local Groundwater Management 6\n\t348...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Nothing in this part modifies rights or priorities to use or store groundwater \nconsistent with Section 2 of Article X of the California Constitution, except that in basins designated \nmedium- or high-priority basins by the department, no extraction of groundwater between January 1, \n2015, and the date of adoption of a groundwater sustainability plan pursuant to this part, or the \napproval by the ...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(K) North Fork Kings Groundwater Sustainability Agency. \n\n(JL) Ojai Groundwater Management Agency. \n\n(KM) Orange County Water District. \n\n(LN) Pajaro Valley Water Management Agency. \n\n(O) San Joaquin River Exchange Contractors Groundwater Sustainability Agency. \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 23 \nAs Effective January 1, 2019 \n\n(MP) Santa Clara...</blockquote>"
-            },
-            {
-              "type": "openai",
-              "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(3) A groundwater sustainability agency with statutory authority to manage groundwater pursuant \nto Part 2.74 (commencing with Section 10720).  \n\n(c) A local agency that is managing all or part of a groundwater basin or subbasin pursuant to Part 2.75 \n(commencing with Section 10750) and that was monitoring groundwater elevations in all or a part of a \ngroundwater basin or subbasin on or before Jan...</blockquote>"
-            }
-          ]
+          "summary": "Identifies potential strategies but lacks actionable detail for farmers.",
+          "identified_strategies": "Encourages community engagement, equitable funding, and the acknowledgment of local needs.",
+          "equity_assessment": "Highlights the importance of addressing systemic barriers faced by small farmers.",
+          "conclusion": "Recommends developing inclusive policies that support smaller operations.",
+          "sources": []
         }
       }
     }
   ],
   "overall_summary_and_recommendations": {
     "title": "Overall Summary & Recommendations",
-    "key_equity_gaps": "There may be notable gaps in ensuring that the voices of disadvantaged communities are prioritized, particularly in the areas of participatory processes and accountability mechanisms.",
-    "key_equity_strengths": "The SGMA shows promise in recognizing diverse stakeholder interests and aims to promote more equitable resource distribution.",
-    "recommendations": "To enhance the efficacy of equity measures, further detail and clarity are suggested in addressing the specific needs of vulnerable groups and structuring processes to ensure their meaningful participation.",
-    "sources": [
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10728.2. Periodic Review and Assessment ................................................................................. 34 \n\n10728.4. Adoption or Amendment of Plan Following Public Hearing ........................................ 34 \n\n10728.6. CEQA Not Applicable to Plan Preparation and Adoption ............................................ 35 \n\nCHAPTER  7. Technical Assistance .....................</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(K) North Fork Kings Groundwater Sustainability Agency. \n\n(JL) Ojai Groundwater Management Agency. \n\n(KM) Orange County Water District. \n\n(LN) Pajaro Valley Water Management Agency. \n\n(O) San Joaquin River Exchange Contractors Groundwater Sustainability Agency. \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 23 \nAs Effective January 1, 2019 \n\n(MP) Santa Clara...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Sustainable Groundwater Management Act, and related provisions (as chaptered) Page 18 \nAs Effective January 1, 2019 \n\n(m) “In-lieu use” means the use of surface water by persons that could otherwise extract groundwater \nin order to leave groundwater in the basin. \n\n(n) “Local agency” means a local public agency that has water supply, water management, or land use \nresponsibilities within a groundw...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Sustainable Groundwater Management Act, and related provisions (as chaptered) Page 32 \nAs Effective January 1, 2019 \n\n(4) The plan may, but is not required to, address undesirable results that occurred before, and have \nnot been corrected by, January 1, 2015. Notwithstanding paragraphs (1) to (3), inclusive, a \ngroundwater sustainability agency has discretion as to whether to set measurable object...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Nothing in this part modifies rights or priorities to use or store groundwater \nconsistent with Section 2 of Article X of the California Constitution, except that in basins designated \nmedium- or high-priority basins by the department, no extraction of groundwater between January 1, \n2015, and the date of adoption of a groundwater sustainability plan pursuant to this part, or the \napproval by the ...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10728.4. ADOPTION OR AMENDMENT OF PLAN FOLLOWING PUBLIC HEARING \nA groundwater sustainability agency may adopt or amend a groundwater sustainability plan after a \npublic hearing, held at least 90 days after providing notice to a city or county within the area of the \nproposed plan or amendment. The groundwater sustainability agency shall review and consider \n\n\n\nSustainable Groundwater Management A...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>CHAPTER  5. Powers and Authorities .............................................................................................. 26 \n\n10725. Authority Pursuant to This Part Supplementary to Existing Powers .............................. 26 \n\n10725.2. Authority of Groundwater Sustainability Agency; Notice ........................................... 26 \n\n10725.4. Investigations .......................</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>CHAPTER  4. Establishing Groundwater Sustainability Agencies 22\n\t10723. Election of Groundwater Sustainability Agency; Statutorily Designated Agencies and Opt Out Provision 22\n\t10723.2. Consideration of All Interests of All Beneficial Uses and Users of Groundwater 23\n\t10723.4. Maintenance of Interested Persons List 24\n\t10723.6. Collective Action to Serve as Groundwater Sustainability Agency; Parti...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(3) A groundwater sustainability agency with statutory authority to manage groundwater pursuant \nto Part 2.74 (commencing with Section 10720).  \n\n(c) A local agency that is managing all or part of a groundwater basin or subbasin pursuant to Part 2.75 \n(commencing with Section 10750) and that was monitoring groundwater elevations in all or a part of a \ngroundwater basin or subbasin on or before Jan...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>* * * \n\n\n\tUncodified Findings 1\n\tGovernment Code 2\n\t65350.5. Review and Consideration of Groundwater Requirements 2\n\t65352. Referral of Proposed General Plan Updates to Other Agencies 3\n\t65352.5. Requirement to Provide Water-Related Documents to General Plan Agency 4\n\n\tWater Code 6\n\tDivision 1. General State Powers Over Water 6\n\t113. State Policy of Sustainable, Local Groundwater Management 6\n\t348...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>CHAPTER  5. Powers and Authorities .............................................................................................. 26 \n\n10725. Authority Pursuant to This Part Supplementary to Existing Powers .............................. 26 \n\n10725.2. Authority of Groundwater Sustainability Agency; Notice ........................................... 26 \n\n10725.4. Investigations .......................</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>5201. Definitions ........................................................................................................................... 9 \n\n5202. Applicability of Extraction Reporting Requirements ........................................................ 10 \n\n5203. Extraction Reporting Requirements.................................................................................. 11 \n\n5204. Fa...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(K) North Fork Kings Groundwater Sustainability Agency. \n\n(JL) Ojai Groundwater Management Agency. \n\n(KM) Orange County Water District. \n\n(LN) Pajaro Valley Water Management Agency. \n\n(O) San Joaquin River Exchange Contractors Groundwater Sustainability Agency. \n\n\n\nSustainable Groundwater Management Act, and related provisions (as chaptered) Page 23 \nAs Effective January 1, 2019 \n\n(MP) Santa Clara...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(j) Efforts to develop relationships with state and federal regulatory agencies. \n\n(k) Processes to review land use plans and efforts to coordinate with land use planning agencies to \nassess activities that potentially create risks to groundwater quality or quantity. \n\n(l) Impacts on groundwater dependent ecosystems. \n\n10727.6. REQUIREMENTS FOR COORDINATED PLANS, WHEN MULTIPLE PLANS COVER A BASIN ...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>10728.2. Periodic Review and Assessment ................................................................................. 34 \n\n10728.4. Adoption or Amendment of Plan Following Public Hearing ........................................ 34 \n\n10728.6. CEQA Not Applicable to Plan Preparation and Adoption ............................................ 35 \n\nCHAPTER  7. Technical Assistance .....................</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Sustainable Groundwater Management Act, and related provisions (as chaptered) Page 32 \nAs Effective January 1, 2019 \n\n(4) The plan may, but is not required to, address undesirable results that occurred before, and have \nnot been corrected by, January 1, 2015. Notwithstanding paragraphs (1) to (3), inclusive, a \ngroundwater sustainability agency has discretion as to whether to set measurable object...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Sustainable Groundwater Management Act, and related provisions (as chaptered) Page 18 \nAs Effective January 1, 2019 \n\n(m) “In-lieu use” means the use of surface water by persons that could otherwise extract groundwater \nin order to leave groundwater in the basin. \n\n(n) “Local agency” means a local public agency that has water supply, water management, or land use \nresponsibilities within a groundw...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>Nothing in this part modifies rights or priorities to use or store groundwater \nconsistent with Section 2 of Article X of the California Constitution, except that in basins designated \nmedium- or high-priority basins by the department, no extraction of groundwater between January 1, \n2015, and the date of adoption of a groundwater sustainability plan pursuant to this part, or the \napproval by the ...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>CHAPTER  4. Establishing Groundwater Sustainability Agencies 22\n\t10723. Election of Groundwater Sustainability Agency; Statutorily Designated Agencies and Opt Out Provision 22\n\t10723.2. Consideration of All Interests of All Beneficial Uses and Users of Groundwater 23\n\t10723.4. Maintenance of Interested Persons List 24\n\t10723.6. Collective Action to Serve as Groundwater Sustainability Agency; Parti...</blockquote>"
-      },
-      {
-        "type": "openai",
-        "data": "Source from 2592b37d-5361-4945-b1c4-7018748448e4_sustainable-groundwater-managment-act.pdf:\n<blockquote>(3) A groundwater sustainability agency with statutory authority to manage groundwater pursuant \nto Part 2.74 (commencing with Section 10720).  \n\n(c) A local agency that is managing all or part of a groundwater basin or subbasin pursuant to Part 2.75 \n(commencing with Section 10750) and that was monitoring groundwater elevations in all or a part of a \ngroundwater basin or subbasin on or before Jan...</blockquote>"
-      }
-    ]
+    "key_equity_gaps": "The document indicates several gaps in recognizing smaller operators, the need for actionable engagement strategies, and clear processes for evaluating distributional equity.",
+    "key_equity_strengths": "It reflects a commitment to addressing historical inequities and advancing water management policies aimed at inclusivity.",
+    "recommendations": "Ongoing efforts should focus on developing concrete implementation strategies, increasing stakeholder engagement, and ensuring equitable resource distribution to achieve meaningful improvements in water equity.",
+    "sources": []
   },
   "analysis_status": "completed",
   "analysis_error": null

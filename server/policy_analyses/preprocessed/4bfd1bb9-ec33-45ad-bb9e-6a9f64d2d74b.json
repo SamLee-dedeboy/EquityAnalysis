@@ -3,9 +3,18 @@
   "source": "preprocessed",
   "document": {
     "filename": "human-right-to-water.pdf",
-    "title": "Human Right to Water",
+    "title": "Untitled",
     "size_kb": 68,
-    "upload_date_utc": "2025-08-20T01:20:33Z"
+    "upload_date_utc": "2025-10-28T00:11:42Z"
+  },
+  "test_fields": {
+    "test_pic": "head-polmak.png",
+    "test_subject": "Water Rights and Equity",
+    "test_title": "The Human Right to Water",
+    "test_short_caption": "An Equity Analysis of Water Access",
+    "test_long_caption": "Exploring the implications of water access rights and equity concerns for communities and stakeholders.",
+    "test_date": "Published: 2023",
+    "test_scope": "state"
   },
   "overall_analysis_by_perspective": [
     {
@@ -14,77 +23,53 @@
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Policy Makers",
-          "summary": "The analysis of the policy document suggests a foundational framework for ensuring equitable access to water, highlighting both strengths and potential gaps in implementation.",
+          "summary": "The document suggests a nuanced approach to acknowledging the equity implications of water access, highlighting some responsive measures yet revealing significant gaps.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "There appears to be a recognition of diverse community needs through the establishment of a policy ensuring everyone has access to safe and clean water.",
-            "concerns": "However, the effectiveness of recognition may depend on how well state agencies engage with the communities, which is not clearly outlined.",
-            "conclusion": "Overall, while there is a commitment to acknowledging the diverse needs of communities, engagement practices require additional clarity."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Community Engagement",
+            "findings": "Indicates a need for incorporating impacted community voices in decision-making."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "The mandate for state agencies to consider the right to water in policy revisions could enhance procedural equity.",
-            "concerns": "Yet, there is insufficient detail on mechanisms to ensure meaningful participation from marginalized communities.",
-            "conclusion": "The intention for inclusivity is positive, yet the procedural effectiveness could be diminished by the lack of clarity in engagement methods."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Transparent Processes",
+            "findings": "Suggests frameworks for transparency but lacks details on implementation."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "The focus on prioritizing access for disadvantaged communities suggests a commitment to distributional equity.",
-            "concerns": "However, the absence of enforcement mechanisms may risk benefits not reaching the intended populations.",
-            "conclusion": "While there are commitments to equitable distribution, practical application may be hindered without clear accountability measures."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Resource Allocation",
+            "findings": "Emphasizes equitable resource distribution, yet lacks empirical support for its effectiveness."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "The acknowledgment of historical inequities suggests a need for structural changes in policy development.",
-            "concerns": "Yet, there appears to be a lack of specific strategies to dismantle the systemic barriers that perpetuate these disparities.",
-            "conclusion": "Recognizing structural issues is a positive start, but without detailed strategies, the commitment may be insufficient for real change."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Systemic Barriers",
+            "findings": "Acknowledges historical injustices but lacks concrete strategies to dismantle them."
           },
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 4bfd1bb9-ec33-45ad-bb9e-6a9f64d2d74b_human-right-to-water.pdf:\n<blockquote>Untitled\n\n\nAssembly Bill No. 685\n\nCHAPTER 524\n\nAn act to add Section 106.3 to the Water Code, relating to water.\n\n[Approved by Governor September 25, 2012. Filed with\nSecretary of State September 25, 2012.]\n\nlegislative counsel’s digest\n\nAB 685, Eng. State water policy.\nExisting law establishes various state water policies, including the policy\n\nthat the use of water for domestic purposes is the h...</blockquote>"
-            }
-          ]
+          "sources": []
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Policy Makers",
-          "summary": "The document identifies vulnerable groups potentially impacted by water policy, signaling awareness of diverse needs.",
-          "identified_groups_and_impacts": "The identified groups include low-income communities, racial and ethnic minorities, rural communities, non-English speakers, and individuals with disabilities.",
-          "equity_assessment_summary": "These recognitions suggest an understanding of the systemic barriers faced by these groups, yet no detailed engagement mechanisms are outlined.",
-          "conclusion": "While acknowledgment of vulnerable groups is evident, ensuring their voices are heard and needs addressed remains a key concern.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 4bfd1bb9-ec33-45ad-bb9e-6a9f64d2d74b_human-right-to-water.pdf:\n<blockquote>Untitled\n\n\nAssembly Bill No. 685\n\nCHAPTER 524\n\nAn act to add Section 106.3 to the Water Code, relating to water.\n\n[Approved by Governor September 25, 2012. Filed with\nSecretary of State September 25, 2012.]\n\nlegislative counsel’s digest\n\nAB 685, Eng. State water policy.\nExisting law establishes various state water policies, including the policy\n\nthat the use of water for domestic purposes is the h...</blockquote>"
-            }
-          ]
+          "summary": "Highlights the engagement of various vulnerable groups in water equity discussions, while questioning the adequacy of their representation.",
+          "identified_groups_and_impacts": "Includes low-income communities, racial minorities, and rural populations as primary groups affected by water access issues.",
+          "equity_assessment_summary": "Indicates awareness of the unique challenges faced by these groups, yet specific strategies for their inclusion remain vague.",
+          "conclusion": "This raises questions about the sufficiency of ongoing efforts to support these vulnerable groups effectively.",
+          "sources": []
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Policy Makers",
-          "summary": "The potential impacts of the legislation indicate both positive shifts in access and challenges in implementation, with varying consequences.",
-          "high_severity_impacts": "Historically marginalized communities may face the most severe impacts if engagement and resource allocation do not address their needs effectively.",
-          "moderate_severity_impacts": "Challenges may include bureaucratic delays and resource allocation issues that could affect the quality and sustainability of water access.",
-          "equity_implications_of_impacts": "The implications suggest that without proactive measures, inequities may continue to exacerbate existing disparities in water access.",
-          "conclusion": "The impact severity highlights the need for detailed strategies to mitigate risks while promoting equitable access to water.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 4bfd1bb9-ec33-45ad-bb9e-6a9f64d2d74b_human-right-to-water.pdf:\n<blockquote>Untitled\n\n\nAssembly Bill No. 685\n\nCHAPTER 524\n\nAn act to add Section 106.3 to the Water Code, relating to water.\n\n[Approved by Governor September 25, 2012. Filed with\nSecretary of State September 25, 2012.]\n\nlegislative counsel’s digest\n\nAB 685, Eng. State water policy.\nExisting law establishes various state water policies, including the policy\n\nthat the use of water for domestic purposes is the h...</blockquote>"
-            }
-          ]
+          "summary": "Highlights both the positive potential for enhanced water access and the risks of exacerbating existing disparities.",
+          "high_severity_impacts": "Failure to implement equitable measures could lead to heightened water access inequities, particularly for marginalized communities.",
+          "moderate_severity_impacts": "Improvements in policy may yield significant benefits for historically disadvantaged groups.",
+          "equity_implications_of_impacts": "Failure to recognize the broader implications could reinforce existing inequalities within communities.",
+          "conclusion": "Mitigating these risks will require comprehensive oversight and ongoing engagement from policymakers.",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Policy Makers",
-          "summary": "The document outlines strategies intended to enhance water access equity, yet a lack of detail could undermine effectiveness.",
-          "identified_strategies": "Strategies include policy declarations, agency accountability, and a focus on marginalized communities, suggesting an inclusive approach.",
-          "equity_assessment": "However, the absence of specific implementation details raises concerns about the sufficiency of these strategies.",
-          "conclusion": "While the strategies present a positive direction, additional clarity and robust implementation plans will be crucial in achieving the intended equitable outcomes.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 4bfd1bb9-ec33-45ad-bb9e-6a9f64d2d74b_human-right-to-water.pdf:\n<blockquote>Untitled\n\n\nAssembly Bill No. 685\n\nCHAPTER 524\n\nAn act to add Section 106.3 to the Water Code, relating to water.\n\n[Approved by Governor September 25, 2012. Filed with\nSecretary of State September 25, 2012.]\n\nlegislative counsel’s digest\n\nAB 685, Eng. State water policy.\nExisting law establishes various state water policies, including the policy\n\nthat the use of water for domestic purposes is the h...</blockquote>"
-            }
-          ]
+          "summary": "Considers potential strategies to address equity concerns, revealing both strengths and gaps in actionable frameworks.",
+          "identified_strategies": "Includes prioritized investments in disadvantaged communities and community participation frameworks.",
+          "equity_assessment": "Suggests a need for more robust strategies to ensure fair allocation processes.",
+          "conclusion": "Funds and policies need clearer operational mechanisms to support equity effectively.",
+          "sources": []
         }
       }
     },
@@ -94,77 +79,53 @@
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Residents",
-          "summary": "The document emphasizes the right to clean, affordable water, presenting potential benefits and considerations for residents.",
+          "summary": "The document emphasizes the importance of including resident voices in water access discussions, signaling a positive direction while exposing potential gaps.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "The acknowledgment of water as a fundamental right could indicate an inclusive approach towards addressing diverse needs.",
-            "concerns": "However, the lack of specific mechanisms for including community voices in decision-making suggests an area for improvement.",
-            "conclusion": "While the document appears to support the recognition of diverse community needs, actionable inclusive practices require further clarity."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Vulnerable Voices",
+            "findings": "Highlights the need to prioritize the voices of Indigenous communities and low-income households."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "The mandate for agencies to consider the right to water when revising regulations suggests a move towards procedural transparency.",
-            "concerns": "Nonetheless, the absence of clear pathways for genuine community engagement may limit effective participation.",
-            "conclusion": "While procedural intentions appear positive, the implementation may not guarantee meaningful involvement from all stakeholders."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Inclusive Processes",
+            "findings": "Indicates intentions for transparent processes but lacks sufficient detail on mechanisms for resident engagement."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "The focus on safe, clean, and affordable water suggests an intention to ensure equitable resource distribution.",
-            "concerns": "However, the lack of specific metrics for assessing equitable access raises concerns about actual outcomes for vulnerable communities.",
-            "conclusion": "The intent to promote equitable distribution is commendable, yet practical implementation may be hindered by unclear assessment metrics."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Resource Metrics",
+            "findings": "Suggests metrics for accountability but lacks clarity on their application in regulating distribution."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "The document’s acknowledgment of historical inequities hints at a commitment to addressing systemic barriers.",
-            "concerns": "Nevertheless, it does not seem to provide actionable strategies for combating these underlying issues.",
-            "conclusion": "While recognizing structural impediments is a strong starting point, actionable strategies are essential for effective reform."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Addressing Barriers",
+            "findings": "Acknowledges the need for structural reforms but does not explicitly outline strategies for achieving them."
           },
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 4bfd1bb9-ec33-45ad-bb9e-6a9f64d2d74b_human-right-to-water.pdf:\n<blockquote>Untitled\n\n\nAssembly Bill No. 685\n\nCHAPTER 524\n\nAn act to add Section 106.3 to the Water Code, relating to water.\n\n[Approved by Governor September 25, 2012. Filed with\nSecretary of State September 25, 2012.]\n\nlegislative counsel’s digest\n\nAB 685, Eng. State water policy.\nExisting law establishes various state water policies, including the policy\n\nthat the use of water for domestic purposes is the h...</blockquote>"
-            }
-          ]
+          "sources": []
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Residents",
-          "summary": "The document appears to highlight vulnerable groups, reflecting an understanding of their unique challenges.",
-          "identified_groups_and_impacts": "Identified groups include low-income households, renters, Indigenous communities, and communities of color.",
-          "equity_assessment_summary": "This recognition suggests an awareness of the systemic disparities affecting these populations, yet lacks details on addressing their needs.",
-          "conclusion": "While the acknowledgment of vulnerable groups is a positive aspect, detailed strategies for meaningful engagement and outcome assessment remain necessary.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 4bfd1bb9-ec33-45ad-bb9e-6a9f64d2d74b_human-right-to-water.pdf:\n<blockquote>Untitled\n\n\nAssembly Bill No. 685\n\nCHAPTER 524\n\nAn act to add Section 106.3 to the Water Code, relating to water.\n\n[Approved by Governor September 25, 2012. Filed with\nSecretary of State September 25, 2012.]\n\nlegislative counsel’s digest\n\nAB 685, Eng. State water policy.\nExisting law establishes various state water policies, including the policy\n\nthat the use of water for domestic purposes is the h...</blockquote>"
-            }
-          ]
+          "summary": "Focuses on vulnerable groups in water access issues, revealing both their representation and areas needing improvement.",
+          "identified_groups_and_impacts": "Identifies low-income families, renters, Indigenous peoples, and disabled individuals as particularly vulnerable.",
+          "equity_assessment_summary": "Indicates some recognition of their unique challenges but lacking comprehensive engagement strategies.",
+          "conclusion": "Point towards a need for continuous evaluation and representation of vulnerable groups in water governance.",
+          "sources": []
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Residents",
-          "summary": "The document outlines the potential severity of impacts from recognizing water as a human right, with a mixed outlook.",
-          "high_severity_impacts": "Residents in marginalized communities may face significant challenges if systemic issues and funding constraints persist.",
-          "moderate_severity_impacts": "Despite potential positive shifts, challenges in funding and infrastructure improvements could limit access.",
-          "equity_implications_of_impacts": "Inequities could be reinforced if systemic barriers are not addressed, affecting long-term access for vulnerable groups.",
-          "conclusion": "The severity of impacts underscores the importance of addressing systemic inequalities to promote sustainable water access.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 4bfd1bb9-ec33-45ad-bb9e-6a9f64d2d74b_human-right-to-water.pdf:\n<blockquote>Untitled\n\n\nAssembly Bill No. 685\n\nCHAPTER 524\n\nAn act to add Section 106.3 to the Water Code, relating to water.\n\n[Approved by Governor September 25, 2012. Filed with\nSecretary of State September 25, 2012.]\n\nlegislative counsel’s digest\n\nAB 685, Eng. State water policy.\nExisting law establishes various state water policies, including the policy\n\nthat the use of water for domestic purposes is the h...</blockquote>"
-            }
-          ]
+          "summary": "Explores potential severity in impacts from water policies on marginalized residents.",
+          "high_severity_impacts": "The document suggests that further marginalizing vulnerable communities could exacerbate existing inequalities.",
+          "moderate_severity_impacts": "Positive water access changes could notably enhance health and well-being for these populations.",
+          "equity_implications_of_impacts": "Ongoing disparities suggest potential challenges despite positive shifts in policy.",
+          "conclusion": "An ongoing focus on resident needs and equitable implementation is crucial for long-term success.",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Residents",
-          "summary": "The document suggests several strategies aimed at ensuring equitable access to water, yet gaps remain.",
-          "identified_strategies": "Key strategies include affirming the right to water and potentially enhancing engagement with disadvantaged communities.",
-          "equity_assessment": "However, without concrete details on implementation, the effectiveness of these strategies remains ambiguous.",
-          "conclusion": "While the proposed strategies signal a positive direction towards equity, further clarity and community involvement will be essential for meaningful impact.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 4bfd1bb9-ec33-45ad-bb9e-6a9f64d2d74b_human-right-to-water.pdf:\n<blockquote>Untitled\n\n\nAssembly Bill No. 685\n\nCHAPTER 524\n\nAn act to add Section 106.3 to the Water Code, relating to water.\n\n[Approved by Governor September 25, 2012. Filed with\nSecretary of State September 25, 2012.]\n\nlegislative counsel’s digest\n\nAB 685, Eng. State water policy.\nExisting law establishes various state water policies, including the policy\n\nthat the use of water for domestic purposes is the h...</blockquote>"
-            }
-          ]
+          "summary": "Reviews potential strategies for equity in water access, indicating both strengths and weaknesses.",
+          "identified_strategies": "Includes legal protections, funding initiatives, and community participation efforts.",
+          "equity_assessment": "Suggestions for enhanced community engagement reveal a commitment to procedural equity.",
+          "conclusion": "However, more substantial actionable steps are needed to confirm effectiveness.",
+          "sources": []
         }
       }
     },
@@ -174,87 +135,63 @@
       "analyses": {
         "general_equity_assessment": {
           "title": "General Equity Assessment for Farmers/Business Owners",
-          "summary": "The document presents an overview of the equity implications related to water access for farmers and business owners, highlighting both strengths and potential challenges.",
+          "summary": "The document reflects on the potential impacts of water access rights on small farmers, indicating both recognition and concerns.",
           "recognitional_equity": {
-            "title": "Recognitional Equity",
-            "positive_findings": "The framework seems to recognize the role of water in agricultural and business operations, suggesting an understanding of diverse needs.",
-            "concerns": "However, it may not adequately address the specific challenges faced by smaller operators, particularly in rural areas.",
-            "conclusion": "Overall, while there is recognition of the importance of water access, further acknowledgment of the unique needs of smaller operators is suggested."
+            "title": "RECOGNITIONAL EQUITY",
+            "caption": "Valuing Stakeholders",
+            "findings": "Indicates recognition of small farmers' needs but risks marginalizing their voices."
           },
           "procedural_equity": {
-            "title": "Procedural Equity",
-            "positive_findings": "The mandate for consideration of diverse needs in regulations suggests a procedural commitment to inclusivity.",
-            "concerns": "However, the lack of explicit participation mechanisms for smaller farmers indicates possible procedural weaknesses.",
-            "conclusion": "While the intent for procedural equity exists, clarity on stakeholder participation remains crucial."
+            "title": "PROCEDURAL EQUITY",
+            "caption": "Participation Opportunities",
+            "findings": "Impacts of procedural mechanisms for participation appear underexplored."
           },
           "distributional_equity": {
-            "title": "Distributional Equity",
-            "positive_findings": "The focus on equitable water access hints at a commitment to distributional equity for all stakeholders.",
-            "concerns": "However, the financial burden of compliance may disproportionately impact smaller farmers, raising concerns about economic fairness.",
-            "conclusion": "While the commitment to equitable access is commendable, the actual distribution of compliance costs may need more attention to ensure fairness."
+            "title": "DISTRIBUTIONAL EQUITY",
+            "caption": "Sharing Resources",
+            "findings": "Concern that compliance costs may disproportionately affect smaller operators without clear supportive measures."
           },
           "structural_equity": {
-            "title": "Structural Equity",
-            "positive_findings": "The document indicates an understanding of the need to address systemic barriers faced by farmers and business owners.",
-            "concerns": "Yet, it does not appear to provide specific strategies for dismantling these structural barriers, which could perpetuate inequities.",
-            "conclusion": "While acknowledging structural issues is beneficial, concrete strategies for change are essential for effective equity."
+            "title": "STRUCTURAL EQUITY",
+            "caption": "Systemic Change",
+            "findings": "Acknowledgment of historical barriers suggests a need for deeper analysis and solutions."
           },
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 4bfd1bb9-ec33-45ad-bb9e-6a9f64d2d74b_human-right-to-water.pdf:\n<blockquote>Untitled\n\n\nAssembly Bill No. 685\n\nCHAPTER 524\n\nAn act to add Section 106.3 to the Water Code, relating to water.\n\n[Approved by Governor September 25, 2012. Filed with\nSecretary of State September 25, 2012.]\n\nlegislative counsel’s digest\n\nAB 685, Eng. State water policy.\nExisting law establishes various state water policies, including the policy\n\nthat the use of water for domestic purposes is the h...</blockquote>"
-            }
-          ]
+          "sources": []
         },
         "vulnerable_groups_analysis": {
           "title": "Vulnerable Groups Analysis for Farmers/Business Owners",
-          "summary": "Not explicitly indicated by the document.",
-          "identified_groups_and_impacts": "Not explicitly indicated by the document.",
-          "equity_assessment_summary": "Not explicitly indicated by the document.",
-          "conclusion": "Not explicitly indicated by the document.",
+          "summary": "Examines how farmers and small business owners are framed in the context of water rights.",
+          "identified_groups_and_impacts": "Low-income farmers, small operators, and rural business owners are seen as vulnerable to regulatory impacts.",
+          "equity_assessment_summary": "The document hints at their vulnerability yet lacks explicit strategies for their engagement.",
+          "conclusion": "This underscores the necessity for these stakeholders' inclusion in water governance discussions.",
           "sources": []
         },
         "severity_impact_analysis": {
           "title": "Severity of Impact Analysis for Farmers/Business Owners",
-          "summary": "The analysis indicates potential positive and negative impacts of the water legislation on farmers and business owners.",
-          "high_severity_impacts": "Smaller farmers may face the brunt of compliance costs, leading to significant challenges in maintaining their operations.",
-          "moderate_severity_impacts": "Larger entities might weather compliance burdens more easily, potentially exacerbating inequalities.",
-          "equity_implications_of_impacts": "The variability in impact severity suggests that targeted support for smaller farmers will be essential to prevent exacerbation of existing disparities.",
-          "conclusion": "The severity assessment highlights the need for careful consideration of compliance impacts, ensuring equitable support for all stakeholders.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 4bfd1bb9-ec33-45ad-bb9e-6a9f64d2d74b_human-right-to-water.pdf:\n<blockquote>Untitled\n\n\nAssembly Bill No. 685\n\nCHAPTER 524\n\nAn act to add Section 106.3 to the Water Code, relating to water.\n\n[Approved by Governor September 25, 2012. Filed with\nSecretary of State September 25, 2012.]\n\nlegislative counsel’s digest\n\nAB 685, Eng. State water policy.\nExisting law establishes various state water policies, including the policy\n\nthat the use of water for domestic purposes is the h...</blockquote>"
-            }
-          ]
+          "summary": "Evaluates potential impacts from water rights policies on small farmers and businesses.",
+          "high_severity_impacts": "Stricter regulations may lead to significant operational challenges for small farmers reliant on water.",
+          "moderate_severity_impacts": "More equitable access could enhance opportunities for small operators but could depend on robust policy implementation.",
+          "equity_implications_of_impacts": "Potential negative consequences could worsen current disparities in agricultural viability.",
+          "conclusion": "Ongoing evaluations are required to manage potential negative impacts effectively.",
+          "sources": []
         },
         "mitigation_strategies_analysis": {
           "title": "Mitigation Strategies Analysis for Farmers/Business Owners",
-          "summary": "The document outlines potential strategies for addressing the equity concerns of farmers and business owners in water access.",
-          "identified_strategies": "Key strategies include establishing clear legal frameworks and considering diverse stakeholder needs in water management decisions.",
-          "equity_assessment": "However, the lack of implementation details raises questions about the effectiveness of these strategies.",
-          "conclusion": "While the strategies represent a positive framework, further detail and stakeholder involvement will be critical for ensuring equitable access to water.",
-          "sources": [
-            {
-              "type": "openai",
-              "data": "Source from 4bfd1bb9-ec33-45ad-bb9e-6a9f64d2d74b_human-right-to-water.pdf:\n<blockquote>Untitled\n\n\nAssembly Bill No. 685\n\nCHAPTER 524\n\nAn act to add Section 106.3 to the Water Code, relating to water.\n\n[Approved by Governor September 25, 2012. Filed with\nSecretary of State September 25, 2012.]\n\nlegislative counsel’s digest\n\nAB 685, Eng. State water policy.\nExisting law establishes various state water policies, including the policy\n\nthat the use of water for domestic purposes is the h...</blockquote>"
-            }
-          ]
+          "summary": "Focuses on assessing proposed strategies to support equitable access to water.",
+          "identified_strategies": "Includes needs-based allocations and funding initiatives aimed at marginalized farmers.",
+          "equity_assessment": "Some strategies suggest a commitment to engaging agricultural stakeholders.",
+          "conclusion": "Details on implementation remain critical to confirm strategies' effectiveness in achieving equity.",
+          "sources": []
         }
       }
     }
   ],
   "overall_summary_and_recommendations": {
     "title": "Overall Summary & Recommendations",
-    "key_equity_gaps": "Several areas warrant attention, such as improving community engagement mechanisms, ensuring equitable resource distribution, and addressing systemic barriers in water access.",
-    "key_equity_strengths": "The framework acknowledges the fundamental right to clean and accessible water, indicating a commitment to addressing historical inequities and promoting inclusivity.",
-    "recommendations": "Future efforts could focus on developing detailed implementation strategies, establishing metrics for assessing equity outcomes, and fostering genuine community participation to enhance accountability.",
-    "sources": [
-      {
-        "type": "openai",
-        "data": "Source from 4bfd1bb9-ec33-45ad-bb9e-6a9f64d2d74b_human-right-to-water.pdf:\n<blockquote>Untitled\n\n\nAssembly Bill No. 685\n\nCHAPTER 524\n\nAn act to add Section 106.3 to the Water Code, relating to water.\n\n[Approved by Governor September 25, 2012. Filed with\nSecretary of State September 25, 2012.]\n\nlegislative counsel’s digest\n\nAB 685, Eng. State water policy.\nExisting law establishes various state water policies, including the policy\n\nthat the use of water for domestic purposes is the h...</blockquote>"
-      }
-    ]
+    "key_equity_gaps": "Potential gaps include insufficient tracking of community engagement, lack of specific accountability measures for equitable resource distribution, and unaddressed systemic barriers.",
+    "key_equity_strengths": "The commitment to recognize historical injustices and engage diverse community voices reflects a strong foundation for equitable water governance.",
+    "recommendations": "Strengthening inclusion mechanisms for vulnerable communities, enhancing transparency in decision-making processes, and developing explicit strategies for systemic changes will be essential for realizing equitable water access.",
+    "sources": []
   },
   "analysis_status": "completed",
   "analysis_error": null

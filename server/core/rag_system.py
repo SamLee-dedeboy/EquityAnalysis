@@ -321,16 +321,28 @@ class HybridRAGSystem:
             )
 
             tools = []
-            # Add OpenAI file_search tool ONLY if a Vector Store ID is available
-            # AND the document's analysis_status in DB is 'completed'
-            if user_vector_store_id and document_analysis_status == "completed":
+            # Allow file search once the vector store is ready, even while the analysis is still running.
+            allowed_statuses_for_rag = {
+                "completed",
+                "vs_processing_completed",
+                "generating_analysis_report",
+                "in_progress",
+            }
+            if user_vector_store_id and document_analysis_status in allowed_statuses_for_rag:
                 tools.append({
                     "type": "file_search",
                     "vector_store_ids": [user_vector_store_id],
                     "max_num_results": self.config.MAX_NUM_RESULTS,
                 })
             else:
-                logger.warning(f"OpenAI file search disabled for session {session_id}. Document status: {document_analysis_status}, VS ID: {user_vector_store_id}. It needs to be 'completed'.")
+                logger.warning(
+                    "OpenAI file search disabled for session %s. Document status: %s, VS ID: %s. "
+                    "Status must be one of %s.",
+                    session_id,
+                    document_analysis_status,
+                    user_vector_store_id,
+                    sorted(allowed_statuses_for_rag),
+                )
 
             kwargs = {
                 "model": self.config.RESPONSES_MODEL,

@@ -23,6 +23,8 @@
 
   let policies = [];
 
+  let selectedTheme = null;
+
   // Curved connections
   let svgContainer = null;
   let activeButton = null;
@@ -62,6 +64,16 @@
       def: 'Goes beyond fixing current systems to fundamentally reimagining and restructuring them. Creates entirely new approaches that center equity from the ground up, building regenerative systems that prevent inequities from occurring.',
       color: 'var(--equity-color-transformational)',
     },
+  ];
+
+  const themes = [
+    'Theme 1',
+    'Theme 2',
+    'Theme 3',
+    'Theme 4',
+    'Theme 5',
+    'Theme 6',
+    'Theme 7',
   ];
 
   // --- Lifecycle Hook ---
@@ -253,6 +265,10 @@
     }
   }
 
+  function toggleTheme(theme) {
+    selectedTheme = selectedTheme === theme ? null : theme;
+  }
+
   // handleSelect function for updating policy store variable
   async function handleSelect(policy) {
     console.log('Setting currentPolicy with:', policy);
@@ -292,18 +308,6 @@
     return !isFederal(policy) && !isState(policy) && !isAgency(policy);
   }
 
-  // Testing Helper Functions
-  // function isFederal(policy) {
-  //   return (policy.test_fields.test_scope || '').toLowerCase() === 'federal';
-  // }
-
-  // function isState(policy) {
-  //   return (policy.test_fields.test_scope || '').toLowerCase() === 'state';
-  // }
-
-  // function isAgency(policy) {
-  //   return (policy.test_fields.test_scope || '').toLowerCase() === 'agency';
-  // }
 </script>
 
 <section>
@@ -418,6 +422,25 @@
       {/each}
     {/if}
   </h3>
+
+  <div class="theme-strip">
+    <div class="theme-controls">
+      {#each themes as theme}
+        <button
+          type="button"
+          class="theme-label {selectedTheme === theme
+            ? 'active'
+            : selectedTheme
+            ? 'inactive'
+            : ''}"
+          on:click={() => toggleTheme(theme)}
+          aria-pressed={selectedTheme === theme}
+        >
+          {theme}
+        </button>
+      {/each}
+    </div>
+  </div>
 
   <!-- (1) Gantt-like Policy Gallery (Federal, State, Agency, Other) -->
   <div class="gallery">
@@ -659,7 +682,7 @@
     color: white;
   }
 
-  /* --- Equity Buttons --- */
+  /* --- Equity Info Buttons --- */
   .eqbox-container {
     display: flex;
     align-items: center;
@@ -731,6 +754,87 @@
       min-width: 200px;
       height: 70px;
     }
+  }
+
+  /* --- Theme Selector Buttons --- */
+  .theme-strip {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem auto 2.25rem;
+    padding: 0.85rem 0rem;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 48px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+    color: black
+  }
+
+  .theme-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .theme-controls {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 0.3rem;
+    padding: 0.35rem 0rem;
+    width: 80%;
+    min-width: max-content;
+    flex: 1 1 0;
+  }
+
+  .theme-label {
+    background: transparent;
+    flex: 0 0 auto;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 0.45rem 1.35rem;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      text-shadow 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .theme-label:hover {
+    transform: translateY(-2px);
+  }
+
+  .theme-label:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 4px;
+  }
+
+  .theme-label.active {
+    opacity: 1;
+    color: var(
+      --theme-strip-active-text,
+      color-mix(in srgb, var(--primary-text, #101828) 60%, #000 40%)
+    );
+    text-shadow: 0 0 14px
+      var(--theme-strip-active-glow, rgba(15, 23, 42, 0.35));
+    transform: translateY(-4px);
+  }
+
+  .theme-label.inactive {
+    opacity: 0.45;
+    filter: grayscale(1);
   }
 
   /* --- Gallery --- */

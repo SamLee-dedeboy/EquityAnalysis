@@ -4,6 +4,64 @@
   // Importing Store
   import { currentPolicy } from '../lib/stores/currentPolicy.js';
 
+  // --- Helpers ---
+  const stripHtml = (html) => {
+    if (!html) return '';
+
+    return html
+      .replace(/<br\s*\/?>/gi, ' ')
+      .replace(/<\/p>/gi, ' ')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&nbsp;/gi, ' ')
+      .replace(/&amp;/gi, '&');
+  };
+
+  const collapseWhitespace = (text) =>
+    text ? text.replace(/\s+/g, ' ').trim() : '';
+
+  const prettifyFileLabel = (label) => {
+    if (!label) return 'Source';
+    const filename = label.split('/').pop().trim();
+    const withoutId = filename.replace(/^[0-9a-f-]{32,}_/i, '');
+    return withoutId.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim() || 'Source';
+  };
+
+  const looksEncodedPayload = (snippet) => {
+    if (!snippet) return false;
+    const condensed = snippet.replace(/\s+/g, '');
+    if (condensed.length >= 40 && /^[0-9A-F]+$/i.test(condensed)) return true;
+    const zeroPairs = condensed.match(/00/g);
+    return Boolean(zeroPairs && zeroPairs.length > condensed.length / 4);
+  };
+
+  const formatSource = (rawHtml) => {
+    const plain = collapseWhitespace(stripHtml(rawHtml));
+    if (!plain) return null;
+
+    const prefixMatch = plain.match(/^Source from\s+([^:]+):\s*(.*)$/i);
+    const label = prefixMatch?.[1] ?? null;
+    let snippet = prefixMatch?.[2]?.trim() ?? plain;
+
+    const encoded = looksEncodedPayload(snippet);
+    if (encoded) {
+      snippet = 'Extract contains scanned or encoded text—refer to the source document for details.';
+    }
+
+    const maxLength = 260;
+    const needsTruncation = snippet.length > maxLength;
+    if (needsTruncation) {
+      snippet = snippet.slice(0, maxLength).trimEnd().replace(/[,:;.-]+$/, '');
+      snippet += '…';
+    }
+
+    return {
+      title: prettifyFileLabel(label),
+      snippet: snippet || 'See the linked document for the exact excerpt.',
+      encoded,
+      truncated: needsTruncation,
+    };
+  };
+
   // --- State Variables ---
   let activeTab = 'general_equity_assessment';
   let perspectiveIndex = 0;
@@ -15,26 +73,51 @@
 
   $: currentAnalysisSection = currentPerspective?.analyses?.[activeTab] ?? null; // Binds to perspective's dimension
 
+  // Grouped Sources by Perspective for Sources 
+  $: groupedSourcesByPerspective = perspectives
+    .map((perspective) => {
+      const analysis = perspective?.analyses?.[activeTab];
+      const rawSources = analysis?.sources ?? [];
+
+      if (!rawSources.length) return null;
+
+      const formattedSources = rawSources
+        .map((source) => formatSource(source?.data))
+        .filter(Boolean);
+
+      if (!formattedSources.length) return null;
+
+      const total = rawSources.length;
+
+      return {
+        name: perspective?.group_name ?? 'Perspective',
+        total,
+        previewSources: formattedSources.slice(0, 3),
+        remaining: Math.max(0, total - 3),
+      };
+    })
+    .filter(Boolean);
+
   // Analysis Nav Constants
   const equitySections = [
     {
       key: 'recognitional_equity',
-      label: 'RECOGNITIONAL EQUITY',
+      label: 'RECOGNITIONAL',
       color: 'var(--equity-color-recognitional)',
     },
     {
       key: 'procedural_equity',
-      label: 'PROCEDURAL EQUITY',
+      label: 'PROCEDURAL',
       color: 'var(--equity-color-procedural)',
     },
     {
       key: 'structural_equity',
-      label: 'STRUCTURAL EQUITY',
+      label: 'STRUCTURAL',
       color: 'var(--equity-color-structural)',
     },
     {
       key: 'distributional_equity',
-      label: 'DISTRIBUTIONAL EQUITY',
+      label: 'DISTRIBUTIONAL',
       color: 'var(--equity-color-distributional)',
     },
   ];
@@ -84,23 +167,7 @@
     {:else if ($currentPolicy?.analysis_status === 'completed' || $currentPolicy?.source === 'preprocessed') && currentPerspective}
       <!-- Expected Case (Analysis Completed, Data Available)-->
 
-      <!-- New Analysis Content -->
-      <!-- Header 1 -->
-      <!-- <div class="overview-header">
-        <h2 class="overview-title">
-          {$currentPolicy?.test_fields?.test_subject || 'Overview Description'}
-        </h2>
-        <div class="overview-actions">
-          <button class="share-button">
-            <img src="/share.svg" alt="Share Icon" class="share-button-icon" />
-            Share
-          </button>
-          <button class="threedots-button">
-            <span style="margin-bottom: .3rem;">...</span>
-          </button>
-        </div>
-      </div> -->
-      <!-- Header 2 -->
+      <!-- Header -->
       <div class="header-container">
         <div class="header-bg">
           <div class="header-overlay"></div>
@@ -132,14 +199,15 @@
           </div>
         </div>
       </div>
-      <!-- Equity Tabs -->
+
+      <!-- Equity Matrix -->
       <div class="equity-summary">
         {#if perspectives.length}
           <div
             class="perspective-matrix"
             style={`--column-count: ${perspectives.length}; --row-count: ${equitySections.length};`}
           >
-            <!-- Header row -->
+            <!-- Header Column -->
             <div class="matrix-cell matrix-header">
               <h3>Equities</h3>
             </div>
@@ -152,14 +220,14 @@
               </div>
             {/each}
 
-            <!-- Content rows -->
+            <!-- Content Columns -->
             {#each equitySections as section, rowIdx}
               <!-- Row label -->
               <div class="matrix-cell matrix-row-label">
                 <span
                   class="equity-label"
                   style={`border-bottom: 4px solid ${section.color}`}
-                  >{section.label.replaceAll('EQUITY', '')}</span
+                  >{section.label}</span
                 >
               </div>
 
@@ -191,104 +259,55 @@
           </div>
         {/if}
       </div>
-      <!-- Overall Insights -->
-      <div>
-        <div
-          class="section"
-          in:slide
-          aria-labelledby="overall-insights"
-          style="background: white; margin-top: 1.5rem;"
-        >
-          <h2
-            id="overall-insights"
-            style="font-size:1.5rem; font-weight:800; margin:0 0 0.75rem 0; color:var(--primary-text);"
-          >
-            Overall Insights
-          </h2>
-
-          <div
-            class="columns"
-            style="display:grid; grid-template-columns:repeat(2, 1fr); gap:1.5rem; margin-top:1rem;"
-          >
-            <div
-              class="box"
-              aria-label="Positive insights"
-              style="background-color: var(--primary-aview-accent);"
-            >
-              <strong
-                style="display:block; font-size:1.05rem; margin-bottom:0.5rem;"
-              >
-                Positive Insights
-              </strong>
-              <p style="margin:0;">
-                {$currentPolicy?.overall_summary_and_recommendations
-                  ?.key_equity_strengths || '...'}
-              </p>
-            </div>
-
-            <div
-              class="box"
-              aria-label="Negative insights"
-              style="background-color: var(--primary-aview-accent);"
-            >
-              <strong
-                style="display:block; font-size:1.05rem; margin-bottom:0.5rem;"
-              >
-                Key Equity Gaps
-              </strong>
-              <p style="margin:0;">
-                {$currentPolicy?.overall_summary_and_recommendations
-                  ?.key_equity_gaps || '...'}
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- Recommendations -->
-        <div
-          class="section"
-          in:slide
-          aria-labelledby="recommendations"
-          style="margin-top:1rem; background: white;"
-        >
-          <h2
-            style="font-size:1.5rem; font-weight:800; margin:0 0 0.75rem 0; color:var(--primary-text);"
-          >
-            Recommendations
-          </h2>
-
-          <div style="margin-top:1rem;">
-            <p>
-              {$currentPolicy?.overall_summary_and_recommendations
-                ?.recommendations || '...'}
-            </p>
-          </div>
-        </div>
-      </div>
+      
       <!-- Divider -->
-      <!-- <div class="styled-divider" role="separator" aria-label="Analysis divider">
-        <div class="line" aria-hidden="true"></div>
-        <div class="badge">
-          {currentPerspective?.group_name ?? 'Perspective'} · AI-Selected Excerpts
-        </div>
-        <div class="line" aria-hidden="true"></div>
-      </div> -->
+
       <!-- Sources -->
-      <!-- {#if currentAnalysisSection?.sources?.length}
-        <div class="sources">
-          <strong>Sources:</strong>
-          <ul>
-        {#each currentAnalysisSection.sources.slice(0, 3) as source}
-          <li>{@html source.data}</li>
-        {/each}
-          </ul>
-          {#if currentAnalysisSection.sources.length > 3}
-        <div style="margin-top:0.5rem; color:#666; font-size:0.95rem;">
-          And {currentAnalysisSection.sources.length - 3} more...
+      {#if groupedSourcesByPerspective.length}
+        <div class="styled-divider" role="separator" aria-label="Analysis divider">
+          <div class="line" aria-hidden="true"></div>
+            <div class="badge">
+              AI-Selected References
+            </div>
+          <div class="line" aria-hidden="true"></div>
         </div>
-          {/if}
-        </div>
-      {/if} -->
-      <!-- End of New Analysis Content -->
+        <section class="sources" aria-label="Analysis sources grouped by perspective">
+          <div class="sources-heading">
+            <strong>Sources by Perspective</strong>
+            <span class="sources-subhead">Curated excerpts for each stakeholder group</span>
+          </div>
+          <div class="sources-groups">
+            {#each groupedSourcesByPerspective as perspectiveSources}
+              <article class="sources-card">
+                <header class="sources-card-header">
+                  <h3>{perspectiveSources.name}</h3>
+                  <span class="sources-count">
+                    {perspectiveSources.total} source{perspectiveSources.total === 1 ? '' : 's'}
+                  </span>
+                </header>
+                <ul class="sources-list">
+                  {#each perspectiveSources.previewSources as source}
+                    <li class="source-item">
+                      <div class="source-title">{source.title}</div>
+                      <p class="source-snippet">{source.snippet}</p>
+                    </li>
+                  {/each}
+                </ul>
+                {#if perspectiveSources.remaining}
+                  <div class="sources-more">
+                    And {perspectiveSources.remaining} more source{perspectiveSources.remaining === 1 ? '' : 's'} in this perspective.
+                  </div>
+                {/if}
+              </article>
+            {/each}
+          </div>
+        </section>
+      {/if}
+
+      <div style="text-align: center; ">
+        Analyses are generated by AI and may contain inaccuracies. Please verify important information with original sources.
+      </div>
+
     {:else}
       <!--- Edge Case: Current Policy Exists but In Progress, currentPerspective = null -->
       <div class="header" style="color: #6c757d;">
@@ -301,12 +320,6 @@
 <style lang="postcss">
   /* --- CSS Variables --- */
   :root {
-    /* --bg-policy-makers: rgba(59, 130, 246, 0.08);
-    --bg-residents: rgba(246, 128, 59, 0.08);
-    --bg--farmers: rgba(59, 246, 81, 0.08); */
-    /* --bg-policy-makers: rgba(0, 0, 0, 0.02);
-    --bg-residents: rgba(0, 0, 0, 0.02);
-    --bg--farmers: rgba(0, 0, 0, 0.02); */
     --bg-policy-makers: oklch(96.8% 0.007 247.896);
     --bg-residents: oklch(96.7% 0.003 264.542);
     --bg--farmers: oklch(96.7% 0.001 286.375);
@@ -327,66 +340,7 @@
     color: var(--primary-text);
   }
 
-  /* --- Header 1 --- */
-  .overview-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    padding: 1.25rem 2.75rem 1.65rem;
-    border-radius: 16px;
-  }
-  .overview-title {
-    margin: 0;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--primary-interactive);
-    text-align: center;
-  }
-  .overview-actions {
-    position: absolute;
-    top: 2px;
-    right: 3px;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .share-button {
-    background: #fff;
-    color: var(--primary-text);
-    border: 1px solid rgba(15, 23, 42, 0.06);
-    padding: 0.5rem 0.75rem;
-    border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-    font-size: 1rem;
-  }
-  .share-button img.share-button-icon {
-    height: 1rem;
-    width: auto;
-  }
-  .threedots-button {
-    background: #fff;
-    font-size: 1rem;
-    color: var(--primary-text);
-    border: 1px solid rgba(15, 23, 42, 0.06);
-    padding: 0.45rem 0.6rem;
-    border-radius: 8px;
-    font-weight: 700;
-    cursor: pointer;
-    min-width: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-  }
-
-  /* --- Header 2 --- */
+  /* --- Header --- */
   .header-container {
     position: relative;
     width: 100%;
@@ -467,7 +421,50 @@
     font-weight: 700;
   }
 
-  /* --- Equity Tabs --- */
+  /* --- Header Actions --- */
+  .overview-actions {
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .share-button {
+    background: #fff;
+    color: var(--primary-text);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    font-size: 1rem;
+  }
+  .share-button img.share-button-icon {
+    height: 1rem;
+    width: auto;
+  }
+  .threedots-button {
+    background: #fff;
+    font-size: 1rem;
+    color: var(--primary-text);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    padding: 0.45rem 0.6rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    min-width: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+
+  /* --- Equity Matrix --- */
   .equity-summary {
     margin-top: 1rem;
   }
@@ -489,11 +486,6 @@
     align-items: center;
     justify-content: center;
     min-height: 78px;
-  }
-
-  /* Header cells */
-  .matrix-header-empty {
-    /* Empty top-left cell */
   }
 
   .matrix-header {
@@ -642,99 +634,6 @@
     flex: 1;
   }
 
-  /* Hover effects */
-  .matrix-content-card,
-  .matrix-row-label {
-    transition:
-      transform 160ms ease,
-      box-shadow 160ms ease;
-  }
-
-  /* .matrix-content-card:hover, */
-  /* .matrix-row-label:hover {
-    transform: translateY(-6px);
-  } */
-
-  /* Responsive design */
-  @media (max-width: 1100px) {
-    .perspective-matrix {
-      grid-template-columns: 240px repeat(var(--column-count), minmax(0, 1fr));
-      column-gap: 1.25rem;
-      row-gap: 1.25rem;
-    }
-
-    .matrix-content-card {
-      min-height: 200px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .perspective-matrix {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(
-        calc(var(--row-count) * (var(--column-count) + 1)),
-        minmax(0, auto)
-      );
-    }
-
-    .matrix-header-empty,
-    .matrix-header,
-    .matrix-row-label {
-      display: none;
-    }
-
-    .matrix-label-mobile {
-      display: block;
-    }
-
-    .matrix-content-card {
-      min-height: unset;
-    }
-
-    .stakeholder-card::before {
-      content: '';
-      position: absolute;
-      inset: 0 0 auto 0;
-      width: 100%;
-      height: 4px;
-    }
-  }
-
-  /* --- Overall Insights --- */
-  /* --- Recommendations --- */
-
-  /*--- Old AnalysisView --- */
-  /* --- Header --- */
-
-  .section {
-    background-color: #eee;
-    padding: 2rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-  }
-  .columns {
-    flex-direction: column;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
-
-  /* Pos. & Neg. Sections */
-  .box {
-    flex: 1 1 45%;
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
-    min-height: 120px;
-  }
-  .box strong {
-    display: block;
-    margin-bottom: 0.4rem;
-    font-size: 0.95rem;
-  }
-
   /* Spinner */
   .spinner-small {
     border: 2px solid rgba(0, 0, 0, 0.1);
@@ -753,6 +652,187 @@
     }
     100% {
       transform: rotate(360deg);
+    }
+  }
+
+  /* --- Divider + Sources Section --- */
+  .styled-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    margin: 2.5rem 0 1.75rem;
+    color: #ffffff;
+  }
+
+  .styled-divider .line {
+    flex: 1 1 0%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      rgba(15, 23, 42, 0),
+      rgba(15, 23, 42, 0.12),
+      rgba(15, 23, 42, 0)
+    );
+  }
+
+  .styled-divider .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1.4rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    background: var(--primary-interactive);
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  }
+
+  .sources {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0 0 3rem 0;
+  }
+
+  .sources-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+    color: rgba(15, 23, 42, 0.75);
+  }
+
+  .sources-heading strong {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+  }
+
+  .sources-subhead {
+    font-size: 0.82rem;
+    text-transform: none;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #475467;
+  }
+
+  .sources-groups {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .sources-card {
+    background: rgba(248, 250, 252, 0.7);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .sources-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    padding-bottom: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+  }
+
+  .sources-card-header h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #0f172a;
+  }
+
+  .sources-count {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(15, 23, 42, 0.55);
+  }
+
+  .sources-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    list-style: none;
+  }
+
+  .source-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    border-left: 3px solid rgba(30, 38, 57, 0.08);
+    padding-left: 0.75rem;
+  }
+
+  .source-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(92, 106, 138, 0.7);
+  }
+
+  .source-snippet {
+    margin: 0;
+    color: #1f2937;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .sources-more {
+    font-size: 0.85rem;
+    color: #475467;
+    margin-top: 0.15rem;
+  }
+
+  @media (max-width: 768px) {
+    .styled-divider {
+      margin: 2rem 0 1.2rem;
+      gap: 0.6rem;
+    }
+
+    .styled-divider .badge {
+      padding-inline: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    .sources {
+      padding: 1.3rem;
+      gap: 1.1rem;
+    }
+
+    .sources-groups {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .sources-card {
+      padding: 1rem;
+    }
+
+    .source-item {
+      padding-left: 0.6rem;
     }
   }
 </style>
