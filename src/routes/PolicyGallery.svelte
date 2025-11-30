@@ -8,18 +8,25 @@
 
   // Theme Constants
   const tierOptions = {
-    "1": "Agricultural Productivity",
-    "2": "River Flows",
-    "3": "Delta Estuary Health",
-    "4": "Freshwater for in-Delta Use",
-    "5": "Freshwater for Delta Exports",
-    "6": "Reservoir Storage",
-    "7": "Groundwater",
-    "8": "Salmon Abundance"
+    '1': 'Agricultural Productivity',
+    '2': 'River Flows',
+    '3': 'Delta Estuary Health',
+    '4': 'Freshwater for in-Delta Use',
+    '5': 'Freshwater for Delta Exports',
+    '6': 'Reservoir Storage',
+    '7': 'Groundwater',
+    '8': 'Salmon Abundance',
   };
 
   // Accent Colors for Cards
-  const accentPalette = ['#7cc4ff', '#f5c84c', '#71d2c6', '#b499ff', '#f6a387', '#5ad9a6'];
+  const accentPalette = [
+    '#7cc4ff',
+    '#f5c84c',
+    '#71d2c6',
+    '#b499ff',
+    '#f6a387',
+    '#5ad9a6',
+  ];
 
   let policies = [];
   let searchTerm = '';
@@ -32,7 +39,6 @@
     policies = list || [];
   });
 
-  
   $: filteredPolicies = (policies || []).filter(policy => {
     const term = searchTerm.trim().toLowerCase();
     const matchesSearch = term
@@ -41,7 +47,8 @@
       : true;
 
     const matchesTier = selectedTier
-      ? Array.isArray(policy.tiers) && policy.tiers.map(Number).includes(Number(selectedTier))
+      ? Array.isArray(policy.tiers) &&
+        policy.tiers.map(Number).includes(Number(selectedTier))
       : true;
 
     return matchesSearch && matchesTier;
@@ -86,30 +93,37 @@
     <div class="tiers">
       <p class="section-label">Tiers</p>
       <div class="tier-list">
-      {#each Object.entries(tierOptions) as [tierId, tierName]}
-        <button
-        type="button"
-        class={`tier ${selectedTier === tierId ? 'active' : ''}`}
-        on:click={() => toggleTier(tierId)}
-        aria-pressed={selectedTier === tierId}
-        >
-        <span class="tier-icon" aria-hidden="true"></span>
-        <span>{tierName}</span>
-        </button>
-      {/each}
+        {#each Object.entries(tierOptions) as [tierId, tierName]}
+          <button
+            type="button"
+            class={`tier ${selectedTier === tierId ? 'active' : ''}`}
+            on:click={() => toggleTier(tierId)}
+            aria-pressed={selectedTier === tierId}
+          >
+            <span class="tier-icon" aria-hidden="true"></span>
+            <span>{tierName}</span>
+          </button>
+        {/each}
       </div>
     </div>
 
     <div class="sidebar-footer">
       {#if tscreen}
-        <button type="button" on:click={() => (window.location.hash = '#/tool')}>
+        <button
+          type="button"
+          on:click={() => (window.location.hash = '#/tool')}
+        >
           Tool
         </button>
       {/if}
-      <div> 
-        <button type="button" class="learn-more" on:click={() => (window.location.hash = '#/info')}>
+      <div>
+        <button
+          type="button"
+          class="learn-more"
+          on:click={() => (window.location.hash = '#/info')}
+        >
           Click here
-        </button> 
+        </button>
         if you want to learn more about how Equiflow's analysis works.
       </div>
     </div>
@@ -119,7 +133,12 @@
   <div class="content">
     <div class="search-bar">
       <label class="search" aria-label="Search policies">
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" aria-hidden="true">
+        <svg
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
           <circle cx="9" cy="9" r="6" stroke-width="2" />
           <path d="m13.5 13.5 3 3" stroke-width="2" stroke-linecap="round" />
         </svg>
@@ -138,7 +157,9 @@
         aria-expanded={controlsOpen}
       >
         <svg viewBox="0 0 512 512" aria-hidden="true" fill="currentColor">
-          <path d="M304 416c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-64c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h64zM176 352c14.2 0 21.3 17.3 11.3 27.3l-80 96c-2.9 2.9-6.9 4.7-11.3 4.7-4.4 0-8.4-1.8-11.3-4.7l-80-96c-10.1-10.1-2.9-27.3 11.3-27.3h48v-304c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v304h48zM432 160c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-192c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h192zM368 288c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-128c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h128zM496 32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-256c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h256z"></path>
+          <path
+            d="M304 416c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-64c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h64zM176 352c14.2 0 21.3 17.3 11.3 27.3l-80 96c-2.9 2.9-6.9 4.7-11.3 4.7-4.4 0-8.4-1.8-11.3-4.7l-80-96c-10.1-10.1-2.9-27.3 11.3-27.3h48v-304c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v304h48zM432 160c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-192c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h192zM368 288c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-128c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h128zM496 32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-256c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h256z"
+          ></path>
         </svg>
         <span>Filter</span>
       </button>
@@ -174,7 +195,10 @@
                 <span></span>
                 <span></span>
               </div>
-              <div class="color-block" style={`background: ${accentForIndex(index)};`}></div>
+              <div
+                class="color-block"
+                style={`background: ${accentForIndex(index)};`}
+              ></div>
               <div class="line-group">
                 <span></span>
                 <span></span>
@@ -197,7 +221,6 @@
       {/if}
     </div>
   </div>
-
 </section>
 
 <style>
@@ -332,8 +355,8 @@
 
   .tier-icon {
     width: 36px;
-    height: 36px; 
-    margin-right: .5rem;
+    height: 36px;
+    margin-right: 0.5rem;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -346,7 +369,12 @@
   .sidebar-separator {
     height: 1px;
     width: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
     margin: 0.5rem 0 0.75rem;
   }
 
@@ -374,8 +402,17 @@
   /* ------ Content ------ */
   .content {
     padding: 2.25rem 0 2.5rem;
-    background: radial-gradient(circle at 20% 20%, rgba(63, 121, 255, 0.08), transparent 40%),
-      radial-gradient(circle at 80% 0%, rgba(255, 214, 102, 0.08), transparent 35%),
+    background:
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(63, 121, 255, 0.08),
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 80% 0%,
+        rgba(255, 214, 102, 0.08),
+        transparent 35%
+      ),
       #0c111a;
     height: 100vh;
     overflow-y: auto;
@@ -448,7 +485,10 @@
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
     display: grid;
     gap: 0.85rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
     cursor: pointer;
   }
 

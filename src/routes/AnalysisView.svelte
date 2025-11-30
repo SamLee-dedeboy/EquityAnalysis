@@ -5,7 +5,7 @@
   import { currentPolicy } from '../lib/stores/currentPolicy.js';
 
   // --- Helpers ---
-  const stripHtml = (html) => {
+  const stripHtml = html => {
     if (!html) return '';
 
     return html
@@ -16,17 +16,19 @@
       .replace(/&amp;/gi, '&');
   };
 
-  const collapseWhitespace = (text) =>
+  const collapseWhitespace = text =>
     text ? text.replace(/\s+/g, ' ').trim() : '';
 
-  const prettifyFileLabel = (label) => {
+  const prettifyFileLabel = label => {
     if (!label) return 'Source';
     const filename = label.split('/').pop().trim();
     const withoutId = filename.replace(/^[0-9a-f-]{32,}_/i, '');
-    return withoutId.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim() || 'Source';
+    return (
+      withoutId.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim() || 'Source'
+    );
   };
 
-  const looksEncodedPayload = (snippet) => {
+  const looksEncodedPayload = snippet => {
     if (!snippet) return false;
     const condensed = snippet.replace(/\s+/g, '');
     if (condensed.length >= 40 && /^[0-9A-F]+$/i.test(condensed)) return true;
@@ -34,7 +36,7 @@
     return Boolean(zeroPairs && zeroPairs.length > condensed.length / 4);
   };
 
-  const formatSource = (rawHtml) => {
+  const formatSource = rawHtml => {
     const plain = collapseWhitespace(stripHtml(rawHtml));
     if (!plain) return null;
 
@@ -44,13 +46,17 @@
 
     const encoded = looksEncodedPayload(snippet);
     if (encoded) {
-      snippet = 'Extract contains scanned or encoded text—refer to the source document for details.';
+      snippet =
+        'Extract contains scanned or encoded text—refer to the source document for details.';
     }
 
     const maxLength = 260;
     const needsTruncation = snippet.length > maxLength;
     if (needsTruncation) {
-      snippet = snippet.slice(0, maxLength).trimEnd().replace(/[,:;.-]+$/, '');
+      snippet = snippet
+        .slice(0, maxLength)
+        .trimEnd()
+        .replace(/[,:;.-]+$/, '');
       snippet += '…';
     }
 
@@ -73,16 +79,16 @@
 
   $: currentAnalysisSection = currentPerspective?.analyses?.[activeTab] ?? null; // Binds to perspective's dimension
 
-  // Grouped Sources by Perspective for Sources 
+  // Grouped Sources by Perspective for Sources
   $: groupedSourcesByPerspective = perspectives
-    .map((perspective) => {
+    .map(perspective => {
       const analysis = perspective?.analyses?.[activeTab];
       const rawSources = analysis?.sources ?? [];
 
       if (!rawSources.length) return null;
 
       const formattedSources = rawSources
-        .map((source) => formatSource(source?.data))
+        .map(source => formatSource(source?.data))
         .filter(Boolean);
 
       if (!formattedSources.length) return null;
@@ -259,22 +265,29 @@
           </div>
         {/if}
       </div>
-      
+
       <!-- Divider -->
 
       <!-- Sources -->
       {#if groupedSourcesByPerspective.length}
-        <div class="styled-divider" role="separator" aria-label="Analysis divider">
+        <div
+          class="styled-divider"
+          role="separator"
+          aria-label="Analysis divider"
+        >
           <div class="line" aria-hidden="true"></div>
-            <div class="badge">
-              AI-Selected References
-            </div>
+          <div class="badge">AI-Selected References</div>
           <div class="line" aria-hidden="true"></div>
         </div>
-        <section class="sources" aria-label="Analysis sources grouped by perspective">
+        <section
+          class="sources"
+          aria-label="Analysis sources grouped by perspective"
+        >
           <div class="sources-heading">
             <strong>Sources by Perspective</strong>
-            <span class="sources-subhead">Curated excerpts for each stakeholder group</span>
+            <span class="sources-subhead"
+              >Curated excerpts for each stakeholder group</span
+            >
           </div>
           <div class="sources-groups">
             {#each groupedSourcesByPerspective as perspectiveSources}
@@ -282,7 +295,10 @@
                 <header class="sources-card-header">
                   <h3>{perspectiveSources.name}</h3>
                   <span class="sources-count">
-                    {perspectiveSources.total} source{perspectiveSources.total === 1 ? '' : 's'}
+                    {perspectiveSources.total} source{perspectiveSources.total ===
+                    1
+                      ? ''
+                      : 's'}
                   </span>
                 </header>
                 <ul class="sources-list">
@@ -295,7 +311,10 @@
                 </ul>
                 {#if perspectiveSources.remaining}
                   <div class="sources-more">
-                    And {perspectiveSources.remaining} more source{perspectiveSources.remaining === 1 ? '' : 's'} in this perspective.
+                    And {perspectiveSources.remaining} more source{perspectiveSources.remaining ===
+                    1
+                      ? ''
+                      : 's'} in this perspective.
                   </div>
                 {/if}
               </article>
@@ -305,9 +324,9 @@
       {/if}
 
       <div style="text-align: center; ">
-        Analyses are generated by AI and may contain inaccuracies. Please verify important information with original sources.
+        Analyses are generated by AI and may contain inaccuracies. Please verify
+        important information with original sources.
       </div>
-
     {:else}
       <!--- Edge Case: Current Policy Exists but In Progress, currentPerspective = null -->
       <div class="header" style="color: #6c757d;">
