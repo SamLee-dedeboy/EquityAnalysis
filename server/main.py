@@ -781,8 +781,9 @@ async def list_policies(
                                 "title": display_title or final_display_name
                             },
                             "source": "preprocessed",
-                            "analysis_status": "completed",
-                            "analysis_error": None
+                            "analysis_status": data.get("analysis_status", "completed"),
+                            "analysis_error": data.get("analysis_error"),
+                            "tiers": data.get("tiers", [])
                         })
                 except Exception as e:
                     logger.error(f"Error reading preprocessed policy {fname}: {e}", exc_info=True)

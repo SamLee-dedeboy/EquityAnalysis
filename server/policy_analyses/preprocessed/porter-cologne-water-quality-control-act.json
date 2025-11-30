@@ -1,0 +1,21 @@
+{
+  "id": "porter-cologne-water-quality-control-act",
+  "source": "preprocessed",
+  "analysis_status": "pending",
+  "document": {
+    "filename": "porter-cologne-water-quality-control-act.pdf",
+    "title": "Porter-Cologne Water Quality Control Act (State Drinking Water Control Act)",
+    "type": "state",
+    "upload_date_utc": "2025-01-22T00:00:00Z"
+  },
+  "summary_stub": "Analysis pending; placeholder entry.",
+  "tier": "The Baseline",
+  "created_at": "2025-01-22T00:00:00Z",
+  "tiers": [
+    1,
+    2,
+    4,
+    5,
+    8
+  ]
+}

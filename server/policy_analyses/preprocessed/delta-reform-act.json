@@ -1,0 +1,21 @@
+{
+  "id": "delta-reform-act",
+  "source": "preprocessed",
+  "analysis_status": "pending",
+  "document": {
+    "filename": "delta-reform-act.pdf",
+    "title": "The Delta Reform Act",
+    "type": "state",
+    "upload_date_utc": "2025-01-20T00:00:00Z"
+  },
+  "summary_stub": "Analysis pending; placeholder entry.",
+  "tier": "The Baseline",
+  "created_at": "2025-01-20T00:00:00Z",
+  "tiers": [
+    1,
+    2,
+    4,
+    5,
+    8
+  ]
+}

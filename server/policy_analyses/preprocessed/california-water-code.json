@@ -1,0 +1,22 @@
+{
+  "id": "california-water-code",
+  "source": "preprocessed",
+  "analysis_status": "pending",
+  "document": {
+    "filename": "california-water-code.pdf",
+    "title": "California Water Code",
+    "type": "state",
+    "upload_date_utc": "2025-01-16T00:00:00Z"
+  },
+  "summary_stub": "Analysis pending; placeholder entry.",
+  "tier": "The Baseline",
+  "created_at": "2025-01-16T00:00:00Z",
+  "tiers": [
+    1,
+    4,
+    5,
+    6,
+    7,
+    8
+  ]
+}

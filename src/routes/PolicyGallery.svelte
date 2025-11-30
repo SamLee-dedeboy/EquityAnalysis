@@ -7,21 +7,24 @@
   } from '../lib/stores/currentPolicy.js';
 
   // Theme Constants
-  const tierOptions = [
-    'The Baseline',
-    'Managing River Flows for the Environment',
-    'Managing Groundwater in a Changing Agricultural Landscape',
-    'Prioritizing Drinking Water for California Communities',
-    'Improving Delta Outflows for the Environment',
-    'Sustaining Uses in the Delta for Communities and Farms',
-    'Improving Reliability of Delta Exports for Farms and Cities',
-  ];
+  const tierOptions = {
+    "1": "Agricultural Productivity",
+    "2": "River Flows",
+    "3": "Delta Estuary Health",
+    "4": "Freshwater for in-Delta Use",
+    "5": "Freshwater for Delta Exports",
+    "6": "Reservoir Storage",
+    "7": "Groundwater",
+    "8": "Salmon Abundance"
+  };
+
   // Accent Colors for Cards
   const accentPalette = ['#7cc4ff', '#f5c84c', '#71d2c6', '#b499ff', '#f6a387', '#5ad9a6'];
 
   let policies = [];
   let searchTerm = '';
-  let selectedTier = tierOptions[0];
+  let selectedTier = null;
+  let controlsOpen = false;
 
   // Lifecycle Hook
   onMount(async () => {
@@ -32,27 +35,17 @@
   
   $: filteredPolicies = (policies || []).filter(policy => {
     const term = searchTerm.trim().toLowerCase();
-    if (!term) return true;
-    const title = (policy.document?.title || '').toLowerCase();
-    const file = (policy.document?.filename || '').toLowerCase();
-    return title.includes(term) || file.includes(term);
+    const matchesSearch = term
+      ? (policy.document?.title || '').toLowerCase().includes(term) ||
+        (policy.document?.filename || '').toLowerCase().includes(term)
+      : true;
+
+    const matchesTier = selectedTier
+      ? Array.isArray(policy.tiers) && policy.tiers.map(Number).includes(Number(selectedTier))
+      : true;
+
+    return matchesSearch && matchesTier;
   });
-
-  function formatDate(dateString) {
-    if (!dateString) return '—';
-    const date = new Date(dateString);
-    if (Number.isNaN(date.getTime())) return '—';
-    return date
-      .toLocaleString('en-US', { month: 'short', year: 'numeric' })
-      .toUpperCase();
-  }
-
-  function formatId(id) {
-    if (!id) return '#—';
-    const compact =
-      String(id).replace(/[^a-zA-Z0-9]/g, '').slice(0, 4) || String(id).slice(0, 4);
-    return `#${compact}`;
-  }
 
   function accentForIndex(index) {
     return accentPalette[index % accentPalette.length];
@@ -93,17 +86,17 @@
     <div class="tiers">
       <p class="section-label">Tiers</p>
       <div class="tier-list">
-        {#each tierOptions as tier}
-          <button
-            type="button"
-            class={`tier ${selectedTier === tier ? 'active' : ''}`}
-            on:click={() => toggleTier(tier)}
-            aria-pressed={selectedTier === tier}
-          >
-            <span class="tier-icon" aria-hidden="true"></span>
-            <span>{tier}</span>
-          </button>
-        {/each}
+      {#each Object.entries(tierOptions) as [tierId, tierName]}
+        <button
+        type="button"
+        class={`tier ${selectedTier === tierId ? 'active' : ''}`}
+        on:click={() => toggleTier(tierId)}
+        aria-pressed={selectedTier === tierId}
+        >
+        <span class="tier-icon" aria-hidden="true"></span>
+        <span>{tierName}</span>
+        </button>
+      {/each}
       </div>
     </div>
 
@@ -137,7 +130,27 @@
           autocomplete="off"
         />
       </label>
+      <button
+        type="button"
+        class="filter-btn"
+        on:click={() => (controlsOpen = !controlsOpen)}
+        aria-pressed={controlsOpen}
+        aria-expanded={controlsOpen}
+      >
+        <svg viewBox="0 0 512 512" aria-hidden="true" fill="currentColor">
+          <path d="M304 416c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-64c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h64zM176 352c14.2 0 21.3 17.3 11.3 27.3l-80 96c-2.9 2.9-6.9 4.7-11.3 4.7-4.4 0-8.4-1.8-11.3-4.7l-80-96c-10.1-10.1-2.9-27.3 11.3-27.3h48v-304c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v304h48zM432 160c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-192c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h192zM368 288c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-128c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h128zM496 32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-256c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16h256z"></path>
+        </svg>
+        <span>Filter</span>
+      </button>
     </div>
+
+    {#if controlsOpen}
+      <div class="control-buttons-inline">
+        <button type="button">One</button>
+        <button type="button">Two</button>
+        <button type="button">Three</button>
+      </div>
+    {/if}
 
     <div class="cards-grid">
       {#if filteredPolicies.length}
@@ -150,8 +163,8 @@
             on:keydown={event => event.key === 'Enter' && handleSelect(policy)}
           >
             <div class="card-header">
-              <span class="pill id-pill">{formatId(policy.id)}</span>
-              <span class="pill date-pill">{formatDate(policy.document?.upload_date_utc)}</span>
+              <span class="pill id-pill">Identifier</span>
+              <span class="pill date-pill">Date</span>
             </div>
 
             <div class="card-illustration">
@@ -254,6 +267,7 @@
     border-radius: 12px;
     padding: 0.75rem 0.9rem;
     color: #9aa4b5;
+    height: 48px;
   }
 
   .search svg {
@@ -318,7 +332,8 @@
 
   .tier-icon {
     width: 36px;
-    height: 36px;
+    height: 36px; 
+    margin-right: .5rem;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -370,12 +385,52 @@
     padding: 0 3rem 2rem;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .search-bar .search {
     width: 20%;
     min-width: 200px;
     max-width: none;
+  }
+
+  .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: 44px;
+    background: #7b7f85;
+    border: none;
+    color: white;
+    border-radius: 999px;
+    padding: 0 1rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  .filter-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .control-buttons-inline {
+    padding: 0 3rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  .control-buttons-inline button {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #d5d9e1;
+    border-radius: 10px;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
   }
 
   .cards-grid {

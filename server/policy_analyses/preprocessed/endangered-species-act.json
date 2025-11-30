@@ -1,0 +1,18 @@
+{
+  "id": "endangered-species-act",
+  "source": "preprocessed",
+  "analysis_status": "pending",
+  "document": {
+    "filename": "endangered-species-act.pdf",
+    "title": "Endangered Species Act (ESA)",
+    "type": "federal",
+    "upload_date_utc": "2025-01-25T00:00:00Z"
+  },
+  "summary_stub": "Analysis pending; placeholder entry.",
+  "tier": "The Baseline",
+  "created_at": "2025-01-25T00:00:00Z",
+  "tiers": [
+    4,
+    7
+  ]
+}

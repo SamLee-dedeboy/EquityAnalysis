@@ -1,0 +1,18 @@
+{
+  "id": "401-water-quality-certification",
+  "source": "preprocessed",
+  "analysis_status": "pending",
+  "document": {
+    "filename": "401-water-quality-certification.pdf",
+    "title": "401 Water Quality Certification",
+    "type": "federal",
+    "upload_date_utc": "2025-02-04T00:00:00Z"
+  },
+  "summary_stub": "Analysis pending; placeholder entry.",
+  "tier": "The Baseline",
+  "created_at": "2025-02-04T00:00:00Z",
+  "tiers": [
+    7,
+    8
+  ]
+}

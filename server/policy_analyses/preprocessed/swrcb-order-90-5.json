@@ -1,0 +1,18 @@
+{
+  "id": "swrcb-order-90-5",
+  "source": "preprocessed",
+  "analysis_status": "pending",
+  "document": {
+    "filename": "swrcb-order-90-5.pdf",
+    "title": "SWRCB Order 90-5",
+    "type": "state",
+    "upload_date_utc": "2025-01-28T00:00:00Z"
+  },
+  "summary_stub": "Analysis pending; placeholder entry.",
+  "tier": "The Baseline",
+  "created_at": "2025-01-28T00:00:00Z",
+  "tiers": [
+    5,
+    8
+  ]
+}
