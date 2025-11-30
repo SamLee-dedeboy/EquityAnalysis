@@ -17,7 +17,7 @@
 </script>
 
 <!-- Main Application Component -->
-<LogoBar />
+<!-- <LogoBar /> -->
 
 <!-- This <Router> replaces the content dynamically based on URL -->
 <main>
@@ -26,7 +26,6 @@
 
 <style>
   main {
-    padding: 0 1.75rem;
     font-family: 'Inter', system-ui, sans-serif;
     display: flex;
     justify-content: center;
